@@ -35,7 +35,7 @@ public:
 
     bool loadImage(string path)
     {
-        ifstream file(path, std::ios::binary);
+        ifstream file(path, ios::binary);
         if (!file.is_open())
         {
             cerr << "unable to open file" << endl;
@@ -75,16 +75,16 @@ public:
 
     bool writeImage(string path)
     {
-        ofstream file(path, std::ios::binary);
+        ofstream file(path, ios::binary);
         if (!file.is_open())
         {
             cerr << "unable to open file" << endl;
             return false;
         }
 
-        file << "P6" << std::endl;
-        file << width << " " << height << std::endl;
-        file << max_color << std::endl;
+        file << "P6" << endl;
+        file << width << " " << height << endl;
+        file << max_color << endl;
 
         for (int row = 0; row < height; row++)
         {
@@ -103,8 +103,8 @@ public:
 // int main(int argc, char **argv)
 // {
 //     PPMImage image;
-    //     image.loadImage("stop_1.ppm");
-    //     image.writeImage("test.ppm");
+//     image.loadImage("stop_1.ppm");
+//     image.writeImage("test.ppm");
 
-    //     return 0;
+//     return 0;
 // }
