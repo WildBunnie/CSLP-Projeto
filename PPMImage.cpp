@@ -1,9 +1,7 @@
 #include <stdio.h>
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/core/core.hpp>
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -105,8 +103,8 @@ public:
 // int main(int argc, char **argv)
 // {
 //     PPMImage image;
-//     image.loadImage("stop_1.ppm");
-//     image.writeImage("test.ppm");
+    //     image.loadImage("stop_1.ppm");
+    //     image.writeImage("test.ppm");
 
-//     return 0;
+    //     return 0;
 // }
