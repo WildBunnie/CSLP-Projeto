@@ -117,6 +117,41 @@ void player::printHistogram(vector<int> hist, char color){
   destroyAllWindows();
 }
 
+static Mat addWatermark(Mat frame, Mat watermark, int x, int y, float alpha)
+{
+  alpha = alpha / 100;
+  if (watermark.empty())
+  {
+    cout << "no watermark" << endl;
+  }
+  int i = 0;
+  int j = 0;
+  for (int row = 0; row < watermark.rows; row++)
+  {
+    for (int col = 0; col < watermark.cols; col++)
+    {
+      if (row + y < frame.rows && col + x < frame.cols)
+      {
+        frame.at<Vec3b>(row + y, col + x) = frame.at<Vec3b>(row + y, col + x) * (1 - alpha) + watermark.at<Vec3b>(row, col) * alpha;
+      }
+    }
+  }
+  return frame;
+}
+
+static Mat toGrayscale(Mat frame)
+{
+  for (int row = 0; row < frame.rows; row++)
+  {
+    for (int col = 0; col < frame.cols; col++)
+    {
+      Vec3b pixel = frame.at<Vec3b>(row, col);
+      uchar result = pixel[0] * 0.11 + pixel[1] * 0.59 + pixel[2] * 0.30;
+      frame.at<Vec3b>(row, col) = Vec3b(result, result, result);
+    }
+  }
+  return frame;
+}
 
 int main(){
   player p1("deti.jpg");
