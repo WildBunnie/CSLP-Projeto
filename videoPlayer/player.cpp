@@ -6,6 +6,57 @@
 using namespace std;
 using namespace cv;
 
+static Mat gaussianBlur(Mat frame, double sigma){
+    int kernelSize = ceil(6 * sigma);
+    if (kernelSize % 2 == 0) {
+        kernelSize++;
+    }
+
+    int radius = kernelSize / 2;
+
+    Mat kernel(kernelSize, kernelSize, CV_64F);
+    double sum = 0.0;
+
+    for (int x = -radius; x <= radius; x++) {
+        for (int y = -radius; y <= radius; y++) {
+            double value = exp(-(x * x + y * y) / (2 * sigma * sigma));
+            kernel.at<double>(x + radius, y + radius) = value;
+            sum += value;
+        }
+    }
+
+    kernel /= sum;
+
+    Mat result;
+    // Convolve the image with the Gaussian kernel
+    filter2D(frame, result, -1, kernel);
+    return result;
+}
+
+static Mat addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
+{
+  for (int row = 0; row < watermark.rows; row++){
+    for (int col = 0; col < watermark.cols; col++){
+      if (col + x < frame.rows && row + y < frame.cols)
+        frame.at<Vec3b>(col + x, row + y) *= 1 - alpha;
+        frame.at<Vec3b>(col + x, row + y) += watermark.at<Vec3b>(col, row) * alpha;
+    }
+  }
+  return frame;
+}
+
+static Mat toGrayscale(Mat frame)
+{
+  Mat result(frame.rows, frame.cols, CV_8UC1);
+  for (int row = 0; row < frame.rows; row++){
+    for (int col = 0; col < frame.cols; col++){
+      Vec3b pixel = frame.at<Vec3b>(row, col);
+      result.at<uchar>(row, col) = pixel[0] * 0.11 + pixel[1] * 0.59 + pixel[2] * 0.30;
+    }
+  }
+  return result;
+}
+
 class player{
 private:
   VideoCapture* cap;
@@ -157,42 +208,6 @@ void player::printHistogram(vector<int> hist, char color){
   waitKey(0);
 
   destroyAllWindows();
-}
-
-static Mat addWatermark(Mat frame, Mat watermark, int x, int y, float alpha)
-{
-  alpha = alpha / 100;
-  if (watermark.empty())
-  {
-    cout << "no watermark" << endl;
-  }
-  int i = 0;
-  int j = 0;
-  for (int row = 0; row < watermark.rows; row++)
-  {
-    for (int col = 0; col < watermark.cols; col++)
-    {
-      if (row + y < frame.rows && col + x < frame.cols)
-      {
-        frame.at<Vec3b>(row + y, col + x) = frame.at<Vec3b>(row + y, col + x) * (1 - alpha) + watermark.at<Vec3b>(row, col) * alpha;
-      }
-    }
-  }
-  return frame;
-}
-
-static Mat toGrayscale(Mat frame)
-{
-  for (int row = 0; row < frame.rows; row++)
-  {
-    for (int col = 0; col < frame.cols; col++)
-    {
-      Vec3b pixel = frame.at<Vec3b>(row, col);
-      uchar result = pixel[0] * 0.11 + pixel[1] * 0.59 + pixel[2] * 0.30;
-      frame.at<Vec3b>(row, col) = Vec3b(result, result, result);
-    }
-  }
-  return frame;
 }
 
 int main(){
