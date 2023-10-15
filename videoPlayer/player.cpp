@@ -79,7 +79,6 @@ public:
   Mat  frameRgb2Yuv(Mat frame);
   Mat  frameYuv2Rgb(Mat frame);
   void displayImage();
-  bool isOpen();
   void getColorHistograms();
   void printHistogram(vector<int> hist, char color);
 };
@@ -220,14 +219,14 @@ void player::printHistogram(vector<int> hist, char color){
 }
 
 int main(){
-  player p1("deti.jpg");
+  player p1("akiyo_cif.y4m");
 
   if(!p1.isOpen()){
     cout << "error open video";
     return -1;
   }
 
-  p1.getColorHistograms();
-
+  p1.display();
+   
   return 0;
 }
