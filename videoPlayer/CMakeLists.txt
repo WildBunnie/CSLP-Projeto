@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project( videoPlayer )
-find_package ( OpenCV REQUIRED PATHS ~/build NO_DEFAULT_PATH)
 find_package( OpenCV REQUIRED )
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 add_executable( videoPlayer player.cpp )
 target_link_libraries( videoPlayer ${OpenCV_LIBS} )
