@@ -48,3 +48,9 @@ _deps
 
 .vscode
 */build
+
+# Misc
+*.mp4
+*.jpg
+bin/
+*.jpeg
