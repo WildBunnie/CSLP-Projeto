@@ -45,12 +45,11 @@ CTestTestfile.cmake
 _deps
 
 # VSCode
-
 .vscode
 */build
 
 # Misc
 *.mp4
 *.jpg
-bin/
 *.jpeg
+bin/

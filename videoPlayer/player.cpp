@@ -4,6 +4,7 @@
 #include <iostream>
 #include <numeric>
  
+
 using namespace std;
 using namespace cv;
 
@@ -24,8 +25,10 @@ public:
 	static void getColorHistograms(Mat frame);
 	static void printHistogram(vector<int> hist, int color);
 	static Mat toGrayscale(Mat frame);
-	static Mat addWatermark(Mat frame, Mat watermark, int x, int y, float alpha);
+	static Mat addWatermark(Mat frame, Mat watermark, float alpha, int x, int y);
 	static void histogramEqualization(Mat frame);
+	static Mat gaussianBlur(Mat frame, int ksize, double sigma);
+	static Mat boxFilter(Mat frame, Size ksize);
 };
 
 player::player(String video){
@@ -162,11 +165,11 @@ void player::printHistogram(vector<int> hist, int color){
 
 	int up_height = *max_element(hist.begin(), hist.end());
 
-	for(int i=0; i < hist.size(); i++){
-		p1 = Point(i*10+10, floor(up_height/100) - floor(hist[i]/100)); // right - top 
-		p2 = Point(i*10, floor(up_height/100)); // left - bottom
-		rectangle(img, p1, p2, colorScalar, 1);
-	}
+  for(int i=0; i < hist.size(); i++){
+    p1 = Point(i*10+10, floor(up_height/100) - floor(hist[i]/100)); // right - top
+    p2 = Point(i*10, floor(up_height/100)); // left - bottom
+    rectangle(img, p1, p2, colorScalar, 1);
+  }
 
 	namedWindow("Histogram", WINDOW_NORMAL);
 	imshow("Histogram", img);
@@ -175,26 +178,16 @@ void player::printHistogram(vector<int> hist, int color){
 	destroyAllWindows();
 }
 
-Mat player::addWatermark(Mat frame, Mat watermark, int x, int y, float alpha)
+Mat player::addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
 {
-	alpha = alpha / 100;
-	if (watermark.empty())
-	{
-		cout << "no watermark" << endl;
-	}
-	int i = 0;
-	int j = 0;
-	for (int row = 0; row < watermark.rows; row++)
-	{
-		for (int col = 0; col < watermark.cols; col++)
-		{
-			if (row + y < frame.rows && col + x < frame.cols)
-			{
-				frame.at<Vec3b>(row + y, col + x) = frame.at<Vec3b>(row + y, col + x) * (1 - alpha) + watermark.at<Vec3b>(row, col) * alpha;
-			}
-		}
-	}
-	return frame;
+  for (int row = 0; row < watermark.rows; row++){
+    for (int col = 0; col < watermark.cols; col++){
+      if (col + x < frame.rows && row + y < frame.cols)
+        frame.at<Vec3b>(col + x, row + y) *= 1 - alpha;
+      frame.at<Vec3b>(col + x, row + y) += watermark.at<Vec3b>(col, row) * alpha;
+    }
+  }
+  return frame;
 }
 
 Mat player::toGrayscale(Mat frame)
@@ -209,33 +202,40 @@ Mat player::toGrayscale(Mat frame)
   return result;
 }
 
-void player::histogramEqualization(Mat frame)
+Mat player::gaussianBlur(Mat frame, int ksize, double sigma){
+  if (ksize % 2 == 0)
+  {
+    ksize++;
+  }
+
+  int radius = ksize / 2;
+
+  Mat kernel(ksize, ksize, CV_64F);
+  double sum = 0.0;
+
+  for (int x = -radius; x <= radius; x++) {
+    for (int y = -radius; y <= radius; y++) {
+      double value = exp(-(x * x + y * y) / (2 * sigma * sigma));
+      kernel.at<double>(x + radius, y + radius) = value;
+      sum += value;
+    }
+  }
+
+  kernel /= sum;
+
+  Mat result;
+  filter2D(frame, result, -1, kernel);
+  return result;
+}
+
+Mat player::boxFilter(Mat frame, Size ksize)
 {
-    cv::Mat grayscaleImage(frame.rows, frame.cols, CV_8UC1);
-	grayscaleImage = toGrayscale(frame);
-
-	Mat histogram;
-    float Range[] = {0, 256}; 
-    const float* HistRange = {Range};
-	int npixels = 256; 
-	calcHist(&grayscaleImage, 1, 0, Mat(), histogram, 1, &npixels, &HistRange, true, false);
-
-	Mat cumsum = histogram.clone();
-    for (int i = 1; i < 256; ++i) {
-        cumsum.at<float>(i) += cumsum.at<float>(i - 1);
-    }
-    cumsum /= cumsum.at<float>(npixels - 1);
-    cumsum *= 255;
-	
-	Mat equalizedImage(grayscaleImage.size(), grayscaleImage.type());
-    for (int i = 0; i < grayscaleImage.rows; ++i) {
-        for (int j = 0; j < grayscaleImage.cols; ++j) {
-            equalizedImage.at<uchar>(i, j) = cv::saturate_cast<uchar>(cumsum.at<float>(grayscaleImage.at<uchar>(i, j)));
-        }
-    }
-
-    imshow("Equalized Grayscale Image", equalizedImage);
-    waitKey(0);
+  Mat kernel = Mat::ones(ksize.height, ksize.width, CV_64F);
+  kernel *= 1.0 / (ksize.width * ksize.height);
+  cout << kernel << endl;
+  Mat result;
+  filter2D(frame, result, -1, kernel);
+  return result;
 }
 
 int main(){
