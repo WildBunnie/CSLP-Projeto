@@ -15,7 +15,7 @@ private:
 public:
 	player(String video);
 	~player();
-	void display();
+	void display(string filter, string watermark);
 	bool isOpen();
 	Mat  frameRgb2Yuv(Mat frame);
 	Mat  frameYuv2Rgb(Mat frame);
@@ -82,13 +82,27 @@ Mat player::frameYuv2Rgb(Mat frame){
 		return frame;
 }
 
-void player::display(){
+void player::display(string filter, string watermark = ""){
 	while(1){
-		Mat frame,color_frame;
+		Mat frame,newframe,color_frame;
 		this->cap->read(frame);
-		frame = this->frameRgb2Yuv(frame);
-		frame = this->frameYuv2Rgb(frame);
-		imshow(this->name,frame);
+		if (filter == "grayscale"){
+			newframe = toGrayscale(frame);
+		}
+		else if (filter == "gaussian"){
+			newframe = gaussianBlur(frame, 5, 2);
+		}
+		else if (filter == "blur"){
+			newframe = boxFilter(frame, Size(5,5));
+		}
+		else if (filter == "watermark"){
+			Mat w = imread(watermark);
+			newframe = addWatermark(frame, w, 1, 0, 0);
+		}
+		else{
+			newframe = frame;
+		}
+		imshow(this->name,newframe);
 		char c=(char)waitKey(25);
 			if(c==27)
 				break;
@@ -167,9 +181,10 @@ Mat player::addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
 {
 	for (int row = 0; row < watermark.rows; row++){
 		for (int col = 0; col < watermark.cols; col++){
-			if (col + x < frame.rows && row + y < frame.cols)
-			frame.at<Vec3b>(col + x, row + y) *= 1 - alpha;
-			frame.at<Vec3b>(col + x, row + y) += watermark.at<Vec3b>(col, row) * alpha;
+			if (col + x < frame.rows && row + y < frame.cols){
+				frame.at<Vec3b>(row + x, col + y) *= 1 - alpha;
+				frame.at<Vec3b>(row + x, col + y) += watermark.at<Vec3b>(row, col) * alpha;
+			}
 		}
 	}
 	return frame;
@@ -217,19 +232,41 @@ Mat player::boxFilter(Mat frame, Size ksize)
 {
 	Mat kernel = Mat::ones(ksize.height, ksize.width, CV_64F);
 	kernel *= 1.0 / (ksize.width * ksize.height);
-	cout << kernel << endl;
 	Mat result;
 	filter2D(frame, result, -1, kernel);
 	return result;
 }
 
-int main(){
-	player p1("vd.mp4");
+int main(int argc, char *argv[]){
 
+	// Check if at least one argument is provided
+    if (argc < 2) {
+        std::cerr << "Usage: " << argv[0] << " <video> [filter]" << std::endl;
+        return 1;
+    }
+
+	string video = argv[1];
+	player p1(video);
 	if(!p1.isOpen()){
-		cout << "error open video";
+		cout << "could not open video";
 		return -1;
 	}
+
+	string filter = "";
+	if (argc >= 3) {
+        filter = argv[2];
+    }
+
+	if(filter=="watermark"){
+		if(argc >= 4){
+			p1.display(filter, argv[3]);
+		}
+		else{
+			std::cerr << "Usage for watermark: " << argv[0] << " <video> watermark <watermark>" << std::endl;
+		}
+	}
+	else
+		p1.display(filter);
 	 
 	return 0;
 }
