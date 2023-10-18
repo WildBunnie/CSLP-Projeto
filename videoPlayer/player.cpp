@@ -21,7 +21,6 @@ public:
 	Mat  frameYuv2Rgb(Mat frame);
 	void displayImage();
 	static void getHistogram(Mat frame, int color);
-	static vector<int> getGreyHistogram(Mat frame);
 	static void getColorHistograms(Mat frame);
 	static void printHistogram(vector<int> hist, int color);
 	static Mat toGrayscale(Mat frame);
@@ -113,27 +112,12 @@ void player::getHistogram(Mat frame, int color){
 
 	for(int i = 0; i < frame.rows; i++){
 		for(int j = 0; j < frame.cols; j++){
-				colorRGB = frame.at<Vec3b>(i,j)[color]; // b = 0, g = 1, r = 2
-				histogram.insert(histogram.begin() + colorRGB, ++histogram[colorRGB]);
+			colorRGB = frame.at<Vec3b>(i,j)[color]; // b = 0, g = 1, r = 2
+			histogram.insert(histogram.begin() + colorRGB, ++histogram[colorRGB]);
 		}
 	}
 
 	printHistogram(histogram, color);
-}
-
-vector<int> player::getGreyHistogram(Mat frame){
-	vector<int> histogram(256,0);
-	int itensity;
-
-	for(int i = 0; i < frame.rows; i++){
-		for(int j = 0; j < frame.cols; j++){
-				itensity = frame.at<uchar>(i,j); 
-				histogram.insert(histogram.begin() + itensity, ++histogram[itensity]);
-		}
-	}
-
-	printHistogram(histogram, 4);
-	return histogram;
 }
 
 void player::getColorHistograms(Mat frame){
@@ -144,7 +128,6 @@ void player::getColorHistograms(Mat frame){
 }
 
 void player::printHistogram(vector<int> hist, int color){
-	Mat img = imread("background.jpg", 1);
 	Point p1, p2;
 	Scalar colorScalar;
 
@@ -158,21 +141,23 @@ void player::printHistogram(vector<int> hist, int color){
 		case 0:
 			colorScalar = Scalar(255, 0, 0);
 			break;
-		default: // greyscale
+		default:
 			colorScalar = Scalar(255, 255, 255);
 			break;
 	}
 
-	int up_height = *max_element(hist.begin(), hist.end());
+	int histSize = 256;
+	int hist_w = 512, hist_h = 400;
+	int bin_w = cvRound( (double) hist_w/histSize );
+	Mat histImage( hist_h, hist_w, CV_8UC3, Scalar( 0,0,0) );
 
-  for(int i=0; i < hist.size(); i++){
-    p1 = Point(i*10+10, floor(up_height/100) - floor(hist[i]/100)); // right - top
-    p2 = Point(i*10, floor(up_height/100)); // left - bottom
-    rectangle(img, p1, p2, colorScalar, 1);
-  }
+	for(int i=0; i < histSize; i++){
+		line( histImage, Point( bin_w*(i-1), hist_h - cvRound(hist[i-1]) ),
+		Point( bin_w*(i), hist_h - cvRound(hist[i]) ),
+		colorScalar, 2, 8, 0 );
+	}
 
-	namedWindow("Histogram", WINDOW_NORMAL);
-	imshow("Histogram", img);
+	imshow("Histogram", histImage);
 	waitKey(0);
 
 	destroyAllWindows();
