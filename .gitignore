@@ -52,4 +52,5 @@ _deps
 *.mp4
 *.jpg
 *.jpeg
+*.ppm
 bin/
