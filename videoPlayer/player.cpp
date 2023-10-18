@@ -46,19 +46,19 @@ bool player::isOpen(){
 
 Mat player::frameRgb2Yuv(Mat frame){
 	for(int i = 0; i < frame.rows; i++){
-			for(int j = 0; j < frame.cols; j++){
-				uint r = frame.at<Vec3b>(i,j)[2];
-				uint g = frame.at<Vec3b>(i,j)[1];
-				uint b = frame.at<Vec3b>(i,j)[0];
+		for(int j = 0; j < frame.cols; j++){
+			uint r = frame.at<Vec3b>(i,j)[2];
+			uint g = frame.at<Vec3b>(i,j)[1];
+			uint b = frame.at<Vec3b>(i,j)[0];
 
-				uint y =  0.299*r+0.587*g+0.114*b;
-				uint cb = 128+0.564*((int)b-(int)y);
-				uint cr = 128+0.713*((int)r-(int)y);
+			uint y =  0.299*r+0.587*g+0.114*b;
+			uint cb = 128+0.564*((int)b-(int)y);
+			uint cr = 128+0.713*((int)r-(int)y);
 
-				frame.at<Vec3b>(i,j)[0] = y;
-				frame.at<Vec3b>(i,j)[1] = cb;
-				frame.at<Vec3b>(i,j)[2] = cr;
-			}
+			frame.at<Vec3b>(i,j)[0] = y;
+			frame.at<Vec3b>(i,j)[1] = cb;
+			frame.at<Vec3b>(i,j)[2] = cr;
+		}
 		}
 
 	return frame;
@@ -66,19 +66,19 @@ Mat player::frameRgb2Yuv(Mat frame){
 
 Mat player::frameYuv2Rgb(Mat frame){
 	for(int i = 0; i < frame.rows; i++){
-			for(int j = 0; j < frame.cols; j++){
-				uint y = frame.at<Vec3b>(i,j)[0];
-				uint cb = frame.at<Vec3b>(i,j)[1];
-				uint cr = frame.at<Vec3b>(i,j)[2];
+		for(int j = 0; j < frame.cols; j++){
+			uint y = frame.at<Vec3b>(i,j)[0];
+			uint cb = frame.at<Vec3b>(i,j)[1];
+			uint cr = frame.at<Vec3b>(i,j)[2];
 
-				uint r = y+1.13983*((int)cr-128);
-				uint g = y-0.39465*((int)cb-128)-0.58060*((int)cr-128);
-				uint b = y+2.03211*((int)cb-128);
+			uint r = y+1.13983*((int)cr-128);
+			uint g = y-0.39465*((int)cb-128)-0.58060*((int)cr-128);
+			uint b = y+2.03211*((int)cb-128);
 
-				frame.at<Vec3b>(i,j)[2] = r;
-				frame.at<Vec3b>(i,j)[1] = g;
-				frame.at<Vec3b>(i,j)[0] = b;
-			}
+			frame.at<Vec3b>(i,j)[2] = r;
+			frame.at<Vec3b>(i,j)[1] = g;
+			frame.at<Vec3b>(i,j)[0] = b;
+		}
 		}
 		return frame;
 }
@@ -99,12 +99,12 @@ void player::display(){
 }
 
 void player::displayImage(){
-		Mat img = imread(this->name, 1);
- 
-		imshow("image", img);  
-		waitKey(0);  
-		
-		destroyAllWindows();
+	Mat img = imread(this->name, 1);
+
+	imshow("image", img);  
+	waitKey(0);  
+	
+	destroyAllWindows();
  }
 
 void player::getHistogram(Mat frame, int color){
@@ -112,10 +112,10 @@ void player::getHistogram(Mat frame, int color){
 	int colorRGB;
 
 	for(int i = 0; i < frame.rows; i++){
-			for(int j = 0; j < frame.cols; j++){
-					colorRGB = frame.at<Vec3b>(i,j)[color]; // b = 0, g = 1, r = 2
-					histogram.insert(histogram.begin() + colorRGB, ++histogram[colorRGB]);
-			}
+		for(int j = 0; j < frame.cols; j++){
+				colorRGB = frame.at<Vec3b>(i,j)[color]; // b = 0, g = 1, r = 2
+				histogram.insert(histogram.begin() + colorRGB, ++histogram[colorRGB]);
+		}
 	}
 
 	printHistogram(histogram, color);
@@ -126,10 +126,10 @@ vector<int> player::getGreyHistogram(Mat frame){
 	int itensity;
 
 	for(int i = 0; i < frame.rows; i++){
-			for(int j = 0; j < frame.cols; j++){
-					itensity = frame.at<uchar>(i,j); 
-					histogram.insert(histogram.begin() + itensity, ++histogram[itensity]);
-			}
+		for(int j = 0; j < frame.cols; j++){
+				itensity = frame.at<uchar>(i,j); 
+				histogram.insert(histogram.begin() + itensity, ++histogram[itensity]);
+		}
 	}
 
 	printHistogram(histogram, 4);
@@ -180,62 +180,62 @@ void player::printHistogram(vector<int> hist, int color){
 
 Mat player::addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
 {
-  for (int row = 0; row < watermark.rows; row++){
-    for (int col = 0; col < watermark.cols; col++){
-      if (col + x < frame.rows && row + y < frame.cols)
-        frame.at<Vec3b>(col + x, row + y) *= 1 - alpha;
-      frame.at<Vec3b>(col + x, row + y) += watermark.at<Vec3b>(col, row) * alpha;
-    }
-  }
-  return frame;
+	for (int row = 0; row < watermark.rows; row++){
+		for (int col = 0; col < watermark.cols; col++){
+			if (col + x < frame.rows && row + y < frame.cols)
+			frame.at<Vec3b>(col + x, row + y) *= 1 - alpha;
+			frame.at<Vec3b>(col + x, row + y) += watermark.at<Vec3b>(col, row) * alpha;
+		}
+	}
+	return frame;
 }
 
 Mat player::toGrayscale(Mat frame)
 {
-  Mat result(frame.rows, frame.cols, CV_8UC1);
-  for (int row = 0; row < frame.rows; row++){
-    for (int col = 0; col < frame.cols; col++){
-      Vec3b pixel = frame.at<Vec3b>(row, col);
-      result.at<uchar>(row, col) = pixel[0] * 0.11 + pixel[1] * 0.59 + pixel[2] * 0.30;
-    }
-  }
-  return result;
+	Mat result(frame.rows, frame.cols, CV_8UC1);
+	for (int row = 0; row < frame.rows; row++){
+		for (int col = 0; col < frame.cols; col++){
+			Vec3b pixel = frame.at<Vec3b>(row, col);
+			result.at<uchar>(row, col) = pixel[0] * 0.11 + pixel[1] * 0.59 + pixel[2] * 0.30;
+		}
+	}
+	return result;
 }
 
 Mat player::gaussianBlur(Mat frame, int ksize, double sigma){
-  if (ksize % 2 == 0)
-  {
-    ksize++;
-  }
+	if (ksize % 2 == 0)
+	{
+		ksize++;
+	}
 
-  int radius = ksize / 2;
+	int radius = ksize / 2;
 
-  Mat kernel(ksize, ksize, CV_64F);
-  double sum = 0.0;
+	Mat kernel(ksize, ksize, CV_64F);
+	double sum = 0.0;
 
-  for (int x = -radius; x <= radius; x++) {
-    for (int y = -radius; y <= radius; y++) {
-      double value = exp(-(x * x + y * y) / (2 * sigma * sigma));
-      kernel.at<double>(x + radius, y + radius) = value;
-      sum += value;
-    }
-  }
+	for (int x = -radius; x <= radius; x++) {
+		for (int y = -radius; y <= radius; y++) {
+			double value = exp(-(x * x + y * y) / (2 * sigma * sigma));
+			kernel.at<double>(x + radius, y + radius) = value;
+			sum += value;
+		}
+	}
 
-  kernel /= sum;
+	kernel /= sum;
 
-  Mat result;
-  filter2D(frame, result, -1, kernel);
-  return result;
+	Mat result;
+	filter2D(frame, result, -1, kernel);
+	return result;
 }
 
 Mat player::boxFilter(Mat frame, Size ksize)
 {
-  Mat kernel = Mat::ones(ksize.height, ksize.width, CV_64F);
-  kernel *= 1.0 / (ksize.width * ksize.height);
-  cout << kernel << endl;
-  Mat result;
-  filter2D(frame, result, -1, kernel);
-  return result;
+	Mat kernel = Mat::ones(ksize.height, ksize.width, CV_64F);
+	kernel *= 1.0 / (ksize.width * ksize.height);
+	cout << kernel << endl;
+	Mat result;
+	filter2D(frame, result, -1, kernel);
+	return result;
 }
 
 int main(){
