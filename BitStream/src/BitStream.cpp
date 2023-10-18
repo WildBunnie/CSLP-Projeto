@@ -5,19 +5,13 @@
 
 using namespace std;
 BitStream::BitStream(string name){
-    file.open(name);
+    std::ofstream output(name);
+    output.close();
+    file.open(name,ios_base::out|ios_base::in);
 };
 void BitStream::close(){
     bool need_write = 0;
     if(currentBitW <= 8 && currentBitW != 0)
-        need_write = 1;
-    while (currentBitW <= 8 && currentBitW != 0)
-    {
-
-        bitBufferW = (bitBufferW << 1);
-        currentBitW++;
-    }
-    if (need_write)
         file.write(reinterpret_cast<char*>(&bitBufferW),1);
     file.close();
 }
