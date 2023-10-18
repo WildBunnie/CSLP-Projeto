@@ -6,18 +6,16 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    BitStream* fileBit;
-
-    fileBit = new BitStream("teste");
+    BitStream fileBit("teste");
 
     int arr[] = {0,1,0,0,0,1,0,0};
 
-    fileBit->writeBits(&arr[0],8);
-    delete(fileBit);
+    fileBit.writeBits(&arr[0],8);
+    fileBit.close();
     
-    fileBit = new BitStream("teste");
+    fileBit.open("teste");
     
-    int* out = fileBit->readBits(8);
+    int* out = fileBit.readBits(8);
 
     for (size_t i = 0; i < 8; i++)
     {

@@ -7,7 +7,7 @@ using namespace std;
 BitStream::BitStream(string name){
     file.open(name);
 };
-BitStream::~BitStream(){
+void BitStream::close(){
     bool need_write = 0;
     if(currentBitW <= 8 && currentBitW != 0)
         need_write = 1;
@@ -20,6 +20,12 @@ BitStream::~BitStream(){
     if (need_write)
         file.write(reinterpret_cast<char*>(&bitBufferW),1);
     file.close();
+}
+void BitStream::open(string name){
+    file.open(name);
+}
+BitStream::~BitStream(){
+    BitStream::close();
     
 }
 bool BitStream::hasNext(){

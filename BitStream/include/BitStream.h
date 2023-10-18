@@ -14,9 +14,11 @@ class BitStream{
     public:
         BitStream(string);
         ~BitStream();
+        void close();
+        void open(string);
         bool hasNext();
         void writeBit(int);
-        void writeBits(int* bits,int size);
+        void writeBits(int*,int);
         int readBit();
-        int* readBits(int n);
+        int* readBits(int);
 };
