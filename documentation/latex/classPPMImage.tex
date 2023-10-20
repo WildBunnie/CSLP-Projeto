@@ -1,0 +1,191 @@
+\hypertarget{classPPMImage}{}\doxysection{P\+P\+M\+Image Class Reference}
+\label{classPPMImage}\index{PPMImage@{PPMImage}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPPMImage_a6408ba3d2484eff4f27a79f266b440ea}{P\+P\+M\+Image}} ()
+\item 
+bool \mbox{\hyperlink{classPPMImage_aad1bbe0f585ca74e1787889691144b10}{load\+Image}} (string path)
+\item 
+bool \mbox{\hyperlink{classPPMImage_a22445d72734ad24481b6614571a330ba}{write\+Image}} (string path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}}
+\item 
+int \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}}
+\item 
+string \mbox{\hyperlink{classPPMImage_a931b57e61dafde4a46cde5d6baed0e52}{max\+\_\+color}}
+\item 
+vector$<$ vector$<$ \mbox{\hyperlink{classRGB}{R\+GB}} $>$ $>$ \mbox{\hyperlink{classPPMImage_a169d5950115f302bac06cc2f7d56c464}{pixels}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 22 of file P\+P\+M\+Image.\+cpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPPMImage_a6408ba3d2484eff4f27a79f266b440ea}\label{classPPMImage_a6408ba3d2484eff4f27a79f266b440ea}} 
+\index{PPMImage@{PPMImage}!PPMImage@{PPMImage}}
+\index{PPMImage@{PPMImage}!PPMImage@{PPMImage}}
+\doxysubsubsection{\texorpdfstring{PPMImage()}{PPMImage()}}
+{\footnotesize\ttfamily P\+P\+M\+Image\+::\+P\+P\+M\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 29 of file P\+P\+M\+Image.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}} = 0;}
+\DoxyCodeLine{32         \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}} = 0;}
+\DoxyCodeLine{33         \mbox{\hyperlink{classPPMImage_a931b57e61dafde4a46cde5d6baed0e52}{max\_color}} = 255;}
+\DoxyCodeLine{34     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPPMImage_aad1bbe0f585ca74e1787889691144b10}\label{classPPMImage_aad1bbe0f585ca74e1787889691144b10}} 
+\index{PPMImage@{PPMImage}!loadImage@{loadImage}}
+\index{loadImage@{loadImage}!PPMImage@{PPMImage}}
+\doxysubsubsection{\texorpdfstring{loadImage()}{loadImage()}}
+{\footnotesize\ttfamily bool P\+P\+M\+Image\+::load\+Image (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 36 of file P\+P\+M\+Image.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38         ifstream file(path, ios::binary);}
+\DoxyCodeLine{39         \textcolor{keywordflow}{if} (!file.is\_open())}
+\DoxyCodeLine{40         \{}
+\DoxyCodeLine{41             cerr << \textcolor{stringliteral}{"unable to open file"} << endl;}
+\DoxyCodeLine{42             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{43         \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordtype}{string} magic;}
+\DoxyCodeLine{46         file >> magic;}
+\DoxyCodeLine{47         \textcolor{keywordflow}{if} (magic != \textcolor{stringliteral}{"P6"})}
+\DoxyCodeLine{48         \{}
+\DoxyCodeLine{49             cerr << \textcolor{stringliteral}{"wrong format"} << endl;}
+\DoxyCodeLine{50             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{51         \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         file >> \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}};}
+\DoxyCodeLine{54         file >> \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}};}
+\DoxyCodeLine{55         file >> \mbox{\hyperlink{classPPMImage_a931b57e61dafde4a46cde5d6baed0e52}{max\_color}};}
+\DoxyCodeLine{56         \textcolor{comment}{// remove newline}}
+\DoxyCodeLine{57         file.get();}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \mbox{\hyperlink{classPPMImage_a169d5950115f302bac06cc2f7d56c464}{pixels}}.resize(\mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}}, vector<RGB>(\mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}}, \mbox{\hyperlink{classRGB}{RGB}}(0, 0, 0)));}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}}; row++)}
+\DoxyCodeLine{62         \{}
+\DoxyCodeLine{63             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} column = 0; column < \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}}; column++)}
+\DoxyCodeLine{64             \{}
+\DoxyCodeLine{65                 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} r, g, b;}
+\DoxyCodeLine{66                 file.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(\&r), 1);}
+\DoxyCodeLine{67                 file.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(\&g), 1);}
+\DoxyCodeLine{68                 file.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(\&b), 1);}
+\DoxyCodeLine{69                 \mbox{\hyperlink{classPPMImage_a169d5950115f302bac06cc2f7d56c464}{pixels}}[row][column] = \mbox{\hyperlink{classRGB}{RGB}}(r, g, b);}
+\DoxyCodeLine{70             \}}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{74     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPPMImage_a22445d72734ad24481b6614571a330ba}\label{classPPMImage_a22445d72734ad24481b6614571a330ba}} 
+\index{PPMImage@{PPMImage}!writeImage@{writeImage}}
+\index{writeImage@{writeImage}!PPMImage@{PPMImage}}
+\doxysubsubsection{\texorpdfstring{writeImage()}{writeImage()}}
+{\footnotesize\ttfamily bool P\+P\+M\+Image\+::write\+Image (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 76 of file P\+P\+M\+Image.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         ofstream file(path, ios::binary);}
+\DoxyCodeLine{79         \textcolor{keywordflow}{if} (!file.is\_open())}
+\DoxyCodeLine{80         \{}
+\DoxyCodeLine{81             cerr << \textcolor{stringliteral}{"unable to open file"} << endl;}
+\DoxyCodeLine{82             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         file << \textcolor{stringliteral}{"P6"} << endl;}
+\DoxyCodeLine{86         file << \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}} << \textcolor{stringliteral}{" "} << \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}} << endl;}
+\DoxyCodeLine{87         file << \mbox{\hyperlink{classPPMImage_a931b57e61dafde4a46cde5d6baed0e52}{max\_color}} << endl;}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}}; row++)}
+\DoxyCodeLine{90         \{}
+\DoxyCodeLine{91             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} column = 0; column < \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}}; column++)}
+\DoxyCodeLine{92             \{}
+\DoxyCodeLine{93                 file.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(\&\mbox{\hyperlink{classPPMImage_a169d5950115f302bac06cc2f7d56c464}{pixels}}[row][column].red), 1);}
+\DoxyCodeLine{94                 file.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(\&\mbox{\hyperlink{classPPMImage_a169d5950115f302bac06cc2f7d56c464}{pixels}}[row][column].green), 1);}
+\DoxyCodeLine{95                 file.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char} *\textcolor{keyword}{>}(\&\mbox{\hyperlink{classPPMImage_a169d5950115f302bac06cc2f7d56c464}{pixels}}[row][column].blue), 1);}
+\DoxyCodeLine{96             \}}
+\DoxyCodeLine{97         \}}
+\DoxyCodeLine{98         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{99     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPPMImage_a3dfd791ecbd34faca276ea844d589005}\label{classPPMImage_a3dfd791ecbd34faca276ea844d589005}} 
+\index{PPMImage@{PPMImage}!height@{height}}
+\index{height@{height}!PPMImage@{PPMImage}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily int P\+P\+M\+Image\+::height}
+
+
+
+Definition at line 25 of file P\+P\+M\+Image.\+cpp.
+
+\mbox{\Hypertarget{classPPMImage_a931b57e61dafde4a46cde5d6baed0e52}\label{classPPMImage_a931b57e61dafde4a46cde5d6baed0e52}} 
+\index{PPMImage@{PPMImage}!max\_color@{max\_color}}
+\index{max\_color@{max\_color}!PPMImage@{PPMImage}}
+\doxysubsubsection{\texorpdfstring{max\_color}{max\_color}}
+{\footnotesize\ttfamily string P\+P\+M\+Image\+::max\+\_\+color}
+
+
+
+Definition at line 26 of file P\+P\+M\+Image.\+cpp.
+
+\mbox{\Hypertarget{classPPMImage_a169d5950115f302bac06cc2f7d56c464}\label{classPPMImage_a169d5950115f302bac06cc2f7d56c464}} 
+\index{PPMImage@{PPMImage}!pixels@{pixels}}
+\index{pixels@{pixels}!PPMImage@{PPMImage}}
+\doxysubsubsection{\texorpdfstring{pixels}{pixels}}
+{\footnotesize\ttfamily vector$<$vector$<$\mbox{\hyperlink{classRGB}{R\+GB}}$>$ $>$ P\+P\+M\+Image\+::pixels}
+
+
+
+Definition at line 27 of file P\+P\+M\+Image.\+cpp.
+
+\mbox{\Hypertarget{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}\label{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}} 
+\index{PPMImage@{PPMImage}!width@{width}}
+\index{width@{width}!PPMImage@{PPMImage}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily int P\+P\+M\+Image\+::width}
+
+
+
+Definition at line 25 of file P\+P\+M\+Image.\+cpp.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/image\+Manipulation/\mbox{\hyperlink{PPMImage_8cpp}{P\+P\+M\+Image.\+cpp}}\end{DoxyCompactItemize}
