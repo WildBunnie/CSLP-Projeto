@@ -1,4 +1,4 @@
-# ./videoPlayer \<video> \[filter] \[watermark]
+# ./videoPlayer \<video> \[filter]
 
 ## filter options:
 - gaussian \[ksize] \[sigma]
