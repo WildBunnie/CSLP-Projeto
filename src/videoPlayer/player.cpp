@@ -14,6 +14,7 @@ private:
 	string name;
 	static void printHistogram(vector<int> hist, int color);
 	static void getHistogram(Mat frame, int color);
+	static Mat histogramEqualization(Mat frame);
 public:
 	player(String video);
 	~player();
@@ -25,7 +26,8 @@ public:
 	static void getColorHistograms(Mat frame);
 	static Mat toGrayscale(Mat frame);
 	static Mat addWatermark(Mat frame, Mat watermark, float alpha, int x, int y);
-	static Mat histogramEqualization(Mat frame);
+	static Mat grayHistEqualization(Mat frame);
+	static Mat colorHistEqualization(Mat frame);
 	static Mat gaussianBlur(Mat frame, int ksize, double sigma);
 	static Mat boxFilter(Mat frame, Size ksize);
 };
@@ -118,8 +120,11 @@ void player::displayImage(string option, string watermark = ""){
 	if(option == "histogram"){
 		getColorHistograms(img);
 	}
-	else if(option == "histeq"){
-		newImg = histogramEqualization(img);
+	else if(option == "grayhisteq"){
+		newImg = grayHistEqualization(img);
+	}
+	else if(option == "colorhisteq"){
+		newImg = colorHistEqualization(img);
 	}
 	else if (option == "grayscale"){
 		newImg = toGrayscale(img);
@@ -202,14 +207,11 @@ void player::printHistogram(vector<int> hist, int color){
 
 Mat player::histogramEqualization(Mat frame)
 {
-    Mat grayscaleImage(frame.rows, frame.cols, CV_8UC1);
-	grayscaleImage = toGrayscale(frame);
-
 	Mat histogram;
     float Range[] = {0, 256}; 
     const float* HistRange = {Range};
 	int npixels = 256; 
-	calcHist(&grayscaleImage, 1, 0, Mat(), histogram, 1, &npixels, &HistRange, true, false);
+	calcHist(&frame, 1, 0, Mat(), histogram, 1, &npixels, &HistRange, true, false);
 
 	Mat cumsum = histogram.clone();
     for (int i = 1; i < 256; ++i) {
@@ -218,14 +220,36 @@ Mat player::histogramEqualization(Mat frame)
     cumsum /= cumsum.at<float>(npixels - 1);
     cumsum *= 255;
 
-	Mat equalizedImage(grayscaleImage.size(), grayscaleImage.type());
-    for (int i = 0; i < grayscaleImage.rows; ++i) {
-        for (int j = 0; j < grayscaleImage.cols; ++j) {
-            equalizedImage.at<uchar>(i, j) = cv::saturate_cast<uchar>(cumsum.at<float>(grayscaleImage.at<uchar>(i, j)));
+	Mat equalizedImage(frame.size(), frame.type());
+    for (int i = 0; i < frame.rows; ++i) {
+        for (int j = 0; j < frame.cols; ++j) {
+            equalizedImage.at<uchar>(i, j) = saturate_cast<uchar>(cumsum.at<float>(frame.at<uchar>(i, j)));
         }
 	}
 
 	return equalizedImage;
+}
+
+Mat player::grayHistEqualization(Mat frame)
+{
+	Mat grayscaleImage(frame.rows, frame.cols, CV_8UC1);
+	grayscaleImage = toGrayscale(frame);
+	Mat equalizedImage = histogramEqualization(grayscaleImage);
+	return equalizedImage;
+}
+
+Mat player::colorHistEqualization(Mat frame)
+{
+	Mat ycrcb_img;
+	cvtColor(frame,ycrcb_img, COLOR_BGR2YCrCb);
+
+    vector<Mat> channels;
+    split(ycrcb_img, channels);
+    channels[0] = histogramEqualization(channels[0]);
+    merge(channels, ycrcb_img);
+    cvtColor(ycrcb_img, ycrcb_img, COLOR_YCrCb2BGR);
+
+	return ycrcb_img;
 }
 
 Mat player::addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
@@ -298,6 +322,7 @@ int main(int argc, char *argv[]){
 
 	string media = argv[1];
 	player p1(media);
+
 	string delimiter = ".";
 	string ext = media.substr(media.find(delimiter), media.size()-1);
 	bool isImage = false;
@@ -305,7 +330,7 @@ int main(int argc, char *argv[]){
 		isImage = true;
 
 	if(!p1.isOpen()){
-		cout << "could not open video";
+		cout << "Could not open video.\n";
 		return -1;
 	}
 
@@ -317,9 +342,9 @@ int main(int argc, char *argv[]){
 	if(option=="watermark"){
 		if(argc >= 4){
 			if(isImage)
-				p1.displayImage(option);
+				p1.displayImage(option, argv[3]);
 			else
-				p1.display(option);
+				p1.display(option, argv[3]);
 		}
 		else{
 			std::cerr << "Usage for watermark: " << argv[0] << " <video> watermark <watermark>" << std::endl;
