@@ -1,7 +1,8 @@
 # ./videoPlayer \<video> \[filter] \[watermark]
 
 ## filter options:
-- gaussian
-- blur
-- watermark (requires an image to be passed as argument)
-- grayscale
+- gaussian \[ksize] \[sigma]
+- blur \[ksize]
+- watermark \<watermark> \[x] \[y] \[alpha]
+- grayscale 
+- threshold \[treshold]

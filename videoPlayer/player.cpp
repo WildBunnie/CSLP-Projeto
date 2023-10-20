@@ -3,7 +3,7 @@
 #include <opencv2/plot.hpp>
 #include <iostream>
 #include <numeric>
- 
+
 
 using namespace std;
 using namespace cv;
@@ -15,7 +15,7 @@ private:
 public:
 	player(String video);
 	~player();
-	void display(string filter, string watermark);
+	void display(function<Mat(Mat)>);
 	bool isOpen();
 	Mat  frameRgb2Yuv(Mat frame);
 	Mat  frameYuv2Rgb(Mat frame);
@@ -24,6 +24,7 @@ public:
 	static void getColorHistograms(Mat frame);
 	static void printHistogram(vector<int> hist, int color);
 	static Mat toGrayscale(Mat frame);
+	static Mat threshold(Mat frame, double threshold);
 	static Mat addWatermark(Mat frame, Mat watermark, float alpha, int x, int y);
 	static void histogramEqualization(Mat frame);
 	static Mat gaussianBlur(Mat frame, int ksize, double sigma);
@@ -82,27 +83,17 @@ Mat player::frameYuv2Rgb(Mat frame){
 		return frame;
 }
 
-void player::display(string filter, string watermark = ""){
+void player::display(function<Mat(Mat)> filter=NULL){
 	while(1){
-		Mat frame,newframe,color_frame;
+		Mat frame,newframe;
 		this->cap->read(frame);
-		if (filter == "grayscale"){
-			newframe = toGrayscale(frame);
-		}
-		else if (filter == "gaussian"){
-			newframe = gaussianBlur(frame, 5, 2);
-		}
-		else if (filter == "blur"){
-			newframe = boxFilter(frame, Size(5,5));
-		}
-		else if (filter == "watermark"){
-			Mat w = imread(watermark);
-			newframe = addWatermark(frame, w, 1, 0, 0);
+		if(filter != NULL){
+			frame = filter(frame);
 		}
 		else{
 			newframe = frame;
 		}
-		imshow(this->name,newframe);
+		imshow(this->name,frame);
 		char c=(char)waitKey(25);
 			if(c==27)
 				break;
@@ -190,6 +181,23 @@ Mat player::addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
 	return frame;
 }
 
+Mat player::threshold(Mat frame, double threshold)
+{
+	frame = toGrayscale(frame);
+	for (int row = 0; row < frame.rows; row++){
+		for (int col = 0; col < frame.cols; col++){
+			uchar pixel = frame.at<uchar>(row, col);
+			if(pixel >= threshold){
+				frame.at<uchar>(row, col) = 255;
+			}
+			else{
+				frame.at<uchar>(row, col) = 0;
+			}
+		}
+	}
+	return frame;
+}
+
 Mat player::toGrayscale(Mat frame)
 {
 	Mat result(frame.rows, frame.cols, CV_8UC1);
@@ -241,7 +249,7 @@ int main(int argc, char *argv[]){
 
 	// Check if at least one argument is provided
     if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " <video> [filter]" << std::endl;
+        cerr << "Usage: " << argv[0] << " <video> [filter]" << endl;
         return 1;
     }
 
@@ -252,21 +260,77 @@ int main(int argc, char *argv[]){
 		return -1;
 	}
 
-	string filter = "";
-	if (argc >= 3) {
-        filter = argv[2];
-    }
-
-	if(filter=="watermark"){
-		if(argc >= 4){
-			p1.display(filter, argv[3]);
-		}
-		else{
-			std::cerr << "Usage for watermark: " << argv[0] << " <video> watermark <watermark>" << std::endl;
-		}
+	if (argc < 3) {
+        p1.display();
 	}
-	else
-		p1.display(filter);
+
+	string filter = argv[2];
+	if (filter == "grayscale"){
+		p1.display(player::toGrayscale);
+	}
+	else if (filter == "threshold"){
+		double threshold = 127;
+		if (argc >= 4) {
+        	threshold = stoi(argv[3]);
+		}
+		auto threshold_filter = [threshold](Mat frame){
+			return player::threshold(frame, threshold);
+		};
+		p1.display(threshold_filter);
+	}
+	else if (filter == "gaussian"){
+		int ksize = 5;
+		double sigma = 2;
+		
+		if (argc >= 4) {
+        	ksize = stoi(argv[3]);
+		}
+		if (argc >= 5) {
+        	sigma = stod(argv[3]);
+		}
+		auto gaussian_filter = [ksize, sigma](Mat frame){
+			return player::gaussianBlur(frame, ksize, sigma);
+		};
+		p1.display(gaussian_filter);
+	}
+	else if (filter == "blur"){
+		int ksize = 5;
+		if (argc >= 4) {
+        	ksize = stoi(argv[3]);
+		}
+		auto blur_filter = [ksize](Mat frame){
+			return player::boxFilter(frame, Size(ksize,ksize));
+		};
+		p1.display(blur_filter);
+	}
+	else if (filter == "watermark"){
+		float alpha = 1;
+		int x = 0;
+		int y = 0;
+		
+		if (argc < 4) {
+        	cerr << "Usage for watermark: " << argv[0] << " <video> watermark <watermark>" << endl;
+			return -1;
+		}
+		Mat watermark = imread(argv[3]);
+		if (argc >= 5) {
+        	x = stoi(argv[4]);
+		}
+		if (argc >= 6) {
+        	y = stoi(argv[5]);
+		}		
+		if (argc >= 7) {
+        	alpha = stod(argv[6]);
+		}
+		auto watermark_filter = [x, y, alpha, watermark](Mat frame){
+			return player::addWatermark(frame, watermark, alpha, x, y);
+		};
+		p1.display(watermark_filter);
+	}
+	else{
+		std::cerr << "invalid filter" << endl;
+		return -1;
+	}
 	 
 	return 0;
 }
