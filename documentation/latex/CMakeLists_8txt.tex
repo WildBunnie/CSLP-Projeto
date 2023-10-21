@@ -1,0 +1,44 @@
+\hypertarget{CMakeLists_8txt}{}\doxysection{src/video\+Player/\+C\+Make\+Lists.txt File Reference}
+\label{CMakeLists_8txt}\index{src/videoPlayer/CMakeLists.txt@{src/videoPlayer/CMakeLists.txt}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_a223b85415ddf2ff65c155907fe0adfbf}{cmake\+\_\+minimum\+\_\+required}} (V\+E\+R\+S\+I\+ON 3.\+16) project(video\+Player) find\+\_\+package(Open\+CV R\+E\+Q\+U\+I\+R\+ED) set(C\+M\+A\+K\+E\+\_\+\+R\+U\+N\+T\+I\+M\+E\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY \$
+\item 
+bin \mbox{\hyperlink{CMakeLists_8txt_a751a98adcc7b2708bf910393abf2f4b7}{include\+\_\+directories}} (\$\{Open\+C\+V\+\_\+\+I\+N\+C\+L\+U\+D\+E\+\_\+\+D\+I\+RS\}) add\+\_\+executable(video\+Player player.\+cpp) target\+\_\+compile\+\_\+options(\$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{CMakeLists_8txt_a223b85415ddf2ff65c155907fe0adfbf}\label{CMakeLists_8txt_a223b85415ddf2ff65c155907fe0adfbf}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!cmake\_minimum\_required@{cmake\_minimum\_required}}
+\index{cmake\_minimum\_required@{cmake\_minimum\_required}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{cmake\_minimum\_required()}{cmake\_minimum\_required()}}
+{\footnotesize\ttfamily cmake\+\_\+minimum\+\_\+required (\begin{DoxyParamCaption}\item[{V\+E\+R\+S\+I\+ON 3.}]{16 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1 of file C\+Make\+Lists.\+txt.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                                     \{CMAKE\_BINARY\_DIR\}/bin)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{CMakeLists_8txt_a751a98adcc7b2708bf910393abf2f4b7}\label{CMakeLists_8txt_a751a98adcc7b2708bf910393abf2f4b7}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!include\_directories@{include\_directories}}
+\index{include\_directories@{include\_directories}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{include\_directories()}{include\_directories()}}
+{\footnotesize\ttfamily bin include\+\_\+directories (\begin{DoxyParamCaption}\item[{}]{\$\{\+Open\+C\+V\+\_\+\+I\+N\+C\+L\+U\+D\+E\+\_\+\+D\+I\+R\+S\} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file C\+Make\+Lists.\+txt.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                       \{OpenCV\_INCLUDE\_DIRS\} )}
+\DoxyCodeLine{6 add\_executable( videoPlayer \mbox{\hyperlink{classplayer}{player}}.cpp )}
+\DoxyCodeLine{7 target\_compile\_options(\$\{PROJECT\_NAME\} PRIVATE -\/g)}
+
+\end{DoxyCode}
