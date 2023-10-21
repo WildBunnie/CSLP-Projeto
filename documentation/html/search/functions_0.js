@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['addwatermark_69',['addWatermark',['../classplayer.html#a821ab396c222195f1ebd9112c0460743',1,'player']]]
+  ['addwatermark_99',['addWatermark',['../classPlayer.html#aec79502ab07ec3719e413302863e14b3',1,'Player']]]
 ];

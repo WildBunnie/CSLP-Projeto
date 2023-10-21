@@ -1,0 +1,56 @@
+\hypertarget{copy_8cpp}{}\doxysection{src/image\+Manipulation/copy.cpp File Reference}
+\label{copy_8cpp}\index{src/imageManipulation/copy.cpp@{src/imageManipulation/copy.cpp}}
+{\ttfamily \#include \char`\"{}P\+P\+M\+Image.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for copy.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{copy_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{copy_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{copy_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{copy_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{copy.cpp@{copy.cpp}!main@{main}}
+\index{main@{main}!copy.cpp@{copy.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file copy.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     \textcolor{keywordflow}{if}(argc < 3)\{}
+\DoxyCodeLine{8         cout << \textcolor{stringliteral}{"Invalid number of arguments. (./copy [image path] [output path])"} << endl;}
+\DoxyCodeLine{9         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{10     \}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \mbox{\hyperlink{classPPMImage}{PPMImage}} image;}
+\DoxyCodeLine{13     image.\mbox{\hyperlink{classPPMImage_adef5519d521e477301fda5dc35b13274}{loadImage}}(argv[1]);}
+\DoxyCodeLine{14     image.\mbox{\hyperlink{classPPMImage_a97bed921dc7d084644f132b55a55395b}{writeImage}}(argv[2]);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+
+
+References P\+P\+M\+Image\+::load\+Image(), and P\+P\+M\+Image\+::write\+Image().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{copy_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}

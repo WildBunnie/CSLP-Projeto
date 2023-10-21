@@ -4,48 +4,25 @@
 #include <iostream>
 #include <numeric>
 
+#include "Player.hpp"
 
 using namespace std;
 using namespace cv;
 
-class player{
-private:
-	VideoCapture* cap;
-	string name;
-	static void printHistogram(vector<int> hist, int color);
-	static void getHistogram(Mat frame, int color);
-	static Mat histogramEqualization(Mat frame);
-public:
-	player(String media);
-	~player();
-	void display(function<Mat(Mat)>);
-	bool isOpen();
-	static Mat  frameRgb2Yuv(Mat frame);
-	static Mat  frameYuv2Rgb(Mat frame);
-	static void getColorHistograms(Mat frame);
-	static Mat toGrayscale(Mat frame);
-	static Mat threshold(Mat frame, double threshold);
-	static Mat addWatermark(Mat frame, Mat watermark, float alpha, int x, int y);
-	static Mat grayHistEqualization(Mat frame);
-	static Mat colorHistEqualization(Mat frame);
-	static Mat gaussianBlur(Mat frame, int ksize, double sigma);
-	static Mat boxFilter(Mat frame, Size ksize);
-};
-
-player::player(String media){
+Player::Player(String media){
 	this->name = media;
 	cap = new VideoCapture(media);
 }
 
-player::~player(){
+Player::~Player(){
 	delete cap;
 }
 
-bool player::isOpen(){
+bool Player::isOpen(){
 	return cap->isOpened();
 }
 
-Mat player::frameRgb2Yuv(Mat frame){
+Mat Player::frameRgb2Yuv(Mat frame){
 	for(int i = 0; i < frame.rows; i++){
 		for(int j = 0; j < frame.cols; j++){
 			uint r = frame.at<Vec3b>(i,j)[2];
@@ -65,7 +42,7 @@ Mat player::frameRgb2Yuv(Mat frame){
 	return frame;
 }
 
-Mat player::frameYuv2Rgb(Mat frame){
+Mat Player::frameYuv2Rgb(Mat frame){
 	for(int i = 0; i < frame.rows; i++){
 		for(int j = 0; j < frame.cols; j++){
 			uint y = frame.at<Vec3b>(i,j)[0];
@@ -84,7 +61,7 @@ Mat player::frameYuv2Rgb(Mat frame){
 		return frame;
 }
 
-void player::display(function<Mat(Mat)> filter=NULL){
+void Player::display(function<Mat(Mat)> filter=NULL){
 
 	string media = this->name;
 	string ext = media.substr(media.find_last_of("."), media.size()-1);
@@ -124,7 +101,7 @@ void player::display(function<Mat(Mat)> filter=NULL){
 	destroyAllWindows();
 }
 
-void player::getHistogram(Mat frame, int color){
+void Player::getHistogram(Mat frame, int color){
 	vector<int> histogram(256,0);
 	int intensity;
 
@@ -138,14 +115,14 @@ void player::getHistogram(Mat frame, int color){
 	printHistogram(histogram, color);
 }
 
-void player::getColorHistograms(Mat frame){
+void Player::getColorHistograms(Mat frame){
 
 	for(int i = 0; i < 3; i++){
 		getHistogram(frame, i);
 	}
 }
 
-void player::printHistogram(vector<int> hist, int color){
+void Player::printHistogram(vector<int> hist, int color){
 	Scalar colorScalar;
 
 	switch (color){
@@ -181,7 +158,7 @@ void player::printHistogram(vector<int> hist, int color){
 	destroyAllWindows();
 }
 
-Mat player::histogramEqualization(Mat frame)
+Mat Player::histogramEqualization(Mat frame)
 {
 	Mat histogram;
     float Range[] = {0, 256}; 
@@ -206,7 +183,7 @@ Mat player::histogramEqualization(Mat frame)
 	return equalizedImage;
 }
 
-Mat player::grayHistEqualization(Mat frame)
+Mat Player::grayHistEqualization(Mat frame)
 {
 	Mat grayscaleImage(frame.rows, frame.cols, CV_8UC1);
 	grayscaleImage = toGrayscale(frame);
@@ -214,7 +191,7 @@ Mat player::grayHistEqualization(Mat frame)
 	return equalizedImage;
 }
 
-Mat player::colorHistEqualization(Mat frame)
+Mat Player::colorHistEqualization(Mat frame)
 {
 	Mat ycrcb_img;
 	cvtColor(frame,ycrcb_img, COLOR_BGR2YCrCb);
@@ -228,7 +205,7 @@ Mat player::colorHistEqualization(Mat frame)
 	return ycrcb_img;
 }
 
-Mat player::addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
+Mat Player::addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
 {
 	for (int row = 0; row < watermark.rows; row++){
 		for (int col = 0; col < watermark.cols; col++){
@@ -241,7 +218,7 @@ Mat player::addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
 	return frame;
 }
 
-Mat player::threshold(Mat frame, double threshold)
+Mat Player::threshold(Mat frame, double threshold)
 {
 	frame = toGrayscale(frame);
 	for (int row = 0; row < frame.rows; row++){
@@ -258,7 +235,7 @@ Mat player::threshold(Mat frame, double threshold)
 	return frame;
 }
 
-Mat player::toGrayscale(Mat frame)
+Mat Player::toGrayscale(Mat frame)
 {
 	Mat result(frame.rows, frame.cols, CV_8UC1);
 	for (int row = 0; row < frame.rows; row++){
@@ -270,7 +247,7 @@ Mat player::toGrayscale(Mat frame)
 	return result;
 }
 
-Mat player::gaussianBlur(Mat frame, int ksize, double sigma){
+Mat Player::gaussianBlur(Mat frame, int ksize, double sigma){
 	if (ksize % 2 == 0)
 	{
 		ksize++;
@@ -296,7 +273,7 @@ Mat player::gaussianBlur(Mat frame, int ksize, double sigma){
 	return result;
 }
 
-Mat player::boxFilter(Mat frame, Size ksize)
+Mat Player::boxFilter(Mat frame, Size ksize)
 {
 	Mat kernel = Mat::ones(ksize.height, ksize.width, CV_64F);
 	kernel *= 1.0 / (ksize.width * ksize.height);
@@ -313,7 +290,7 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-	player p1(argv[1]);
+	Player p1(argv[1]);
 
 	if(!p1.isOpen()){
 		cout << "Could not open media.\n";
@@ -330,19 +307,19 @@ int main(int argc, char *argv[]){
 		p1.getColorHistograms(img);
 	}
 	else if (filter == "grayscale"){
-		p1.display(player::toGrayscale);
+		p1.display(Player::toGrayscale);
 	}
     else if (filter == "rgb2yuv"){
-		p1.display(player::frameRgb2Yuv);
+		p1.display(Player::frameRgb2Yuv);
 	}
 	else if (filter == "yuv2rgb"){
-		p1.display(player::frameYuv2Rgb);
+		p1.display(Player::frameYuv2Rgb);
 	}
 	else if (filter == "colorhisteq"){
-		p1.display(player::colorHistEqualization);
+		p1.display(Player::colorHistEqualization);
 	}
 	else if (filter == "grayhisteq"){
-		p1.display(player::grayHistEqualization);
+		p1.display(Player::grayHistEqualization);
 	}
 	else if (filter == "threshold"){
 		double threshold = 127;
@@ -350,7 +327,7 @@ int main(int argc, char *argv[]){
         	threshold = stoi(argv[3]);
 		}
 		auto threshold_filter = [threshold](Mat frame){
-			return player::threshold(frame, threshold);
+			return Player::threshold(frame, threshold);
 		};
 		p1.display(threshold_filter);
 	}
@@ -365,7 +342,7 @@ int main(int argc, char *argv[]){
         	sigma = stod(argv[3]);
 		}
 		auto gaussian_filter = [ksize, sigma](Mat frame){
-			return player::gaussianBlur(frame, ksize, sigma);
+			return Player::gaussianBlur(frame, ksize, sigma);
 		};
 		p1.display(gaussian_filter);
 	}
@@ -375,7 +352,7 @@ int main(int argc, char *argv[]){
         	ksize = stoi(argv[3]);
 		}
 		auto blur_filter = [ksize](Mat frame){
-			return player::boxFilter(frame, Size(ksize,ksize));
+			return Player::boxFilter(frame, Size(ksize,ksize));
 		};
 		p1.display(blur_filter);
 	}
@@ -399,7 +376,7 @@ int main(int argc, char *argv[]){
         	alpha = stod(argv[6]);
 		}
 		auto watermark_filter = [x, y, alpha, watermark](Mat frame){
-			return player::addWatermark(frame, watermark, alpha, x, y);
+			return Player::addWatermark(frame, watermark, alpha, x, y);
 		};
 		p1.display(watermark_filter);
 	}

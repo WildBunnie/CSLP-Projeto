@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['framergb2yuv_74',['frameRgb2Yuv',['../classplayer.html#a67959e4a575fad373d8a28f162785eb9',1,'player']]],
-  ['frameyuv2rgb_75',['frameYuv2Rgb',['../classplayer.html#ad838a63bf25338b9e1121879ab107bac',1,'player']]]
+  ['framergb2yuv_106',['frameRgb2Yuv',['../classPlayer.html#a01ef153cd72df875fb98ce0f8377736c',1,'Player']]],
+  ['frameyuv2rgb_107',['frameYuv2Rgb',['../classPlayer.html#a60a9dd844d42e062af6ab22687764338',1,'Player']]]
 ];

@@ -1,0 +1,4 @@
+<map id="player::threshold" name="player::threshold">
+<area shape="rect" id="node1" title="Converts a frame/image to a black and white image based on a specified threshold." alt="" coords="108,5,240,32"/>
+<area shape="rect" id="node2" href="$player_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>

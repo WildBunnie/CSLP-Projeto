@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_94',['height',['../classPPMImage.html#a3dfd791ecbd34faca276ea844d589005',1,'PPMImage']]]
+  ['green_140',['green',['../classRGB.html#a86b0c7ed2b023c638027d9baf980b927',1,'RGB']]]
 ];

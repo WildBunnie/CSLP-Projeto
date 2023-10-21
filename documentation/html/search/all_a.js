@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_36',['name',['../classplayer.html#a2042da1ed5947b4deccf663fc2b84c6e',1,'player']]]
+  ['name_49',['name',['../classPlayer.html#acf0355128a99ee20ad9931b760fb2de1',1,'Player']]]
 ];

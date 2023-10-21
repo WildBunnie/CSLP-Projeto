@@ -1,6 +1,9 @@
-# ./videoPlayer \<video> \[filter]
+# README
 
-## filter options:
+# How to run:
+### ./bin/player \<video> \[filter]
+
+# Filter options:
 - gaussian \[ksize] \[sigma]
 - blur \[ksize]
 - watermark \<watermark> \[x] \[y] \[alpha]
@@ -10,3 +13,4 @@
 - yuv2rgb
 - colorhisteq
 - grayhisteq
+- histogram

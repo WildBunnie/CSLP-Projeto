@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_100',['name',['../classplayer.html#a2042da1ed5947b4deccf663fc2b84c6e',1,'player']]]
+  ['max_5fcolor_146',['max_color',['../classPPMImage.html#a931b57e61dafde4a46cde5d6baed0e52',1,'PPMImage::max_color()'],['../classPPMImage.html#a3e076ce71d72199ca92fce65e7c28d0c',1,'PPMImage::max_color()']]]
 ];

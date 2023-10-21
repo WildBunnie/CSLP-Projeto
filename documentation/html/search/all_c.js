@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['red_45',['red',['../classRGB.html#ae4955ad7a659f8c12cee1505a8bd37a8',1,'RGB']]],
-  ['rgb_46',['RGB',['../classRGB.html',1,'RGB'],['../classRGB.html#ad89db7b85243c6e71e00a220f1bfb29e',1,'RGB::RGB()']]],
-  ['rpath_47',['rpath',['../build_2CMakeFiles_2videoPlayer_8dir_2link_8txt.html#a57949835084c125d2ff8fedcbfda5aec',1,'rpath():&#160;link.txt'],['../CMakeFiles_2videoPlayer_8dir_2link_8txt.html#a677e30cb8e49280f6bc46f642e5b9b13',1,'rpath():&#160;link.txt']]]
+  ['pixels_51',['pixels',['../classPPMImage.html#a169d5950115f302bac06cc2f7d56c464',1,'PPMImage::pixels()'],['../classPPMImage.html#af5c94998c6759fd42c28b711b1b3fe41',1,'PPMImage::pixels()']]],
+  ['platform_5fid_52',['PLATFORM_ID',['../build_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../build_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp'],['../CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp']]],
+  ['player_53',['Player',['../classPlayer.html',1,'Player'],['../classPlayer.html#a75d4823a9c5af6925dfd7fa1184b1413',1,'Player::Player()']]],
+  ['player_2ecpp_54',['Player.cpp',['../Player_8cpp.html',1,'']]],
+  ['player_2ehpp_55',['Player.hpp',['../Player_8hpp.html',1,'']]],
+  ['ppmimage_56',['PPMImage',['../classPPMImage.html',1,'PPMImage'],['../classPPMImage.html#a6408ba3d2484eff4f27a79f266b440ea',1,'PPMImage::PPMImage()'],['../classPPMImage.html#a6408ba3d2484eff4f27a79f266b440ea',1,'PPMImage::PPMImage()']]],
+  ['ppmimage_2ecpp_57',['PPMImage.cpp',['../PPMImage_8cpp.html',1,'']]],
+  ['ppmimage_2ehpp_58',['PPMImage.hpp',['../PPMImage_8hpp.html',1,'']]],
+  ['printhistogram_59',['printHistogram',['../classPlayer.html#abf0a37b931e2b26e2ec91f110d6b7643',1,'Player']]]
 ];

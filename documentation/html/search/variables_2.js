@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['green_93',['green',['../classRGB.html#a86b0c7ed2b023c638027d9baf980b927',1,'RGB']]]
+  ['file_139',['file',['../classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9',1,'BitStream']]]
 ];
