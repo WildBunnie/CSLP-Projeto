@@ -16,7 +16,7 @@ private:
 	static void getHistogram(Mat frame, int color);
 	static Mat histogramEqualization(Mat frame);
 public:
-	player(String video);
+	player(String media);
 	~player();
 	void display(string filter, string watermark);
 	void displayImage(string option, string watermark);
@@ -32,9 +32,9 @@ public:
 	static Mat boxFilter(Mat frame, Size ksize);
 };
 
-player::player(String video){
-	this->name = video;
-	cap = new VideoCapture(video);
+player::player(String media){
+	this->name = media;
+	cap = new VideoCapture(media);
 }
 
 player::~player(){
@@ -157,6 +157,9 @@ void player::displayImage(string option, string watermark = ""){
 	}
 	else if (option == "yuv2rgb"){
 		newImg = frameYuv2Rgb(img);
+	}
+	else {
+		newImg = img;
 	}
 
 	if(newImg.rows > 0 && newImg.cols > 0){
@@ -343,7 +346,7 @@ int main(int argc, char *argv[]){
 	player p1(media);
 
 	string delimiter = ".";
-	string ext = media.substr(media.find(delimiter), media.size()-1);
+	string ext = media.substr(media.find_last_of(delimiter), media.size()-1);
 	bool isImage = false;
 	if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
 		isImage = true;
