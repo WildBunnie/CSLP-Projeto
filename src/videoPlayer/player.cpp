@@ -189,7 +189,6 @@ void player::getColorHistograms(Mat frame){
 }
 
 void player::printHistogram(vector<int> hist, int color){
-	Point p1, p2;
 	Scalar colorScalar;
 
 	switch (color){
@@ -211,8 +210,9 @@ void player::printHistogram(vector<int> hist, int color){
 	int hist_w = 512, hist_h = 400;
 	int bin_w = cvRound( (double) hist_w/histSize );
 	Mat histImage( hist_h, hist_w, CV_8UC3, Scalar( 0,0,0) );
+	normalize(hist, hist, 0, histImage.rows, NORM_MINMAX, -1, Mat() );
 
-	for(int i=0; i < histSize; i++){
+	for(int i=1; i < histSize; i++){
 		line( histImage, Point( bin_w*(i-1), hist_h - cvRound(hist[i-1]) ),
 		Point( bin_w*(i), hist_h - cvRound(hist[i]) ),
 		colorScalar, 2, 8, 0 );
