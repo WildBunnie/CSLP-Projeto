@@ -126,12 +126,12 @@ void player::display(function<Mat(Mat)> filter=NULL){
 
 void player::getHistogram(Mat frame, int color){
 	vector<int> histogram(256,0);
-	int colorRGB;
+	int intensity;
 
 	for(int i = 0; i < frame.rows; i++){
 		for(int j = 0; j < frame.cols; j++){
-			colorRGB = frame.at<Vec3b>(i,j)[color]; // b = 0, g = 1, r = 2
-			histogram.insert(histogram.begin() + colorRGB, ++histogram[colorRGB]);
+			intensity = frame.at<Vec3b>(i,j)[color]; // b = 0, g = 1, r = 2
+			histogram[intensity]++;
 		}
 	}
 
@@ -316,7 +316,7 @@ int main(int argc, char *argv[]){
 	player p1(argv[1]);
 
 	if(!p1.isOpen()){
-		cout << "Could not open video.\n";
+		cout << "Could not open media.\n";
 		return -1;
 	}
 
@@ -325,7 +325,11 @@ int main(int argc, char *argv[]){
 	}
 
 	string filter = argv[2];
-	if (filter == "grayscale"){
+	if (filter == "histogram"){
+		Mat img = imread(argv[1]);
+		p1.getColorHistograms(img);
+	}
+	else if (filter == "grayscale"){
 		p1.display(player::toGrayscale);
 	}
     else if (filter == "rgb2yuv"){
