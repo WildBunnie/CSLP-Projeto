@@ -21,8 +21,8 @@ public:
 	void display(string filter, string watermark);
 	void displayImage(string option, string watermark);
 	bool isOpen();
-	Mat  frameRgb2Yuv(Mat frame);
-	Mat  frameYuv2Rgb(Mat frame);
+	static Mat  frameRgb2Yuv(Mat frame);
+	static Mat  frameYuv2Rgb(Mat frame);
 	static void getColorHistograms(Mat frame);
 	static Mat toGrayscale(Mat frame);
 	static Mat addWatermark(Mat frame, Mat watermark, float alpha, int x, int y);
@@ -88,6 +88,7 @@ void player::display(string filter, string watermark = ""){
 	while(1){
 		Mat frame,newframe,color_frame;
 		this->cap->read(frame);
+
 		if (filter == "grayscale"){
 			newframe = toGrayscale(frame);
 		}
@@ -100,6 +101,18 @@ void player::display(string filter, string watermark = ""){
 		else if (filter == "watermark"){
 			Mat w = imread(watermark);
 			newframe = addWatermark(frame, w, 1, 0, 0);
+		}
+		else if (filter == "rgb2yuv"){
+			newframe = frameRgb2Yuv(frame);
+		}
+		else if (filter == "yuv2rgb"){
+			newframe = frameYuv2Rgb(frame);
+		}
+		else if (filter == "colorhisteq"){
+			newframe = colorHistEqualization(frame);
+		}
+		else if (filter == "grayhisteq"){
+			newframe = grayHistEqualization(frame);
 		}
 		else{
 			newframe = frame;
@@ -138,6 +151,12 @@ void player::displayImage(string option, string watermark = ""){
 	else if (option == "watermark"){
 		Mat w = imread(watermark);
 		newImg = addWatermark(img, w, 1, 0, 0);
+	}
+	else if (option == "rgb2yuv"){
+		newImg = frameRgb2Yuv(img);
+	}
+	else if (option == "yuv2rgb"){
+		newImg = frameYuv2Rgb(img);
 	}
 
 	if(newImg.rows > 0 && newImg.cols > 0){
