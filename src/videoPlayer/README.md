@@ -1,7 +1,12 @@
-# ./bin/videoPlayer \<video\image> \[option] \[watermark]
+# ./videoPlayer \<video> \[filter]
 
-## options:
-- gaussian
-- blur
-- watermark (requires an image (watermark) to be passed as argument)
-- grayscale
+## filter options:
+- gaussian \[ksize] \[sigma]
+- blur \[ksize]
+- watermark \<watermark> \[x] \[y] \[alpha]
+- grayscale 
+- threshold \[treshold]
+- rgb2yuv
+- yuv2rgb
+- colorhisteq
+- grayhisteq

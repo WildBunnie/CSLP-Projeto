@@ -18,12 +18,7 @@ private:
 public:
 	player(String media);
 	~player();
-<<<<<<< HEAD:videoPlayer/player.cpp
 	void display(function<Mat(Mat)>);
-=======
-	void display(string filter, string watermark);
-	void displayImage(string option, string watermark);
->>>>>>> doxygen-doc:src/videoPlayer/player.cpp
 	bool isOpen();
 	static Mat  frameRgb2Yuv(Mat frame);
 	static Mat  frameYuv2Rgb(Mat frame);
@@ -90,39 +85,32 @@ Mat player::frameYuv2Rgb(Mat frame){
 }
 
 void player::display(function<Mat(Mat)> filter=NULL){
+
+	string media = this->name;
+	string ext = media.substr(media.find_last_of("."), media.size()-1);
+	
+	if (ext == ".jpg" || ext == ".png" || ext == ".jpeg"){
+		Mat img = imread(media, 1);
+        Mat newImg;
+        if(filter != NULL){
+			newImg = filter(img);
+		}
+		else{
+			newImg = img;
+		}
+		if(newImg.rows > 0 && newImg.cols > 0){
+			imshow("image", newImg);  
+			waitKey(0);  
+			destroyAllWindows();
+		}
+		return;
+	}
+
 	while(1){
 		Mat frame,newframe;
 		this->cap->read(frame);
-<<<<<<< HEAD:videoPlayer/player.cpp
 		if(filter != NULL){
 			frame = filter(frame);
-=======
-
-		if (filter == "grayscale"){
-			newframe = toGrayscale(frame);
-		}
-		else if (filter == "gaussian"){
-			newframe = gaussianBlur(frame, 5, 2);
-		}
-		else if (filter == "blur"){
-			newframe = boxFilter(frame, Size(5,5));
-		}
-		else if (filter == "watermark"){
-			Mat w = imread(watermark);
-			newframe = addWatermark(frame, w, 1, 0, 0);
->>>>>>> doxygen-doc:src/videoPlayer/player.cpp
-		}
-		else if (filter == "rgb2yuv"){
-			newframe = frameRgb2Yuv(frame);
-		}
-		else if (filter == "yuv2rgb"){
-			newframe = frameYuv2Rgb(frame);
-		}
-		else if (filter == "colorhisteq"){
-			newframe = colorHistEqualization(frame);
-		}
-		else if (filter == "grayhisteq"){
-			newframe = grayHistEqualization(frame);
 		}
 		else{
 			newframe = frame;
@@ -135,50 +123,6 @@ void player::display(function<Mat(Mat)> filter=NULL){
 	cap->release();
 	destroyAllWindows();
 }
-
-void player::displayImage(string option, string watermark = ""){
-    Mat img = imread(this->name, 1);
-	Mat newImg;
-
-	if(option == "histogram"){
-		getColorHistograms(img);
-	}
-	else if(option == "grayhisteq"){
-		newImg = grayHistEqualization(img);
-	}
-	else if(option == "colorhisteq"){
-		newImg = colorHistEqualization(img);
-	}
-	else if (option == "grayscale"){
-		newImg = toGrayscale(img);
-	}
-	else if (option == "gaussian"){
-		newImg = gaussianBlur(img, 5, 2);
-	}
-	else if (option == "blur"){
-		newImg = boxFilter(img, Size(5,5));
-	}
-	else if (option == "watermark"){
-		Mat w = imread(watermark);
-		newImg = addWatermark(img, w, 1, 0, 0);
-	}
-	else if (option == "rgb2yuv"){
-		newImg = frameRgb2Yuv(img);
-	}
-	else if (option == "yuv2rgb"){
-		newImg = frameYuv2Rgb(img);
-	}
-	else {
-		newImg = img;
-	}
-
-	if(newImg.rows > 0 && newImg.cols > 0){
-		imshow("image", newImg);  
-		waitKey(0);  
-
-		destroyAllWindows();
-	}
- }
 
 void player::getHistogram(Mat frame, int color){
 	vector<int> histogram(256,0);
@@ -288,7 +232,7 @@ Mat player::addWatermark(Mat frame, Mat watermark, float alpha, int x, int y)
 {
 	for (int row = 0; row < watermark.rows; row++){
 		for (int col = 0; col < watermark.cols; col++){
-			if (col + x < frame.rows && row + y < frame.cols){
+			if (row + x < frame.rows && col + y < frame.cols){
 				frame.at<Vec3b>(row + x, col + y) *= 1 - alpha;
 				frame.at<Vec3b>(row + x, col + y) += watermark.at<Vec3b>(row, col) * alpha;
 			}
@@ -369,14 +313,7 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-	string media = argv[1];
-	player p1(media);
-
-	string delimiter = ".";
-	string ext = media.substr(media.find_last_of(delimiter), media.size()-1);
-	bool isImage = false;
-	if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
-		isImage = true;
+	player p1(argv[1]);
 
 	if(!p1.isOpen()){
 		cout << "Could not open video.\n";
@@ -384,12 +321,24 @@ int main(int argc, char *argv[]){
 	}
 
 	if (argc < 3) {
-        p1.display();
+    	p1.display();
 	}
 
 	string filter = argv[2];
 	if (filter == "grayscale"){
 		p1.display(player::toGrayscale);
+	}
+    else if (filter == "rgb2yuv"){
+		p1.display(player::frameRgb2Yuv);
+	}
+	else if (filter == "yuv2rgb"){
+		p1.display(player::frameYuv2Rgb);
+	}
+	else if (filter == "colorhisteq"){
+		p1.display(player::colorHistEqualization);
+	}
+	else if (filter == "grayhisteq"){
+		p1.display(player::grayHistEqualization);
 	}
 	else if (filter == "threshold"){
 		double threshold = 127;
