@@ -1,0 +1,64 @@
+\hypertarget{player_8cpp}{}\doxysection{src/video\+Player/player.cpp File Reference}
+\label{player_8cpp}\index{src/videoPlayer/player.cpp@{src/videoPlayer/player.cpp}}
+{\ttfamily \#include \char`\"{}opencv2/opencv.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/imgproc/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/plot.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+Include dependency graph for player.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classplayer}{player}}
+\begin{DoxyCompactList}\small\item\em This class represents a video player/image displayer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{player_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{player_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{player_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{player.cpp@{player.cpp}!main@{main}}
+\index{main@{main}!player.cpp@{player.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 226 of file player.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{226           \{}
+\DoxyCodeLine{227     \mbox{\hyperlink{classplayer}{player}} p1(\textcolor{stringliteral}{"vd.mp4"});}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229     \textcolor{keywordflow}{if}(!p1.isOpen())\{}
+\DoxyCodeLine{230         cout << \textcolor{stringliteral}{"error open video"};}
+\DoxyCodeLine{231         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{232     \}}
+\DoxyCodeLine{233      }
+\DoxyCodeLine{234     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{235 \}}
+
+\end{DoxyCode}
+
+
+References player\+::is\+Open().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{player_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}

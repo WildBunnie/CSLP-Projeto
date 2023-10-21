@@ -46,11 +46,12 @@ _deps
 
 # VSCode
 .vscode
-*/build
+src/*/build
 
 # Misc
 *.mp4
 *.jpg
 *.jpeg
+*.png
 *.ppm
 bin/
