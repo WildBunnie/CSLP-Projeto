@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['gaussianblur_108',['gaussianBlur',['../classPlayer.html#a9f17838daa13d7eebeeea35cdfa9d1ba',1,'Player']]],
-  ['getcolorhistograms_109',['getColorHistograms',['../classPlayer.html#a43331bc6540ddd07f4c53d6156e95207',1,'Player']]],
-  ['gethistogram_110',['getHistogram',['../classPlayer.html#a54cd99c10cf2ad36d2ef0835d9a68539',1,'Player']]],
-  ['grayhistequalization_111',['grayHistEqualization',['../classPlayer.html#a4be07ab7f66259f076cc1ac21fab58f3',1,'Player']]]
+  ['framergb2yuv_120',['frameRgb2Yuv',['../classPlayer.html#a01ef153cd72df875fb98ce0f8377736c',1,'Player']]],
+  ['frameyuv2rgb_121',['frameYuv2Rgb',['../classPlayer.html#a60a9dd844d42e062af6ab22687764338',1,'Player']]]
 ];

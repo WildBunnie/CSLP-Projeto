@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7ebitstream_131',['~BitStream',['../classBitStream.html#a63cf0f27c7519417a7984c476a32c9c9',1,'BitStream']]],
-  ['_7eplayer_132',['~Player',['../classPlayer.html#a749d2c00e1fe0f5c2746f7505a58c062',1,'Player']]]
+  ['writebit_144',['writeBit',['../classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411',1,'BitStream']]],
+  ['writebits_145',['writeBits',['../classBitStream.html#a784ff23e6898b19e5e559d913c41343e',1,'BitStream']]],
+  ['writeimage_146',['writeImage',['../classPPMImage.html#ab037ea0019ef4f620586da405817f181',1,'PPMImage']]]
 ];

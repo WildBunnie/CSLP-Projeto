@@ -35,7 +35,7 @@ vector<int>* Golomb::encodeNumber(int number){
     return returnvect;
 }
 
-int Golomb::decodeNumber(int* numbers,int size){
+int Golomb::decodeNumber(int* numbers){
     reminderSizePlus1 = false;
     int quotient = 0;
     do{

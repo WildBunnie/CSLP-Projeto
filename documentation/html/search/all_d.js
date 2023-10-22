@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['readme_60',['README',['../md_src_videoPlayer_README.html',1,'']]],
-  ['readbit_61',['readBit',['../classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01',1,'BitStream']]],
-  ['readbits_62',['readBits',['../classBitStream.html#ac497d64f5a8f58d78f77a5e6bc9f8b96',1,'BitStream']]],
-  ['readme_2emd_63',['README.md',['../README_8md.html',1,'(Global Namespace)'],['../src_2videoPlayer_2README_8md.html',1,'(Global Namespace)']]],
-  ['red_64',['red',['../classRGB.html#ae4955ad7a659f8c12cee1505a8bd37a8',1,'RGB']]],
-  ['rgb_65',['RGB',['../classRGB.html',1,'RGB'],['../classRGB.html#ad89db7b85243c6e71e00a220f1bfb29e',1,'RGB::RGB()']]],
-  ['rpath_66',['rpath',['../videoPlayer_2build_2CMakeFiles_2player_8dir_2link_8txt.html#a9e3695bcbae556d8fb40db9362efec62',1,'rpath():&#160;link.txt'],['../videoPlayer_2build_2CMakeFiles_2Player_8dir_2link_8txt.html#a9ab18457fbb4d9906d42be66c57390be',1,'rpath():&#160;link.txt'],['../videoPlayer_2build_2CMakeFiles_2videoPlayer_8dir_2link_8txt.html#a8af1b20a255d6e353211125dfb9ccf0e',1,'rpath():&#160;link.txt'],['../videoPlayer_2CMakeFiles_2player_8dir_2link_8txt.html#a19d918f1a3a87c6f204bd42b2118951a',1,'rpath():&#160;link.txt'],['../videoPlayer_2CMakeFiles_2videoPlayer_8dir_2link_8txt.html#aeb5eb8a8936d42d899a76d14d5ae69df',1,'rpath():&#160;link.txt']]]
+  ['pixels_59',['pixels',['../classPPMImage.html#af5c94998c6759fd42c28b711b1b3fe41',1,'PPMImage']]],
+  ['platform_5fid_60',['PLATFORM_ID',['../imageManipulation_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../imageManipulation_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp'],['../videoPlayer_2build_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../videoPlayer_2build_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp'],['../videoPlayer_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCCompilerId.c'],['../videoPlayer_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID():&#160;CMakeCXXCompilerId.cpp']]],
+  ['player_61',['Player',['../classPlayer.html',1,'Player'],['../classPlayer.html#a75d4823a9c5af6925dfd7fa1184b1413',1,'Player::Player()']]],
+  ['player_2ecpp_62',['Player.cpp',['../Player_8cpp.html',1,'']]],
+  ['player_2ehpp_63',['Player.hpp',['../Player_8hpp.html',1,'']]],
+  ['ppmimage_64',['PPMImage',['../classPPMImage.html',1,'PPMImage'],['../classPPMImage.html#a6408ba3d2484eff4f27a79f266b440ea',1,'PPMImage::PPMImage()']]],
+  ['ppmimage_2ecpp_65',['PPMImage.cpp',['../PPMImage_8cpp.html',1,'']]],
+  ['ppmimage_2ehpp_66',['PPMImage.hpp',['../PPMImage_8hpp.html',1,'']]],
+  ['printhistogram_67',['printHistogram',['../classPlayer.html#abf0a37b931e2b26e2ec91f110d6b7643',1,'Player']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rgb_83',['RGB',['../classRGB.html',1,'']]]
+  ['player_91',['Player',['../classPlayer.html',1,'']]],
+  ['ppmimage_92',['PPMImage',['../classPPMImage.html',1,'']]]
 ];

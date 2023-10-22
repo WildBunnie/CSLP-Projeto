@@ -1,0 +1,73 @@
+\hypertarget{GolombCoding_2main_8cpp}{}\doxysection{src/\+Golomb\+Coding/main.cpp File Reference}
+\label{GolombCoding_2main_8cpp}\index{src/GolombCoding/main.cpp@{src/GolombCoding/main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}Golomb.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{GolombCoding_2main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{GolombCoding_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{GolombCoding_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{GolombCoding_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7 \{   }
+\DoxyCodeLine{8     \textcolor{comment}{//create Golomb coder with division number}}
+\DoxyCodeLine{9     \mbox{\hyperlink{classGolomb}{Golomb}} coder(10);}
+\DoxyCodeLine{10     vector<int>* res;}
+\DoxyCodeLine{11     \textcolor{comment}{// encode number receive vector with bits(ints)}}
+\DoxyCodeLine{12     res = coder.encodeNumber(46);}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < res-\/>size(); i++)}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         cout << res-\/>at(i);}
+\DoxyCodeLine{17     \}}
+\DoxyCodeLine{18     cout << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{comment}{//creating array for decode}}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} arr[res-\/>size()];}
+\DoxyCodeLine{22     copy(res-\/>begin(),res-\/>end(),arr);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{comment}{//decode array of bits mandar numero de bits+1}}
+\DoxyCodeLine{25     cout << coder.decodeNumber(arr,res-\/>size()) << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{26     \textcolor{comment}{//get se o ultimo bit foi usado ou não}}
+\DoxyCodeLine{27     cout << \textcolor{stringliteral}{"size remainder was bits+1: "} << coder.getLastReminderSizePlus1() << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+
+
+References Golomb\+::decode\+Number(), Golomb\+::encode\+Number(), and Golomb\+::get\+Last\+Reminder\+Size\+Plus1().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{GolombCoding_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089_cgraph}
+\end{center}
+\end{figure}
