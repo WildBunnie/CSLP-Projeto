@@ -38,13 +38,13 @@ class Golomb{
         /**
          * \brief Decodes number.
          *
-         * \param numbers Number encoding.
+         * \param numbers array of bits(ints) of number encoded.
          */
         int decodeNumber(int*);
         /**
          * \brief Gets the value of reminderSizePlus1 variable converted to integer.
          *
-         * \return 1 if the number of bits is equal to bits + 1 and 0 if not.
+         * \return 1 if the number of bits used to decode reminder is equal to bits + 1 and 0 if not.
          */
         int getLastReminderSizePlus1();
 };

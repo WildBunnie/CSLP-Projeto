@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
     copy(res->begin(),res->end(),arr);
 
     //decode array of bits mandar numero de bits+1
-    cout << coder.decodeNumber(arr,res->size()) << "\n";
+    cout << coder.decodeNumber(arr) << "\n";
     //get se o ultimo bit foi usado ou não
     cout << "size remainder was bits+1: " << coder.getLastReminderSizePlus1() << "\n";
 
