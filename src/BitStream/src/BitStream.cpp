@@ -12,7 +12,6 @@ BitStream::BitStream(string name){
 };
 
 void BitStream::close(){
-    bool need_write = 0;
     if(currentBitW <= 8 && currentBitW != 0)
         file.write(reinterpret_cast<char*>(&bitBufferW),1);
     file.close();
