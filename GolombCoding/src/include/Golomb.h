@@ -10,6 +10,7 @@ class Golomb{
     private:
         int m;
         int bits;
+        bool reminderSizePlus1 = false;
     public:
     Golomb(int n){
         m = n;
@@ -40,20 +41,29 @@ class Golomb{
         return returnvect;
     }
     int decodeNumber(int* numbers,int size){
+        reminderSizePlus1 = false;
         int quotient = 0;
         do{
             quotient++;
         } while (numbers[quotient] != 0);
 
         int reminder = 0;
-        for(int i = quotient+1;i < size; i++){
-            reminder |= (numbers[i] << size-(quotient+1)-(i-quotient));
-        }
-        if (reminder >= pow(2,bits+1)-m){
-            reminder = reminder - pow(2,bits+1)+m;
+        for(int i = quotient+1;i < (quotient+1+bits); i++){
+            reminder |= (numbers[i] << quotient+bits-i);
         }
 
+        if (reminder >= pow(2,bits+1)-m){
+            reminderSizePlus1 = true;
+            reminder = 0;
+            for(int i = quotient+1;i < (quotient+1+bits+1); i++){
+                reminder |= (numbers[i] << quotient+bits+1-i);
+            }
+            reminder = reminder - pow(2,bits+1)+m;
+        }
         return quotient*m+reminder;
         
+    }
+    int getLastReminderSizePlus1(){
+        return reminderSizePlus1;
     }
 };

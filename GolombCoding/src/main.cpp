@@ -4,10 +4,12 @@
 using namespace std;
 
 int main(int argc, char const *argv[])
-{
+{   
+    //create Golomb coder with division number
     Golomb coder(10);
     vector<int>* res;
-    res = coder.encodeNumber(42);
+    // encode number receive vector with bits(ints)
+    res = coder.encodeNumber(46);
 
     for (int i = 0; i < res->size(); i++)
     {
@@ -15,9 +17,15 @@ int main(int argc, char const *argv[])
     }
     cout << "\n";
 
+    //creating array for decode
     int arr[res->size()];
     copy(res->begin(),res->end(),arr);
+
+    //decode array of bits mandar numero de bits+1
     cout << coder.decodeNumber(arr,res->size()) << "\n";
+    //get se o ultimo bit foi usado ou não
+    cout << "size remainder was bits+1: " << coder.getLastReminderSizePlus1() << "\n";
+
     
 
     return 0;
