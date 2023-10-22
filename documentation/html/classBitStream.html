@@ -70,45 +70,63 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class to read/write bits from/to a file.  
+ <a href="classBitStream.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="BitStream_8h_source.html">BitStream.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acc9c679f997c54c8b4e51443bfde735b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#acc9c679f997c54c8b4e51443bfde735b">BitStream</a> (string)</td></tr>
+<tr class="memdesc:acc9c679f997c54c8b4e51443bfde735b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classBitStream.html#acc9c679f997c54c8b4e51443bfde735b">More...</a><br /></td></tr>
 <tr class="separator:acc9c679f997c54c8b4e51443bfde735b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63cf0f27c7519417a7984c476a32c9c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a63cf0f27c7519417a7984c476a32c9c9">~BitStream</a> ()</td></tr>
+<tr class="memdesc:a63cf0f27c7519417a7984c476a32c9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classBitStream.html#a63cf0f27c7519417a7984c476a32c9c9">More...</a><br /></td></tr>
 <tr class="separator:a63cf0f27c7519417a7984c476a32c9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17a01273ccc12e3c0a1045a010736a8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e">close</a> ()</td></tr>
+<tr class="memdesc:a17a01273ccc12e3c0a1045a010736a8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes any remaining bits and closes the file stream.  <a href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e">More...</a><br /></td></tr>
 <tr class="separator:a17a01273ccc12e3c0a1045a010736a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cb7cab30aaf16112db334abdd31ee57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a1cb7cab30aaf16112db334abdd31ee57">open</a> (string)</td></tr>
+<tr class="memdesc:a1cb7cab30aaf16112db334abdd31ee57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file as a filestream.  <a href="classBitStream.html#a1cb7cab30aaf16112db334abdd31ee57">More...</a><br /></td></tr>
 <tr class="separator:a1cb7cab30aaf16112db334abdd31ee57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a677f298f778c512070e23f267c050be8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a677f298f778c512070e23f267c050be8">hasNext</a> ()</td></tr>
+<tr class="memdesc:a677f298f778c512070e23f267c050be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the file stream has bits left to read.  <a href="classBitStream.html#a677f298f778c512070e23f267c050be8">More...</a><br /></td></tr>
 <tr class="separator:a677f298f778c512070e23f267c050be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a81dbad86d46fde7ee9b943031fc411"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411">writeBit</a> (int)</td></tr>
+<tr class="memdesc:a0a81dbad86d46fde7ee9b943031fc411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a single bit to the file stream.  <a href="classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411">More...</a><br /></td></tr>
 <tr class="separator:a0a81dbad86d46fde7ee9b943031fc411"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a784ff23e6898b19e5e559d913c41343e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a784ff23e6898b19e5e559d913c41343e">writeBits</a> (int *, int)</td></tr>
+<tr class="memdesc:a784ff23e6898b19e5e559d913c41343e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an array of bits to the file stream.  <a href="classBitStream.html#a784ff23e6898b19e5e559d913c41343e">More...</a><br /></td></tr>
 <tr class="separator:a784ff23e6898b19e5e559d913c41343e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bebf59fe9379dbdefb4647fdd2ddf01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01">readBit</a> ()</td></tr>
+<tr class="memdesc:a4bebf59fe9379dbdefb4647fdd2ddf01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a single bit from the file stream.  <a href="classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01">More...</a><br /></td></tr>
 <tr class="separator:a4bebf59fe9379dbdefb4647fdd2ddf01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac497d64f5a8f58d78f77a5e6bc9f8b96"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#ac497d64f5a8f58d78f77a5e6bc9f8b96">readBits</a> (int)</td></tr>
+<tr class="memdesc:ac497d64f5a8f58d78f77a5e6bc9f8b96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an array of bits from the file stream.  <a href="classBitStream.html#ac497d64f5a8f58d78f77a5e6bc9f8b96">More...</a><br /></td></tr>
 <tr class="separator:ac497d64f5a8f58d78f77a5e6bc9f8b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:adf0687ded8bcbb3a852fce3ae709fee9"><td class="memItemLeft" align="right" valign="top">fstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a></td></tr>
+<tr class="memdesc:adf0687ded8bcbb3a852fce3ae709fee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file stream.  <a href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">More...</a><br /></td></tr>
 <tr class="separator:adf0687ded8bcbb3a852fce3ae709fee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aede5db0b8475004c85e1214037f82eb4"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#aede5db0b8475004c85e1214037f82eb4">bitBufferW</a> = 0</td></tr>
-<tr class="separator:aede5db0b8475004c85e1214037f82eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a469052d4d39abbac5f89317171065eae"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a469052d4d39abbac5f89317171065eae">bitBufferW</a> = 0</td></tr>
+<tr class="memdesc:a469052d4d39abbac5f89317171065eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit buffer used for writing in a file.  <a href="classBitStream.html#a469052d4d39abbac5f89317171065eae">More...</a><br /></td></tr>
+<tr class="separator:a469052d4d39abbac5f89317171065eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f47ac9701fa8aeaaa8f4edd1c7988b4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a> = 0</td></tr>
+<tr class="memdesc:a5f47ac9701fa8aeaaa8f4edd1c7988b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit counter used when writing to a file.  <a href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">More...</a><br /></td></tr>
 <tr class="separator:a5f47ac9701fa8aeaaa8f4edd1c7988b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb3953ac3afcf5fcf8c4f79dea75d3e2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2">bitBufferR</a> = 0</td></tr>
+<tr class="memdesc:afb3953ac3afcf5fcf8c4f79dea75d3e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit buffer used for reading from a file.  <a href="classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2">More...</a><br /></td></tr>
 <tr class="separator:afb3953ac3afcf5fcf8c4f79dea75d3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c6b25ceeffbd56ff2239ccc5af47837"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a> = 0</td></tr>
+<tr class="memdesc:a4c6b25ceeffbd56ff2239ccc5af47837"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit counter used when reading from a file.  <a href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">More...</a><br /></td></tr>
 <tr class="separator:a4c6b25ceeffbd56ff2239ccc5af47837"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00007">7</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
+<div class="textblock"><p>A class to read/write bits from/to a file. </p>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00011">11</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acc9c679f997c54c8b4e51443bfde735b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc9c679f997c54c8b4e51443bfde735b">&#9670;&nbsp;</a></span>BitStream()</h2>
@@ -126,12 +144,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00007">7</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;                               {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    std::ofstream output(name);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    output.close();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.open(name,ios_base::out|ios_base::in);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The file path. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00008">8</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                               {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    std::ofstream output(name);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    output.close();</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.open(name,ios_base::out|ios_base::in);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -150,11 +176,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00021">21</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                     {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e">BitStream::close</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<p>Destructor. </p>
+<p>Calls the function <a class="el" href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e" title="Writes any remaining bits and closes the file stream.">close()</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00024">24</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                     {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e">BitStream::close</a>();  </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e">close()</a>.</p>
 <div class="dynheader">
@@ -162,8 +190,8 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBitStream_a63cf0f27c7519417a7984c476a32c9c9_cgraph.png" border="0" usemap="#classBitStream_a63cf0f27c7519417a7984c476a32c9c9_cgraph" alt=""/></div>
 <map name="classBitStream_a63cf0f27c7519417a7984c476a32c9c9_cgraph" id="classBitStream_a63cf0f27c7519417a7984c476a32c9c9_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,176,32"/>
-<area shape="rect" href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e" title=" " alt="" coords="224,5,353,32"/>
+<area shape="rect" title="Destructor." alt="" coords="5,5,176,32"/>
+<area shape="rect" href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e" title="Writes any remaining bits and closes the file stream." alt="" coords="224,5,353,32"/>
 </map>
 </div>
 
@@ -185,13 +213,14 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00012">12</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                     {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">bool</span> need_write = 0;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a> &lt;= 8 &amp;&amp; <a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a> != 0)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.write(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;<a class="code" href="classBitStream.html#aede5db0b8475004c85e1214037f82eb4">bitBufferW</a>),1);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.close();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<p>Writes any remaining bits and closes the file stream. </p>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00014">14</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                     {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a> &lt;= 8 &amp;&amp; <a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a> != 0)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.write(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;<a class="code" href="classBitStream.html#a469052d4d39abbac5f89317171065eae">bitBufferW</a>),1);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.close();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main()</a>, and <a class="el" href="classBitStream.html#a63cf0f27c7519417a7984c476a32c9c9">~BitStream()</a>.</p>
 <div class="dynheader">
@@ -199,9 +228,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBitStream_a17a01273ccc12e3c0a1045a010736a8e_icgraph.png" border="0" usemap="#classBitStream_a17a01273ccc12e3c0a1045a010736a8e_icgraph" alt=""/></div>
 <map name="classBitStream_a17a01273ccc12e3c0a1045a010736a8e_icgraph" id="classBitStream_a17a01273ccc12e3c0a1045a010736a8e_icgraph">
-<area shape="rect" title=" " alt="" coords="224,31,353,57"/>
+<area shape="rect" title="Writes any remaining bits and closes the file stream." alt="" coords="224,31,353,57"/>
 <area shape="rect" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089" title=" " alt="" coords="63,5,118,32"/>
-<area shape="rect" href="classBitStream.html#a63cf0f27c7519417a7984c476a32c9c9" title=" " alt="" coords="5,56,176,83"/>
+<area shape="rect" href="classBitStream.html#a63cf0f27c7519417a7984c476a32c9c9" title="Destructor." alt="" coords="5,56,176,83"/>
 </map>
 </div>
 
@@ -222,14 +251,17 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00025">25</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                       {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a> &lt; 8)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.peek() != EOF)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<p>Checks if the file stream has bits left to read. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if there are remaining bits, false if there are not. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00028">28</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                       {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a> &lt; 8)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.peek() != EOF)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -249,10 +281,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00018">18</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                               {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.open(name);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<p>Opens a file as a filestream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The file path. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00020">20</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                               {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.open(name);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main()</a>.</p>
 <div class="dynheader">
@@ -260,7 +300,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBitStream_a1cb7cab30aaf16112db334abdd31ee57_icgraph.png" border="0" usemap="#classBitStream_a1cb7cab30aaf16112db334abdd31ee57_icgraph" alt=""/></div>
 <map name="classBitStream_a1cb7cab30aaf16112db334abdd31ee57_icgraph" id="classBitStream_a1cb7cab30aaf16112db334abdd31ee57_icgraph">
-<area shape="rect" title=" " alt="" coords="108,5,235,32"/>
+<area shape="rect" title="Opens a file as a filestream." alt="" coords="108,5,235,32"/>
 <area shape="rect" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089" title=" " alt="" coords="5,5,60,32"/>
 </map>
 </div>
@@ -282,17 +322,20 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00053">53</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                      {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">char</span> returnChar;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a> &gt;= 8 || <a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a> == 0){</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a> = 0; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.read(&amp;<a class="code" href="classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2">bitBufferR</a>,<span class="keyword">sizeof</span>(<span class="keywordtype">char</span>));</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    returnChar = <a class="code" href="classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2">bitBufferR</a>&gt;&gt;(7-<a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a>) &amp; 1;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a>++;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> returnChar;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<p>Reads a single bit from the file stream. </p>
+<dl class="section return"><dt>Returns</dt><dd>The bit read. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00057">57</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                      {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">char</span> returnChar;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a> &gt;= 8 || <a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a> == 0){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a> = 0; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.read(&amp;<a class="code" href="classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2">bitBufferR</a>,<span class="keyword">sizeof</span>(<span class="keywordtype">char</span>));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    returnChar = <a class="code" href="classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2">bitBufferR</a>&gt;&gt;(7-<a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a>) &amp; 1;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">currentBitR</a>++;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> returnChar;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main()</a>.</p>
 <div class="dynheader">
@@ -300,7 +343,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBitStream_a4bebf59fe9379dbdefb4647fdd2ddf01_icgraph.png" border="0" usemap="#classBitStream_a4bebf59fe9379dbdefb4647fdd2ddf01_icgraph" alt=""/></div>
 <map name="classBitStream_a4bebf59fe9379dbdefb4647fdd2ddf01_icgraph" id="classBitStream_a4bebf59fe9379dbdefb4647fdd2ddf01_icgraph">
-<area shape="rect" title=" " alt="" coords="108,5,251,32"/>
+<area shape="rect" title="Reads a single bit from the file stream." alt="" coords="108,5,251,32"/>
 <area shape="rect" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089" title=" " alt="" coords="5,5,60,32"/>
 </map>
 </div>
@@ -323,17 +366,26 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00064">64</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                             {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">int</span>* arr = (<span class="keywordtype">int</span>*)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>)*n);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; n; i++)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        arr[i] = <a class="code" href="classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01">readBit</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> arr;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<p>Reads an array of bits from the file stream. </p>
+<dl class="section return"><dt>Returns</dt><dd>The bit array read. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>how many bits to be read. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00068">68</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                             {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span>* arr = (<span class="keywordtype">int</span>*)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>)*n);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; n; i++)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        arr[i] = <a class="code" href="classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01">readBit</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> arr;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main()</a>.</p>
 <div class="dynheader">
@@ -341,7 +393,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBitStream_ac497d64f5a8f58d78f77a5e6bc9f8b96_icgraph.png" border="0" usemap="#classBitStream_ac497d64f5a8f58d78f77a5e6bc9f8b96_icgraph" alt=""/></div>
 <map name="classBitStream_ac497d64f5a8f58d78f77a5e6bc9f8b96_icgraph" id="classBitStream_ac497d64f5a8f58d78f77a5e6bc9f8b96_icgraph">
-<area shape="rect" title=" " alt="" coords="108,5,257,32"/>
+<area shape="rect" title="Reads an array of bits from the file stream." alt="" coords="108,5,257,32"/>
 <area shape="rect" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089" title=" " alt="" coords="5,5,60,32"/>
 </map>
 </div>
@@ -364,20 +416,28 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00032">32</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                               {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span> (bit)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="classBitStream.html#aede5db0b8475004c85e1214037f82eb4">bitBufferW</a> |= (1&lt;&lt;7-<a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a>++;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a> == 8)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {  </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.write(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;<a class="code" href="classBitStream.html#aede5db0b8475004c85e1214037f82eb4">bitBufferW</a>),1);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a> = 0;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classBitStream.html#aede5db0b8475004c85e1214037f82eb4">bitBufferW</a> = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<p>Writes a single bit to the file stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bit</td><td>the bit to be written. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00036">36</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                               {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (bit)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="classBitStream.html#a469052d4d39abbac5f89317171065eae">bitBufferW</a> |= (1&lt;&lt;7-<a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a>++;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a> == 8)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {  </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">file</a>.write(<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;<a class="code" href="classBitStream.html#a469052d4d39abbac5f89317171065eae">bitBufferW</a>),1);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">currentBitW</a> = 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classBitStream.html#a469052d4d39abbac5f89317171065eae">bitBufferW</a> = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main()</a>.</p>
 <div class="dynheader">
@@ -385,7 +445,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBitStream_a0a81dbad86d46fde7ee9b943031fc411_icgraph.png" border="0" usemap="#classBitStream_a0a81dbad86d46fde7ee9b943031fc411_icgraph" alt=""/></div>
 <map name="classBitStream_a0a81dbad86d46fde7ee9b943031fc411_icgraph" id="classBitStream_a0a81dbad86d46fde7ee9b943031fc411_icgraph">
-<area shape="rect" title=" " alt="" coords="108,5,255,32"/>
+<area shape="rect" title="Writes a single bit to the file stream." alt="" coords="108,5,255,32"/>
 <area shape="rect" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089" title=" " alt="" coords="5,5,60,32"/>
 </map>
 </div>
@@ -418,13 +478,22 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00046">46</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                           {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; size; i++){</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411">writeBit</a>(bits[i]);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<p>Writes an array of bits to the file stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bit</td><td>the array of bits to be written. </td></tr>
+    <tr><td class="paramname">size</td><td>the size of the bit array. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8cpp_source.html#l00050">50</a> of file <a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                           {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; size; i++){</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411">writeBit</a>(bits[i]);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main()</a>.</p>
 <div class="dynheader">
@@ -432,7 +501,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBitStream_a784ff23e6898b19e5e559d913c41343e_icgraph.png" border="0" usemap="#classBitStream_a784ff23e6898b19e5e559d913c41343e_icgraph" alt=""/></div>
 <map name="classBitStream_a784ff23e6898b19e5e559d913c41343e_icgraph" id="classBitStream_a784ff23e6898b19e5e559d913c41343e_icgraph">
-<area shape="rect" title=" " alt="" coords="108,5,261,32"/>
+<area shape="rect" title="Writes an array of bits to the file stream." alt="" coords="108,5,261,32"/>
 <area shape="rect" href="main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089" title=" " alt="" coords="5,5,60,32"/>
 </map>
 </div>
@@ -460,12 +529,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00012">12</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
+<p>Bit buffer used for reading from a file. </p>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00032">32</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
 
 </div>
 </div>
-<a id="aede5db0b8475004c85e1214037f82eb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aede5db0b8475004c85e1214037f82eb4">&#9670;&nbsp;</a></span>bitBufferW</h2>
+<a id="a469052d4d39abbac5f89317171065eae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a469052d4d39abbac5f89317171065eae">&#9670;&nbsp;</a></span>bitBufferW</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -474,7 +545,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned BitStream::bitBufferW = 0</td>
+          <td class="memname">char BitStream::bitBufferW = 0</td>
         </tr>
       </table>
   </td>
@@ -484,7 +555,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00010">10</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
+<p>Bit buffer used for writing in a file. </p>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00022">22</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
 
 </div>
 </div>
@@ -508,7 +581,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00013">13</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
+<p>Bit counter used when reading from a file. </p>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00037">37</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
 
 </div>
 </div>
@@ -532,7 +607,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00011">11</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
+<p>Bit counter used when writing to a file. </p>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00027">27</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
 
 </div>
 </div>
@@ -556,7 +633,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00009">9</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
+<p>The file stream. </p>
+
+<p class="definition">Definition at line <a class="el" href="BitStream_8h_source.html#l00017">17</a> of file <a class="el" href="BitStream_8h_source.html">BitStream.h</a>.</p>
 
 </div>
 </div>
@@ -565,14 +644,14 @@ Here is the caller graph for this function:</div>
 <li>src/BitStream/src/<a class="el" href="BitStream_8cpp_source.html">BitStream.cpp</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclassBitStream_html_a5f47ac9701fa8aeaaa8f4edd1c7988b4"><div class="ttname"><a href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">BitStream::currentBitW</a></div><div class="ttdeci">unsigned int currentBitW</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00011">BitStream.h:11</a></div></div>
-<div class="ttc" id="aclassBitStream_html_adf0687ded8bcbb3a852fce3ae709fee9"><div class="ttname"><a href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">BitStream::file</a></div><div class="ttdeci">fstream file</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00009">BitStream.h:9</a></div></div>
-<div class="ttc" id="aclassBitStream_html_a17a01273ccc12e3c0a1045a010736a8e"><div class="ttname"><a href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e">BitStream::close</a></div><div class="ttdeci">void close()</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8cpp_source.html#l00012">BitStream.cpp:12</a></div></div>
-<div class="ttc" id="aclassBitStream_html_a4c6b25ceeffbd56ff2239ccc5af47837"><div class="ttname"><a href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">BitStream::currentBitR</a></div><div class="ttdeci">unsigned int currentBitR</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00013">BitStream.h:13</a></div></div>
-<div class="ttc" id="aclassBitStream_html_aede5db0b8475004c85e1214037f82eb4"><div class="ttname"><a href="classBitStream.html#aede5db0b8475004c85e1214037f82eb4">BitStream::bitBufferW</a></div><div class="ttdeci">unsigned bitBufferW</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00010">BitStream.h:10</a></div></div>
-<div class="ttc" id="aclassBitStream_html_afb3953ac3afcf5fcf8c4f79dea75d3e2"><div class="ttname"><a href="classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2">BitStream::bitBufferR</a></div><div class="ttdeci">char bitBufferR</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00012">BitStream.h:12</a></div></div>
-<div class="ttc" id="aclassBitStream_html_a0a81dbad86d46fde7ee9b943031fc411"><div class="ttname"><a href="classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411">BitStream::writeBit</a></div><div class="ttdeci">void writeBit(int)</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8cpp_source.html#l00032">BitStream.cpp:32</a></div></div>
-<div class="ttc" id="aclassBitStream_html_a4bebf59fe9379dbdefb4647fdd2ddf01"><div class="ttname"><a href="classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01">BitStream::readBit</a></div><div class="ttdeci">int readBit()</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8cpp_source.html#l00053">BitStream.cpp:53</a></div></div>
+<div class="ttc" id="aclassBitStream_html_a5f47ac9701fa8aeaaa8f4edd1c7988b4"><div class="ttname"><a href="classBitStream.html#a5f47ac9701fa8aeaaa8f4edd1c7988b4">BitStream::currentBitW</a></div><div class="ttdeci">unsigned int currentBitW</div><div class="ttdoc">Bit counter used when writing to a file.</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00027">BitStream.h:27</a></div></div>
+<div class="ttc" id="aclassBitStream_html_a469052d4d39abbac5f89317171065eae"><div class="ttname"><a href="classBitStream.html#a469052d4d39abbac5f89317171065eae">BitStream::bitBufferW</a></div><div class="ttdeci">char bitBufferW</div><div class="ttdoc">Bit buffer used for writing in a file.</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00022">BitStream.h:22</a></div></div>
+<div class="ttc" id="aclassBitStream_html_adf0687ded8bcbb3a852fce3ae709fee9"><div class="ttname"><a href="classBitStream.html#adf0687ded8bcbb3a852fce3ae709fee9">BitStream::file</a></div><div class="ttdeci">fstream file</div><div class="ttdoc">The file stream.</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00017">BitStream.h:17</a></div></div>
+<div class="ttc" id="aclassBitStream_html_a17a01273ccc12e3c0a1045a010736a8e"><div class="ttname"><a href="classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e">BitStream::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Writes any remaining bits and closes the file stream.</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8cpp_source.html#l00014">BitStream.cpp:14</a></div></div>
+<div class="ttc" id="aclassBitStream_html_a4c6b25ceeffbd56ff2239ccc5af47837"><div class="ttname"><a href="classBitStream.html#a4c6b25ceeffbd56ff2239ccc5af47837">BitStream::currentBitR</a></div><div class="ttdeci">unsigned int currentBitR</div><div class="ttdoc">Bit counter used when reading from a file.</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00037">BitStream.h:37</a></div></div>
+<div class="ttc" id="aclassBitStream_html_afb3953ac3afcf5fcf8c4f79dea75d3e2"><div class="ttname"><a href="classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2">BitStream::bitBufferR</a></div><div class="ttdeci">char bitBufferR</div><div class="ttdoc">Bit buffer used for reading from a file.</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8h_source.html#l00032">BitStream.h:32</a></div></div>
+<div class="ttc" id="aclassBitStream_html_a0a81dbad86d46fde7ee9b943031fc411"><div class="ttname"><a href="classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411">BitStream::writeBit</a></div><div class="ttdeci">void writeBit(int)</div><div class="ttdoc">Writes a single bit to the file stream.</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8cpp_source.html#l00036">BitStream.cpp:36</a></div></div>
+<div class="ttc" id="aclassBitStream_html_a4bebf59fe9379dbdefb4647fdd2ddf01"><div class="ttname"><a href="classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01">BitStream::readBit</a></div><div class="ttdeci">int readBit()</div><div class="ttdoc">Reads a single bit from the file stream.</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_8cpp_source.html#l00057">BitStream.cpp:57</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,5 +1,5 @@
 <map id="main" name="main">
 <area shape="rect" id="node1" title=" " alt="" coords="5,31,60,57"/>
-<area shape="rect" id="node2" href="$classPPMImage.html#adef5519d521e477301fda5dc35b13274" title=" " alt="" coords="111,5,279,32"/>
-<area shape="rect" id="node3" href="$classPPMImage.html#a97bed921dc7d084644f132b55a55395b" title=" " alt="" coords="108,56,281,83"/>
+<area shape="rect" id="node2" href="$classPPMImage.html#a89b474250158bbad1c20100f354ad452" title="Loads PPM image." alt="" coords="111,5,279,32"/>
+<area shape="rect" id="node3" href="$classPPMImage.html#ab037ea0019ef4f620586da405817f181" title="Writes PPM image." alt="" coords="108,56,281,83"/>
 </map>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['bitbufferr_2',['bitBufferR',['../classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2',1,'BitStream']]],
-  ['bitbufferw_3',['bitBufferW',['../classBitStream.html#aede5db0b8475004c85e1214037f82eb4',1,'BitStream']]],
+  ['bitbufferw_3',['bitBufferW',['../classBitStream.html#a469052d4d39abbac5f89317171065eae',1,'BitStream']]],
   ['bitstream_4',['BitStream',['../classBitStream.html',1,'BitStream'],['../classBitStream.html#acc9c679f997c54c8b4e51443bfde735b',1,'BitStream::BitStream()']]],
   ['bitstream_2ecpp_5',['BitStream.cpp',['../BitStream_8cpp.html',1,'']]],
   ['bitstream_2eh_6',['BitStream.h',['../BitStream_8h.html',1,'']]],

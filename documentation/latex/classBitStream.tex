@@ -2,48 +2,55 @@
 \label{classBitStream}\index{BitStream@{BitStream}}
 
 
+A class to read/write bits from/to a file.  
+
+
+
+
 {\ttfamily \#include $<$Bit\+Stream.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classBitStream_acc9c679f997c54c8b4e51443bfde735b}{Bit\+Stream}} (string)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classBitStream_a63cf0f27c7519417a7984c476a32c9c9}{$\sim$\+Bit\+Stream}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBitStream_a17a01273ccc12e3c0a1045a010736a8e}{close}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Writes any remaining bits and closes the file stream. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBitStream_a1cb7cab30aaf16112db334abdd31ee57}{open}} (string)
-\item 
+\begin{DoxyCompactList}\small\item\em Opens a file as a filestream. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classBitStream_a677f298f778c512070e23f267c050be8}{has\+Next}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Checks if the file stream has bits left to read. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBitStream_a0a81dbad86d46fde7ee9b943031fc411}{write\+Bit}} (int)
-\item 
+\begin{DoxyCompactList}\small\item\em Writes a single bit to the file stream. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBitStream_a784ff23e6898b19e5e559d913c41343e}{write\+Bits}} (int $\ast$, int)
-\item 
+\begin{DoxyCompactList}\small\item\em Writes an array of bits to the file stream. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classBitStream_a4bebf59fe9379dbdefb4647fdd2ddf01}{read\+Bit}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Reads a single bit from the file stream. \end{DoxyCompactList}\item 
 int $\ast$ \mbox{\hyperlink{classBitStream_ac497d64f5a8f58d78f77a5e6bc9f8b96}{read\+Bits}} (int)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Reads an array of bits from the file stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 fstream \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}
-\item 
-unsigned \mbox{\hyperlink{classBitStream_aede5db0b8475004c85e1214037f82eb4}{bit\+BufferW}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em The file stream. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classBitStream_a469052d4d39abbac5f89317171065eae}{bit\+BufferW}} = 0
+\begin{DoxyCompactList}\small\item\em Bit buffer used for writing in a file. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{current\+BitW}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Bit counter used when writing to a file. \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{classBitStream_afb3953ac3afcf5fcf8c4f79dea75d3e2}{bit\+BufferR}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Bit buffer used for reading from a file. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{current\+BitR}} = 0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Bit counter used when reading from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A class to read/write bits from/to a file. 
 
 
-Definition at line 7 of file Bit\+Stream.\+h.
+
+Definition at line 11 of file Bit\+Stream.\+h.
 
 
 
@@ -56,15 +63,24 @@ Definition at line 7 of file Bit\+Stream.\+h.
 
 
 
-Definition at line 7 of file Bit\+Stream.\+cpp.
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The file path. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file Bit\+Stream.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{7                                \{}
-\DoxyCodeLine{8     std::ofstream output(name);}
-\DoxyCodeLine{9     output.close();}
-\DoxyCodeLine{10     \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.open(name,ios\_base::out|ios\_base::in);}
-\DoxyCodeLine{11 \};}
+\DoxyCodeLine{8                                \{}
+\DoxyCodeLine{9     std::ofstream output(name);}
+\DoxyCodeLine{10     output.close();}
+\DoxyCodeLine{11     \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.open(name,ios\_base::out|ios\_base::in);}
+\DoxyCodeLine{12 \};}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classBitStream_a63cf0f27c7519417a7984c476a32c9c9}\label{classBitStream_a63cf0f27c7519417a7984c476a32c9c9}} 
@@ -75,21 +91,25 @@ Definition at line 7 of file Bit\+Stream.\+cpp.
 
 
 
-Definition at line 21 of file Bit\+Stream.\+cpp.
+Destructor. 
+
+Calls the function \mbox{\hyperlink{classBitStream_a17a01273ccc12e3c0a1045a010736a8e}{close()}}. 
+
+Definition at line 24 of file Bit\+Stream.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{21                      \{}
-\DoxyCodeLine{22     \mbox{\hyperlink{classBitStream_a17a01273ccc12e3c0a1045a010736a8e}{BitStream::close}}();}
-\DoxyCodeLine{23     }
-\DoxyCodeLine{24 \}}
+\DoxyCodeLine{24                      \{}
+\DoxyCodeLine{25     \mbox{\hyperlink{classBitStream_a17a01273ccc12e3c0a1045a010736a8e}{BitStream::close}}();  }
+\DoxyCodeLine{26 \}}
 
 \end{DoxyCode}
 
 
 References close().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -107,23 +127,27 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-Definition at line 12 of file Bit\+Stream.\+cpp.
+Writes any remaining bits and closes the file stream. 
+
+
+
+Definition at line 14 of file Bit\+Stream.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{12                      \{}
-\DoxyCodeLine{13     \textcolor{keywordtype}{bool} need\_write = 0;}
-\DoxyCodeLine{14     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}} <= 8 \&\& \mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}} != 0)}
-\DoxyCodeLine{15         \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{classBitStream_aede5db0b8475004c85e1214037f82eb4}{bitBufferW}}),1);}
-\DoxyCodeLine{16     \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.close();}
-\DoxyCodeLine{17 \}}
+\DoxyCodeLine{14                      \{}
+\DoxyCodeLine{15     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}} <= 8 \&\& \mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}} != 0)}
+\DoxyCodeLine{16         \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{classBitStream_a469052d4d39abbac5f89317171065eae}{bitBufferW}}),1);}
+\DoxyCodeLine{17     \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.close();}
+\DoxyCodeLine{18 \}}
 
 \end{DoxyCode}
 
 
 Referenced by main(), and $\sim$\+Bit\+Stream().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -138,17 +162,24 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-Definition at line 25 of file Bit\+Stream.\+cpp.
+Checks if the file stream has bits left to read. 
+
+\begin{DoxyReturn}{Returns}
+true if there are remaining bits, false if there are not. 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file Bit\+Stream.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{25                        \{}
-\DoxyCodeLine{26     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}} < 8)}
-\DoxyCodeLine{27         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{28     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.peek() != EOF)}
-\DoxyCodeLine{29         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{30     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{31 \}}
+\DoxyCodeLine{28                        \{}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}} < 8)}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.peek() != EOF)}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{33     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{34 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classBitStream_a1cb7cab30aaf16112db334abdd31ee57}\label{classBitStream_a1cb7cab30aaf16112db334abdd31ee57}} 
@@ -159,20 +190,30 @@ Definition at line 25 of file Bit\+Stream.\+cpp.
 
 
 
-Definition at line 18 of file Bit\+Stream.\+cpp.
+Opens a file as a filestream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The file path. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file Bit\+Stream.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{18                                \{}
-\DoxyCodeLine{19     \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.open(name);}
-\DoxyCodeLine{20 \}}
+\DoxyCodeLine{20                                \{}
+\DoxyCodeLine{21     \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.open(name);}
+\DoxyCodeLine{22 \}}
 
 \end{DoxyCode}
 
 
 Referenced by main().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -187,27 +228,35 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-Definition at line 53 of file Bit\+Stream.\+cpp.
+Reads a single bit from the file stream. 
+
+\begin{DoxyReturn}{Returns}
+The bit read. 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file Bit\+Stream.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{53                       \{}
-\DoxyCodeLine{54     \textcolor{keywordtype}{char} returnChar;}
-\DoxyCodeLine{55     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}} >= 8 || \mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}} == 0)\{}
-\DoxyCodeLine{56         \mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}} = 0; }
-\DoxyCodeLine{57         \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.read(\&\mbox{\hyperlink{classBitStream_afb3953ac3afcf5fcf8c4f79dea75d3e2}{bitBufferR}},\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
-\DoxyCodeLine{58     \}}
-\DoxyCodeLine{59     returnChar = \mbox{\hyperlink{classBitStream_afb3953ac3afcf5fcf8c4f79dea75d3e2}{bitBufferR}}>>(7-\/\mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}}) \& 1;}
-\DoxyCodeLine{60     \mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}}++;}
-\DoxyCodeLine{61     \textcolor{keywordflow}{return} returnChar;}
-\DoxyCodeLine{62 \}}
+\DoxyCodeLine{57                       \{}
+\DoxyCodeLine{58     \textcolor{keywordtype}{char} returnChar;}
+\DoxyCodeLine{59     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}} >= 8 || \mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}} == 0)\{}
+\DoxyCodeLine{60         \mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}} = 0; }
+\DoxyCodeLine{61         \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.read(\&\mbox{\hyperlink{classBitStream_afb3953ac3afcf5fcf8c4f79dea75d3e2}{bitBufferR}},\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63     returnChar = \mbox{\hyperlink{classBitStream_afb3953ac3afcf5fcf8c4f79dea75d3e2}{bitBufferR}}>>(7-\/\mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}}) \& 1;}
+\DoxyCodeLine{64     \mbox{\hyperlink{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}{currentBitR}}++;}
+\DoxyCodeLine{65     \textcolor{keywordflow}{return} returnChar;}
+\DoxyCodeLine{66 \}}
 
 \end{DoxyCode}
 
 
 Referenced by main().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -222,27 +271,40 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-Definition at line 64 of file Bit\+Stream.\+cpp.
+Reads an array of bits from the file stream. 
+
+\begin{DoxyReturn}{Returns}
+The bit array read. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & how many bits to be read. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 68 of file Bit\+Stream.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{64                              \{}
-\DoxyCodeLine{65     \textcolor{keywordtype}{int}* arr = (\textcolor{keywordtype}{int}*)malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})*n);}
-\DoxyCodeLine{66     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < n; i++)}
-\DoxyCodeLine{67     \{}
-\DoxyCodeLine{68         arr[i] = \mbox{\hyperlink{classBitStream_a4bebf59fe9379dbdefb4647fdd2ddf01}{readBit}}();}
-\DoxyCodeLine{69     \}}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{71     \textcolor{keywordflow}{return} arr;}
-\DoxyCodeLine{72     }
-\DoxyCodeLine{73 \}}
+\DoxyCodeLine{68                              \{}
+\DoxyCodeLine{69     \textcolor{keywordtype}{int}* arr = (\textcolor{keywordtype}{int}*)malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})*n);}
+\DoxyCodeLine{70     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < n; i++)}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72         arr[i] = \mbox{\hyperlink{classBitStream_a4bebf59fe9379dbdefb4647fdd2ddf01}{readBit}}();}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordflow}{return} arr;}
+\DoxyCodeLine{76     }
+\DoxyCodeLine{77 \}}
 
 \end{DoxyCode}
 
 
 Referenced by main().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -257,30 +319,40 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-Definition at line 32 of file Bit\+Stream.\+cpp.
+Writes a single bit to the file stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit} & the bit to be written. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file Bit\+Stream.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{32                                \{}
-\DoxyCodeLine{33     \textcolor{keywordflow}{if} (bit)}
-\DoxyCodeLine{34         \mbox{\hyperlink{classBitStream_aede5db0b8475004c85e1214037f82eb4}{bitBufferW}} |= (1<<7-\/\mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}});}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37     \mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}}++;}
-\DoxyCodeLine{38     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}} == 8)}
-\DoxyCodeLine{39     \{  }
-\DoxyCodeLine{40         \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{classBitStream_aede5db0b8475004c85e1214037f82eb4}{bitBufferW}}),1);}
-\DoxyCodeLine{41         \mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}} = 0;}
-\DoxyCodeLine{42         \mbox{\hyperlink{classBitStream_aede5db0b8475004c85e1214037f82eb4}{bitBufferW}} = 0;}
-\DoxyCodeLine{43     \}}
-\DoxyCodeLine{44 \}}
+\DoxyCodeLine{36                                \{}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} (bit)}
+\DoxyCodeLine{38         \mbox{\hyperlink{classBitStream_a469052d4d39abbac5f89317171065eae}{bitBufferW}} |= (1<<7-\/\mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}});}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}}++;}
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}} == 8)}
+\DoxyCodeLine{43     \{  }
+\DoxyCodeLine{44         \mbox{\hyperlink{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}{file}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&\mbox{\hyperlink{classBitStream_a469052d4d39abbac5f89317171065eae}{bitBufferW}}),1);}
+\DoxyCodeLine{45         \mbox{\hyperlink{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}{currentBitW}} = 0;}
+\DoxyCodeLine{46         \mbox{\hyperlink{classBitStream_a469052d4d39abbac5f89317171065eae}{bitBufferW}} = 0;}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48 \}}
 
 \end{DoxyCode}
 
 
 Referenced by main().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -295,23 +367,35 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-Definition at line 46 of file Bit\+Stream.\+cpp.
+Writes an array of bits to the file stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit} & the array of bits to be written. \\
+\hline
+{\em size} & the size of the bit array. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file Bit\+Stream.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{46                                            \{}
-\DoxyCodeLine{47     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < size; i++)\{}
-\DoxyCodeLine{48         \mbox{\hyperlink{classBitStream_a0a81dbad86d46fde7ee9b943031fc411}{writeBit}}(bits[i]);}
-\DoxyCodeLine{49     \}}
-\DoxyCodeLine{50     }
-\DoxyCodeLine{51 \}}
+\DoxyCodeLine{50                                            \{}
+\DoxyCodeLine{51     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < size; i++)\{}
+\DoxyCodeLine{52         \mbox{\hyperlink{classBitStream_a0a81dbad86d46fde7ee9b943031fc411}{writeBit}}(bits[i]);}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54     }
+\DoxyCodeLine{55 \}}
 
 \end{DoxyCode}
 
 
 Referenced by main().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -329,17 +413,25 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-Definition at line 12 of file Bit\+Stream.\+h.
+Bit buffer used for reading from a file. 
 
-\mbox{\Hypertarget{classBitStream_aede5db0b8475004c85e1214037f82eb4}\label{classBitStream_aede5db0b8475004c85e1214037f82eb4}} 
+
+
+Definition at line 32 of file Bit\+Stream.\+h.
+
+\mbox{\Hypertarget{classBitStream_a469052d4d39abbac5f89317171065eae}\label{classBitStream_a469052d4d39abbac5f89317171065eae}} 
 \index{BitStream@{BitStream}!bitBufferW@{bitBufferW}}
 \index{bitBufferW@{bitBufferW}!BitStream@{BitStream}}
 \doxysubsubsection{\texorpdfstring{bitBufferW}{bitBufferW}}
-{\footnotesize\ttfamily unsigned Bit\+Stream\+::bit\+BufferW = 0\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily char Bit\+Stream\+::bit\+BufferW = 0\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Definition at line 10 of file Bit\+Stream.\+h.
+Bit buffer used for writing in a file. 
+
+
+
+Definition at line 22 of file Bit\+Stream.\+h.
 
 \mbox{\Hypertarget{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}\label{classBitStream_a4c6b25ceeffbd56ff2239ccc5af47837}} 
 \index{BitStream@{BitStream}!currentBitR@{currentBitR}}
@@ -349,7 +441,11 @@ Definition at line 10 of file Bit\+Stream.\+h.
 
 
 
-Definition at line 13 of file Bit\+Stream.\+h.
+Bit counter used when reading from a file. 
+
+
+
+Definition at line 37 of file Bit\+Stream.\+h.
 
 \mbox{\Hypertarget{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}\label{classBitStream_a5f47ac9701fa8aeaaa8f4edd1c7988b4}} 
 \index{BitStream@{BitStream}!currentBitW@{currentBitW}}
@@ -359,7 +455,11 @@ Definition at line 13 of file Bit\+Stream.\+h.
 
 
 
-Definition at line 11 of file Bit\+Stream.\+h.
+Bit counter used when writing to a file. 
+
+
+
+Definition at line 27 of file Bit\+Stream.\+h.
 
 \mbox{\Hypertarget{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}\label{classBitStream_adf0687ded8bcbb3a852fce3ae709fee9}} 
 \index{BitStream@{BitStream}!file@{file}}
@@ -369,7 +469,11 @@ Definition at line 11 of file Bit\+Stream.\+h.
 
 
 
-Definition at line 9 of file Bit\+Stream.\+h.
+The file stream. 
+
+
+
+Definition at line 17 of file Bit\+Stream.\+h.
 
 
 

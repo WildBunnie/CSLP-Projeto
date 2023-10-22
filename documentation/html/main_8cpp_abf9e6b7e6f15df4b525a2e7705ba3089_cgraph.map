@@ -1,9 +1,9 @@
 <map id="main" name="main">
 <area shape="rect" id="node1" title=" " alt="" coords="5,132,60,159"/>
-<area shape="rect" id="node2" href="$classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e" title=" " alt="" coords="120,5,249,32"/>
-<area shape="rect" id="node3" href="$classBitStream.html#a1cb7cab30aaf16112db334abdd31ee57" title=" " alt="" coords="121,56,248,83"/>
-<area shape="rect" id="node4" href="$classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01" title=" " alt="" coords="113,107,256,133"/>
-<area shape="rect" id="node5" href="$classBitStream.html#ac497d64f5a8f58d78f77a5e6bc9f8b96" title=" " alt="" coords="110,157,259,184"/>
-<area shape="rect" id="node6" href="$classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411" title=" " alt="" coords="111,208,258,235"/>
-<area shape="rect" id="node7" href="$classBitStream.html#a784ff23e6898b19e5e559d913c41343e" title=" " alt="" coords="108,259,261,285"/>
+<area shape="rect" id="node2" href="$classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e" title="Writes any remaining bits and closes the file stream." alt="" coords="120,5,249,32"/>
+<area shape="rect" id="node3" href="$classBitStream.html#a1cb7cab30aaf16112db334abdd31ee57" title="Opens a file as a filestream." alt="" coords="121,56,248,83"/>
+<area shape="rect" id="node4" href="$classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01" title="Reads a single bit from the file stream." alt="" coords="113,107,256,133"/>
+<area shape="rect" id="node5" href="$classBitStream.html#ac497d64f5a8f58d78f77a5e6bc9f8b96" title="Reads an array of bits from the file stream." alt="" coords="110,157,259,184"/>
+<area shape="rect" id="node6" href="$classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411" title="Writes a single bit to the file stream." alt="" coords="111,208,258,235"/>
+<area shape="rect" id="node7" href="$classBitStream.html#a784ff23e6898b19e5e559d913c41343e" title="Writes an array of bits to the file stream." alt="" coords="108,259,261,285"/>
 </map>
