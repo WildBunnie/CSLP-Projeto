@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(Golomb)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Add your source files
+set(SOURCES
+    main.cpp
+    Golomb.cpp
+)
+
+# Add header files (optional)
+set(HEADERS
+    Golomb.h
+)
+
+set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+
+# Create an executable from the source files
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+
+

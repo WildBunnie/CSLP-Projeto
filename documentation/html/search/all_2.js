@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['c_5fdialect_4',['C_DIALECT',['../build_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#a07f8e5783674099cd7f5110e22a78cdb',1,'C_DIALECT():&#160;CMakeCCompilerId.c'],['../CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#a07f8e5783674099cd7f5110e22a78cdb',1,'C_DIALECT():&#160;CMakeCCompilerId.c']]],
-  ['cap_5',['cap',['../classplayer.html#aaa54f574433c05692d52976b5c363d5d',1,'player']]],
-  ['cmake_5fminimum_5frequired_6',['cmake_minimum_required',['../CMakeLists_8txt.html#a223b85415ddf2ff65c155907fe0adfbf',1,'CMakeLists.txt']]],
-  ['cmakecache_2etxt_7',['CMakeCache.txt',['../build_2CMakeCache_8txt.html',1,'(Global Namespace)'],['../CMakeCache_8txt.html',1,'(Global Namespace)']]],
-  ['cmakeccompilerid_2ec_8',['CMakeCCompilerId.c',['../build_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html',1,'(Global Namespace)'],['../CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html',1,'(Global Namespace)']]],
-  ['cmakecxxcompilerid_2ecpp_9',['CMakeCXXCompilerId.cpp',['../build_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html',1,'(Global Namespace)'],['../CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html',1,'(Global Namespace)']]],
-  ['cmakelists_2etxt_10',['CMakeLists.txt',['../CMakeLists_8txt.html',1,'']]],
-  ['compiler_5fid_11',['COMPILER_ID',['../build_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID():&#160;CMakeCCompilerId.c'],['../build_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID():&#160;CMakeCXXCompilerId.cpp'],['../CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID():&#160;CMakeCCompilerId.c'],['../CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID():&#160;CMakeCXXCompilerId.cpp']]],
-  ['count_2etxt_12',['count.txt',['../count_8txt.html',1,'']]],
-  ['cxx_5fstd_13',['CXX_STD',['../build_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#a34cc889e576a1ae6c84ae9e0a851ba21',1,'CXX_STD():&#160;CMakeCXXCompilerId.cpp'],['../CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#a34cc889e576a1ae6c84ae9e0a851ba21',1,'CXX_STD():&#160;CMakeCXXCompilerId.cpp']]]
+  ['bin_20player_20video_20filter_0',['./bin/player &lt;video&gt; [filter]',['../md_src_2videoPlayer_2README.html#autotoc_md3',1,'']]],
+  ['bitbufferr_1',['bitBufferR',['../classBitStream.html#afb3953ac3afcf5fcf8c4f79dea75d3e2',1,'BitStream']]],
+  ['bitbufferw_2',['bitBufferW',['../classBitStream.html#a469052d4d39abbac5f89317171065eae',1,'BitStream']]],
+  ['bits_3',['bits',['../classGolomb.html#a1a0dd96e38a72349e4d942c353ce5b31',1,'Golomb']]],
+  ['bitstream_4',['bitstream',['../classBitStream.html',1,'BitStream'],['../classBitStream.html#acc9c679f997c54c8b4e51443bfde735b',1,'BitStream::BitStream()']]],
+  ['bitstream_2ecpp_5',['BitStream.cpp',['../BitStream_8cpp.html',1,'']]],
+  ['bitstream_2ecpp_2eo_2ed_6',['bitstream.cpp.o.d',['../BitStream_2CMakeFiles_2bitStream_8dir_2src_2BitStream_8cpp_8o_8d.html',1,'(Global Namespace)'],['../BitStream_2CMakeFiles_2Main_8dir_2src_2BitStream_8cpp_8o_8d.html',1,'(Global Namespace)'],['../src_2BitStream_2CMakeFiles_2bitStream_8dir_2src_2BitStream_8cpp_8o_8d.html',1,'(Global Namespace)']]],
+  ['bitstream_2eh_7',['BitStream.h',['../BitStream_8h.html',1,'']]],
+  ['blue_8',['blue',['../classRGB.html#a09ce6a149ab52c8f909b96acd79d69a0',1,'RGB']]],
+  ['boxfilter_9',['boxFilter',['../classPlayer.html#aa58f30f3c08751756b019b1a7ab260f9',1,'Player']]]
 ];

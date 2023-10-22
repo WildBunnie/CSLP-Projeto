@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['name_100',['name',['../classplayer.html#a2042da1ed5947b4deccf663fc2b84c6e',1,'player']]]
+  ['m_0',['m',['../classGolomb.html#aea433fe3049440988ad1fa1a5eb536a3',1,'Golomb']]],
+  ['max_5fcolor_1',['max_color',['../classPPMImage.html#af9d952a709e615162da0dba663c8eed8',1,'PPMImage']]]
 ];

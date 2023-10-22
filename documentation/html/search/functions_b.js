@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rgb_87',['RGB',['../classRGB.html#ad89db7b85243c6e71e00a220f1bfb29e',1,'RGB']]]
+  ['open_0',['open',['../classBitStream.html#a1cb7cab30aaf16112db334abdd31ee57',1,'BitStream']]]
 ];

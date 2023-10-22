@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['include_5fdirectories_80',['include_directories',['../CMakeLists_8txt.html#a751a98adcc7b2708bf910393abf2f4b7',1,'CMakeLists.txt']]],
-  ['isopen_81',['isOpen',['../classplayer.html#a812fb1ff3d3beb4bcdb726762bd8d3a2',1,'player']]]
+  ['hasnext_0',['hasNext',['../classBitStream.html#a677f298f778c512070e23f267c050be8',1,'BitStream']]],
+  ['histogramequalization_1',['histogramEqualization',['../classPlayer.html#adcebfdf6c6afd5b78e1594595f7c2ea7',1,'Player']]]
 ];

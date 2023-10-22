@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadimage_82',['loadImage',['../classPPMImage.html#aad1bbe0f585ca74e1787889691144b10',1,'PPMImage']]]
+  ['isopen_0',['isOpen',['../classPlayer.html#a91d61c8075a038eb9076e1509df6f53e',1,'Player']]]
 ];

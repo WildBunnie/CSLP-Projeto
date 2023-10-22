@@ -1,0 +1,70 @@
+\doxysection{Golomb.\+cpp}
+\hypertarget{Golomb_8cpp_source}{}\label{Golomb_8cpp_source}\index{src/GolombCoding/Golomb.cpp@{src/GolombCoding/Golomb.cpp}}
+\mbox{\hyperlink{Golomb_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Golomb_8h}{Golomb.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00006}00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00008}\mbox{\hyperlink{classGolomb_a4db3f299f463bc90c2f5918b29420d61}{00008}}\ \mbox{\hyperlink{classGolomb_a4db3f299f463bc90c2f5918b29420d61}{Golomb::Golomb}}(\textcolor{keywordtype}{int}\ n)\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{classGolomb_aea433fe3049440988ad1fa1a5eb536a3}{m}}\ =\ n;}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}\ =\ floor(log2(\mbox{\hyperlink{classGolomb_aea433fe3049440988ad1fa1a5eb536a3}{m}}));}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00011}00011\ \}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00013}\mbox{\hyperlink{classGolomb_a991beffa483d7378997934935f0dec51}{00013}}\ vector<int>*\ \mbox{\hyperlink{classGolomb_a991beffa483d7378997934935f0dec51}{Golomb::encodeNumber}}(\textcolor{keywordtype}{int}\ number)\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00014}00014\ \ \ \ \ vector<int>*\ returnvect\ =\ \textcolor{keyword}{new}\ vector<int>();}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{int}\ quotient\ =\ floor(number/\mbox{\hyperlink{classGolomb_aea433fe3049440988ad1fa1a5eb536a3}{m}});}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{int}\ reminder\ =\ number\ \%\ \mbox{\hyperlink{classGolomb_aea433fe3049440988ad1fa1a5eb536a3}{m}};}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ quotient;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ returnvect-\/>push\_back(1);}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00021}00021\ \ \ \ \ returnvect-\/>push\_back(0);}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (reminder\ <\ pow(2,\mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}+1)-\/\mbox{\hyperlink{classGolomb_aea433fe3049440988ad1fa1a5eb536a3}{m}})\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}};\ i++)\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ returnvect-\/>push\_back(reminder\ >>\ \mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}-\/i-\/1\ \&\ 1);}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00028}00028\ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nReminder\ =\ reminder\ +\ pow(2,\mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}+1)-\/\mbox{\hyperlink{classGolomb_aea433fe3049440988ad1fa1a5eb536a3}{m}};}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}+1;\ i++)\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ returnvect-\/>push\_back(nReminder\ >>\ \mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}-\/i\ \&\ 1);}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ returnvect;}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00038}\mbox{\hyperlink{classGolomb_ab46cf85e49effc5cb275113e4b4ecce8}{00038}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGolomb_ab46cf85e49effc5cb275113e4b4ecce8}{Golomb::decodeNumber}}(\textcolor{keywordtype}{int}*\ numbers)\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{classGolomb_ab09ffe04207473b87936637bdd4ffdd8}{reminderSizePlus1}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{int}\ quotient\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ quotient++;}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00043}00043\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (numbers[quotient]\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{int}\ reminder\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ quotient+1;i\ <\ (quotient+1+\mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}});\ i++)\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ reminder\ |=\ (numbers[i]\ <<\ quotient+\mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}-\/i);}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (reminder\ >=\ pow(2,\mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}+1)-\/\mbox{\hyperlink{classGolomb_aea433fe3049440988ad1fa1a5eb536a3}{m}})\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGolomb_ab09ffe04207473b87936637bdd4ffdd8}{reminderSizePlus1}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ reminder\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ quotient+1;i\ <\ (quotient+1+\mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}+1);\ i++)\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ reminder\ |=\ (numbers[i]\ <<\ quotient+\mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}+1-\/i);}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ reminder\ =\ reminder\ -\/\ pow(2,\mbox{\hyperlink{classGolomb_a1a0dd96e38a72349e4d942c353ce5b31}{bits}}+1)+\mbox{\hyperlink{classGolomb_aea433fe3049440988ad1fa1a5eb536a3}{m}};}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{return}\ quotient*\mbox{\hyperlink{classGolomb_aea433fe3049440988ad1fa1a5eb536a3}{m}}+reminder;}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00061}\mbox{\hyperlink{classGolomb_ae5b97cb905a443a97e4a7ad4e30a8f5a}{00061}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGolomb_ae5b97cb905a443a97e4a7ad4e30a8f5a}{Golomb::getLastReminderSizePlus1}}()\{}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classGolomb_ab09ffe04207473b87936637bdd4ffdd8}{reminderSizePlus1}};}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{Golomb_8cpp_source_l00064}00064\ }
+
+\end{DoxyCode}

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['cmake_5fminimum_5frequired_71',['cmake_minimum_required',['../CMakeLists_8txt.html#a223b85415ddf2ff65c155907fe0adfbf',1,'CMakeLists.txt']]]
+  ['close_0',['close',['../classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e',1,'BitStream']]],
+  ['colorhistequalization_1',['colorHistEqualization',['../classPlayer.html#af4825e60a348aea262497d6df08943e8',1,'Player']]]
 ];

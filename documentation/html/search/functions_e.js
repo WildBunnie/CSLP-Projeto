@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7eplayer_90',['~player',['../classplayer.html#aab5d2e47b80e0481f09ca0df8b823057',1,'player']]]
+  ['threshold_0',['threshold',['../classPlayer.html#ae3bfc4e5bcefd1e7a532ef48fb133ca8',1,'Player']]],
+  ['tograyscale_1',['toGrayscale',['../classPlayer.html#a7445d3d1467b652b3f9b905f88113847',1,'Player']]]
 ];

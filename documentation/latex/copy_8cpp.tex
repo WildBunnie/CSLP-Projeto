@@ -1,0 +1,42 @@
+\doxysection{src/image\+Manipulation/copy.cpp File Reference}
+\hypertarget{copy_8cpp}{}\label{copy_8cpp}\index{src/imageManipulation/copy.cpp@{src/imageManipulation/copy.cpp}}
+{\ttfamily \#include "{}PPMImage.\+hpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{copy_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{copy_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{copy_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{copy.cpp@{copy.cpp}!main@{main}}
+\index{main@{main}!copy.cpp@{copy.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{copy_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{copy_8cpp_source}{copy.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordflow}{if}(argc\ <\ 3)\{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ number\ of\ arguments.\ (./bin/copy\ [image\ path]\ [output\ path])"{}}\ <<\ endl;}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{classPPMImage}{PPMImage}}\ image;}
+\DoxyCodeLine{00013\ \ \ \ \ image.\mbox{\hyperlink{classPPMImage_a89b474250158bbad1c20100f354ad452}{loadImage}}(argv[1]);}
+\DoxyCodeLine{00014\ \ \ \ \ image.\mbox{\hyperlink{classPPMImage_ab037ea0019ef4f620586da405817f181}{writeImage}}(argv[2]);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classPPMImage_a89b474250158bbad1c20100f354ad452}{PPMImage\+::load\+Image()}}, and \mbox{\hyperlink{classPPMImage_ab037ea0019ef4f620586da405817f181}{PPMImage\+::write\+Image()}}.
+

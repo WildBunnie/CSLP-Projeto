@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['width_52',['width',['../classPPMImage.html#aff6fcaaf9bfe2a4208aa47d033817467',1,'PPMImage']]],
-  ['wl_53',['Wl',['../build_2CMakeFiles_2videoPlayer_8dir_2link_8txt.html#a9b8ae5e40b2fe9477166c7082652c5f2',1,'Wl():&#160;link.txt'],['../CMakeFiles_2videoPlayer_8dir_2link_8txt.html#ace09e1f67a508720e5e2a3a8e9973316',1,'Wl():&#160;link.txt']]],
-  ['writeimage_54',['writeImage',['../classPPMImage.html#a22445d72734ad24481b6614571a330ba',1,'PPMImage']]]
+  ['readbit_0',['readBit',['../classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01',1,'BitStream']]],
+  ['readbits_1',['readBits',['../classBitStream.html#ac497d64f5a8f58d78f77a5e6bc9f8b96',1,'BitStream']]],
+  ['readme_2',['README',['../md_src_2videoPlayer_2README.html',1,'']]],
+  ['readme_2emd_3',['readme.md',['../README_8md.html',1,'(Global Namespace)'],['../src_2videoPlayer_2README_8md.html',1,'(Global Namespace)']]],
+  ['red_4',['red',['../classRGB.html#ae4955ad7a659f8c12cee1505a8bd37a8',1,'RGB']]],
+  ['remindersizeplus1_5',['reminderSizePlus1',['../classGolomb.html#ab09ffe04207473b87936637bdd4ffdd8',1,'Golomb']]],
+  ['rgb_6',['rgb',['../classRGB.html',1,'RGB'],['../classRGB.html#ad89db7b85243c6e71e00a220f1bfb29e',1,'RGB::RGB()']]],
+  ['run_3a_7',['How to run:',['../md_src_2videoPlayer_2README.html#autotoc_md2',1,'']]]
 ];
