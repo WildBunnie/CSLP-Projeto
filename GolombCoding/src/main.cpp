@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/Golomb.h"
+#include "Golomb.h"
 #include <vector>
 using namespace std;
 

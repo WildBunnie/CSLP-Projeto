@@ -9,11 +9,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Add your source files
 set(SOURCES
     src/main.cpp
+    src/Golomb.cpp
 )
 
 # Add header files (optional)
 set(HEADERS
-    src/include/Golomb.h
+    include/Golomb.h
 )
 
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build)
