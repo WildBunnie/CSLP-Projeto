@@ -3,32 +3,16 @@
 #include <fstream>
 #include <vector>
 
+#include "PPMImage.hpp"
+
 using namespace std;
 
-class RGB
+RGB::RGB(char r, char g, char b)
 {
-public:
-    char red;
-    char green;
-    char blue;
-    RGB(char r, char g, char b)
-    {
-        red = r;
-        green = g;
-        blue = b;
-    }
-};
-
-class PPMImage
-{
-public:
-    int width, height;
-    string max_color;
-    vector<vector<RGB>> pixels;
-    PPMImage();
-    bool loadImage(const string path);
-    bool writeImage(const string path);
-};
+    red = r;
+    green = g;
+    blue = b;
+}
 
 PPMImage::PPMImage()
 {

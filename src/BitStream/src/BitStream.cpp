@@ -4,24 +4,28 @@
 #include <string>
 
 using namespace std;
+
 BitStream::BitStream(string name){
     std::ofstream output(name);
     output.close();
     file.open(name,ios_base::out|ios_base::in);
 };
+
 void BitStream::close(){
     bool need_write = 0;
     if(currentBitW <= 8 && currentBitW != 0)
         file.write(reinterpret_cast<char*>(&bitBufferW),1);
     file.close();
 }
+
 void BitStream::open(string name){
     file.open(name);
 }
+
 BitStream::~BitStream(){
-    BitStream::close();
-    
+    BitStream::close();  
 }
+
 bool BitStream::hasNext(){
     if (currentBitR < 8)
         return true;
@@ -29,6 +33,7 @@ bool BitStream::hasNext(){
         return true;
     return false;
 }
+
 void BitStream::writeBit(int bit){
     if (bit)
         bitBufferW |= (1<<7-currentBitW);

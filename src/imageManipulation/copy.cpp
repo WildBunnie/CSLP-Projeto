@@ -5,7 +5,7 @@ using namespace std;
 int main(int argc, char **argv)
 {
     if(argc < 3){
-        cout << "Invalid number of arguments. (./copy [image path] [output path])" << endl;
+        cout << "Invalid number of arguments. (./bin/copy [image path] [output path])" << endl;
         return -1;
     }
 
