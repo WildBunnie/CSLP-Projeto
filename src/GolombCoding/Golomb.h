@@ -38,7 +38,7 @@ class Golomb{
         /**
          * \brief Decodes number.
          *
-         * \param numbers array of bits(ints) of number encoded.
+         * \param numbers array of bits (ints) of number encoded.
          */
         int decodeNumber(int*);
         /**

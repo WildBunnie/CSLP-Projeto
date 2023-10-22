@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['open_58',['open',['../classBitStream.html#a1cb7cab30aaf16112db334abdd31ee57',1,'BitStream']]]
+  ['name_0',['name',['../classPlayer.html#acf0355128a99ee20ad9931b760fb2de1',1,'Player']]]
 ];

@@ -1,0 +1,42 @@
+\doxysection{Player.\+hpp}
+\hypertarget{Player_8hpp_source}{}\label{Player_8hpp_source}\index{src/videoPlayer/Player.hpp@{src/videoPlayer/Player.hpp}}
+\mbox{\hyperlink{Player_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ PLAYER\_HPP}}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ PLAYER\_HPP}}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <opencv2/imgproc/imgproc.hpp>}}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <opencv2/plot.hpp>}}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <numeric>}}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00009}00009\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00010}00010\ \textcolor{keyword}{using\ namespace\ }cv;}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00020}\mbox{\hyperlink{classPlayer}{00020}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPlayer}{Player}}\{}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00021}00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00027}\mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{00027}}\ \ \ \ \ VideoCapture*\ \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}};}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00033}\mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{00033}}\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}};}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_abf0a37b931e2b26e2ec91f110d6b7643}{printHistogram}}(vector<int>\ hist,\ \textcolor{keywordtype}{int}\ color);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539}{getHistogram}}(Mat\ frame,\ \textcolor{keywordtype}{int}\ color);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}{histogramEqualization}}(Mat\ frame);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00057}00057\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}(String\ media);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{\string~Player}}();}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8}{display}}(function<Mat(Mat)>);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classPlayer_a91d61c8075a038eb9076e1509df6f53e}{isOpen}}();}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00089}00089\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_a01ef153cd72df875fb98ce0f8377736c}{frameRgb2Yuv}}(Mat\ frame);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00096}00096\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_a60a9dd844d42e062af6ab22687764338}{frameYuv2Rgb}}(Mat\ frame);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00105}00105\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a43331bc6540ddd07f4c53d6156e95207}{getColorHistograms}}(Mat\ frame);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00112}00112\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{toGrayscale}}(Mat\ frame);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00120}00120\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{threshold}}(Mat\ frame,\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{threshold}});}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00131}00131\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_aec79502ab07ec3719e413302863e14b3}{addWatermark}}(Mat\ frame,\ Mat\ watermark,\ \textcolor{keywordtype}{float}\ alpha,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00140}00140\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3}{grayHistEqualization}}(Mat\ frame);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00149}00149\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_af4825e60a348aea262497d6df08943e8}{colorHistEqualization}}(Mat\ frame);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00156}00156\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba}{gaussianBlur}}(Mat\ frame,\ \textcolor{keywordtype}{int}\ ksize,\ \textcolor{keywordtype}{double}\ sigma);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00163}00163\ \ \ \ \ \textcolor{keyword}{static}\ Mat\ \mbox{\hyperlink{classPlayer_aa58f30f3c08751756b019b1a7ab260f9}{boxFilter}}(Mat\ frame,\ Size\ ksize);}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00164}00164\ \};}
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{Player_8hpp_source_l00166}00166\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

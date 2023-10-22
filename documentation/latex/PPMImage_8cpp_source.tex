@@ -1,0 +1,93 @@
+\doxysection{PPMImage.\+cpp}
+\hypertarget{PPMImage_8cpp_source}{}\label{PPMImage_8cpp_source}\index{src/imageManipulation/PPMImage.cpp@{src/imageManipulation/PPMImage.cpp}}
+\mbox{\hyperlink{PPMImage_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{PPMImage_8hpp}{PPMImage.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00008}00008\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00010}\mbox{\hyperlink{classRGB_ad89db7b85243c6e71e00a220f1bfb29e}{00010}}\ \mbox{\hyperlink{classRGB_ad89db7b85243c6e71e00a220f1bfb29e}{RGB::RGB}}(\textcolor{keywordtype}{char}\ r,\ \textcolor{keywordtype}{char}\ g,\ \textcolor{keywordtype}{char}\ b)}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{classRGB_ae4955ad7a659f8c12cee1505a8bd37a8}{red}}\ =\ r;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{classRGB_a86b0c7ed2b023c638027d9baf980b927}{green}}\ =\ g;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{classRGB_a09ce6a149ab52c8f909b96acd79d69a0}{blue}}\ =\ b;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00017}\mbox{\hyperlink{classPPMImage_a6408ba3d2484eff4f27a79f266b440ea}{00017}}\ \mbox{\hyperlink{classPPMImage_a6408ba3d2484eff4f27a79f266b440ea}{PPMImage::PPMImage}}()}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{classPPMImage_af9d952a709e615162da0dba663c8eed8}{max\_color}}\ =\ 255;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00022}00022\ \};}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00024}\mbox{\hyperlink{classPPMImage_a89b474250158bbad1c20100f354ad452}{00024}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classPPMImage_a89b474250158bbad1c20100f354ad452}{PPMImage::loadImage}}(\textcolor{keywordtype}{string}\ path)}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00026}00026\ \ \ \ \ ifstream\ file(path,\ ios::binary);}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00028}00028\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}unable\ to\ open\ file"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{string}\ magic;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00034}00034\ \ \ \ \ file\ >>\ magic;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (magic\ !=\ \textcolor{stringliteral}{"{}P6"{}})}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00036}00036\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}wrong\ format"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00041}00041\ \ \ \ \ file\ >>\ \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}};}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00042}00042\ \ \ \ \ file\ >>\ \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}};}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00043}00043\ \ \ \ \ file\ >>\ \mbox{\hyperlink{classPPMImage_af9d952a709e615162da0dba663c8eed8}{max\_color}};}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ remove\ newline}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00045}00045\ \ \ \ \ file.get();}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{classPPMImage_af5c94998c6759fd42c28b711b1b3fe41}{pixels}}.resize(\mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}},\ vector<RGB>(\mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}},\ \mbox{\hyperlink{classRGB}{RGB}}(0,\ 0,\ 0)));}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}};\ row++)}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00050}00050\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ column\ =\ 0;\ column\ <\ \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}};\ column++)}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ r,\ g,\ b;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ file.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\&r),\ 1);}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ file.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\&g),\ 1);}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ file.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\&b),\ 1);}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPPMImage_af5c94998c6759fd42c28b711b1b3fe41}{pixels}}[row][column]\ =\ \mbox{\hyperlink{classRGB}{RGB}}(r,\ g,\ b);}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00064}\mbox{\hyperlink{classPPMImage_ab037ea0019ef4f620586da405817f181}{00064}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classPPMImage_ab037ea0019ef4f620586da405817f181}{PPMImage::writeImage}}(\textcolor{keywordtype}{string}\ path)}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00065}00065\ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00066}00066\ \ \ \ \ ofstream\ file(path,\ ios::binary);}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00068}00068\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}unable\ to\ open\ file"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00073}00073\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}P6"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00074}00074\ \ \ \ \ file\ <<\ \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}}\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00075}00075\ \ \ \ \ file\ <<\ \mbox{\hyperlink{classPPMImage_af9d952a709e615162da0dba663c8eed8}{max\_color}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ \mbox{\hyperlink{classPPMImage_a3dfd791ecbd34faca276ea844d589005}{height}};\ row++)}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00078}00078\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ column\ =\ 0;\ column\ <\ \mbox{\hyperlink{classPPMImage_aff6fcaaf9bfe2a4208aa47d033817467}{width}};\ column++)}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ file.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\&\mbox{\hyperlink{classPPMImage_af5c94998c6759fd42c28b711b1b3fe41}{pixels}}[row][column].red),\ 1);}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ file.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\&\mbox{\hyperlink{classPPMImage_af5c94998c6759fd42c28b711b1b3fe41}{pixels}}[row][column].green),\ 1);}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ file.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\&\mbox{\hyperlink{classPPMImage_af5c94998c6759fd42c28b711b1b3fe41}{pixels}}[row][column].blue),\ 1);}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{PPMImage_8cpp_source_l00087}00087\ \}}
+
+\end{DoxyCode}
