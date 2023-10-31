@@ -7,28 +7,24 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     // criar class bit Stream e abrir ficheiro teste
-    BitStream fileBit("files/teste");
+    BitStream fileBit("teste",'w');
 
-    int arr[] = {0,1,0,0,0,1,0,0};
     // escrever um conjuto de bits
-    fileBit.writeBits(&arr[0],8);
+    fileBit.writeBits(97,8);
     //escrever 1 bit
-    fileBit.writeBit(1);
+    //fileBit.writeBit(1);
     //fechar ficheiro 
     fileBit.close();
     //abrir ficheino novamente
-    fileBit.open("files/teste");
+    BitStream fileBit2("teste",'r');
     // ler um array de bits
-    int* out = fileBit.readBits(8);
+    int out = fileBit2.readBits(8);
 
-    for (size_t i = 0; i < 8; i++)
-    {
-        cout << arr[i];
-    }
+    cout << out;
     cout << "\n";
 
     //ler um bit
-    cout << "bit:" << fileBit.readBit()<< "\n";
+    //cout << "bit:" << fileBit.readBit()<< "\n";
     //fechar ficheiro
     fileBit.close();
         

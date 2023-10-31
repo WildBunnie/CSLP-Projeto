@@ -19,29 +19,24 @@ class BitStream{
          * \brief Bit buffer used for writing in a file.
          * 
          */
-        char bitBufferW = 0;
+        char bitBuffer = 0;
         /**
          * \brief Bit counter used when writing to a file.
          * 
          */
-        unsigned int currentBitW = 0;
+        unsigned int currentBit = 0;
         /**
          * \brief Bit buffer used for reading from a file.
          * 
          */
-        char bitBufferR = 0;
-        /**
-         * \brief Bit counter used when reading from a file.
-         * 
-         */
-        unsigned int currentBitR = 0;
     public:
         /**
          * \brief Constructor.
          * 
          * \param name The file path.
+         * \param mode The mode in witch the BitStream operates 'r' to read, 'w' to write
          */
-        BitStream(string);
+        BitStream(string,char);
         /**
          * \brief Destructor.
          * 
@@ -77,7 +72,7 @@ class BitStream{
          * \param bit the array of bits to be written.
          * \param size the size of the bit array.
          */
-        void writeBits(int*,int);
+        void writeBits(int,int);
         /**
          * \brief Reads a single bit from the file stream.
          * 
@@ -90,5 +85,5 @@ class BitStream{
          * \return The bit array read.
          * \param n how many bits to be read.
          */
-        int* readBits(int);
+        int readBits(int);
 };
