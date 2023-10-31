@@ -5,20 +5,20 @@
 
 using namespace std;
 
-BitStream::BitStream(string name){
-    std::ofstream output(name);
-    output.close();
-    file.open(name,ios_base::out|ios_base::in);
+BitStream::BitStream(string name,char write){
+    if(write == 'w'){
+        file.open(name,ios_base::out);
+    }else if(write == 'r'){
+        file.open(name,ios_base::in);
+    }else{
+        throw "Error invalid argumanet";
+    }
 };
 
 void BitStream::close(){
-    if(currentBitW <= 8 && currentBitW != 0)
-        file.write(reinterpret_cast<char*>(&bitBufferW),1);
+    if(currentBit <= 8 && currentBit != 0)
+        file.write(reinterpret_cast<char*>(&bitBuffer),1);
     file.close();
-}
-
-void BitStream::open(string name){
-    file.open(name);
 }
 
 BitStream::~BitStream(){
@@ -26,7 +26,7 @@ BitStream::~BitStream(){
 }
 
 bool BitStream::hasNext(){
-    if (currentBitR < 8)
+    if (currentBit < 8)
         return true;
     if (file.peek() != EOF)
         return true;
@@ -35,43 +35,43 @@ bool BitStream::hasNext(){
 
 void BitStream::writeBit(int bit){
     if (bit)
-        bitBufferW |= (1<<7-currentBitW);
+        bitBuffer |= (1<<7-currentBit);
 
 
-    currentBitW++;
-    if (currentBitW == 8)
+    currentBit++;
+    if (currentBit == 8)
     {  
-        file.write(reinterpret_cast<char*>(&bitBufferW),1);
-        currentBitW = 0;
-        bitBufferW = 0;
+        file.write(reinterpret_cast<char*>(&bitBuffer),1);
+        currentBit = 0;
+        bitBuffer = 0;
     }
 }
 
-void BitStream::writeBits(int* bits,int size){
+void BitStream::writeBits(int bits,int size){
     for (size_t i = 0; i < size; i++){
-        writeBit(bits[i]);
+        writeBit(bits & 1<<7-i);
     }
     
 }
 
 int BitStream::readBit(){
     char returnChar;
-    if (currentBitR >= 8 || currentBitR == 0){
-        currentBitR = 0; 
-        file.read(&bitBufferR,sizeof(char));
+    if (currentBit >= 8 || currentBit == 0){
+        currentBit = 0; 
+        file.read(&bitBuffer,sizeof(char));
     }
-    returnChar = bitBufferR>>(7-currentBitR) & 1;
-    currentBitR++;
+    returnChar = bitBuffer>>(7-currentBit) & 1;
+    currentBit++;
     return returnChar;
 }
 
-int* BitStream::readBits(int n){
-    int* arr = (int*)malloc(sizeof(int)*n);
+int BitStream::readBits(int n){
+    int val = 0;
     for (size_t i = 0; i < n; i++)
     {
-        arr[i] = readBit();
+        val |= readBit()<<7-i;
     }
 
-    return arr;
+    return val;
     
 }
