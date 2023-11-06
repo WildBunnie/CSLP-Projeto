@@ -1,4 +1,5 @@
-#include <vector>
+#pragma once
+#include "BitStream.h"
 
 /**
  * \brief A entropy encoder built with Golomb codes.
@@ -17,34 +18,27 @@ class Golomb{
          */
         int bits;
         /**
-         * \brief Used to know if the number of bits used was "bits" or bits + 1
-         *
-         */
-        bool reminderSizePlus1 = false;
+         * \brief Used to write bits encoded
+        */
+        BitStream* bitStream;
     public:
         /**
          * \brief Constructor.
          *
          * \param n Parameter used to divide the number to be encoded.
          */
-        Golomb(int n);
+        Golomb(BitStream* bs,int n);
         /**
          * \brief Encodes number.
          *
          * \param number Number to be encoded.
          * \return Number encoding.
          */
-        std::vector<int>* encodeNumber(int);
+        void encodeNumber(int);
         /**
          * \brief Decodes number.
          *
          * \param numbers array of bits (ints) of number encoded.
          */
-        int decodeNumber(int*);
-        /**
-         * \brief Gets the value of reminderSizePlus1 variable converted to integer.
-         *
-         * \return 1 if the number of bits used to decode reminder is equal to bits + 1 and 0 if not.
-         */
-        int getLastReminderSizePlus1();
+        int decodeNumber();
 };
