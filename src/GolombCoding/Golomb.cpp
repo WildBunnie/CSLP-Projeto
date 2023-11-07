@@ -48,3 +48,28 @@ int Golomb::decodeNumber(){
     return quotient*m+reminder;
 }
 
+
+void Golomb::encodeMat(cv::Mat image){
+    for(int i = 0; i < image.rows; i++){
+		for(int j = 0; j < image.cols; j++){
+			uint r = image.at<uchar>(i,j);
+
+            encodeNumber(r);
+        }
+    }
+}
+
+cv::Mat Golomb::decodeMat(int cols,int rows){
+    cv::Mat image(rows,cols,CV_8UC1);
+    for(int i = 0; i < rows; i++){
+		for(int j = 0; j < cols; j++){
+
+            uint r = decodeNumber();
+            uint g = decodeNumber();
+            uint b = decodeNumber();
+
+			image.at<uchar>(i,j);
+        }
+    }
+    return image;
+}
