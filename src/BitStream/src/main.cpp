@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
     BitStream fileBit("teste",'w');
 
     // escrever um conjuto de bits
-    fileBit.writeBits(97,8);
+    fileBit.writeBits(3,2);
     //escrever 1 bit
     //fileBit.writeBit(1);
     //fechar ficheiro 
@@ -18,8 +18,7 @@ int main(int argc, char const *argv[])
     //abrir ficheino novamente
     BitStream fileBit2("teste",'r');
     // ler um array de bits
-    int out = fileBit2.readBits(8);
-
+    int out = fileBit2.readBits(2);
     cout << out;
     cout << "\n";
 
