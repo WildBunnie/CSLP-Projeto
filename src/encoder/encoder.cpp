@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include "BitStream.h"
+#include "Golomb.h"
 
 using namespace std;
 using namespace cv;
@@ -62,13 +64,21 @@ Mat getOriginalJPEG_LS(Mat residuals){
 }
 
 int main(int argc, char *argv[]){
-    Mat image = imread(argv[1],IMREAD_GRAYSCALE);  
+    Mat image = imread(argv[1],IMREAD_GRAYSCALE);
 	Mat residuals = getResidualsJPEG_LS(image);
-	Mat result = getOriginalJPEG_LS(residuals);
-	imshow("image", image);  
-	waitKey(0);
-	imshow("image", residuals);  
-	waitKey(0);
+	BitStream bs("residuals",'w');
+	Golomb gl(&bs,25);
+	gl.encodeMat(residuals);
+	bs.close();
+	BitStream bsd("residuals",'r');
+	Golomb decoder(&bsd,25);
+	Mat residuals_r = decoder.decodeMat(image.cols,image.rows);
+	bsd.close();
+	Mat result = getOriginalJPEG_LS(residuals_r);
+	// imshow("image", image);  
+	// waitKey(0);
+	// imshow("image", residuals);  
+	// waitKey(0);
 	imshow("image", result);  
 	waitKey(0);
     return 0;
