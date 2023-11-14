@@ -9,5 +9,5 @@ class Block{
     public:
         Block(int size, vector<vector<int>> pixels);
         int getBlockSize();
-        vector<vector<int>> getPixels;
+        vector<vector<int>> getPixels();
 };
