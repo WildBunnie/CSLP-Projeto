@@ -2,6 +2,9 @@
 #include <cmath>
 #include <math.h>
 #include "BitStream.h"
+#include "opencv2/opencv.hpp"
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/plot.hpp>
 
 using namespace std;
 
@@ -52,9 +55,9 @@ int Golomb::decodeNumber(){
 void Golomb::encodeMat(cv::Mat image){
     for(int i = 0; i < image.rows; i++){
 		for(int j = 0; j < image.cols; j++){
-			uint r = image.at<uchar>(i,j);
+			uint p = image.at<uchar>(i,j);
 
-            encodeNumber(r);
+            encodeNumber(p);
         }
     }
 }
@@ -64,11 +67,9 @@ cv::Mat Golomb::decodeMat(int cols,int rows){
     for(int i = 0; i < rows; i++){
 		for(int j = 0; j < cols; j++){
 
-            uint r = decodeNumber();
-            uint g = decodeNumber();
-            uint b = decodeNumber();
+            uint p = decodeNumber();
 
-			image.at<uchar>(i,j);
+			image.at<uchar>(i,j) = p;
         }
     }
     return image;
