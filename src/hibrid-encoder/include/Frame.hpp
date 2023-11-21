@@ -13,6 +13,7 @@ class Frame{
         int block_size;
         int seach_area;
     public:
-        Frame(Mat frame);
-        Block getBlock();
+        Frame(Mat frame, int block_size, int seach_area);
+        Block getBlock(int x, int y);
+        Block searchBestBlock(Block bref);
 };
