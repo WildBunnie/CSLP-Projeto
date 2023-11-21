@@ -10,4 +10,5 @@ class Block{
         Block(int size, vector<vector<int>> pixels);
         int getBlockSize();
         vector<vector<int>> getPixels();
+        Block operator-(Block const& block);
 };
