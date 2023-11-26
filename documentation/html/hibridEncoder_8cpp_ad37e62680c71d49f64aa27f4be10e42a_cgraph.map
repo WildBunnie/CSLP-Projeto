@@ -1,0 +1,5 @@
+<map id="DecodeInterFrame" name="DecodeInterFrame">
+<area shape="rect" id="node1" title="Inter frame encoder." alt="" coords="5,31,148,57"/>
+<area shape="rect" id="node2" href="$classGolomb.html#a7dcdbc9dff571a8eebcb1e17fbe75634" title="Decodes number." alt="" coords="213,5,393,32"/>
+<area shape="rect" id="node3" href="$hibridEncoder_8cpp.html#a09cc283a55256213e35765d60bebb81e" title="Performs motion compensation." alt="" coords="196,56,409,83"/>
+</map>

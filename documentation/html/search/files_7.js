@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['main_2ecpp_147',['main.cpp',['../BitStream_2src_2main_8cpp.html',1,'(Global Namespace)'],['../GolombCoding_2main_8cpp.html',1,'(Global Namespace)'],['../intraEncoder_2main_8cpp.html',1,'(Global Namespace)']]]
+  ['player_2ecpp_139',['Player.cpp',['../Player_8cpp.html',1,'']]],
+  ['player_2ehpp_140',['Player.hpp',['../Player_8hpp.html',1,'']]],
+  ['ppmimage_2ecpp_141',['PPMImage.cpp',['../PPMImage_8cpp.html',1,'']]],
+  ['ppmimage_2ehpp_142',['PPMImage.hpp',['../PPMImage_8hpp.html',1,'']]]
 ];

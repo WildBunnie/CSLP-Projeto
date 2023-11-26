@@ -1,0 +1,8 @@
+<map id="PerformMotionCompensation" name="PerformMotionCompensation">
+<area shape="rect" id="node1" title="Performs motion compensation." alt="" coords="461,31,675,57"/>
+<area shape="rect" id="node2" href="$hibridEncoder_8h.html#ad37e62680c71d49f64aa27f4be10e42a" title="Inter frame encoder." alt="" coords="271,5,413,32"/>
+<area shape="rect" id="node5" href="$hibridEncoder_8h.html#aa795ad37346875ddfa1a66a5b95113ea" title="Inter frame decoder." alt="" coords="272,56,412,83"/>
+<area shape="rect" id="node3" href="$hibridEncoder_8h.html#a56338cedf392f0fee37d0f4eb7dacfe3" title="Hybrid (inter + intra) frame decoder." alt="" coords="108,5,223,32"/>
+<area shape="rect" id="node4" href="$hibrid-encoder_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,57"/>
+<area shape="rect" id="node6" href="$hibridEncoder_8h.html#a8b0bd6224b5055ed65d8c1e0c947958a" title="Hybrid (inter + intra) encoder." alt="" coords="109,56,221,83"/>
+</map>

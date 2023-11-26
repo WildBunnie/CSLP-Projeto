@@ -1,0 +1,11 @@
+<map id="EncodeInterFrame" name="EncodeInterFrame">
+<area shape="rect" id="node1" title="Inter frame decoder." alt="" coords="5,157,145,184"/>
+<area shape="rect" id="node2" href="$hibridEncoder_8cpp.html#a237a3b08da266195d4588f4972594dc8" title="Returns the blocks that are in the search area." alt="" coords="225,5,375,32"/>
+<area shape="rect" id="node4" href="$hibridEncoder_8cpp.html#af48dc56cf008b2f4190393cf00164912" title="Calculates the difference between two blocks." alt="" coords="226,56,374,83"/>
+<area shape="rect" id="node5" href="$hibridEncoder_8cpp.html#af254c922066cc2b05cc7e204210681a1" title="Calculates the residual between two frames." alt="" coords="231,107,369,133"/>
+<area shape="rect" id="node6" href="$hibridEncoder_8cpp.html#af6ef529e80768812e5eb69f4b7cb2c70" title="Divides a frame into blocks." alt="" coords="213,157,387,184"/>
+<area shape="rect" id="node7" href="$classGolomb.html#ae3c01f3d17a05a385af8b631825811fc" title="Encode an openCV map with golomb." alt="" coords="223,208,377,235"/>
+<area shape="rect" id="node8" href="$classGolomb.html#adc587efa500a486938eb492ddc3fd858" title="Encodes number." alt="" coords="210,259,390,285"/>
+<area shape="rect" id="node9" href="$hibridEncoder_8cpp.html#a09cc283a55256213e35765d60bebb81e" title="Performs motion compensation." alt="" coords="193,309,407,336"/>
+<area shape="rect" id="node3" href="$hibridEncoder_8cpp.html#a63a89a6839879b7ad214c64c43281b9a" title="Calculates the distance between two points." alt="" coords="455,5,532,32"/>
+</map>

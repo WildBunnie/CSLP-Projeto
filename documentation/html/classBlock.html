@@ -64,50 +64,45 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classBlock-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Block Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="Block_8hpp_source.html">Block.hpp</a>&gt;</code></p>
+<p>A class to represent a fixed-size block of pixels from a frame.  
+ <a href="classBlock.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="hibridEncoder_8h_source.html">hibridEncoder.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a52a24359576b549452e8e41ecd14c096"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#a52a24359576b549452e8e41ecd14c096">Block</a> (int posX, int posY, int size, Mat sourceFrame)</td></tr>
+<tr class="memdesc:a52a24359576b549452e8e41ecd14c096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classBlock.html#a52a24359576b549452e8e41ecd14c096">More...</a><br /></td></tr>
 <tr class="separator:a52a24359576b549452e8e41ecd14c096"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb26f9bb8daee3ac792faa4a253b14e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#a3bb26f9bb8daee3ac792faa4a253b14e">Block</a> (int size, vector&lt; vector&lt; int &gt;&gt; <a class="el" href="classBlock.html#a5c2541c4d68ffa8da631688ff28a8afd">pixels</a>)</td></tr>
-<tr class="separator:a3bb26f9bb8daee3ac792faa4a253b14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4e953b35b940ee2b798b583747e7424"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#ad4e953b35b940ee2b798b583747e7424">getBlockSize</a> ()</td></tr>
-<tr class="separator:ad4e953b35b940ee2b798b583747e7424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a911532475cf24f9f25c07446cc9cd980"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#a911532475cf24f9f25c07446cc9cd980">getPixels</a> ()</td></tr>
-<tr class="separator:a911532475cf24f9f25c07446cc9cd980"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa410b169782e9b5f9101e473723fff75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBlock.html">Block</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#aa410b169782e9b5f9101e473723fff75">operator-</a> (<a class="el" href="classBlock.html">Block</a> const &amp;block)</td></tr>
-<tr class="separator:aa410b169782e9b5f9101e473723fff75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a13d0a6d225233353862fa5adcbadf661"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#a13d0a6d225233353862fa5adcbadf661">x</a></td></tr>
+<tr class="memdesc:a13d0a6d225233353862fa5adcbadf661"><td class="mdescLeft">&#160;</td><td class="mdescRight">The x coordinate of the block.  <a href="classBlock.html#a13d0a6d225233353862fa5adcbadf661">More...</a><br /></td></tr>
 <tr class="separator:a13d0a6d225233353862fa5adcbadf661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9328d6b6fcc9f9c019d091d87ceda41c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#a9328d6b6fcc9f9c019d091d87ceda41c">y</a></td></tr>
+<tr class="memdesc:a9328d6b6fcc9f9c019d091d87ceda41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The y coordinate of the block.  <a href="classBlock.html#a9328d6b6fcc9f9c019d091d87ceda41c">More...</a><br /></td></tr>
 <tr class="separator:a9328d6b6fcc9f9c019d091d87ceda41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cbec497930b5f9e19cf59bd2fb4d078"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#a0cbec497930b5f9e19cf59bd2fb4d078">blockSize</a></td></tr>
+<tr class="memdesc:a0cbec497930b5f9e19cf59bd2fb4d078"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of the block.  <a href="classBlock.html#a0cbec497930b5f9e19cf59bd2fb4d078">More...</a><br /></td></tr>
 <tr class="separator:a0cbec497930b5f9e19cf59bd2fb4d078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace6191918353ea2574f63d4b45273799"><td class="memItemLeft" align="right" valign="top">Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#ace6191918353ea2574f63d4b45273799">frame</a></td></tr>
+<tr class="memdesc:ace6191918353ea2574f63d4b45273799"><td class="mdescLeft">&#160;</td><td class="mdescRight">The frame from which the block was extracted.  <a href="classBlock.html#ace6191918353ea2574f63d4b45273799">More...</a><br /></td></tr>
 <tr class="separator:ace6191918353ea2574f63d4b45273799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a5c2541c4d68ffa8da631688ff28a8afd"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBlock.html#a5c2541c4d68ffa8da631688ff28a8afd">pixels</a></td></tr>
-<tr class="separator:a5c2541c4d68ffa8da631688ff28a8afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="encoder_8cpp_source.html#l00008">8</a> of file <a class="el" href="encoder_8cpp_source.html">encoder.cpp</a>.</p>
+<div class="textblock"><p>A class to represent a fixed-size block of pixels from a frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="hibridEncoder_8h_source.html#l00014">14</a> of file <a class="el" href="hibridEncoder_8h_source.html">hibridEncoder.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a52a24359576b549452e8e41ecd14c096"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52a24359576b549452e8e41ecd14c096">&#9670;&nbsp;</a></span>Block() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a52a24359576b549452e8e41ecd14c096">&#9670;&nbsp;</a></span>Block()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,91 +147,21 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="encoder_8cpp_source.html#l00015">15</a> of file <a class="el" href="encoder_8cpp_source.html">encoder.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                                        : </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="classBlock.html#a13d0a6d225233353862fa5adcbadf661">x</a>(posX), <a class="code" href="classBlock.html#a9328d6b6fcc9f9c019d091d87ceda41c">y</a>(posY), <a class="code" href="classBlock.html#a0cbec497930b5f9e19cf59bd2fb4d078">blockSize</a>(size), <a class="code" href="classBlock.html#ace6191918353ea2574f63d4b45273799">frame</a>(sourceFrame.clone()) {}</div>
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">posX</td><td>The x coordinate of the block. </td></tr>
+    <tr><td class="paramname">posY</td><td>The y coordinate of the block. </td></tr>
+    <tr><td class="paramname">size</td><td>The size of the block. </td></tr>
+    <tr><td class="paramname">sourceFrame</td><td>The frame from which the block was extracted. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="hibridEncoder_8h_source.html#l00045">45</a> of file <a class="el" href="hibridEncoder_8h_source.html">hibridEncoder.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                                        : </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classBlock.html#a13d0a6d225233353862fa5adcbadf661">x</a>(posX), <a class="code" href="classBlock.html#a9328d6b6fcc9f9c019d091d87ceda41c">y</a>(posY), <a class="code" href="classBlock.html#a0cbec497930b5f9e19cf59bd2fb4d078">blockSize</a>(size), <a class="code" href="classBlock.html#ace6191918353ea2574f63d4b45273799">frame</a>(sourceFrame) {}</div>
 </div><!-- fragment -->
-</div>
-</div>
-<a id="a3bb26f9bb8daee3ac792faa4a253b14e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bb26f9bb8daee3ac792faa4a253b14e">&#9670;&nbsp;</a></span>Block() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Block::Block </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vector&lt; vector&lt; int &gt;&gt;&#160;</td>
-          <td class="paramname"><em>pixels</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad4e953b35b940ee2b798b583747e7424"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4e953b35b940ee2b798b583747e7424">&#9670;&nbsp;</a></span>getBlockSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Block::getBlockSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a911532475cf24f9f25c07446cc9cd980"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a911532475cf24f9f25c07446cc9cd980">&#9670;&nbsp;</a></span>getPixels()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;vector&lt;int&gt; &gt; Block::getPixels </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa410b169782e9b5f9101e473723fff75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa410b169782e9b5f9101e473723fff75">&#9670;&nbsp;</a></span>operator-()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classBlock.html">Block</a> Block::operator- </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classBlock.html">Block</a> const &amp;&#160;</td>
-          <td class="paramname"><em>block</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -252,9 +177,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="encoder_8cpp_source.html#l00012">12</a> of file <a class="el" href="encoder_8cpp_source.html">encoder.cpp</a>.</p>
+<p>The size of the block. </p>
 
-<p class="reference">Referenced by <a class="el" href="encoder_8cpp.html#af48dc56cf008b2f4190393cf00164912">calculateDifference()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hibridEncoder_8h_source.html#l00030">30</a> of file <a class="el" href="hibridEncoder_8h_source.html">hibridEncoder.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="hibridEncoder_8h.html#af48dc56cf008b2f4190393cf00164912">calculateDifference()</a>.</p>
 
 </div>
 </div>
@@ -270,33 +197,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="encoder_8cpp_source.html#l00013">13</a> of file <a class="el" href="encoder_8cpp_source.html">encoder.cpp</a>.</p>
+<p>The frame from which the block was extracted. </p>
 
-<p class="reference">Referenced by <a class="el" href="encoder_8cpp.html#af48dc56cf008b2f4190393cf00164912">calculateDifference()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hibridEncoder_8h_source.html#l00035">35</a> of file <a class="el" href="hibridEncoder_8h_source.html">hibridEncoder.h</a>.</p>
 
-</div>
-</div>
-<a id="a5c2541c4d68ffa8da631688ff28a8afd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c2541c4d68ffa8da631688ff28a8afd">&#9670;&nbsp;</a></span>pixels</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;vector&lt;int&gt; &gt; Block::pixels</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Block_8hpp_source.html#l00008">8</a> of file <a class="el" href="Block_8hpp_source.html">Block.hpp</a>.</p>
+<p class="reference">Referenced by <a class="el" href="hibridEncoder_8h.html#af48dc56cf008b2f4190393cf00164912">calculateDifference()</a>.</p>
 
 </div>
 </div>
@@ -312,9 +217,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="encoder_8cpp_source.html#l00010">10</a> of file <a class="el" href="encoder_8cpp_source.html">encoder.cpp</a>.</p>
+<p>The x coordinate of the block. </p>
 
-<p class="reference">Referenced by <a class="el" href="encoder_8cpp.html#af48dc56cf008b2f4190393cf00164912">calculateDifference()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hibridEncoder_8h_source.html#l00020">20</a> of file <a class="el" href="hibridEncoder_8h_source.html">hibridEncoder.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="hibridEncoder_8h.html#af48dc56cf008b2f4190393cf00164912">calculateDifference()</a>.</p>
 
 </div>
 </div>
@@ -330,21 +237,22 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="encoder_8cpp_source.html#l00011">11</a> of file <a class="el" href="encoder_8cpp_source.html">encoder.cpp</a>.</p>
+<p>The y coordinate of the block. </p>
 
-<p class="reference">Referenced by <a class="el" href="encoder_8cpp.html#af48dc56cf008b2f4190393cf00164912">calculateDifference()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hibridEncoder_8h_source.html#l00025">25</a> of file <a class="el" href="hibridEncoder_8h_source.html">hibridEncoder.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="hibridEncoder_8h.html#af48dc56cf008b2f4190393cf00164912">calculateDifference()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/hibrid-encoder/<a class="el" href="encoder_8cpp_source.html">encoder.cpp</a></li>
-<li>src/hibrid-encoder/include/<a class="el" href="Block_8hpp_source.html">Block.hpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>src/hibrid-encoder/include/<a class="el" href="hibridEncoder_8h_source.html">hibridEncoder.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclassBlock_html_a13d0a6d225233353862fa5adcbadf661"><div class="ttname"><a href="classBlock.html#a13d0a6d225233353862fa5adcbadf661">Block::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8cpp_source.html#l00010">encoder.cpp:10</a></div></div>
-<div class="ttc" id="aclassBlock_html_a9328d6b6fcc9f9c019d091d87ceda41c"><div class="ttname"><a href="classBlock.html#a9328d6b6fcc9f9c019d091d87ceda41c">Block::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8cpp_source.html#l00011">encoder.cpp:11</a></div></div>
-<div class="ttc" id="aclassBlock_html_ace6191918353ea2574f63d4b45273799"><div class="ttname"><a href="classBlock.html#ace6191918353ea2574f63d4b45273799">Block::frame</a></div><div class="ttdeci">Mat frame</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8cpp_source.html#l00013">encoder.cpp:13</a></div></div>
-<div class="ttc" id="aclassBlock_html_a0cbec497930b5f9e19cf59bd2fb4d078"><div class="ttname"><a href="classBlock.html#a0cbec497930b5f9e19cf59bd2fb4d078">Block::blockSize</a></div><div class="ttdeci">int blockSize</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8cpp_source.html#l00012">encoder.cpp:12</a></div></div>
+<div class="ttc" id="aclassBlock_html_a13d0a6d225233353862fa5adcbadf661"><div class="ttname"><a href="classBlock.html#a13d0a6d225233353862fa5adcbadf661">Block::x</a></div><div class="ttdeci">int x</div><div class="ttdoc">The x coordinate of the block.</div><div class="ttdef"><b>Definition:</b> <a href="hibridEncoder_8h_source.html#l00020">hibridEncoder.h:20</a></div></div>
+<div class="ttc" id="aclassBlock_html_a9328d6b6fcc9f9c019d091d87ceda41c"><div class="ttname"><a href="classBlock.html#a9328d6b6fcc9f9c019d091d87ceda41c">Block::y</a></div><div class="ttdeci">int y</div><div class="ttdoc">The y coordinate of the block.</div><div class="ttdef"><b>Definition:</b> <a href="hibridEncoder_8h_source.html#l00025">hibridEncoder.h:25</a></div></div>
+<div class="ttc" id="aclassBlock_html_ace6191918353ea2574f63d4b45273799"><div class="ttname"><a href="classBlock.html#ace6191918353ea2574f63d4b45273799">Block::frame</a></div><div class="ttdeci">Mat frame</div><div class="ttdoc">The frame from which the block was extracted.</div><div class="ttdef"><b>Definition:</b> <a href="hibridEncoder_8h_source.html#l00035">hibridEncoder.h:35</a></div></div>
+<div class="ttc" id="aclassBlock_html_a0cbec497930b5f9e19cf59bd2fb4d078"><div class="ttname"><a href="classBlock.html#a0cbec497930b5f9e19cf59bd2fb4d078">Block::blockSize</a></div><div class="ttdeci">int blockSize</div><div class="ttdoc">The size of the block.</div><div class="ttdef"><b>Definition:</b> <a href="hibridEncoder_8h_source.html#l00030">hibridEncoder.h:30</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

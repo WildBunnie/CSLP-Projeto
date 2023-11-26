@@ -72,7 +72,7 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:ad862501f0f51b7375ae155e80e98c7ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="videoPlayer_2CMakeLists_8txt.html#ad862501f0f51b7375ae155e80e98c7ce">cmake_minimum_required</a> (VERSION 3.16) project(player) find_package(OpenCV REQUIRED PATHS ~/build NO_DEFAULT_PATH) find_package(OpenCV REQUIRED) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(CMAKE_RUNTIME_OUTPUT_DIRECTORY $</td></tr>
 <tr class="separator:ad862501f0f51b7375ae155e80e98c7ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a772a0fd1ccb24a23c56359b819f5a099"><td class="memItemLeft" align="right" valign="top">bin&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a> (${OpenCV_INCLUDE_DIRS}) add_executable(player Player.cpp) <a class="el" href="intraEncoder_2CMakeLists_8txt.html#af4ae08ff13672ce5b9b0d1cd1df2ce7e">target_compile_options</a>($</td></tr>
+<tr class="memitem:a772a0fd1ccb24a23c56359b819f5a099"><td class="memItemLeft" align="right" valign="top">bin&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a> (${OpenCV_INCLUDE_DIRS}) add_executable(player Player.cpp) <a class="el" href="intraEncoder_2CMakeLists_8txt.html#ac6143d9bcb67f0adf55e808993b6e366">target_compile_options</a>($</td></tr>
 <tr class="separator:a772a0fd1ccb24a23c56359b819f5a099"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -116,12 +116,12 @@ Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="videoPlayer_2CMakeLists_8txt_source.html#l00006">6</a> of file <a class="el" href="videoPlayer_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
 <div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                      {OpenCV_INCLUDE_DIRS} )</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;add_executable( player <a class="code" href="classPlayer.html">Player</a>.cpp )</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="intraEncoder_2CMakeLists_8txt.html#af4ae08ff13672ce5b9b0d1cd1df2ce7e">target_compile_options</a>(${PROJECT_NAME} PRIVATE -g)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="hibrid-encoder_2CMakeLists_8txt.html#ac6143d9bcb67f0adf55e808993b6e366">target_compile_options</a>(${PROJECT_NAME} PRIVATE -g)</div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="aintraEncoder_2CMakeLists_8txt_html_af4ae08ff13672ce5b9b0d1cd1df2ce7e"><div class="ttname"><a href="intraEncoder_2CMakeLists_8txt.html#af4ae08ff13672ce5b9b0d1cd1df2ce7e">target_compile_options</a></div><div class="ttdeci">target_compile_options(${PROJECT_NAME} PRIVATE -g) target_link_libraries(encoder $</div><div class="ttdef"><b>Definition:</b> <a href="intraEncoder_2CMakeLists_8txt_source.html#l00025">CMakeLists.txt:25</a></div></div>
+<div class="ttc" id="ahibrid-encoder_2CMakeLists_8txt_html_ac6143d9bcb67f0adf55e808993b6e366"><div class="ttname"><a href="hibrid-encoder_2CMakeLists_8txt.html#ac6143d9bcb67f0adf55e808993b6e366">target_compile_options</a></div><div class="ttdeci">target_compile_options(main PRIVATE -g) target_link_libraries(main $</div><div class="ttdef"><b>Definition:</b> <a href="hibrid-encoder_2CMakeLists_8txt_source.html#l00024">CMakeLists.txt:24</a></div></div>
 <div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdoc">This class represents a video player/image displayer.</div><div class="ttdef"><b>Definition:</b> <a href="Player_8hpp_source.html#l00020">Player.hpp:20</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

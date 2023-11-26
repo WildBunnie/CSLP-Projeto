@@ -40,6 +40,16 @@ int \mbox{\hyperlink{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}{decode\+Numb
 void \mbox{\hyperlink{classGolomb_ae3c01f3d17a05a385af8b631825811fc}{encode\+Mat}} (cv\+::\+Mat)
 \begin{DoxyCompactList}\small\item\em Encode an open\+CV Mat to a bit\+Stream using \mbox{\hyperlink{classGolomb}{Golomb}}. \end{DoxyCompactList}\item 
 cv\+::\+Mat \mbox{\hyperlink{classGolomb_ae55d5bfe8e482168e3b8912e6f98aca1}{decode\+Mat}} (int cols, int rows)
+\begin{DoxyCompactList}\small\item\em Decode a \mbox{\hyperlink{classGolomb}{Golomb}} encoded bit\+Stream to a Mat. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGolomb_a015694df04a93719192c4de555315b6c}{Golomb}} (\mbox{\hyperlink{classBitStream}{Bit\+Stream}} $\ast$bs, int n)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGolomb_adc587efa500a486938eb492ddc3fd858}{encode\+Number}} (int)
+\begin{DoxyCompactList}\small\item\em Encodes number. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}{decode\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Decodes number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGolomb_ae3c01f3d17a05a385af8b631825811fc}{encode\+Mat}} (cv\+::\+Mat)
+\begin{DoxyCompactList}\small\item\em Encode an open\+CV Mat to a bit\+Stream using \mbox{\hyperlink{classGolomb}{Golomb}}. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classGolomb_ae55d5bfe8e482168e3b8912e6f98aca1}{decode\+Mat}} (int cols, int rows)
 \begin{DoxyCompactList}\small\item\em Decode a \mbox{\hyperlink{classGolomb}{Golomb}} encoded bit\+Stream to a Mat. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -65,7 +75,7 @@ Definition at line 11 of file Golomb.\+h.
 \mbox{\Hypertarget{classGolomb_a015694df04a93719192c4de555315b6c}\label{classGolomb_a015694df04a93719192c4de555315b6c}} 
 \index{Golomb@{Golomb}!Golomb@{Golomb}}
 \index{Golomb@{Golomb}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{Golomb()}{Golomb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Golomb()}{Golomb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily Golomb\+::\+Golomb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBitStream}{Bit\+Stream}} $\ast$}]{bs,  }\item[{int}]{n }\end{DoxyParamCaption})}
 
 
@@ -93,7 +103,24 @@ Definition at line 11 of file Golomb.\+cpp.
 \mbox{\Hypertarget{classGolomb_a015694df04a93719192c4de555315b6c}\label{classGolomb_a015694df04a93719192c4de555315b6c}} 
 \index{Golomb@{Golomb}!Golomb@{Golomb}}
 \index{Golomb@{Golomb}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{Golomb()}{Golomb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{Golomb()}{Golomb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Golomb\+::\+Golomb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBitStream}{Bit\+Stream}} $\ast$}]{bs,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bs} & \mbox{\hyperlink{classBitStream}{Bit\+Stream}} used to write the encoded bits. \\
+\hline
+{\em n} & Parameter used to divide the number to be encoded. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGolomb_a015694df04a93719192c4de555315b6c}\label{classGolomb_a015694df04a93719192c4de555315b6c}} 
+\index{Golomb@{Golomb}!Golomb@{Golomb}}
+\index{Golomb@{Golomb}!Golomb@{Golomb}}
+\doxysubsubsection{\texorpdfstring{Golomb()}{Golomb()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily Golomb\+::\+Golomb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBitStream}{Bit\+Stream}} $\ast$}]{bs,  }\item[{int}]{n }\end{DoxyParamCaption})}
 
 
@@ -113,7 +140,7 @@ Constructor.
 \mbox{\Hypertarget{classGolomb_ae55d5bfe8e482168e3b8912e6f98aca1}\label{classGolomb_ae55d5bfe8e482168e3b8912e6f98aca1}} 
 \index{Golomb@{Golomb}!decodeMat@{decodeMat}}
 \index{decodeMat@{decodeMat}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{decodeMat()}{decodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{decodeMat()}{decodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily cv\+::\+Mat Golomb\+::decode\+Mat (\begin{DoxyParamCaption}\item[{int}]{cols,  }\item[{int}]{rows }\end{DoxyParamCaption})}
 
 
@@ -147,9 +174,10 @@ Definition at line 65 of file Golomb.\+cpp.
 \end{DoxyCode}
 
 
-Referenced by decode\+Video(), and main().
+Referenced by Decode\+Hybrid(), decode\+Video(), and main().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -159,7 +187,27 @@ Here is the caller graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classGolomb_ae55d5bfe8e482168e3b8912e6f98aca1}\label{classGolomb_ae55d5bfe8e482168e3b8912e6f98aca1}} 
 \index{Golomb@{Golomb}!decodeMat@{decodeMat}}
 \index{decodeMat@{decodeMat}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{decodeMat()}{decodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{decodeMat()}{decodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily cv\+::\+Mat Golomb\+::decode\+Mat (\begin{DoxyParamCaption}\item[{int}]{cols,  }\item[{int}]{rows }\end{DoxyParamCaption})}
+
+
+
+Decode a \mbox{\hyperlink{classGolomb}{Golomb}} encoded bit\+Stream to a Mat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cols} & Number of columns of the Mat. \\
+\hline
+{\em rows} & Number of rows of the Mat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Decoded Mat. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGolomb_ae55d5bfe8e482168e3b8912e6f98aca1}\label{classGolomb_ae55d5bfe8e482168e3b8912e6f98aca1}} 
+\index{Golomb@{Golomb}!decodeMat@{decodeMat}}
+\index{decodeMat@{decodeMat}!Golomb@{Golomb}}
+\doxysubsubsection{\texorpdfstring{decodeMat()}{decodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily cv\+::\+Mat Golomb\+::decode\+Mat (\begin{DoxyParamCaption}\item[{int}]{cols,  }\item[{int}]{rows }\end{DoxyParamCaption})}
 
 
@@ -179,7 +227,7 @@ Decoded Mat.
 \mbox{\Hypertarget{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}\label{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}} 
 \index{Golomb@{Golomb}!decodeNumber@{decodeNumber}}
 \index{decodeNumber@{decodeNumber}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{decodeNumber()}{decodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{decodeNumber()}{decodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily int Golomb\+::decode\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -192,7 +240,20 @@ Decoded number.
 \mbox{\Hypertarget{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}\label{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}} 
 \index{Golomb@{Golomb}!decodeNumber@{decodeNumber}}
 \index{decodeNumber@{decodeNumber}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{decodeNumber()}{decodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{decodeNumber()}{decodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily int Golomb\+::decode\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Decodes number. 
+
+\begin{DoxyReturn}{Returns}
+Decoded number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}\label{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}} 
+\index{Golomb@{Golomb}!decodeNumber@{decodeNumber}}
+\index{decodeNumber@{decodeNumber}!Golomb@{Golomb}}
+\doxysubsubsection{\texorpdfstring{decodeNumber()}{decodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily int Golomb\+::decode\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -232,9 +293,10 @@ Definition at line 35 of file Golomb.\+cpp.
 \end{DoxyCode}
 
 
-Referenced by decode\+Video(), and main().
+Referenced by Decode\+Hybrid(), Decode\+Inter\+Frame(), decode\+Video(), and main().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -244,7 +306,7 @@ Here is the caller graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classGolomb_ae3c01f3d17a05a385af8b631825811fc}\label{classGolomb_ae3c01f3d17a05a385af8b631825811fc}} 
 \index{Golomb@{Golomb}!encodeMat@{encodeMat}}
 \index{encodeMat@{encodeMat}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{encodeMat()}{encodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{encodeMat()}{encodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily void Golomb\+::encode\+Mat (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{ }\end{DoxyParamCaption})}
 
 
@@ -259,7 +321,22 @@ Encode an open\+CV Mat to a bit\+Stream using \mbox{\hyperlink{classGolomb}{Golo
 \mbox{\Hypertarget{classGolomb_ae3c01f3d17a05a385af8b631825811fc}\label{classGolomb_ae3c01f3d17a05a385af8b631825811fc}} 
 \index{Golomb@{Golomb}!encodeMat@{encodeMat}}
 \index{encodeMat@{encodeMat}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{encodeMat()}{encodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{encodeMat()}{encodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Golomb\+::encode\+Mat (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{ }\end{DoxyParamCaption})}
+
+
+
+Encode an open\+CV Mat to a bit\+Stream using \mbox{\hyperlink{classGolomb}{Golomb}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Image in Mat format. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGolomb_ae3c01f3d17a05a385af8b631825811fc}\label{classGolomb_ae3c01f3d17a05a385af8b631825811fc}} 
+\index{Golomb@{Golomb}!encodeMat@{encodeMat}}
+\index{encodeMat@{encodeMat}!Golomb@{Golomb}}
+\doxysubsubsection{\texorpdfstring{encodeMat()}{encodeMat()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily void Golomb\+::encode\+Mat (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{image }\end{DoxyParamCaption})}
 
 
@@ -290,9 +367,10 @@ Definition at line 55 of file Golomb.\+cpp.
 \end{DoxyCode}
 
 
-Referenced by encode\+Video(), and main().
+Referenced by Encode\+Hybrid(), Encode\+Inter\+Frame(), encode\+Video(), and main().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -302,7 +380,7 @@ Here is the caller graph for this function\+:\nopagebreak
 \mbox{\Hypertarget{classGolomb_adc587efa500a486938eb492ddc3fd858}\label{classGolomb_adc587efa500a486938eb492ddc3fd858}} 
 \index{Golomb@{Golomb}!encodeNumber@{encodeNumber}}
 \index{encodeNumber@{encodeNumber}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{encodeNumber()}{encodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{encodeNumber()}{encodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily void Golomb\+::encode\+Number (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})}
 
 
@@ -317,7 +395,7 @@ Encodes number.
 \mbox{\Hypertarget{classGolomb_adc587efa500a486938eb492ddc3fd858}\label{classGolomb_adc587efa500a486938eb492ddc3fd858}} 
 \index{Golomb@{Golomb}!encodeNumber@{encodeNumber}}
 \index{encodeNumber@{encodeNumber}!Golomb@{Golomb}}
-\doxysubsubsection{\texorpdfstring{encodeNumber()}{encodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{encodeNumber()}{encodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily void Golomb\+::encode\+Number (\begin{DoxyParamCaption}\item[{int}]{number }\end{DoxyParamCaption})}
 
 
@@ -359,15 +437,31 @@ Definition at line 17 of file Golomb.\+cpp.
 \end{DoxyCode}
 
 
-Referenced by encode\+Video(), and main().
+Referenced by Encode\+Hybrid(), Encode\+Inter\+Frame(), encode\+Video(), and main().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classGolomb_adc587efa500a486938eb492ddc3fd858_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{classGolomb_adc587efa500a486938eb492ddc3fd858}\label{classGolomb_adc587efa500a486938eb492ddc3fd858}} 
+\index{Golomb@{Golomb}!encodeNumber@{encodeNumber}}
+\index{encodeNumber@{encodeNumber}!Golomb@{Golomb}}
+\doxysubsubsection{\texorpdfstring{encodeNumber()}{encodeNumber()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Golomb\+::encode\+Number (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})}
+
+
+
+Encodes number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & Number to be encoded. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}

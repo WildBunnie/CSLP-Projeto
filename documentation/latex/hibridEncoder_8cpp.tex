@@ -1,0 +1,720 @@
+\hypertarget{hibridEncoder_8cpp}{}\doxysection{src/hibrid-\/encoder/hibrid\+Encoder.cpp File Reference}
+\label{hibridEncoder_8cpp}\index{src/hibrid-\/encoder/hibridEncoder.cpp@{src/hibrid-\/encoder/hibridEncoder.cpp}}
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/plot.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}Golomb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}intra\+Encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hibrid\+Encoder.\+h\char`\"{}}\newline
+Include dependency graph for hibrid\+Encoder.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{hibridEncoder_8cpp_af48dc56cf008b2f4190393cf00164912}{calculate\+Difference}} (\mbox{\hyperlink{classBlock}{Block}} block1, \mbox{\hyperlink{classBlock}{Block}} block2)
+\begin{DoxyCompactList}\small\item\em Calculates the difference between two blocks. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classBlock}{Block}} $>$ \mbox{\hyperlink{hibridEncoder_8cpp_af6ef529e80768812e5eb69f4b7cb2c70}{Divide\+Frame\+Into\+Blocks}} (Mat frame, int block\+Size)
+\begin{DoxyCompactList}\small\item\em Divides a frame into blocks. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{hibridEncoder_8cpp_a63a89a6839879b7ad214c64c43281b9a}{distance}} (int x1, int y1, int x2, int y2)
+\begin{DoxyCompactList}\small\item\em Calculates the distance between two points. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classBlock}{Block}} $>$ \mbox{\hyperlink{hibridEncoder_8cpp_a237a3b08da266195d4588f4972594dc8}{Blocks\+In\+Search\+Area}} (vector$<$ \mbox{\hyperlink{classBlock}{Block}} $>$ blocks, int search\+\_\+x, int search\+\_\+y, int search\+Area)
+\begin{DoxyCompactList}\small\item\em Returns the blocks that are in the search area. \end{DoxyCompactList}\item 
+Mat \mbox{\hyperlink{hibridEncoder_8cpp_a09cc283a55256213e35765d60bebb81e}{Perform\+Motion\+Compensation}} (Mat previous\+Frame, vector$<$ \mbox{\hyperlink{classMotionVector}{Motion\+Vector}} $>$ motion\+Vectors, int block\+Size)
+\begin{DoxyCompactList}\small\item\em Performs motion compensation. \end{DoxyCompactList}\item 
+Mat \mbox{\hyperlink{hibridEncoder_8cpp_af254c922066cc2b05cc7e204210681a1}{Calculate\+Residual}} (Mat current\+Frame, Mat predicted\+Frame)
+\begin{DoxyCompactList}\small\item\em Calculates the residual between two frames. \end{DoxyCompactList}\item 
+Mat \mbox{\hyperlink{hibridEncoder_8cpp_ad37e62680c71d49f64aa27f4be10e42a}{Decode\+Inter\+Frame}} (Mat previous\+Frame, Mat residuals, int count\+Motion\+Vectors, int block\+Size, \mbox{\hyperlink{classGolomb}{Golomb}} $\ast$gl)
+\begin{DoxyCompactList}\small\item\em Inter frame encoder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hibridEncoder_8cpp_aa795ad37346875ddfa1a66a5b95113ea}{Encode\+Inter\+Frame}} (Mat current\+Frame, Mat previous\+Frame, int block\+Size, int search\+Area, \mbox{\hyperlink{classGolomb}{Golomb}} $\ast$gl)
+\begin{DoxyCompactList}\small\item\em Inter frame decoder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hibridEncoder_8cpp_a8b0bd6224b5055ed65d8c1e0c947958a}{Encode\+Hybrid}} (string outputfile, string input\+File, int periodicity, int block\+Size, int Search\+Area)
+\begin{DoxyCompactList}\small\item\em Hybrid (inter + intra) encoder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hibridEncoder_8cpp_a56338cedf392f0fee37d0f4eb7dacfe3}{Decode\+Hybrid}} (string output\+File, string input\+File)
+\begin{DoxyCompactList}\small\item\em Hybrid (inter + intra) frame decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{hibridEncoder_8cpp_a237a3b08da266195d4588f4972594dc8}\label{hibridEncoder_8cpp_a237a3b08da266195d4588f4972594dc8}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!BlocksInSearchArea@{BlocksInSearchArea}}
+\index{BlocksInSearchArea@{BlocksInSearchArea}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{BlocksInSearchArea()}{BlocksInSearchArea()}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classBlock}{Block}}$>$ Blocks\+In\+Search\+Area (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classBlock}{Block}} $>$}]{blocks,  }\item[{int}]{search\+\_\+x,  }\item[{int}]{search\+\_\+y,  }\item[{int}]{search\+Area }\end{DoxyParamCaption})}
+
+
+
+Returns the blocks that are in the search area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em blocks} & The blocks to be searched. \\
+\hline
+{\em search\+\_\+x} & The x coordinate of the search area. \\
+\hline
+{\em search\+\_\+y} & The y coordinate of the search area. \\
+\hline
+{\em search\+Area} & The size of the search area. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing the blocks that are in the search area. 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52                                                                                                   \{}
+\DoxyCodeLine{53     vector<Block> result\_blocks;}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classBlock}{Block}} block : blocks)\{}
+\DoxyCodeLine{56         \textcolor{keywordtype}{float} dist = \mbox{\hyperlink{hibridEncoder_8cpp_a63a89a6839879b7ad214c64c43281b9a}{distance}}(search\_x, search\_y, block.x, block.y);}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if}(dist / block.blockSize <= searchArea)\{}
+\DoxyCodeLine{58             result\_blocks.push\_back(block);}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{return} result\_blocks;}
+\DoxyCodeLine{63 \}}
+
+\end{DoxyCode}
+
+
+References distance().
+
+
+
+Referenced by Encode\+Inter\+Frame().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{hibridEncoder_8cpp_a237a3b08da266195d4588f4972594dc8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_a237a3b08da266195d4588f4972594dc8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8cpp_af48dc56cf008b2f4190393cf00164912}\label{hibridEncoder_8cpp_af48dc56cf008b2f4190393cf00164912}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!calculateDifference@{calculateDifference}}
+\index{calculateDifference@{calculateDifference}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{calculateDifference()}{calculateDifference()}}
+{\footnotesize\ttfamily int calculate\+Difference (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBlock}{Block}}}]{block1,  }\item[{\mbox{\hyperlink{classBlock}{Block}}}]{block2 }\end{DoxyParamCaption})}
+
+
+
+Calculates the difference between two blocks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em block1} & The first block. \\
+\hline
+{\em block2} & The second block. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The difference between the two blocks. 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12                                                     \{}
+\DoxyCodeLine{13     }
+\DoxyCodeLine{14     Mat Mat1 = block1.\mbox{\hyperlink{classBlock_ace6191918353ea2574f63d4b45273799}{frame}};}
+\DoxyCodeLine{15     Mat Mat2 = block2.\mbox{\hyperlink{classBlock_ace6191918353ea2574f63d4b45273799}{frame}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{double} diff = 0.0;}
+\DoxyCodeLine{18     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < block1.\mbox{\hyperlink{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}{blockSize}} ; x++) \{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < block1.\mbox{\hyperlink{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}{blockSize}}; y++) \{}
+\DoxyCodeLine{20             \textcolor{keywordflow}{if} (x >= 0 \&\& x < Mat1.cols \&\& y >= 0 \&\& y < Mat1.rows)\{}
+\DoxyCodeLine{21                 diff += abs(Mat1.at<uchar>(block1.\mbox{\hyperlink{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}{y}} + y, block1.\mbox{\hyperlink{classBlock_a13d0a6d225233353862fa5adcbadf661}{x}} + x) -\/ Mat2.at<uchar>(block2.\mbox{\hyperlink{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}{y}} + y, block2.\mbox{\hyperlink{classBlock_a13d0a6d225233353862fa5adcbadf661}{x}} + x));}
+\DoxyCodeLine{22             \}}
+\DoxyCodeLine{23         \}}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordflow}{return} diff;}
+\DoxyCodeLine{27 \}}
+
+\end{DoxyCode}
+
+
+References Block\+::block\+Size, Block\+::frame, Block\+::x, and Block\+::y.
+
+
+
+Referenced by Encode\+Inter\+Frame().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_af48dc56cf008b2f4190393cf00164912_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8cpp_af254c922066cc2b05cc7e204210681a1}\label{hibridEncoder_8cpp_af254c922066cc2b05cc7e204210681a1}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!CalculateResidual@{CalculateResidual}}
+\index{CalculateResidual@{CalculateResidual}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{CalculateResidual()}{CalculateResidual()}}
+{\footnotesize\ttfamily Mat Calculate\+Residual (\begin{DoxyParamCaption}\item[{Mat}]{current\+Frame,  }\item[{Mat}]{predicted\+Frame }\end{DoxyParamCaption})}
+
+
+
+Calculates the residual between two frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Frame} & The current frame. \\
+\hline
+{\em predicted\+Frame} & The predicted frame. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The residual. 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94                                                             \{}
+\DoxyCodeLine{95     Mat residualImage;}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{keywordflow}{if} (currentFrame.size() != predictedFrame.size() || currentFrame.type() != predictedFrame.type()) \{}
+\DoxyCodeLine{98         cout << \textcolor{stringliteral}{"Input frames have different sizes or types."} << endl;}
+\DoxyCodeLine{99         \textcolor{keywordflow}{return} residualImage;}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101     subtract(currentFrame, predictedFrame, residualImage);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keywordflow}{return} residualImage;}
+\DoxyCodeLine{104 \}}
+
+\end{DoxyCode}
+
+
+Referenced by Encode\+Inter\+Frame().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_af254c922066cc2b05cc7e204210681a1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8cpp_a56338cedf392f0fee37d0f4eb7dacfe3}\label{hibridEncoder_8cpp_a56338cedf392f0fee37d0f4eb7dacfe3}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!DecodeHybrid@{DecodeHybrid}}
+\index{DecodeHybrid@{DecodeHybrid}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{DecodeHybrid()}{DecodeHybrid()}}
+{\footnotesize\ttfamily void Decode\+Hybrid (\begin{DoxyParamCaption}\item[{string}]{output\+File,  }\item[{string}]{input\+File }\end{DoxyParamCaption})}
+
+
+
+Hybrid (inter + intra) frame decoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+File} & The name of the output file. \\
+\hline
+{\em input\+File} & The name of the input file. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 191 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{191                                                      \{}
+\DoxyCodeLine{192     Mat frame,lastFrame;}
+\DoxyCodeLine{193     \textcolor{keywordtype}{string} format = \textcolor{stringliteral}{".mp4"};}
+\DoxyCodeLine{194     \mbox{\hyperlink{classBitStream}{BitStream}} bs(inputFile,\textcolor{charliteral}{'r'});}
+\DoxyCodeLine{195     \mbox{\hyperlink{classGolomb}{Golomb}} gl(\&bs,50);}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \textcolor{keywordtype}{int} fourcc = VideoWriter::fourcc(\textcolor{charliteral}{'m'},\textcolor{charliteral}{'p'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'v'});}
+\DoxyCodeLine{198     \textcolor{keywordtype}{int} framesCount = gl.decodeNumber();}
+\DoxyCodeLine{199     \textcolor{keywordtype}{int} blockSize = gl.decodeNumber();}
+\DoxyCodeLine{200     \textcolor{keywordtype}{int} cols = gl.decodeNumber();}
+\DoxyCodeLine{201     \textcolor{keywordtype}{int} row = gl.decodeNumber();}
+\DoxyCodeLine{202     \textcolor{keywordtype}{int} fps = gl.decodeNumber();}
+\DoxyCodeLine{203     Size size(cols,row);}
+\DoxyCodeLine{204     VideoWriter out(outputFile+format,fourcc,fps,size,\textcolor{keyword}{false});}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < framesCount; i++)\{}
+\DoxyCodeLine{207         frame = gl.decodeMat(cols,row);}
+\DoxyCodeLine{208         \textcolor{keywordtype}{int} countMotionVectors = gl.decodeNumber();}
+\DoxyCodeLine{209         \textcolor{keywordflow}{if} (countMotionVectors == 0)\{}
+\DoxyCodeLine{210             frame = \mbox{\hyperlink{hibrid-encoder_2include_2intraEncoder_8h_a7381c08bf2b124bea0163eade102a775}{getOriginalJPEG\_LS}}(frame);}
+\DoxyCodeLine{211         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{212             frame = \mbox{\hyperlink{hibridEncoder_8cpp_ad37e62680c71d49f64aa27f4be10e42a}{DecodeInterFrame}}(lastFrame,frame,countMotionVectors,blockSize,\&gl);}
+\DoxyCodeLine{213         \}}
+\DoxyCodeLine{214         lastFrame = frame.clone();}
+\DoxyCodeLine{215         out << frame;}
+\DoxyCodeLine{216     \}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218     out.release();}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220 \}}
+
+\end{DoxyCode}
+
+
+References Decode\+Inter\+Frame(), Golomb\+::decode\+Mat(), Golomb\+::decode\+Number(), and get\+Original\+J\+P\+E\+G\+\_\+\+L\+S().
+
+
+
+Referenced by main().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_a56338cedf392f0fee37d0f4eb7dacfe3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{hibridEncoder_8cpp_a56338cedf392f0fee37d0f4eb7dacfe3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8cpp_ad37e62680c71d49f64aa27f4be10e42a}\label{hibridEncoder_8cpp_ad37e62680c71d49f64aa27f4be10e42a}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!DecodeInterFrame@{DecodeInterFrame}}
+\index{DecodeInterFrame@{DecodeInterFrame}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{DecodeInterFrame()}{DecodeInterFrame()}}
+{\footnotesize\ttfamily Mat Decode\+Inter\+Frame (\begin{DoxyParamCaption}\item[{Mat}]{previous\+Frame,  }\item[{Mat}]{residuals,  }\item[{int}]{count\+Motion\+Vectors,  }\item[{int}]{block\+Size,  }\item[{\mbox{\hyperlink{classGolomb}{Golomb}} $\ast$}]{gl }\end{DoxyParamCaption})}
+
+
+
+Inter frame encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em previous\+Frame} & The previous frame. \\
+\hline
+{\em residuals} & The calculated residuals. \\
+\hline
+{\em count\+Motion\+Vectors} & The value of the actual count of the motion vectors. \\
+\hline
+{\em block\+Size} & The size of each block. \\
+\hline
+{\em gl} & The \mbox{\hyperlink{classGolomb}{Golomb}} object used to encode the motion vectors. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 106 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{106                                                                                                        \{}
+\DoxyCodeLine{107     vector<MotionVector> motionVectors;}
+\DoxyCodeLine{108     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i<countMotionVectors; i++)\{}
+\DoxyCodeLine{109         \textcolor{keywordtype}{int} dx = gl-\/>\mbox{\hyperlink{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}{decodeNumber}}();}
+\DoxyCodeLine{110         \textcolor{keywordtype}{int} dy = gl-\/>\mbox{\hyperlink{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}{decodeNumber}}();}
+\DoxyCodeLine{111         \textcolor{keywordtype}{int} blockx = gl-\/>\mbox{\hyperlink{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}{decodeNumber}}();}
+\DoxyCodeLine{112         \textcolor{keywordtype}{int} blocky = gl-\/>\mbox{\hyperlink{classGolomb_a7dcdbc9dff571a8eebcb1e17fbe75634}{decodeNumber}}();}
+\DoxyCodeLine{113         motionVectors.push\_back(\mbox{\hyperlink{classMotionVector}{MotionVector}}(dx,dy,blockx,blocky));}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     Mat predictedFrame = \mbox{\hyperlink{hibridEncoder_8cpp_a09cc283a55256213e35765d60bebb81e}{PerformMotionCompensation}}(previousFrame, motionVectors, blockSize);}
+\DoxyCodeLine{117     Mat reconstructedFrame = residuals + predictedFrame;}
+\DoxyCodeLine{118     \textcolor{keywordflow}{return} reconstructedFrame;}
+\DoxyCodeLine{119 \}}
+
+\end{DoxyCode}
+
+
+References Golomb\+::decode\+Number(), and Perform\+Motion\+Compensation().
+
+
+
+Referenced by Decode\+Hybrid().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_ad37e62680c71d49f64aa27f4be10e42a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_ad37e62680c71d49f64aa27f4be10e42a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8cpp_a63a89a6839879b7ad214c64c43281b9a}\label{hibridEncoder_8cpp_a63a89a6839879b7ad214c64c43281b9a}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!distance@{distance}}
+\index{distance@{distance}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily float distance (\begin{DoxyParamCaption}\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{x2,  }\item[{int}]{y2 }\end{DoxyParamCaption})}
+
+
+
+Calculates the distance between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & The x coordinate of the first point. \\
+\hline
+{\em y1} & The y coordinate of the first point. \\
+\hline
+{\em x2} & The x coordinate of the second point. \\
+\hline
+{\em y2} & The y coordinate of the second point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the two points. 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48 \{ }
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} sqrt(pow(x2 -\/ x1, 2) + pow(y2 -\/ y1, 2) * 1.0); }
+\DoxyCodeLine{50 \} }
+
+\end{DoxyCode}
+
+
+Referenced by Blocks\+In\+Search\+Area().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_a63a89a6839879b7ad214c64c43281b9a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8cpp_af6ef529e80768812e5eb69f4b7cb2c70}\label{hibridEncoder_8cpp_af6ef529e80768812e5eb69f4b7cb2c70}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!DivideFrameIntoBlocks@{DivideFrameIntoBlocks}}
+\index{DivideFrameIntoBlocks@{DivideFrameIntoBlocks}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{DivideFrameIntoBlocks()}{DivideFrameIntoBlocks()}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classBlock}{Block}}$>$ Divide\+Frame\+Into\+Blocks (\begin{DoxyParamCaption}\item[{Mat}]{frame,  }\item[{int}]{block\+Size }\end{DoxyParamCaption})}
+
+
+
+Divides a frame into blocks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & The frame to be divided. \\
+\hline
+{\em block\+Size} & The size of the blocks. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing the blocks. 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                                                              \{}
+\DoxyCodeLine{30     vector<Block> blocks;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} (frame.empty()) \{}
+\DoxyCodeLine{33         cout << \textcolor{stringliteral}{"Empty frame."} << endl;}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} blocks;}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < frame.rows; y += blockSize) \{}
+\DoxyCodeLine{38         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < frame.cols; x += blockSize) \{}
+\DoxyCodeLine{39             \mbox{\hyperlink{classBlock}{Block}} block(x, y, blockSize, frame);}
+\DoxyCodeLine{40             blocks.push\_back(block);}
+\DoxyCodeLine{41         \}}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} blocks;}
+\DoxyCodeLine{45 \}}
+
+\end{DoxyCode}
+
+
+Referenced by Encode\+Inter\+Frame().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_af6ef529e80768812e5eb69f4b7cb2c70_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8cpp_a8b0bd6224b5055ed65d8c1e0c947958a}\label{hibridEncoder_8cpp_a8b0bd6224b5055ed65d8c1e0c947958a}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!EncodeHybrid@{EncodeHybrid}}
+\index{EncodeHybrid@{EncodeHybrid}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{EncodeHybrid()}{EncodeHybrid()}}
+{\footnotesize\ttfamily void Encode\+Hybrid (\begin{DoxyParamCaption}\item[{string}]{outputfile,  }\item[{string}]{input\+File,  }\item[{int}]{periodicity,  }\item[{int}]{block\+Size,  }\item[{int}]{Search\+Area }\end{DoxyParamCaption})}
+
+
+
+Hybrid (inter + intra) encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em outputfile} & The name of the output file. \\
+\hline
+{\em input\+File} & The name of the input file. \\
+\hline
+{\em periodicity} & The periodicity of the key frames. \\
+\hline
+{\em block\+Size} & The size of each block. \\
+\hline
+{\em search\+Area} & The size of the search area. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 160 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{160                                                                                                   \{}
+\DoxyCodeLine{161     Mat frame,residuals,lastFrame;}
+\DoxyCodeLine{162     \textcolor{keywordtype}{int} counter = periodicity;}
+\DoxyCodeLine{163     \mbox{\hyperlink{classBitStream}{BitStream}} bs(outputfile,\textcolor{charliteral}{'w'});}
+\DoxyCodeLine{164     \mbox{\hyperlink{classGolomb}{Golomb}} gl(\&bs,50);}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     VideoCapture cap(inputFile);}
+\DoxyCodeLine{167     cap >> frame;}
+\DoxyCodeLine{168     gl.encodeNumber(cap.get(CAP\_PROP\_FRAME\_COUNT));}
+\DoxyCodeLine{169     gl.encodeNumber(blockSize);}
+\DoxyCodeLine{170     gl.encodeNumber(frame.cols);}
+\DoxyCodeLine{171     gl.encodeNumber(frame.rows);}
+\DoxyCodeLine{172     gl.encodeNumber(cap.get(CAP\_PROP\_FPS));}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{keywordflow}{while}(!frame.empty())\{}
+\DoxyCodeLine{175         cvtColor(frame,frame,COLOR\_BGR2GRAY);}
+\DoxyCodeLine{176         \textcolor{keywordflow}{if}(counter < periodicity)\{}
+\DoxyCodeLine{177             \mbox{\hyperlink{hibridEncoder_8cpp_aa795ad37346875ddfa1a66a5b95113ea}{EncodeInterFrame}}(frame,lastFrame,blockSize,SearchArea,\&gl);}
+\DoxyCodeLine{178         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{179             residuals = \mbox{\hyperlink{hibrid-encoder_2include_2intraEncoder_8h_a0196ad1a7cc42f5c0b3d15b2562dea81}{getResidualsJPEG\_LS}}(frame);}
+\DoxyCodeLine{180             gl.encodeMat(residuals);}
+\DoxyCodeLine{181             gl.encodeNumber(0);}
+\DoxyCodeLine{182             counter = 0;}
+\DoxyCodeLine{183         \}}
+\DoxyCodeLine{184         lastFrame = frame.clone();}
+\DoxyCodeLine{185         counter++;}
+\DoxyCodeLine{186         cap >> frame;}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188     cap.release();}
+\DoxyCodeLine{189 \}}
+
+\end{DoxyCode}
+
+
+References Encode\+Inter\+Frame(), Golomb\+::encode\+Mat(), Golomb\+::encode\+Number(), and get\+Residuals\+J\+P\+E\+G\+\_\+\+L\+S().
+
+
+
+Referenced by main().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_a8b0bd6224b5055ed65d8c1e0c947958a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{hibridEncoder_8cpp_a8b0bd6224b5055ed65d8c1e0c947958a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8cpp_aa795ad37346875ddfa1a66a5b95113ea}\label{hibridEncoder_8cpp_aa795ad37346875ddfa1a66a5b95113ea}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!EncodeInterFrame@{EncodeInterFrame}}
+\index{EncodeInterFrame@{EncodeInterFrame}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{EncodeInterFrame()}{EncodeInterFrame()}}
+{\footnotesize\ttfamily void Encode\+Inter\+Frame (\begin{DoxyParamCaption}\item[{Mat}]{current\+Frame,  }\item[{Mat}]{previous\+Frame,  }\item[{int}]{block\+Size,  }\item[{int}]{search\+Area,  }\item[{\mbox{\hyperlink{classGolomb}{Golomb}} $\ast$}]{gl }\end{DoxyParamCaption})}
+
+
+
+Inter frame decoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Frame} & The current frame. \\
+\hline
+{\em previous\+Frame} & The previous frame. \\
+\hline
+{\em block\+Size} & The size of each block. \\
+\hline
+{\em search\+Area} & The size of the search area. \\
+\hline
+{\em gl} & The \mbox{\hyperlink{classGolomb}{Golomb}} object used to decode the motion vectors. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 121 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{121                                                                                                     \{}
+\DoxyCodeLine{122     vector<Block> blocks = \mbox{\hyperlink{hibridEncoder_8cpp_af6ef529e80768812e5eb69f4b7cb2c70}{DivideFrameIntoBlocks}}(currentFrame, blockSize);}
+\DoxyCodeLine{123     vector<Block> previousBlocks = \mbox{\hyperlink{hibridEncoder_8cpp_af6ef529e80768812e5eb69f4b7cb2c70}{DivideFrameIntoBlocks}}(previousFrame, blockSize);}
+\DoxyCodeLine{124     vector<MotionVector> motionVectors;}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classBlock}{Block}} block : blocks)\{}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128         \textcolor{keywordtype}{int} minDiff = INT\_MAX;}
+\DoxyCodeLine{129         \mbox{\hyperlink{classMotionVector}{MotionVector}} MV;}
+\DoxyCodeLine{130         vector<Block> searchAreaBlocks = \mbox{\hyperlink{hibridEncoder_8cpp_a237a3b08da266195d4588f4972594dc8}{BlocksInSearchArea}}(previousBlocks, block.x, block.y, searchArea);}
+\DoxyCodeLine{131         }
+\DoxyCodeLine{132         \textcolor{keywordflow}{for}(\mbox{\hyperlink{classBlock}{Block}} previousBlock : searchAreaBlocks)\{}
+\DoxyCodeLine{133             \textcolor{keywordtype}{int} diff = \mbox{\hyperlink{hibridEncoder_8cpp_af48dc56cf008b2f4190393cf00164912}{calculateDifference}}(block, previousBlock);}
+\DoxyCodeLine{134             \textcolor{keywordflow}{if}(diff < minDiff)\{}
+\DoxyCodeLine{135                 minDiff = diff;}
+\DoxyCodeLine{136                 MV.\mbox{\hyperlink{classMotionVector_a2e722d33cbdbeeba3e52d49b730b9cbd}{blockX}} = previousBlock.x;}
+\DoxyCodeLine{137                 MV.\mbox{\hyperlink{classMotionVector_a99b61be6310398f73313a4a18319f058}{blockY}} = previousBlock.y;}
+\DoxyCodeLine{138                 MV.\mbox{\hyperlink{classMotionVector_abd7e58050932314ffbcbf6dd663a3ced}{dx}} = block.x -\/ previousBlock.x;}
+\DoxyCodeLine{139                 MV.\mbox{\hyperlink{classMotionVector_af131b1ce31ba9b00497a1e313dd01284}{dy}} = block.y -\/ previousBlock.y;}
+\DoxyCodeLine{140             \}}
+\DoxyCodeLine{141         \}}
+\DoxyCodeLine{142         motionVectors.push\_back(MV);}
+\DoxyCodeLine{143     \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     Mat predictedFrame = \mbox{\hyperlink{hibridEncoder_8cpp_a09cc283a55256213e35765d60bebb81e}{PerformMotionCompensation}}(previousFrame, motionVectors, blockSize);}
+\DoxyCodeLine{146     Mat residuals = \mbox{\hyperlink{hibridEncoder_8cpp_af254c922066cc2b05cc7e204210681a1}{CalculateResidual}}(currentFrame, predictedFrame);}
+\DoxyCodeLine{147     }
+\DoxyCodeLine{148     gl-\/>\mbox{\hyperlink{classGolomb_ae3c01f3d17a05a385af8b631825811fc}{encodeMat}}(residuals);}
+\DoxyCodeLine{149     gl-\/>\mbox{\hyperlink{classGolomb_adc587efa500a486938eb492ddc3fd858}{encodeNumber}}(motionVectors.size());}
+\DoxyCodeLine{150     \textcolor{keywordflow}{for}(\mbox{\hyperlink{classMotionVector}{MotionVector}} v:motionVectors)\{}
+\DoxyCodeLine{151         gl-\/>\mbox{\hyperlink{classGolomb_adc587efa500a486938eb492ddc3fd858}{encodeNumber}}(v.dx);}
+\DoxyCodeLine{152         gl-\/>\mbox{\hyperlink{classGolomb_adc587efa500a486938eb492ddc3fd858}{encodeNumber}}(v.dy);}
+\DoxyCodeLine{153         gl-\/>\mbox{\hyperlink{classGolomb_adc587efa500a486938eb492ddc3fd858}{encodeNumber}}(v.blockX);}
+\DoxyCodeLine{154         gl-\/>\mbox{\hyperlink{classGolomb_adc587efa500a486938eb492ddc3fd858}{encodeNumber}}(v.blockY);}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156     }
+\DoxyCodeLine{157     \textcolor{comment}{// DecodeInterFrame(previousFrame, residuals, motionVectors, blockSize);}}
+\DoxyCodeLine{158 \}}
+
+\end{DoxyCode}
+
+
+References Blocks\+In\+Search\+Area(), Motion\+Vector\+::blockX, Motion\+Vector\+::blockY, calculate\+Difference(), Calculate\+Residual(), Divide\+Frame\+Into\+Blocks(), Motion\+Vector\+::dx, Motion\+Vector\+::dy, Golomb\+::encode\+Mat(), Golomb\+::encode\+Number(), and Perform\+Motion\+Compensation().
+
+
+
+Referenced by Encode\+Hybrid().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_aa795ad37346875ddfa1a66a5b95113ea_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_aa795ad37346875ddfa1a66a5b95113ea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8cpp_a09cc283a55256213e35765d60bebb81e}\label{hibridEncoder_8cpp_a09cc283a55256213e35765d60bebb81e}} 
+\index{hibridEncoder.cpp@{hibridEncoder.cpp}!PerformMotionCompensation@{PerformMotionCompensation}}
+\index{PerformMotionCompensation@{PerformMotionCompensation}!hibridEncoder.cpp@{hibridEncoder.cpp}}
+\doxysubsubsection{\texorpdfstring{PerformMotionCompensation()}{PerformMotionCompensation()}}
+{\footnotesize\ttfamily Mat Perform\+Motion\+Compensation (\begin{DoxyParamCaption}\item[{Mat}]{previous\+Frame,  }\item[{vector$<$ \mbox{\hyperlink{classMotionVector}{Motion\+Vector}} $>$}]{motion\+Vectors,  }\item[{int}]{block\+Size }\end{DoxyParamCaption})}
+
+
+
+Performs motion compensation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em previous\+Frame} & The previous frame. \\
+\hline
+{\em motion\+Vectors} & The motion vectors. \\
+\hline
+{\em block\+Size} & The size of each block. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The predicted frame. 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                                                                                                     \{}
+\DoxyCodeLine{66     Mat predictedFrame = previousFrame.clone(); \textcolor{comment}{// Create a copy of the previous frame}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \mbox{\hyperlink{classMotionVector}{MotionVector}}\& mv : motionVectors) \{}
+\DoxyCodeLine{69         \textcolor{keywordtype}{int} blockX = mv.blockX;}
+\DoxyCodeLine{70         \textcolor{keywordtype}{int} blockY = mv.blockY;}
+\DoxyCodeLine{71         \textcolor{keywordtype}{int} dx = mv.dx;}
+\DoxyCodeLine{72         \textcolor{keywordtype}{int} dy = mv.dy;}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74         \textcolor{comment}{// Update the predicted frame using motion vectors}}
+\DoxyCodeLine{75         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < blockSize; ++i) \{}
+\DoxyCodeLine{76             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < blockSize; ++j) \{}
+\DoxyCodeLine{77                 \textcolor{keywordtype}{int} currentX = blockX + i + dx;}
+\DoxyCodeLine{78                 \textcolor{keywordtype}{int} currentY = blockY + j + dy;}
+\DoxyCodeLine{79                 \textcolor{keywordtype}{int} prevX = blockX + i;}
+\DoxyCodeLine{80                 \textcolor{keywordtype}{int} prevY = blockY + j;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82                 \textcolor{keywordflow}{if} (prevX >= 0 \&\& prevX < previousFrame.cols \&\& prevY >= 0 \&\& prevY < previousFrame.rows}
+\DoxyCodeLine{83                 \&\& currentX >= 0 \&\& currentX < predictedFrame.cols \&\& currentY >= 0 \&\& currentY < predictedFrame.rows) \{}
+\DoxyCodeLine{84                     predictedFrame.at<uchar>(currentY, currentX) = previousFrame.at<uchar>(prevY, prevX);}
+\DoxyCodeLine{85                 \}}
+\DoxyCodeLine{86             \}}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keywordflow}{return} predictedFrame;}
+\DoxyCodeLine{91 \}}
+
+\end{DoxyCode}
+
+
+Referenced by Decode\+Inter\+Frame(), and Encode\+Inter\+Frame().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8cpp_a09cc283a55256213e35765d60bebb81e_icgraph}
+\end{center}
+\end{figure}

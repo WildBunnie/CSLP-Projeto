@@ -72,10 +72,10 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:aa4a0f509710e3dcb3f0468019c3ed785"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intraEncoder_2CMakeLists_8txt.html#aa4a0f509710e3dcb3f0468019c3ed785">cmake_minimum_required</a> (VERSION 3.16) project(encoder) find_package(OpenCV REQUIRED) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(CMAKE_RUNTIME_OUTPUT_DIRECTORY $</td></tr>
 <tr class="separator:aa4a0f509710e3dcb3f0468019c3ed785"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d5ed2d04d20482e71c70777b887a76b"><td class="memItemLeft" align="right" valign="top">bin&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intraEncoder_2CMakeLists_8txt.html#a3d5ed2d04d20482e71c70777b887a76b">include_directories</a> (${OpenCV_INCLUDE_DIRS}) include_directories(include) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(SOURCES Golomb.cpp BitStream.cpp intraEncoder.cpp) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(HEADERS include/BitStream.h include/Golomb.h include/intraEncoder.h) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(CMAKE_CXX_FLAGS_RELEASE &quot;-O3&quot;) add_executable(encoder main.cpp $</td></tr>
-<tr class="separator:a3d5ed2d04d20482e71c70777b887a76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4ae08ff13672ce5b9b0d1cd1df2ce7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intraEncoder_2CMakeLists_8txt.html#af4ae08ff13672ce5b9b0d1cd1df2ce7e">target_compile_options</a> (${PROJECT_NAME} PRIVATE -g) target_link_libraries(encoder $</td></tr>
-<tr class="separator:af4ae08ff13672ce5b9b0d1cd1df2ce7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd4b99a37a769e0d4b56f4e6e1fdf0a4"><td class="memItemLeft" align="right" valign="top">bin&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intraEncoder_2CMakeLists_8txt.html#afd4b99a37a769e0d4b56f4e6e1fdf0a4">include_directories</a> (${OpenCV_INCLUDE_DIRS}) include_directories(include) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(SOURCES Golomb.cpp BitStream.cpp intraEncoder.cpp) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(HEADERS include/BitStream.h include/Golomb.h include/intraEncoder.h) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(CMAKE_CXX_FLAGS_RELEASE &quot;-O3&quot;) add_executable(<a class="el" href="Player_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> main.cpp $</td></tr>
+<tr class="separator:afd4b99a37a769e0d4b56f4e6e1fdf0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6143d9bcb67f0adf55e808993b6e366"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intraEncoder_2CMakeLists_8txt.html#ac6143d9bcb67f0adf55e808993b6e366">target_compile_options</a> (<a class="el" href="Player_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> PRIVATE -g) target_link_libraries(<a class="el" href="Player_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> $</td></tr>
+<tr class="separator:ac6143d9bcb67f0adf55e808993b6e366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aa4a0f509710e3dcb3f0468019c3ed785"></a>
@@ -99,8 +99,8 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a3d5ed2d04d20482e71c70777b887a76b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d5ed2d04d20482e71c70777b887a76b">&#9670;&nbsp;</a></span>include_directories()</h2>
+<a id="afd4b99a37a769e0d4b56f4e6e1fdf0a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd4b99a37a769e0d4b56f4e6e1fdf0a4">&#9670;&nbsp;</a></span>include_directories()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,7 +117,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="intraEncoder_2CMakeLists_8txt_source.html#l00006">6</a> of file <a class="el" href="intraEncoder_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
 <div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                      {OpenCV_INCLUDE_DIRS} )</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<a class="code" href="hibrid-encoder_2CMakeLists_8txt.html#acbd45887d43870493c7c00dc23b17b23">include_directories</a>(</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<a class="code" href="hibrid-encoder_2CMakeLists_8txt.html#ad6cd8b44487f92711dd5ec2520eb3d0f">include_directories</a>(</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    include</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;)</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<a class="code" href="BitStream_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(SOURCES</div>
@@ -134,12 +134,12 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"># set(CMAKE_CXX_FLAGS &quot;-Wall -Wextra&quot;)</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"># set(CMAKE_CXX_FLAGS_DEBUG &quot;-g&quot;)</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<a class="code" href="BitStream_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(CMAKE_CXX_FLAGS_RELEASE <span class="stringliteral">&quot;-O3&quot;</span>)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;add_executable(encoder <a class="code" href="BitStream_2src_2main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main</a>.cpp ${SOURCES})</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;add_executable(<a class="code" href="BitStream_2src_2main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main</a> <a class="code" href="BitStream_2src_2main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main</a>.cpp ${SOURCES})</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="af4ae08ff13672ce5b9b0d1cd1df2ce7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4ae08ff13672ce5b9b0d1cd1df2ce7e">&#9670;&nbsp;</a></span>target_compile_options()</h2>
+<a id="ac6143d9bcb67f0adf55e808993b6e366"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6143d9bcb67f0adf55e808993b6e366">&#9670;&nbsp;</a></span>target_compile_options()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,22 +147,21 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">target_compile_options </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>${PROJECT_NAME} PRIVATE -</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="Player_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> PRIVATE -&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="intraEncoder_2CMakeLists_8txt_source.html#l00025">25</a> of file <a class="el" href="intraEncoder_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                        {PROJECT_NAME} PRIVATE -g)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;target_link_libraries( encoder ${OpenCV_LIBS}</div>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                             {OpenCV_LIBS}</div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
+<div class="ttc" id="ahibrid-encoder_2CMakeLists_8txt_html_ad6cd8b44487f92711dd5ec2520eb3d0f"><div class="ttname"><a href="hibrid-encoder_2CMakeLists_8txt.html#ad6cd8b44487f92711dd5ec2520eb3d0f">include_directories</a></div><div class="ttdeci">bin include_directories(${OpenCV_INCLUDE_DIRS}) include_directories(include) set(SOURCES Golomb.cpp BitStream.cpp intraEncoder.cpp hibridEncoder.cpp) set(HEADERS include/BitStream.h include/Golomb.h include/intraEncoder.h include/hibridEncoder.h) set(CMAKE_CXX_FLAGS_RELEASE &quot;-O3&quot;) add_executable(main main.cpp $</div><div class="ttdef"><b>Definition:</b> <a href="hibrid-encoder_2CMakeLists_8txt_source.html#l00006">CMakeLists.txt:6</a></div></div>
 <div class="ttc" id="aclassBitStream_html"><div class="ttname"><a href="classBitStream.html">BitStream</a></div><div class="ttdoc">A class to read/write bits from/to a file.</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_2include_2BitStream_8h_source.html#l00011">BitStream.h:11</a></div></div>
-<div class="ttc" id="ahibrid-encoder_2CMakeLists_8txt_html_acbd45887d43870493c7c00dc23b17b23"><div class="ttname"><a href="hibrid-encoder_2CMakeLists_8txt.html#acbd45887d43870493c7c00dc23b17b23">include_directories</a></div><div class="ttdeci">bin include_directories(${OpenCV_INCLUDE_DIRS}) add_executable(encoder encoder.cpp) target_compile_options($</div><div class="ttdef"><b>Definition:</b> <a href="hibrid-encoder_2CMakeLists_8txt_source.html#l00006">CMakeLists.txt:6</a></div></div>
 <div class="ttc" id="aclassGolomb_html"><div class="ttname"><a href="classGolomb.html">Golomb</a></div><div class="ttdoc">A entropy encoder built with Golomb codes.</div><div class="ttdef"><b>Definition:</b> <a href="GolombCoding_2include_2Golomb_8h_source.html#l00011">Golomb.h:11</a></div></div>
 <div class="ttc" id="aBitStream_2src_2main_8cpp_html_abf9e6b7e6f15df4b525a2e7705ba3089"><div class="ttname"><a href="BitStream_2src_2main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main</a></div><div class="ttdeci">int main(int argc, char const *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_2src_2main_8cpp_source.html#l00007">main.cpp:7</a></div></div>
 <div class="ttc" id="aBitStream_2CMakeLists_8txt_html_ab516b724eee082d4ce70936c4ea0ccf7"><div class="ttname"><a href="BitStream_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a></div><div class="ttdeci">build set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin) include_directories(include) add_executable($</div><div class="ttdef"><b>Definition:</b> <a href="BitStream_2CMakeLists_8txt_source.html#l00021">CMakeLists.txt:21</a></div></div>
