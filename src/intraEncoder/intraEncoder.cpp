@@ -65,14 +65,8 @@ Mat getOriginalJPEG_LS(Mat residuals){
 }
 
 void encodeVideo(string outputFile,string file){
-	// string format = file.substr(file.find_last_of(".") + 1);
-	// format+= '\n';
 	VideoCapture cap(file);
 	BitStream ouFile(outputFile,'w');
-	// for(int i = 0; i < format.length(); i++){
-	// 	char c = format.at(i);
-	// 	ouFile.writeBits(c,8);
-	// }
 	Mat frame;
 	cap.read(frame);
 	Golomb encoder(&ouFile,50);
@@ -96,12 +90,6 @@ void decodeVideo(string outputFile,string file){
 	BitStream bs(file,'r');
 	string format = ".mp4";
 	Mat frame;
-	// char c;
-	// c = bs.readBits(8);
-	// while(c !='\n'){
-	// 	format += c;
-	// 	c = bs.readBits(8);
-	// }
 	Golomb gl(&bs,50);
 	int fourcc = VideoWriter::fourcc('m','p','4','v');
 	int framesCount = gl.decodeNumber();
@@ -113,7 +101,6 @@ void decodeVideo(string outputFile,string file){
 	for(int i = 0; i<framesCount; i++){
 		frame = gl.decodeMat(cols,row);
 		frame = getOriginalJPEG_LS(frame);
-		//cvtColor(frame,frame,COLOR_GRAY2BGR);
 		out << frame;
 	}
 	out.release();

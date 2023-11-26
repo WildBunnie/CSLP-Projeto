@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7ebitstream_0',['~BitStream',['../classBitStream.html#a63cf0f27c7519417a7984c476a32c9c9',1,'BitStream']]],
-  ['_7eplayer_1',['~Player',['../classPlayer.html#a749d2c00e1fe0f5c2746f7505a58c062',1,'Player']]]
+  ['y_121',['y',['../classBlock.html#a9328d6b6fcc9f9c019d091d87ceda41c',1,'Block']]]
 ];

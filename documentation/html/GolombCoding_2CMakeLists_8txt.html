@@ -70,14 +70,16 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0141089cbfb8ae7350f436ae083b76de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GolombCoding_2CMakeLists_8txt.html#a0141089cbfb8ae7350f436ae083b76de">cmake_minimum_required</a> (VERSION 3.16) project(<a class="el" href="classGolomb.html">Golomb</a>) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(CMAKE_CXX_STANDARD 11) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(CMAKE_CXX_STANDARD_REQUIRED ON) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(SOURCES src/main.cpp src/Golomb.cpp) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(HEADERS include/Golomb.h) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(CMAKE_BINARY_DIR $</td></tr>
-<tr class="separator:a0141089cbfb8ae7350f436ae083b76de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab516b724eee082d4ce70936c4ea0ccf7"><td class="memItemLeft" align="right" valign="top">build&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a> (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin) <a class="el" href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a>(include) add_executable($</td></tr>
-<tr class="separator:ab516b724eee082d4ce70936c4ea0ccf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35e334fd8ef49ba6f0c77a4119732803"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GolombCoding_2CMakeLists_8txt.html#a35e334fd8ef49ba6f0c77a4119732803">cmake_minimum_required</a> (VERSION 3.16) project(<a class="el" href="classGolomb.html">Golomb</a>) find_package(OpenCV REQUIRED) <a class="el" href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a>($</td></tr>
+<tr class="separator:a35e334fd8ef49ba6f0c77a4119732803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8db5bc8332b8221c592e76ab3a1d3bca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GolombCoding_2CMakeLists_8txt.html#a8db5bc8332b8221c592e76ab3a1d3bca">set</a> (CMAKE_CXX_STANDARD 11) set(CMAKE_CXX_STANDARD_REQUIRED ON) set(SOURCES main.cpp BitStream.cpp Golomb.cpp) set(HEADERS include/BitStream.h include/Golomb.h) <a class="el" href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a>(include) set(CMAKE_BINARY_DIR $</td></tr>
+<tr class="separator:a8db5bc8332b8221c592e76ab3a1d3bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1476ace32178cc2062c11d24dd1c169"><td class="memItemLeft" align="right" valign="top">build&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a> (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin) add_executable($</td></tr>
+<tr class="separator:aa1476ace32178cc2062c11d24dd1c169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0141089cbfb8ae7350f436ae083b76de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0141089cbfb8ae7350f436ae083b76de">&#9670;&nbsp;</a></span>cmake_minimum_required()</h2>
+<a id="a35e334fd8ef49ba6f0c77a4119732803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35e334fd8ef49ba6f0c77a4119732803">&#9670;&nbsp;</a></span>cmake_minimum_required()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -93,12 +95,33 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="GolombCoding_2CMakeLists_8txt_source.html#l00001">1</a> of file <a class="el" href="GolombCoding_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                      {CMAKE_SOURCE_DIR}/build)</div>
+<div class="fragment"><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                      {OpenCV_INCLUDE_DIRS} )</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ab516b724eee082d4ce70936c4ea0ccf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab516b724eee082d4ce70936c4ea0ccf7">&#9670;&nbsp;</a></span>set()</h2>
+<a id="a8db5bc8332b8221c592e76ab3a1d3bca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8db5bc8332b8221c592e76ab3a1d3bca">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">set </td>
+          <td>(</td>
+          <td class="paramtype">CMAKE_CXX_STANDARD&#160;</td>
+          <td class="paramname"><em>11</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GolombCoding_2CMakeLists_8txt_source.html#l00009">9</a> of file <a class="el" href="GolombCoding_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                      {CMAKE_SOURCE_DIR}/build)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa1476ace32178cc2062c11d24dd1c169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1476ace32178cc2062c11d24dd1c169">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -113,21 +136,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="GolombCoding_2CMakeLists_8txt_source.html#l00021">21</a> of file <a class="el" href="GolombCoding_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                    {CMAKE_BINARY_DIR}/bin)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;# Add any additional include directories (optional)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a>(</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    include</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"># Create an executable from the source files</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})</div>
+<p class="definition">Definition at line <a class="el" href="GolombCoding_2CMakeLists_8txt_source.html#l00030">30</a> of file <a class="el" href="GolombCoding_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                    {CMAKE_BINARY_DIR}/bin)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;# Create an executable from the source files</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})</div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="avideoPlayer_2CMakeLists_8txt_html_a772a0fd1ccb24a23c56359b819f5a099"><div class="ttname"><a href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a></div><div class="ttdeci">bin include_directories(${OpenCV_INCLUDE_DIRS}) add_executable(player Player.cpp) target_compile_options($</div><div class="ttdef"><b>Definition:</b> <a href="videoPlayer_2CMakeLists_8txt_source.html#l00006">CMakeLists.txt:6</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

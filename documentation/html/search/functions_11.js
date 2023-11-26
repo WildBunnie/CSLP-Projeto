@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7ebitstream_147',['~BitStream',['../classBitStream.html#a63cf0f27c7519417a7984c476a32c9c9',1,'BitStream']]],
-  ['_7eplayer_148',['~Player',['../classPlayer.html#a749d2c00e1fe0f5c2746f7505a58c062',1,'Player']]]
+  ['writebit_210',['writeBit',['../classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411',1,'BitStream::writeBit(int)'],['../classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411',1,'BitStream::writeBit(int)'],['../classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411',1,'BitStream::writeBit(int)']]],
+  ['writebits_211',['writeBits',['../classBitStream.html#af6dcb6ff8a9ef18b4bd81fc25f40a0f9',1,'BitStream::writeBits(int, int)'],['../classBitStream.html#af6dcb6ff8a9ef18b4bd81fc25f40a0f9',1,'BitStream::writeBits(int, int)'],['../classBitStream.html#af6dcb6ff8a9ef18b4bd81fc25f40a0f9',1,'BitStream::writeBits(int, int)']]],
+  ['writeimage_212',['writeImage',['../classPPMImage.html#ab037ea0019ef4f620586da405817f181',1,'PPMImage']]]
 ];

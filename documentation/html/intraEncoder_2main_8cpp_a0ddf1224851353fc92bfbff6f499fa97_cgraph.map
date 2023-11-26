@@ -1,0 +1,12 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,145,60,172"/>
+<area shape="rect" id="node2" href="$intraEncoder_8h.html#a53edac35a7ce56e598491d68a3271e86" title="Decode a video using JPEG&#45;LS non&#45;linear predictor." alt="" coords="108,95,215,121"/>
+<area shape="rect" id="node7" href="$intraEncoder_8h.html#abdd655d2b463070ec06fa3a84c439208" title="Encode a video using JPEG&#45;LS non&#45;linear predictor." alt="" coords="108,171,215,197"/>
+<area shape="rect" id="node3" href="$classGolomb.html#ae55d5bfe8e482168e3b8912e6f98aca1" title="Encode an openCV map with golomb." alt="" coords="276,5,429,32"/>
+<area shape="rect" id="node4" href="$classGolomb.html#a7dcdbc9dff571a8eebcb1e17fbe75634" title="Decodes number." alt="" coords="263,56,443,83"/>
+<area shape="rect" id="node5" href="$intraEncoder_8cpp.html#a7381c08bf2b124bea0163eade102a775" title="Get original image from residuals using JPEG&#45;LS non&#45;linear predictor." alt="" coords="279,107,426,133"/>
+<area shape="rect" id="node6" href="$intraEncoder_8cpp.html#a7c31973126ea4a26d7e0c4e40842d740" title="JPEG&#45;LS non&#45;linear predictor." alt="" coords="491,183,624,209"/>
+<area shape="rect" id="node8" href="$classGolomb.html#ae3c01f3d17a05a385af8b631825811fc" title="Encode an openCV map with golomb." alt="" coords="276,157,429,184"/>
+<area shape="rect" id="node9" href="$classGolomb.html#adc587efa500a486938eb492ddc3fd858" title="Encodes number." alt="" coords="263,208,443,235"/>
+<area shape="rect" id="node10" href="$intraEncoder_8cpp.html#a0196ad1a7cc42f5c0b3d15b2562dea81" title="Get residuals from an image using JPEG&#45;LS non&#45;linear predictor." alt="" coords="273,259,432,285"/>
+</map>
