@@ -1,34 +1,13 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/plot.hpp>
+#include "Golomb.h"
+#include "intraEncoder.h"
+#include "hibridEncoder.h"
 
 using namespace std;
 using namespace cv;
 
-class Block {
-public:
-    int x; 
-    int y; 
-    int blockSize;
-    Mat frame;
-
-    Block(int posX, int posY, int size, Mat sourceFrame): 
-        x(posX), y(posY), blockSize(size), frame(sourceFrame.clone()) {}
-
-};
-
-class MotionVector {
-public:
-    int dx; 
-    int dy; 
-    int blockX; 
-    int blockY;
-
-    MotionVector(int x, int y, int blockPosX, int blockPosY)
-        : dx(x), dy(y), blockX(blockPosX), blockY(blockPosY) {}
-
-    MotionVector() : dx(0), dy(0), blockX(0), blockY(0) {}
-};
 
 int calculateDifference(Block block1, Block block2) {
     
@@ -115,26 +94,31 @@ Mat PerformMotionCompensation(Mat previousFrame, vector<MotionVector> motionVect
 Mat CalculateResidual(Mat currentFrame, Mat predictedFrame) {
     Mat residualImage;
 
-    // Check if the input frames have the same size and type
     if (currentFrame.size() != predictedFrame.size() || currentFrame.type() != predictedFrame.type()) {
         cout << "Input frames have different sizes or types." << endl;
         return residualImage;
     }
-
-    // Calculate the residual image by subtracting the predicted frame from the current frame
     subtract(currentFrame, predictedFrame, residualImage);
 
     return residualImage;
 }
 
-void DecodeInterFrame(Mat previousFrame, Mat residuals, vector<MotionVector> motionVectors, int blockSize) {
+Mat DecodeInterFrame(Mat previousFrame,Mat residuals,int countMotionVectors, int blockSize,Golomb* gl) {
+    vector<MotionVector> motionVectors;
+    for(int i = 0; i<countMotionVectors; i++){
+        int dx = gl->decodeNumber();
+        int dy = gl->decodeNumber();
+        int blockx = gl->decodeNumber();
+        int blocky = gl->decodeNumber();
+        motionVectors.push_back(MotionVector(dx,dy,blockx,blocky));
+    }
+
     Mat predictedFrame = PerformMotionCompensation(previousFrame, motionVectors, blockSize);
     Mat reconstructedFrame = residuals + predictedFrame;
-    imshow("idk", reconstructedFrame);
-    waitKey(0);
+    return reconstructedFrame;
 }
 
-void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int searchArea) {
+void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int searchArea,Golomb* gl){
     vector<Block> blocks = DivideFrameIntoBlocks(currentFrame, blockSize);
     vector<Block> previousBlocks = DivideFrameIntoBlocks(previousFrame, blockSize);
     vector<MotionVector> motionVectors;
@@ -160,20 +144,77 @@ void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int se
 
     Mat predictedFrame = PerformMotionCompensation(previousFrame, motionVectors, blockSize);
     Mat residuals = CalculateResidual(currentFrame, predictedFrame);
-    DecodeInterFrame(previousFrame, residuals, motionVectors, blockSize);
+    
+    gl->encodeMat(residuals);
+    gl->encodeNumber(motionVectors.size());
+    for(MotionVector v:motionVectors){
+        gl->encodeNumber(v.dx);
+        gl->encodeNumber(v.dy);
+        gl->encodeNumber(v.blockX);
+        gl->encodeNumber(v.blockY);
+    }
+    
+    // DecodeInterFrame(previousFrame, residuals, motionVectors, blockSize);
 }
 
+void EncodeHybrid(string outputfile,string inputFile,int periodicity,int blockSize,int SearchArea){
+    Mat frame,residuals,lastFrame;
+    int counter = periodicity;
+    BitStream bs(outputfile,'w');
+    Golomb gl(&bs,50);
 
-int main(int argc, char *argv[]){
-	Mat frame,lastFrame;
-    VideoCapture cap("/home/bunnie/.desktop/vd2.mp4");
-    cap.read(lastFrame);
-    cvtColor(lastFrame, lastFrame, COLOR_BGR2GRAY);
-    while(1){
-        cap.read(frame);
-        cvtColor(frame, frame, COLOR_BGR2GRAY);
-        EncodeInterFrame(frame.clone(), lastFrame.clone(), 32, 2);
+    VideoCapture cap(inputFile);
+    cap >> frame;
+    gl.encodeNumber(cap.get(CAP_PROP_FRAME_COUNT));
+    gl.encodeNumber(blockSize);
+	gl.encodeNumber(frame.cols);
+	gl.encodeNumber(frame.rows);
+	gl.encodeNumber(cap.get(CAP_PROP_FPS));
+
+    while(!frame.empty()){
+        cvtColor(frame,frame,COLOR_BGR2GRAY);
+        if(counter < periodicity){
+            EncodeInterFrame(frame,lastFrame,blockSize,SearchArea,&gl);
+        }else{
+            residuals = getResidualsJPEG_LS(frame);
+	        gl.encodeMat(residuals);
+            gl.encodeNumber(0);
+            counter = 0;
+        }
         lastFrame = frame.clone();
+        counter++;
+        cap >> frame;
     }
-    return 0;
+    cap.release();
+}
+
+void DecodeHybrid(string outputFile,string inputFile){
+    Mat frame,lastFrame;
+    string format = ".mp4";
+    BitStream bs(inputFile,'r');
+    Golomb gl(&bs,50);
+
+    int fourcc = VideoWriter::fourcc('m','p','4','v');
+	int framesCount = gl.decodeNumber();
+    int blockSize = gl.decodeNumber();
+	int cols = gl.decodeNumber();
+	int row = gl.decodeNumber();
+	int fps = gl.decodeNumber();
+	Size size(cols,row);
+	VideoWriter out(outputFile+format,fourcc,fps,size,false);
+
+    for(int i = 0; i < framesCount; i++){
+        frame = gl.decodeMat(cols,row);
+        int countMotionVectors = gl.decodeNumber();
+        if (countMotionVectors == 0){
+		    frame = getOriginalJPEG_LS(frame);
+        }else{
+            frame = DecodeInterFrame(lastFrame,frame,countMotionVectors,blockSize,&gl);
+        }
+        lastFrame = frame.clone();
+		out << frame;
+    }
+
+    out.release();
+
 }

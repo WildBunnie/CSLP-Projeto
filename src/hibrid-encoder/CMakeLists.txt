@@ -4,17 +4,22 @@ project( encoder )
 find_package( OpenCV REQUIRED )
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 include_directories( ${OpenCV_INCLUDE_DIRS} )
-# include_directories(
-#     include
-# )
-# set(SOURCES
-#     Golomb.cpp
-#     BitStream.cpp)
+include_directories(
+    include
+)
+set(SOURCES
+    Golomb.cpp
+    BitStream.cpp
+    intraEncoder.cpp
+    hibridEncoder.cpp)
 
-# set(HEADERS
-#     include/BitStream.h
-#     include/Golomb.h
-# )
-add_executable(encoder encoder.cpp)
-target_compile_options(${PROJECT_NAME} PRIVATE -g)
-target_link_libraries( encoder ${OpenCV_LIBS} )
+set(HEADERS
+    include/BitStream.h
+    include/Golomb.h
+    include/intraEncoder.h
+    include/hibridEncoder.h
+)
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+add_executable(main main.cpp ${SOURCES})
+target_compile_options(main PRIVATE -g)
+target_link_libraries( main ${OpenCV_LIBS} )
