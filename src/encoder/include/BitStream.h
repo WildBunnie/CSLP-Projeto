@@ -30,6 +30,7 @@ class BitStream{
          * \brief Bit buffer used for reading from a file.
          * 
          */
+        int counter = 0;
     public:
         /**
          * \brief Constructor.
@@ -74,6 +75,13 @@ class BitStream{
          * \param size the size of the bit array.
          */
         void writeBits(int,int);
+        /**
+         * \brief Writes a string to File.
+         * 
+         * \param text string to write.
+         * \param size size in bits.
+         */
+        void writeText(string,int);
         /**
          * \brief Reads a single bit from the file stream.
          * 
