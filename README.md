@@ -8,7 +8,7 @@ Gorup 2:
 This project is organized in diferent directories, where each one represents an entity or deliverable resolution. To test the code implemented, is necessary to do it inside the choosen directory.
 
 # Compile
-While on `src/\<choosen-dir\>`:
+While on `src/<choosen-dir>`:
 
 `cmake .`
 
@@ -16,7 +16,7 @@ While on `src/\<choosen-dir\>`:
 
 # How to run
 ## videoPlayer:
-`./bin/player \<video> \[filter] `
+`./bin/player <video> [filter] `
 
 ### Filter options:
 - gaussian \[ksize] \[sigma]
