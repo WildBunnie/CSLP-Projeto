@@ -1,0 +1,105 @@
+\hypertarget{classFrame}{}\doxysection{Frame Class Reference}
+\label{classFrame}\index{Frame@{Frame}}
+
+
+{\ttfamily \#include $<$Frame.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFrame_a061773317031f76e7874c5b5583d1025}{Frame}} (Mat \mbox{\hyperlink{classFrame_ab128dfefd3850de883db012ed0a86237}{frame}}, int \mbox{\hyperlink{classFrame_a3f8416bf0863056032b45a65286ee5c4}{block\+\_\+size}}, int \mbox{\hyperlink{classFrame_a753640cb645240c96c14e5afa231aac9}{seach\+\_\+area}})
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{classFrame_aca272725602f043d12ab0fb60aef3692}{get\+Block}} (int x, int y)
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{classFrame_a06a26dd511e56826ebce7fc6164f6d00}{search\+Best\+Block}} (\mbox{\hyperlink{classBlock}{Block}} bref)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Mat \mbox{\hyperlink{classFrame_ab128dfefd3850de883db012ed0a86237}{frame}}
+\item 
+vector$<$ vector$<$ \mbox{\hyperlink{classBlock}{Block}} $>$ $>$ \mbox{\hyperlink{classFrame_af55b913eb17622fc4b54c9d6127a9b9b}{blocks}}
+\item 
+int \mbox{\hyperlink{classFrame_a3f8416bf0863056032b45a65286ee5c4}{block\+\_\+size}}
+\item 
+int \mbox{\hyperlink{classFrame_a753640cb645240c96c14e5afa231aac9}{seach\+\_\+area}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 9 of file Frame.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFrame_a061773317031f76e7874c5b5583d1025}\label{classFrame_a061773317031f76e7874c5b5583d1025}} 
+\index{Frame@{Frame}!Frame@{Frame}}
+\index{Frame@{Frame}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{Frame()}{Frame()}}
+{\footnotesize\ttfamily Frame\+::\+Frame (\begin{DoxyParamCaption}\item[{Mat}]{frame,  }\item[{int}]{block\+\_\+size,  }\item[{int}]{seach\+\_\+area }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFrame_aca272725602f043d12ab0fb60aef3692}\label{classFrame_aca272725602f043d12ab0fb60aef3692}} 
+\index{Frame@{Frame}!getBlock@{getBlock}}
+\index{getBlock@{getBlock}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{getBlock()}{getBlock()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} Frame\+::get\+Block (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classFrame_a06a26dd511e56826ebce7fc6164f6d00}\label{classFrame_a06a26dd511e56826ebce7fc6164f6d00}} 
+\index{Frame@{Frame}!searchBestBlock@{searchBestBlock}}
+\index{searchBestBlock@{searchBestBlock}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{searchBestBlock()}{searchBestBlock()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} Frame\+::search\+Best\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBlock}{Block}}}]{bref }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFrame_a3f8416bf0863056032b45a65286ee5c4}\label{classFrame_a3f8416bf0863056032b45a65286ee5c4}} 
+\index{Frame@{Frame}!block\_size@{block\_size}}
+\index{block\_size@{block\_size}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{block\_size}{block\_size}}
+{\footnotesize\ttfamily int Frame\+::block\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 13 of file Frame.\+hpp.
+
+\mbox{\Hypertarget{classFrame_af55b913eb17622fc4b54c9d6127a9b9b}\label{classFrame_af55b913eb17622fc4b54c9d6127a9b9b}} 
+\index{Frame@{Frame}!blocks@{blocks}}
+\index{blocks@{blocks}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{blocks}{blocks}}
+{\footnotesize\ttfamily vector$<$vector$<$\mbox{\hyperlink{classBlock}{Block}}$>$ $>$ Frame\+::blocks\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 12 of file Frame.\+hpp.
+
+\mbox{\Hypertarget{classFrame_ab128dfefd3850de883db012ed0a86237}\label{classFrame_ab128dfefd3850de883db012ed0a86237}} 
+\index{Frame@{Frame}!frame@{frame}}
+\index{frame@{frame}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily Mat Frame\+::frame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 11 of file Frame.\+hpp.
+
+\mbox{\Hypertarget{classFrame_a753640cb645240c96c14e5afa231aac9}\label{classFrame_a753640cb645240c96c14e5afa231aac9}} 
+\index{Frame@{Frame}!seach\_area@{seach\_area}}
+\index{seach\_area@{seach\_area}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{seach\_area}{seach\_area}}
+{\footnotesize\ttfamily int Frame\+::seach\+\_\+area\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 14 of file Frame.\+hpp.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/hibrid-\/encoder/include/\mbox{\hyperlink{Frame_8hpp}{Frame.\+hpp}}\end{DoxyCompactItemize}

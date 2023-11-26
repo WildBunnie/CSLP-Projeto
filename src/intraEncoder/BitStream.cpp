@@ -5,10 +5,10 @@
 
 using namespace std;
 
-BitStream::BitStream(string name,char write){
-    if(write == 'w'){
+BitStream::BitStream(string name,char mode){
+    if(mode == 'w'){
         file.open(name,ios_base::out);
-    }else if(write == 'r'){
+    }else if(mode == 'r'){
         file.open(name,ios_base::in);
     }else{
         throw "Error invalid argumanet";

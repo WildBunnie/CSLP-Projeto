@@ -1,0 +1,163 @@
+\hypertarget{classBlock}{}\doxysection{Block Class Reference}
+\label{classBlock}\index{Block@{Block}}
+
+
+{\ttfamily \#include $<$Block.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBlock_a52a24359576b549452e8e41ecd14c096}{Block}} (int posX, int posY, int size, Mat source\+Frame)
+\item 
+\mbox{\hyperlink{classBlock_a3bb26f9bb8daee3ac792faa4a253b14e}{Block}} (int size, vector$<$ vector$<$ int $>$$>$ \mbox{\hyperlink{classBlock_a5c2541c4d68ffa8da631688ff28a8afd}{pixels}})
+\item 
+int \mbox{\hyperlink{classBlock_ad4e953b35b940ee2b798b583747e7424}{get\+Block\+Size}} ()
+\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classBlock_a911532475cf24f9f25c07446cc9cd980}{get\+Pixels}} ()
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{classBlock_aa410b169782e9b5f9101e473723fff75}{operator-\/}} (\mbox{\hyperlink{classBlock}{Block}} const \&block)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classBlock_a13d0a6d225233353862fa5adcbadf661}{x}}
+\item 
+int \mbox{\hyperlink{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}{y}}
+\item 
+int \mbox{\hyperlink{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}{block\+Size}}
+\item 
+Mat \mbox{\hyperlink{classBlock_ace6191918353ea2574f63d4b45273799}{frame}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classBlock_a5c2541c4d68ffa8da631688ff28a8afd}{pixels}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 8 of file encoder.\+cpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBlock_a52a24359576b549452e8e41ecd14c096}\label{classBlock_a52a24359576b549452e8e41ecd14c096}} 
+\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{Block()}{Block()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Block\+::\+Block (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY,  }\item[{int}]{size,  }\item[{Mat}]{source\+Frame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 15 of file encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15                                                         : }
+\DoxyCodeLine{16         \mbox{\hyperlink{classBlock_a13d0a6d225233353862fa5adcbadf661}{x}}(posX), \mbox{\hyperlink{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}{y}}(posY), \mbox{\hyperlink{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}{blockSize}}(size), \mbox{\hyperlink{classBlock_ace6191918353ea2574f63d4b45273799}{frame}}(sourceFrame.clone()) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBlock_a3bb26f9bb8daee3ac792faa4a253b14e}\label{classBlock_a3bb26f9bb8daee3ac792faa4a253b14e}} 
+\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{Block()}{Block()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Block\+::\+Block (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{vector$<$ vector$<$ int $>$$>$}]{pixels }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBlock_ad4e953b35b940ee2b798b583747e7424}\label{classBlock_ad4e953b35b940ee2b798b583747e7424}} 
+\index{Block@{Block}!getBlockSize@{getBlockSize}}
+\index{getBlockSize@{getBlockSize}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{getBlockSize()}{getBlockSize()}}
+{\footnotesize\ttfamily int Block\+::get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classBlock_a911532475cf24f9f25c07446cc9cd980}\label{classBlock_a911532475cf24f9f25c07446cc9cd980}} 
+\index{Block@{Block}!getPixels@{getPixels}}
+\index{getPixels@{getPixels}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{getPixels()}{getPixels()}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ Block\+::get\+Pixels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classBlock_aa410b169782e9b5f9101e473723fff75}\label{classBlock_aa410b169782e9b5f9101e473723fff75}} 
+\index{Block@{Block}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} Block\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBlock}{Block}} const \&}]{block }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}\label{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}} 
+\index{Block@{Block}!blockSize@{blockSize}}
+\index{blockSize@{blockSize}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{blockSize}{blockSize}}
+{\footnotesize\ttfamily int Block\+::block\+Size}
+
+
+
+Definition at line 12 of file encoder.\+cpp.
+
+
+
+Referenced by calculate\+Difference().
+
+\mbox{\Hypertarget{classBlock_ace6191918353ea2574f63d4b45273799}\label{classBlock_ace6191918353ea2574f63d4b45273799}} 
+\index{Block@{Block}!frame@{frame}}
+\index{frame@{frame}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily Mat Block\+::frame}
+
+
+
+Definition at line 13 of file encoder.\+cpp.
+
+
+
+Referenced by calculate\+Difference().
+
+\mbox{\Hypertarget{classBlock_a5c2541c4d68ffa8da631688ff28a8afd}\label{classBlock_a5c2541c4d68ffa8da631688ff28a8afd}} 
+\index{Block@{Block}!pixels@{pixels}}
+\index{pixels@{pixels}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{pixels}{pixels}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ Block\+::pixels\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 8 of file Block.\+hpp.
+
+\mbox{\Hypertarget{classBlock_a13d0a6d225233353862fa5adcbadf661}\label{classBlock_a13d0a6d225233353862fa5adcbadf661}} 
+\index{Block@{Block}!x@{x}}
+\index{x@{x}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int Block\+::x}
+
+
+
+Definition at line 10 of file encoder.\+cpp.
+
+
+
+Referenced by calculate\+Difference().
+
+\mbox{\Hypertarget{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}\label{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}} 
+\index{Block@{Block}!y@{y}}
+\index{y@{y}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int Block\+::y}
+
+
+
+Definition at line 11 of file encoder.\+cpp.
+
+
+
+Referenced by calculate\+Difference().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/hibrid-\/encoder/\mbox{\hyperlink{encoder_8cpp}{encoder.\+cpp}}\item 
+src/hibrid-\/encoder/include/\mbox{\hyperlink{Block_8hpp}{Block.\+hpp}}\end{DoxyCompactItemize}

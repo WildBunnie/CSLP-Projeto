@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pixels_0',['pixels',['../classPPMImage.html#af5c94998c6759fd42c28b711b1b3fe41',1,'PPMImage']]]
+  ['name_238',['name',['../classPlayer.html#acf0355128a99ee20ad9931b760fb2de1',1,'Player']]]
 ];

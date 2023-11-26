@@ -21,13 +21,14 @@ class Golomb{
          */
         int bits;
         /**
-         * \brief Used to write bits encoded
+         * \brief BitStream used to write the encoded bits.
         */
         BitStream* bitStream;
     public:
         /**
          * \brief Constructor.
          *
+         * \param bs BitStream used to write the encoded bits.
          * \param n Parameter used to divide the number to be encoded.
          */
         Golomb(BitStream* bs,int n);
@@ -35,25 +36,25 @@ class Golomb{
          * \brief Encodes number.
          *
          * \param number Number to be encoded.
-         * \return Number encoding.
          */
         void encodeNumber(int);
         /**
          * \brief Decodes number.
-         *
-         * \param numbers array of bits (ints) of number encoded.
+         * \return Decoded number.
          */
         int decodeNumber();
         /**
-         * \brief Encode an openCV map with golomb.
+         * \brief Encode an openCV Mat to a bitStream using Golomb.
          *
-         * \param image MawClass
+         * \param image Image in Mat format.
          */
         void encodeMat(cv::Mat);
         /**
-         * \brief Encode an openCV map with golomb.
+         * \brief Decode a Golomb encoded bitStream to a Mat.
          *
-         * \param image MawClass
+         * \param cols Number of columns of the Mat.
+         * \param rows Number of rows of the Mat.
+         * \return Decoded Mat.
          */
         cv::Mat decodeMat(int cols,int rows);
 };

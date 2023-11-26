@@ -1,139 +1,153 @@
-\doxysection{src/video\+Player/\+Player.cpp File Reference}
-\hypertarget{Player_8cpp}{}\label{Player_8cpp}\index{src/videoPlayer/Player.cpp@{src/videoPlayer/Player.cpp}}
-{\ttfamily \#include "{}opencv2/opencv.\+hpp"{}}\newline
+\hypertarget{Player_8cpp}{}\doxysection{src/video\+Player/\+Player.cpp File Reference}
+\label{Player_8cpp}\index{src/videoPlayer/Player.cpp@{src/videoPlayer/Player.cpp}}
+{\ttfamily \#include \char`\"{}opencv2/opencv.\+hpp\char`\"{}}\newline
 {\ttfamily \#include $<$opencv2/imgproc/imgproc.\+hpp$>$}\newline
 {\ttfamily \#include $<$opencv2/plot.\+hpp$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$numeric$>$}\newline
-{\ttfamily \#include "{}Player.\+hpp"{}}\newline
-\doxysubsubsection*{Functions}
+{\ttfamily \#include \char`\"{}Player.\+hpp\char`\"{}}\newline
+Include dependency graph for Player.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Player_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+int \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\mbox{\Hypertarget{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
 \index{Player.cpp@{Player.cpp}!main@{main}}
 \index{main@{main}!Player.cpp@{Player.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00285}{285}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 285 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00286\ }
-\DoxyCodeLine{00287\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ at\ least\ one\ argument\ is\ provided}}
-\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 2)\ \{}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Usage:\ "{}}\ <<\ argv[0]\ <<\ \textcolor{stringliteral}{"{}\ <video/image>\ [option]"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
-\DoxyCodeLine{00291\ \ \ \ \ \}}
-\DoxyCodeLine{00292\ }
-\DoxyCodeLine{00293\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ p1(argv[1]);}
-\DoxyCodeLine{00294\ }
-\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordflow}{if}(!p1.isOpen())\{}
-\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Could\ not\ open\ media.\(\backslash\)n"{}};}
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{00298\ \ \ \ \ \}}
-\DoxyCodeLine{00299\ }
-\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 3)\ \{}
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ p1.display();}
-\DoxyCodeLine{00302\ \ \ \ \ \}}
-\DoxyCodeLine{00303\ }
-\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{string}\ filter\ =\ argv[2];}
-\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}histogram"{}})\{}
-\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ Mat\ img\ =\ imread(argv[1]);}
-\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ p1.getColorHistograms(img);}
-\DoxyCodeLine{00308\ \ \ \ \ \}}
-\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}grayscale"{}})\{}
-\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ p1.display(\mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{Player::toGrayscale}});}
-\DoxyCodeLine{00311\ \ \ \ \ \}}
-\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}rgb2yuv"{}})\{}
-\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ p1.display(\mbox{\hyperlink{classPlayer_a01ef153cd72df875fb98ce0f8377736c}{Player::frameRgb2Yuv}});}
-\DoxyCodeLine{00314\ \ \ \ \ \}}
-\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}yuv2rgb"{}})\{}
-\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ p1.display(\mbox{\hyperlink{classPlayer_a60a9dd844d42e062af6ab22687764338}{Player::frameYuv2Rgb}});}
-\DoxyCodeLine{00317\ \ \ \ \ \}}
-\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}colorhisteq"{}})\{}
-\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ p1.display(\mbox{\hyperlink{classPlayer_af4825e60a348aea262497d6df08943e8}{Player::colorHistEqualization}});}
-\DoxyCodeLine{00320\ \ \ \ \ \}}
-\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}grayhisteq"{}})\{}
-\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ p1.display(\mbox{\hyperlink{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3}{Player::grayHistEqualization}});}
-\DoxyCodeLine{00323\ \ \ \ \ \}}
-\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}threshold"{}})\{}
-\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ threshold\ =\ 127;}
-\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >=\ 4)\ \{}
-\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ threshold\ =\ stoi(argv[3]);}
-\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ threshold\_filter\ =\ [threshold](Mat\ frame)\{}
-\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{Player::threshold}}(frame,\ threshold);}
-\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ p1.display(threshold\_filter);}
-\DoxyCodeLine{00333\ \ \ \ \ \}}
-\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}gaussian"{}})\{}
-\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ksize\ =\ 5;}
-\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sigma\ =\ 2;}
-\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >=\ 4)\ \{}
-\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ ksize\ =\ stoi(argv[3]);}
-\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >=\ 5)\ \{}
-\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ sigma\ =\ stod(argv[3]);}
-\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ gaussian\_filter\ =\ [ksize,\ sigma](Mat\ frame)\{}
-\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba}{Player::gaussianBlur}}(frame,\ ksize,\ sigma);}
-\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ p1.display(gaussian\_filter);}
-\DoxyCodeLine{00348\ \ \ \ \ \}}
-\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}blur"{}})\{}
-\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ksize\ =\ 5;}
-\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >=\ 4)\ \{}
-\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ ksize\ =\ stoi(argv[3]);}
-\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ blur\_filter\ =\ [ksize](Mat\ frame)\{}
-\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classPlayer_aa58f30f3c08751756b019b1a7ab260f9}{Player::boxFilter}}(frame,\ Size(ksize,ksize));}
-\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ p1.display(blur\_filter);}
-\DoxyCodeLine{00358\ \ \ \ \ \}}
-\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (filter\ ==\ \textcolor{stringliteral}{"{}watermark"{}})\{}
-\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ alpha\ =\ 1;}
-\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0;}
-\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ 0;}
-\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 4)\ \{}
-\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Usage\ for\ watermark:\ "{}}\ <<\ argv[0]\ <<\ \textcolor{stringliteral}{"{}\ <video>\ watermark\ <watermark>"{}}\ <<\ endl;}
-\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ Mat\ watermark\ =\ imread(argv[3]);}
-\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >=\ 5)\ \{}
-\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ stoi(argv[4]);}
-\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >=\ 6)\ \{}
-\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ stoi(argv[5]);}
-\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ }
-\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >=\ 7)\ \{}
-\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ alpha\ =\ stod(argv[6]);}
-\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ watermark\_filter\ =\ [x,\ y,\ alpha,\ watermark](Mat\ frame)\{}
-\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classPlayer_aec79502ab07ec3719e413302863e14b3}{Player::addWatermark}}(frame,\ watermark,\ alpha,\ x,\ y);}
-\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ p1.display(watermark\_filter);}
-\DoxyCodeLine{00382\ \ \ \ \ \}}
-\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}invalid\ filter"{}}\ <<\ endl;}
-\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{00386\ \ \ \ \ \}}
-\DoxyCodeLine{00387\ \ \ \ \ \ }
-\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{00389\ \}}
+\DoxyCodeLine{285                                 \{}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287     \textcolor{comment}{// Check if at least one argument is provided}}
+\DoxyCodeLine{288     \textcolor{keywordflow}{if} (argc < 2) \{}
+\DoxyCodeLine{289         std::cerr << \textcolor{stringliteral}{"Usage: "} << argv[0] << \textcolor{stringliteral}{" <video/image> [option]"} << std::endl;}
+\DoxyCodeLine{290         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{291     \}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293     \mbox{\hyperlink{classPlayer}{Player}} p1(argv[1]);}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295     \textcolor{keywordflow}{if}(!p1.isOpen())\{}
+\DoxyCodeLine{296         cout << \textcolor{stringliteral}{"Could not open media.\(\backslash\)n"};}
+\DoxyCodeLine{297         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{298     \}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300     \textcolor{keywordflow}{if} (argc < 3) \{}
+\DoxyCodeLine{301         p1.display();}
+\DoxyCodeLine{302     \}}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304     \textcolor{keywordtype}{string} filter = argv[2];}
+\DoxyCodeLine{305     \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"histogram"})\{}
+\DoxyCodeLine{306         Mat img = imread(argv[1]);}
+\DoxyCodeLine{307         p1.getColorHistograms(img);}
+\DoxyCodeLine{308     \}}
+\DoxyCodeLine{309     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"grayscale"})\{}
+\DoxyCodeLine{310         p1.display(\mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{Player::toGrayscale}});}
+\DoxyCodeLine{311     \}}
+\DoxyCodeLine{312     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"rgb2yuv"})\{}
+\DoxyCodeLine{313         p1.display(\mbox{\hyperlink{classPlayer_a01ef153cd72df875fb98ce0f8377736c}{Player::frameRgb2Yuv}});}
+\DoxyCodeLine{314     \}}
+\DoxyCodeLine{315     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"yuv2rgb"})\{}
+\DoxyCodeLine{316         p1.display(\mbox{\hyperlink{classPlayer_a60a9dd844d42e062af6ab22687764338}{Player::frameYuv2Rgb}});}
+\DoxyCodeLine{317     \}}
+\DoxyCodeLine{318     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"colorhisteq"})\{}
+\DoxyCodeLine{319         p1.display(\mbox{\hyperlink{classPlayer_af4825e60a348aea262497d6df08943e8}{Player::colorHistEqualization}});}
+\DoxyCodeLine{320     \}}
+\DoxyCodeLine{321     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"grayhisteq"})\{}
+\DoxyCodeLine{322         p1.display(\mbox{\hyperlink{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3}{Player::grayHistEqualization}});}
+\DoxyCodeLine{323     \}}
+\DoxyCodeLine{324     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"threshold"})\{}
+\DoxyCodeLine{325         \textcolor{keywordtype}{double} threshold = 127;}
+\DoxyCodeLine{326         \textcolor{keywordflow}{if} (argc >= 4) \{}
+\DoxyCodeLine{327             threshold = stoi(argv[3]);}
+\DoxyCodeLine{328         \}}
+\DoxyCodeLine{329         \textcolor{keyword}{auto} threshold\_filter = [threshold](Mat frame)\{}
+\DoxyCodeLine{330             \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{Player::threshold}}(frame, threshold);}
+\DoxyCodeLine{331         \};}
+\DoxyCodeLine{332         p1.display(threshold\_filter);}
+\DoxyCodeLine{333     \}}
+\DoxyCodeLine{334     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"gaussian"})\{}
+\DoxyCodeLine{335         \textcolor{keywordtype}{int} ksize = 5;}
+\DoxyCodeLine{336         \textcolor{keywordtype}{double} sigma = 2;}
+\DoxyCodeLine{337         }
+\DoxyCodeLine{338         \textcolor{keywordflow}{if} (argc >= 4) \{}
+\DoxyCodeLine{339             ksize = stoi(argv[3]);}
+\DoxyCodeLine{340         \}}
+\DoxyCodeLine{341         \textcolor{keywordflow}{if} (argc >= 5) \{}
+\DoxyCodeLine{342             sigma = stod(argv[3]);}
+\DoxyCodeLine{343         \}}
+\DoxyCodeLine{344         \textcolor{keyword}{auto} gaussian\_filter = [ksize, sigma](Mat frame)\{}
+\DoxyCodeLine{345             \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba}{Player::gaussianBlur}}(frame, ksize, sigma);}
+\DoxyCodeLine{346         \};}
+\DoxyCodeLine{347         p1.display(gaussian\_filter);}
+\DoxyCodeLine{348     \}}
+\DoxyCodeLine{349     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"blur"})\{}
+\DoxyCodeLine{350         \textcolor{keywordtype}{int} ksize = 5;}
+\DoxyCodeLine{351         \textcolor{keywordflow}{if} (argc >= 4) \{}
+\DoxyCodeLine{352             ksize = stoi(argv[3]);}
+\DoxyCodeLine{353         \}}
+\DoxyCodeLine{354         \textcolor{keyword}{auto} blur\_filter = [ksize](Mat frame)\{}
+\DoxyCodeLine{355             \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_aa58f30f3c08751756b019b1a7ab260f9}{Player::boxFilter}}(frame, Size(ksize,ksize));}
+\DoxyCodeLine{356         \};}
+\DoxyCodeLine{357         p1.display(blur\_filter);}
+\DoxyCodeLine{358     \}}
+\DoxyCodeLine{359     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (filter == \textcolor{stringliteral}{"watermark"})\{}
+\DoxyCodeLine{360         \textcolor{keywordtype}{float} alpha = 1;}
+\DoxyCodeLine{361         \textcolor{keywordtype}{int} x = 0;}
+\DoxyCodeLine{362         \textcolor{keywordtype}{int} y = 0;}
+\DoxyCodeLine{363         }
+\DoxyCodeLine{364         \textcolor{keywordflow}{if} (argc < 4) \{}
+\DoxyCodeLine{365             cerr << \textcolor{stringliteral}{"Usage for watermark: "} << argv[0] << \textcolor{stringliteral}{" <video> watermark <watermark>"} << endl;}
+\DoxyCodeLine{366             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{367         \}}
+\DoxyCodeLine{368         Mat watermark = imread(argv[3]);}
+\DoxyCodeLine{369         \textcolor{keywordflow}{if} (argc >= 5) \{}
+\DoxyCodeLine{370             x = stoi(argv[4]);}
+\DoxyCodeLine{371         \}}
+\DoxyCodeLine{372         \textcolor{keywordflow}{if} (argc >= 6) \{}
+\DoxyCodeLine{373             y = stoi(argv[5]);}
+\DoxyCodeLine{374         \}       }
+\DoxyCodeLine{375         \textcolor{keywordflow}{if} (argc >= 7) \{}
+\DoxyCodeLine{376             alpha = stod(argv[6]);}
+\DoxyCodeLine{377         \}}
+\DoxyCodeLine{378         \textcolor{keyword}{auto} watermark\_filter = [x, y, alpha, watermark](Mat frame)\{}
+\DoxyCodeLine{379             \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_aec79502ab07ec3719e413302863e14b3}{Player::addWatermark}}(frame, watermark, alpha, x, y);}
+\DoxyCodeLine{380         \};}
+\DoxyCodeLine{381         p1.display(watermark\_filter);}
+\DoxyCodeLine{382     \}}
+\DoxyCodeLine{383     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{384         std::cerr << \textcolor{stringliteral}{"invalid filter"} << endl;}
+\DoxyCodeLine{385         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{386     \}}
+\DoxyCodeLine{387      }
+\DoxyCodeLine{388     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{389 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{classPlayer_aec79502ab07ec3719e413302863e14b3}{Player\+::add\+Watermark()}}, \mbox{\hyperlink{classPlayer_aa58f30f3c08751756b019b1a7ab260f9}{Player\+::box\+Filter()}}, \mbox{\hyperlink{classPlayer_af4825e60a348aea262497d6df08943e8}{Player\+::color\+Hist\+Equalization()}}, \mbox{\hyperlink{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8}{Player\+::display()}}, \mbox{\hyperlink{classPlayer_a01ef153cd72df875fb98ce0f8377736c}{Player\+::frame\+Rgb2\+Yuv()}}, \mbox{\hyperlink{classPlayer_a60a9dd844d42e062af6ab22687764338}{Player\+::frame\+Yuv2\+Rgb()}}, \mbox{\hyperlink{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba}{Player\+::gaussian\+Blur()}}, \mbox{\hyperlink{classPlayer_a43331bc6540ddd07f4c53d6156e95207}{Player\+::get\+Color\+Histograms()}}, \mbox{\hyperlink{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3}{Player\+::gray\+Hist\+Equalization()}}, \mbox{\hyperlink{classPlayer_a91d61c8075a038eb9076e1509df6f53e}{Player\+::is\+Open()}}, \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{Player\+::threshold()}}, and \mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{Player\+::to\+Grayscale()}}.
+References Player\+::add\+Watermark(), Player\+::box\+Filter(), Player\+::color\+Hist\+Equalization(), Player\+::display(), Player\+::frame\+Rgb2\+Yuv(), Player\+::frame\+Yuv2\+Rgb(), Player\+::gaussian\+Blur(), Player\+::get\+Color\+Histograms(), Player\+::gray\+Hist\+Equalization(), Player\+::is\+Open(), Player\+::threshold(), and Player\+::to\+Grayscale().
 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}

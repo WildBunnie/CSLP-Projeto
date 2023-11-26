@@ -1,5 +1,5 @@
-\doxysection{Player Class Reference}
-\hypertarget{classPlayer}{}\label{classPlayer}\index{Player@{Player}}
+\hypertarget{classPlayer}{}\doxysection{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
 
 
 This class represents a video player/image displayer.  
@@ -9,24 +9,24 @@ This class represents a video player/image displayer.
 
 {\ttfamily \#include $<$Player.\+hpp$>$}
 
-\doxysubsubsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classPlayer_a75d4823a9c5af6925dfd7fa1184b1413}{Player}} (String media)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{\texorpdfstring{$\sim$}{\string~}\+Player}} ()
+\mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8}{display}} (function$<$ Mat(Mat)$>$)
 \begin{DoxyCompactList}\small\item\em Displays the processed videos. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classPlayer_a91d61c8075a038eb9076e1509df6f53e}{is\+Open}} ()
 \begin{DoxyCompactList}\small\item\em Checks if video instance is open or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Static Public Member Functions}
+\doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static Mat \mbox{\hyperlink{classPlayer_a01ef153cd72df875fb98ce0f8377736c}{frame\+Rgb2\+Yuv}} (Mat frame)
-\begin{DoxyCompactList}\small\item\em Converts a frame/image from the \doxylink{classRGB}{RGB} scale to the YUV scale. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Converts a frame/image from the \mbox{\hyperlink{classRGB}{R\+GB}} scale to the Y\+UV scale. \end{DoxyCompactList}\item 
 static Mat \mbox{\hyperlink{classPlayer_a60a9dd844d42e062af6ab22687764338}{frame\+Yuv2\+Rgb}} (Mat frame)
-\begin{DoxyCompactList}\small\item\em Converts a frame/image from the YUV scale to the \doxylink{classRGB}{RGB} scale. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Converts a frame/image from the Y\+UV scale to the \mbox{\hyperlink{classRGB}{R\+GB}} scale. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classPlayer_a43331bc6540ddd07f4c53d6156e95207}{get\+Color\+Histograms}} (Mat frame)
 \begin{DoxyCompactList}\small\item\em Displays the three histograms (for Red, Green and Blue) from an image. \end{DoxyCompactList}\item 
 static Mat \mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{to\+Grayscale}} (Mat frame)
@@ -43,7 +43,7 @@ static Mat \mbox{\hyperlink{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba}{gauss
 \begin{DoxyCompactList}\small\item\em Applies gaussian blur to a gray frame/image. \end{DoxyCompactList}\item 
 static Mat \mbox{\hyperlink{classPlayer_aa58f30f3c08751756b019b1a7ab260f9}{box\+Filter}} (Mat frame, Size ksize)
 \begin{DoxyCompactList}\small\item\em Applies blur to a gray frame/image using a box filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Static Private Member Functions}
+\doxysubsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classPlayer_abf0a37b931e2b26e2ec91f110d6b7643}{print\+Histogram}} (vector$<$ int $>$ hist, int color)
@@ -52,10 +52,10 @@ static void \mbox{\hyperlink{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539}{get\
 \begin{DoxyCompactList}\small\item\em Calculates a histogram. Only used internally by other functions. \end{DoxyCompactList}\item 
 static Mat \mbox{\hyperlink{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}{histogram\+Equalization}} (Mat frame)
 \begin{DoxyCompactList}\small\item\em Applies histogram equalization. Only used internally by other functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Private Attributes}
+\doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Video\+Capture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}
+Video\+Capture $\ast$ \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}
 \begin{DoxyCompactList}\small\item\em Video capture instance. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}}
 \begin{DoxyCompactList}\small\item\em Media file name. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -64,14 +64,14 @@ string \mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}}
 \doxysubsection{Detailed Description}
 This class represents a video player/image displayer. 
 
-It\textquotesingle{}s methods include the conversion between \doxylink{classRGB}{RGB} and YUV and low level image processing operations. The decision to make all the processing methods static was made to allow one object to manipulate more than one media. Since the videos and images are never saved, it can be done and avoids the creation of a large number of objects. 
+It\textquotesingle{}s methods include the conversion between \mbox{\hyperlink{classRGB}{R\+GB}} and Y\+UV and low level image processing operations. The decision to make all the processing methods static was made to allow one object to manipulate more than one media. Since the videos and images are never saved, it can be done and avoids the creation of a large number of objects. 
 
-Definition at line \mbox{\hyperlink{Player_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{Player_8hpp_source}{Player.\+hpp}}.
+Definition at line 20 of file Player.\+hpp.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classPlayer_a75d4823a9c5af6925dfd7fa1184b1413}\label{classPlayer_a75d4823a9c5af6925dfd7fa1184b1413} 
+\mbox{\Hypertarget{classPlayer_a75d4823a9c5af6925dfd7fa1184b1413}\label{classPlayer_a75d4823a9c5af6925dfd7fa1184b1413}} 
 \index{Player@{Player}!Player@{Player}}
 \index{Player@{Player}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{Player()}{Player()}}
@@ -88,25 +88,21 @@ Constructor.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 12 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00013\ \ \ \ \ this-\/>\mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}}\ =\ media;}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}\ =\ \textcolor{keyword}{new}\ VideoCapture(media);}
-\DoxyCodeLine{00015\ \}}
+\DoxyCodeLine{12                           \{}
+\DoxyCodeLine{13     this-\/>\mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}} = media;}
+\DoxyCodeLine{14     \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}} = \textcolor{keyword}{new} VideoCapture(media);}
+\DoxyCodeLine{15 \}}
 
 \end{DoxyCode}
-
-
-References \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}, and \mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}}.
-
-\Hypertarget{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}\label{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062} 
-\index{Player@{Player}!````~Player@{\texorpdfstring{$\sim$}{\string~}Player}}
-\index{````~Player@{\texorpdfstring{$\sim$}{\string~}Player}!Player@{Player}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Player()}{\string~Player()}}
-{\footnotesize\ttfamily Player\+::\texorpdfstring{$\sim$}{\string~}\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}\label{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}} 
+\index{Player@{Player}!````~Player@{$\sim$Player}}
+\index{````~Player@{$\sim$Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{$\sim$Player()}{~Player()}}
+{\footnotesize\ttfamily Player\+::$\sim$\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -114,23 +110,19 @@ Destructor.
 
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 17 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}};}
-\DoxyCodeLine{00019\ \}}
+\DoxyCodeLine{17                \{}
+\DoxyCodeLine{18     \textcolor{keyword}{delete} \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}};}
+\DoxyCodeLine{19 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}.
-
-
-
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classPlayer_aec79502ab07ec3719e413302863e14b3}\label{classPlayer_aec79502ab07ec3719e413302863e14b3} 
+\mbox{\Hypertarget{classPlayer_aec79502ab07ec3719e413302863e14b3}\label{classPlayer_aec79502ab07ec3719e413302863e14b3}} 
 \index{Player@{Player}!addWatermark@{addWatermark}}
 \index{addWatermark@{addWatermark}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{addWatermark()}{addWatermark()}}
@@ -158,28 +150,35 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00208}{208}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 208 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00209\ \{}
-\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ watermark.rows;\ row++)\{}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ watermark.cols;\ col++)\{}
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ +\ x\ <\ frame.rows\ \&\&\ col\ +\ y\ <\ frame.cols)\{}
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<Vec3b>(row\ +\ x,\ col\ +\ y)\ *=\ 1\ -\/\ alpha;}
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<Vec3b>(row\ +\ x,\ col\ +\ y)\ +=\ watermark.at<Vec3b>(row,\ col)\ *\ alpha;}
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00217\ \ \ \ \ \}}
-\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{return}\ frame;}
-\DoxyCodeLine{00219\ \}}
+\DoxyCodeLine{209 \{}
+\DoxyCodeLine{210     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < watermark.rows; row++)\{}
+\DoxyCodeLine{211         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < watermark.cols; col++)\{}
+\DoxyCodeLine{212             \textcolor{keywordflow}{if} (row + x < frame.rows \&\& col + y < frame.cols)\{}
+\DoxyCodeLine{213                 frame.at<Vec3b>(row + x, col + y) *= 1 -\/ alpha;}
+\DoxyCodeLine{214                 frame.at<Vec3b>(row + x, col + y) += watermark.at<Vec3b>(row, col) * alpha;}
+\DoxyCodeLine{215             \}}
+\DoxyCodeLine{216         \}}
+\DoxyCodeLine{217     \}}
+\DoxyCodeLine{218     \textcolor{keywordflow}{return} frame;}
+\DoxyCodeLine{219 \}}
 
 \end{DoxyCode}
 
 
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
+Referenced by main().
 
-\Hypertarget{classPlayer_aa58f30f3c08751756b019b1a7ab260f9}\label{classPlayer_aa58f30f3c08751756b019b1a7ab260f9} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classPlayer_aec79502ab07ec3719e413302863e14b3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_aa58f30f3c08751756b019b1a7ab260f9}\label{classPlayer_aa58f30f3c08751756b019b1a7ab260f9}} 
 \index{Player@{Player}!boxFilter@{boxFilter}}
 \index{boxFilter@{boxFilter}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{boxFilter()}{boxFilter()}}
@@ -199,24 +198,31 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00276}{276}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 276 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00277\ \{}
-\DoxyCodeLine{00278\ \ \ \ \ Mat\ kernel\ =\ Mat::ones(ksize.height,\ ksize.width,\ CV\_64F);}
-\DoxyCodeLine{00279\ \ \ \ \ kernel\ *=\ 1.0\ /\ (ksize.width\ *\ ksize.height);}
-\DoxyCodeLine{00280\ \ \ \ \ Mat\ result;}
-\DoxyCodeLine{00281\ \ \ \ \ filter2D(frame,\ result,\ -\/1,\ kernel);}
-\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00283\ \}}
+\DoxyCodeLine{277 \{}
+\DoxyCodeLine{278     Mat kernel = Mat::ones(ksize.height, ksize.width, CV\_64F);}
+\DoxyCodeLine{279     kernel *= 1.0 / (ksize.width * ksize.height);}
+\DoxyCodeLine{280     Mat result;}
+\DoxyCodeLine{281     filter2D(frame, result, -\/1, kernel);}
+\DoxyCodeLine{282     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{283 \}}
 
 \end{DoxyCode}
 
 
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
+Referenced by main().
 
-\Hypertarget{classPlayer_af4825e60a348aea262497d6df08943e8}\label{classPlayer_af4825e60a348aea262497d6df08943e8} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{classPlayer_aa58f30f3c08751756b019b1a7ab260f9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_af4825e60a348aea262497d6df08943e8}\label{classPlayer_af4825e60a348aea262497d6df08943e8}} 
 \index{Player@{Player}!colorHistEqualization@{colorHistEqualization}}
 \index{colorHistEqualization@{colorHistEqualization}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{colorHistEqualization()}{colorHistEqualization()}}
@@ -238,33 +244,36 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00194}{194}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 194 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00195\ \{}
-\DoxyCodeLine{00196\ \ \ \ \ Mat\ ycrcb\_img;}
-\DoxyCodeLine{00197\ \ \ \ \ cvtColor(frame,ycrcb\_img,\ COLOR\_BGR2YCrCb);}
-\DoxyCodeLine{00198\ }
-\DoxyCodeLine{00199\ \ \ \ \ vector<Mat>\ channels;}
-\DoxyCodeLine{00200\ \ \ \ \ split(ycrcb\_img,\ channels);}
-\DoxyCodeLine{00201\ \ \ \ \ channels[0]\ =\ \mbox{\hyperlink{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}{histogramEqualization}}(channels[0]);}
-\DoxyCodeLine{00202\ \ \ \ \ merge(channels,\ ycrcb\_img);}
-\DoxyCodeLine{00203\ \ \ \ \ cvtColor(ycrcb\_img,\ ycrcb\_img,\ COLOR\_YCrCb2BGR);}
-\DoxyCodeLine{00204\ }
-\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordflow}{return}\ ycrcb\_img;}
-\DoxyCodeLine{00206\ \}}
+\DoxyCodeLine{195 \{}
+\DoxyCodeLine{196     Mat ycrcb\_img;}
+\DoxyCodeLine{197     cvtColor(frame,ycrcb\_img, COLOR\_BGR2YCrCb);}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199     vector<Mat> channels;}
+\DoxyCodeLine{200     split(ycrcb\_img, channels);}
+\DoxyCodeLine{201     channels[0] = \mbox{\hyperlink{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}{histogramEqualization}}(channels[0]);}
+\DoxyCodeLine{202     merge(channels, ycrcb\_img);}
+\DoxyCodeLine{203     cvtColor(ycrcb\_img, ycrcb\_img, COLOR\_YCrCb2BGR);}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keywordflow}{return} ycrcb\_img;}
+\DoxyCodeLine{206 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}{histogram\+Equalization()}}.
+Referenced by main().
 
-
-
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
-
-\Hypertarget{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8}\label{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classPlayer_af4825e60a348aea262497d6df08943e8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8}\label{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8}} 
 \index{Player@{Player}!display@{display}}
 \index{display@{display}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{display()}{display()}}
@@ -281,60 +290,63 @@ Displays the processed videos.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 64 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{string}\ media\ =\ this-\/>\mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}};}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{string}\ ext\ =\ media.substr(media.find\_last\_of(\textcolor{stringliteral}{"{}."{}}),\ media.size()-\/1);}
-\DoxyCodeLine{00068\ \ \ \ \ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (ext\ ==\ \textcolor{stringliteral}{"{}.jpg"{}}\ ||\ ext\ ==\ \textcolor{stringliteral}{"{}.png"{}}\ ||\ ext\ ==\ \textcolor{stringliteral}{"{}.jpeg"{}})\{}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ Mat\ img\ =\ imread(media,\ 1);}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ Mat\ newImg;}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(filter\ !=\ NULL)\{}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ newImg\ =\ filter(img);}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ newImg\ =\ img;}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(newImg.rows\ >\ 0\ \&\&\ newImg.cols\ >\ 0)\{}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ imshow(\textcolor{stringliteral}{"{}image"{}},\ newImg);\ \ }
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ waitKey(0);\ \ }
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ destroyAllWindows();}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00084\ \ \ \ \ \}}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{while}(1)\{}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ Mat\ frame,newframe;}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}-\/>read(frame);}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(filter\ !=\ NULL)\{}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ frame\ =\ filter(frame);}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ newframe\ =\ frame;}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ imshow(this-\/>\mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}},frame);}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ c=(char)waitKey(25);}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(c==27)}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00099\ \ \ \ \ \}}
-\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}-\/>release();}
-\DoxyCodeLine{00101\ \ \ \ \ destroyAllWindows();}
-\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{64                                                   \{}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{string} media = this-\/>\mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}};}
+\DoxyCodeLine{67     \textcolor{keywordtype}{string} ext = media.substr(media.find\_last\_of(\textcolor{stringliteral}{"."}), media.size()-\/1);}
+\DoxyCodeLine{68     }
+\DoxyCodeLine{69     \textcolor{keywordflow}{if} (ext == \textcolor{stringliteral}{".jpg"} || ext == \textcolor{stringliteral}{".png"} || ext == \textcolor{stringliteral}{".jpeg"})\{}
+\DoxyCodeLine{70         Mat img = imread(media, 1);}
+\DoxyCodeLine{71         Mat newImg;}
+\DoxyCodeLine{72         \textcolor{keywordflow}{if}(filter != NULL)\{}
+\DoxyCodeLine{73             newImg = filter(img);}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{76             newImg = img;}
+\DoxyCodeLine{77         \}}
+\DoxyCodeLine{78         \textcolor{keywordflow}{if}(newImg.rows > 0 \&\& newImg.cols > 0)\{}
+\DoxyCodeLine{79             imshow(\textcolor{stringliteral}{"image"}, newImg);  }
+\DoxyCodeLine{80             waitKey(0);  }
+\DoxyCodeLine{81             destroyAllWindows();}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordflow}{while}(1)\{}
+\DoxyCodeLine{87         Mat frame,newframe;}
+\DoxyCodeLine{88         this-\/>\mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}-\/>read(frame);}
+\DoxyCodeLine{89         \textcolor{keywordflow}{if}(filter != NULL)\{}
+\DoxyCodeLine{90             frame = filter(frame);}
+\DoxyCodeLine{91         \}}
+\DoxyCodeLine{92         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{93             newframe = frame;}
+\DoxyCodeLine{94         \}}
+\DoxyCodeLine{95         imshow(this-\/>\mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}},frame);}
+\DoxyCodeLine{96         \textcolor{keywordtype}{char} c=(char)waitKey(25);}
+\DoxyCodeLine{97             \textcolor{keywordflow}{if}(c==27)}
+\DoxyCodeLine{98                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100     \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}-\/>release();}
+\DoxyCodeLine{101     destroyAllWindows();}
+\DoxyCodeLine{102 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}, and \mbox{\hyperlink{classPlayer_acf0355128a99ee20ad9931b760fb2de1}{name}}.
+Referenced by main().
 
-
-
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
-
-\Hypertarget{classPlayer_a01ef153cd72df875fb98ce0f8377736c}\label{classPlayer_a01ef153cd72df875fb98ce0f8377736c} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_a01ef153cd72df875fb98ce0f8377736c}\label{classPlayer_a01ef153cd72df875fb98ce0f8377736c}} 
 \index{Player@{Player}!frameRgb2Yuv@{frameRgb2Yuv}}
 \index{frameRgb2Yuv@{frameRgb2Yuv}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{frameRgb2Yuv()}{frameRgb2Yuv()}}
@@ -342,7 +354,7 @@ Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{ma
 
 
 
-Converts a frame/image from the \doxylink{classRGB}{RGB} scale to the YUV scale. 
+Converts a frame/image from the \mbox{\hyperlink{classRGB}{R\+GB}} scale to the Y\+UV scale. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -354,36 +366,43 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 25 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ frame.rows;\ i++)\{}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ frame.cols;\ j++)\{}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ r\ =\ frame.at<Vec3b>(i,j)[2];}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ g\ =\ frame.at<Vec3b>(i,j)[1];}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ b\ =\ frame.at<Vec3b>(i,j)[0];}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ y\ =\ \ 0.299*r+0.587*g+0.114*b;}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ cb\ =\ 128+0.564*((int)b-\/(\textcolor{keywordtype}{int})y);}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ cr\ =\ 128+0.713*((int)r-\/(\textcolor{keywordtype}{int})y);}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<Vec3b>(i,j)[0]\ =\ y;}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<Vec3b>(i,j)[1]\ =\ cb;}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<Vec3b>(i,j)[2]\ =\ cr;}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00040\ \ \ \ \ \}}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ frame;}
-\DoxyCodeLine{00043\ \}}
+\DoxyCodeLine{25                                  \{}
+\DoxyCodeLine{26     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < frame.rows; i++)\{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < frame.cols; j++)\{}
+\DoxyCodeLine{28             uint r = frame.at<Vec3b>(i,j)[2];}
+\DoxyCodeLine{29             uint g = frame.at<Vec3b>(i,j)[1];}
+\DoxyCodeLine{30             uint b = frame.at<Vec3b>(i,j)[0];}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32             uint y =  0.299*r+0.587*g+0.114*b;}
+\DoxyCodeLine{33             uint cb = 128+0.564*((int)b-\/(\textcolor{keywordtype}{int})y);}
+\DoxyCodeLine{34             uint cr = 128+0.713*((int)r-\/(\textcolor{keywordtype}{int})y);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36             frame.at<Vec3b>(i,j)[0] = y;}
+\DoxyCodeLine{37             frame.at<Vec3b>(i,j)[1] = cb;}
+\DoxyCodeLine{38             frame.at<Vec3b>(i,j)[2] = cr;}
+\DoxyCodeLine{39         \}}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordflow}{return} frame;}
+\DoxyCodeLine{43 \}}
 
 \end{DoxyCode}
 
 
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
+Referenced by main().
 
-\Hypertarget{classPlayer_a60a9dd844d42e062af6ab22687764338}\label{classPlayer_a60a9dd844d42e062af6ab22687764338} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classPlayer_a01ef153cd72df875fb98ce0f8377736c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_a60a9dd844d42e062af6ab22687764338}\label{classPlayer_a60a9dd844d42e062af6ab22687764338}} 
 \index{Player@{Player}!frameYuv2Rgb@{frameYuv2Rgb}}
 \index{frameYuv2Rgb@{frameYuv2Rgb}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{frameYuv2Rgb()}{frameYuv2Rgb()}}
@@ -391,7 +410,7 @@ Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{ma
 
 
 
-Converts a frame/image from the YUV scale to the \doxylink{classRGB}{RGB} scale. 
+Converts a frame/image from the Y\+UV scale to the \mbox{\hyperlink{classRGB}{R\+GB}} scale. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -403,35 +422,42 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 45 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ frame.rows;\ i++)\{}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ frame.cols;\ j++)\{}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ y\ =\ frame.at<Vec3b>(i,j)[0];}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ cb\ =\ frame.at<Vec3b>(i,j)[1];}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ cr\ =\ frame.at<Vec3b>(i,j)[2];}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ r\ =\ y+1.13983*((int)cr-\/128);}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ g\ =\ y-\/0.39465*((int)cb-\/128)-\/0.58060*((int)cr-\/128);}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ uint\ b\ =\ y+2.03211*((int)cb-\/128);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<Vec3b>(i,j)[2]\ =\ r;}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<Vec3b>(i,j)[1]\ =\ g;}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<Vec3b>(i,j)[0]\ =\ b;}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00060\ \ \ \ \ \}}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ frame;}
-\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{45                                  \{}
+\DoxyCodeLine{46     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < frame.rows; i++)\{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < frame.cols; j++)\{}
+\DoxyCodeLine{48             uint y = frame.at<Vec3b>(i,j)[0];}
+\DoxyCodeLine{49             uint cb = frame.at<Vec3b>(i,j)[1];}
+\DoxyCodeLine{50             uint cr = frame.at<Vec3b>(i,j)[2];}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52             uint r = y+1.13983*((int)cr-\/128);}
+\DoxyCodeLine{53             uint g = y-\/0.39465*((int)cb-\/128)-\/0.58060*((int)cr-\/128);}
+\DoxyCodeLine{54             uint b = y+2.03211*((int)cb-\/128);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56             frame.at<Vec3b>(i,j)[2] = r;}
+\DoxyCodeLine{57             frame.at<Vec3b>(i,j)[1] = g;}
+\DoxyCodeLine{58             frame.at<Vec3b>(i,j)[0] = b;}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61         \textcolor{keywordflow}{return} frame;}
+\DoxyCodeLine{62 \}}
 
 \end{DoxyCode}
 
 
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
+Referenced by main().
 
-\Hypertarget{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba}\label{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classPlayer_a60a9dd844d42e062af6ab22687764338_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba}\label{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba}} 
 \index{Player@{Player}!gaussianBlur@{gaussianBlur}}
 \index{gaussianBlur@{gaussianBlur}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{gaussianBlur()}{gaussianBlur()}}
@@ -451,42 +477,49 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00250}{250}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 250 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordflow}{if}\ (ksize\ \%\ 2\ ==\ 0)}
-\DoxyCodeLine{00252\ \ \ \ \ \{}
-\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ ksize++;}
-\DoxyCodeLine{00254\ \ \ \ \ \}}
-\DoxyCodeLine{00255\ }
-\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{int}\ radius\ =\ ksize\ /\ 2;}
-\DoxyCodeLine{00257\ }
-\DoxyCodeLine{00258\ \ \ \ \ Mat\ kernel(ksize,\ ksize,\ CV\_64F);}
-\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0.0;}
-\DoxyCodeLine{00260\ }
-\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ -\/radius;\ x\ <=\ radius;\ x++)\ \{}
-\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ -\/radius;\ y\ <=\ radius;\ y++)\ \{}
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ value\ =\ exp(-\/(x\ *\ x\ +\ y\ *\ y)\ /\ (2\ *\ sigma\ *\ sigma));}
-\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ kernel.at<\textcolor{keywordtype}{double}>(x\ +\ radius,\ y\ +\ radius)\ =\ value;}
-\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ sum\ +=\ value;}
-\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00267\ \ \ \ \ \}}
-\DoxyCodeLine{00268\ }
-\DoxyCodeLine{00269\ \ \ \ \ kernel\ /=\ sum;}
-\DoxyCodeLine{00270\ }
-\DoxyCodeLine{00271\ \ \ \ \ Mat\ result;}
-\DoxyCodeLine{00272\ \ \ \ \ filter2D(frame,\ result,\ -\/1,\ kernel);}
-\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00274\ \}}
+\DoxyCodeLine{250                                                           \{}
+\DoxyCodeLine{251     \textcolor{keywordflow}{if} (ksize \% 2 == 0)}
+\DoxyCodeLine{252     \{}
+\DoxyCodeLine{253         ksize++;}
+\DoxyCodeLine{254     \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256     \textcolor{keywordtype}{int} radius = ksize / 2;}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258     Mat kernel(ksize, ksize, CV\_64F);}
+\DoxyCodeLine{259     \textcolor{keywordtype}{double} sum = 0.0;}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = -\/radius; x <= radius; x++) \{}
+\DoxyCodeLine{262         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = -\/radius; y <= radius; y++) \{}
+\DoxyCodeLine{263             \textcolor{keywordtype}{double} value = exp(-\/(x * x + y * y) / (2 * sigma * sigma));}
+\DoxyCodeLine{264             kernel.at<\textcolor{keywordtype}{double}>(x + radius, y + radius) = value;}
+\DoxyCodeLine{265             sum += value;}
+\DoxyCodeLine{266         \}}
+\DoxyCodeLine{267     \}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269     kernel /= sum;}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271     Mat result;}
+\DoxyCodeLine{272     filter2D(frame, result, -\/1, kernel);}
+\DoxyCodeLine{273     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{274 \}}
 
 \end{DoxyCode}
 
 
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
+Referenced by main().
 
-\Hypertarget{classPlayer_a43331bc6540ddd07f4c53d6156e95207}\label{classPlayer_a43331bc6540ddd07f4c53d6156e95207} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{classPlayer_a9f17838daa13d7eebeeea35cdfa9d1ba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_a43331bc6540ddd07f4c53d6156e95207}\label{classPlayer_a43331bc6540ddd07f4c53d6156e95207}} 
 \index{Player@{Player}!getColorHistograms@{getColorHistograms}}
 \index{getColorHistograms@{getColorHistograms}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{getColorHistograms()}{getColorHistograms()}}
@@ -508,27 +541,30 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00118}{118}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 118 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ i++)\{}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539}{getHistogram}}(frame,\ i);}
-\DoxyCodeLine{00122\ \ \ \ \ \}}
-\DoxyCodeLine{00123\ \}}
+\DoxyCodeLine{118                                         \{}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < 3; i++)\{}
+\DoxyCodeLine{121         \mbox{\hyperlink{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539}{getHistogram}}(frame, i);}
+\DoxyCodeLine{122     \}}
+\DoxyCodeLine{123 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539}{get\+Histogram()}}.
+Referenced by main().
 
-
-
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
-
-\Hypertarget{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539}\label{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classPlayer_a43331bc6540ddd07f4c53d6156e95207_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539}\label{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539}} 
 \index{Player@{Player}!getHistogram@{getHistogram}}
 \index{getHistogram@{getHistogram}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{getHistogram()}{getHistogram()}}
@@ -547,34 +583,26 @@ Calculates a histogram. Only used internally by other functions.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 104 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00105\ \ \ \ \ vector<int>\ histogram(256,0);}
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ intensity;}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ frame.rows;\ i++)\{}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ frame.cols;\ j++)\{}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ intensity\ =\ frame.at<Vec3b>(i,j)[color];\ \textcolor{comment}{//\ b\ =\ 0,\ g\ =\ 1,\ r\ =\ 2}}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ histogram[intensity]++;}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00113\ \ \ \ \ \}}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{classPlayer_abf0a37b931e2b26e2ec91f110d6b7643}{printHistogram}}(histogram,\ color);}
-\DoxyCodeLine{00116\ \}}
+\DoxyCodeLine{104                                              \{}
+\DoxyCodeLine{105     vector<int> histogram(256,0);}
+\DoxyCodeLine{106     \textcolor{keywordtype}{int} intensity;}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < frame.rows; i++)\{}
+\DoxyCodeLine{109         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < frame.cols; j++)\{}
+\DoxyCodeLine{110             intensity = frame.at<Vec3b>(i,j)[color]; \textcolor{comment}{// b = 0, g = 1, r = 2}}
+\DoxyCodeLine{111             histogram[intensity]++;}
+\DoxyCodeLine{112         \}}
+\DoxyCodeLine{113     \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \mbox{\hyperlink{classPlayer_abf0a37b931e2b26e2ec91f110d6b7643}{printHistogram}}(histogram, color);}
+\DoxyCodeLine{116 \}}
 
 \end{DoxyCode}
-
-
-References \mbox{\hyperlink{classPlayer_abf0a37b931e2b26e2ec91f110d6b7643}{print\+Histogram()}}.
-
-
-
-Referenced by \mbox{\hyperlink{classPlayer_a43331bc6540ddd07f4c53d6156e95207}{get\+Color\+Histograms()}}.
-
-\Hypertarget{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3}\label{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3} 
+\mbox{\Hypertarget{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3}\label{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3}} 
 \index{Player@{Player}!grayHistEqualization@{grayHistEqualization}}
 \index{grayHistEqualization@{grayHistEqualization}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{grayHistEqualization()}{grayHistEqualization()}}
@@ -596,27 +624,30 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00186}{186}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 186 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00187\ \{}
-\DoxyCodeLine{00188\ \ \ \ \ Mat\ grayscaleImage(frame.rows,\ frame.cols,\ CV\_8UC1);}
-\DoxyCodeLine{00189\ \ \ \ \ grayscaleImage\ =\ \mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{toGrayscale}}(frame);}
-\DoxyCodeLine{00190\ \ \ \ \ Mat\ equalizedImage\ =\ \mbox{\hyperlink{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}{histogramEqualization}}(grayscaleImage);}
-\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{return}\ equalizedImage;}
-\DoxyCodeLine{00192\ \}}
+\DoxyCodeLine{187 \{}
+\DoxyCodeLine{188     Mat grayscaleImage(frame.rows, frame.cols, CV\_8UC1);}
+\DoxyCodeLine{189     grayscaleImage = \mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{toGrayscale}}(frame);}
+\DoxyCodeLine{190     Mat equalizedImage = \mbox{\hyperlink{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}{histogramEqualization}}(grayscaleImage);}
+\DoxyCodeLine{191     \textcolor{keywordflow}{return} equalizedImage;}
+\DoxyCodeLine{192 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}{histogram\+Equalization()}}, and \mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{to\+Grayscale()}}.
+Referenced by main().
 
-
-
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
-
-\Hypertarget{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}\label{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}\label{classPlayer_adcebfdf6c6afd5b78e1594595f7c2ea7}} 
 \index{Player@{Player}!histogramEqualization@{histogramEqualization}}
 \index{histogramEqualization@{histogramEqualization}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{histogramEqualization()}{histogramEqualization()}}
@@ -636,40 +667,36 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00161}{161}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 161 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00162\ \{}
-\DoxyCodeLine{00163\ \ \ \ \ Mat\ histogram;}
-\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{float}\ Range[]\ =\ \{0,\ 256\};\ }
-\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ HistRange\ =\ \{Range\};}
-\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{int}\ npixels\ =\ 256;\ }
-\DoxyCodeLine{00167\ \ \ \ \ calcHist(\&frame,\ 1,\ 0,\ Mat(),\ histogram,\ 1,\ \&npixels,\ \&HistRange,\ \textcolor{keyword}{true},\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00169\ \ \ \ \ Mat\ cumsum\ =\ histogram.clone();}
-\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ 256;\ ++i)\ \{}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ cumsum.at<\textcolor{keywordtype}{float}>(i)\ +=\ cumsum.at<\textcolor{keywordtype}{float}>(i\ -\/\ 1);}
-\DoxyCodeLine{00172\ \ \ \ \ \}}
-\DoxyCodeLine{00173\ \ \ \ \ cumsum\ /=\ cumsum.at<\textcolor{keywordtype}{float}>(npixels\ -\/\ 1);}
-\DoxyCodeLine{00174\ \ \ \ \ cumsum\ *=\ 255;}
-\DoxyCodeLine{00175\ }
-\DoxyCodeLine{00176\ \ \ \ \ Mat\ equalizedImage(frame.size(),\ frame.type());}
-\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ frame.rows;\ ++i)\ \{}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ frame.cols;\ ++j)\ \{}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ equalizedImage.at<uchar>(i,\ j)\ =\ saturate\_cast<uchar>(cumsum.at<\textcolor{keywordtype}{float}>(frame.at<uchar>(i,\ j)));}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00181\ \ \ \ \ \}}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{return}\ equalizedImage;}
-\DoxyCodeLine{00184\ \}}
+\DoxyCodeLine{162 \{}
+\DoxyCodeLine{163     Mat histogram;}
+\DoxyCodeLine{164     \textcolor{keywordtype}{float} Range[] = \{0, 256\}; }
+\DoxyCodeLine{165     \textcolor{keyword}{const} \textcolor{keywordtype}{float}* HistRange = \{Range\};}
+\DoxyCodeLine{166     \textcolor{keywordtype}{int} npixels = 256; }
+\DoxyCodeLine{167     calcHist(\&frame, 1, 0, Mat(), histogram, 1, \&npixels, \&HistRange, \textcolor{keyword}{true}, \textcolor{keyword}{false});}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169     Mat cumsum = histogram.clone();}
+\DoxyCodeLine{170     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < 256; ++i) \{}
+\DoxyCodeLine{171         cumsum.at<\textcolor{keywordtype}{float}>(i) += cumsum.at<\textcolor{keywordtype}{float}>(i -\/ 1);}
+\DoxyCodeLine{172     \}}
+\DoxyCodeLine{173     cumsum /= cumsum.at<\textcolor{keywordtype}{float}>(npixels -\/ 1);}
+\DoxyCodeLine{174     cumsum *= 255;}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176     Mat equalizedImage(frame.size(), frame.type());}
+\DoxyCodeLine{177     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < frame.rows; ++i) \{}
+\DoxyCodeLine{178         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < frame.cols; ++j) \{}
+\DoxyCodeLine{179             equalizedImage.at<uchar>(i, j) = saturate\_cast<uchar>(cumsum.at<\textcolor{keywordtype}{float}>(frame.at<uchar>(i, j)));}
+\DoxyCodeLine{180         \}}
+\DoxyCodeLine{181     \}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183     \textcolor{keywordflow}{return} equalizedImage;}
+\DoxyCodeLine{184 \}}
 
 \end{DoxyCode}
-
-
-Referenced by \mbox{\hyperlink{classPlayer_af4825e60a348aea262497d6df08943e8}{color\+Hist\+Equalization()}}, and \mbox{\hyperlink{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3}{gray\+Hist\+Equalization()}}.
-
-\Hypertarget{classPlayer_a91d61c8075a038eb9076e1509df6f53e}\label{classPlayer_a91d61c8075a038eb9076e1509df6f53e} 
+\mbox{\Hypertarget{classPlayer_a91d61c8075a038eb9076e1509df6f53e}\label{classPlayer_a91d61c8075a038eb9076e1509df6f53e}} 
 \index{Player@{Player}!isOpen@{isOpen}}
 \index{isOpen@{isOpen}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{isOpen()}{isOpen()}}
@@ -684,24 +711,27 @@ true if it\textquotesingle{}s open, false if it\textquotesingle{}s not.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 21 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}-\/>isOpened();}
-\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{21                    \{}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}-\/>isOpened();}
+\DoxyCodeLine{23 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{classPlayer_a05f888afad3b66060f5aef914c671449}{cap}}.
+Referenced by main().
 
-
-
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}.
-
-\Hypertarget{classPlayer_abf0a37b931e2b26e2ec91f110d6b7643}\label{classPlayer_abf0a37b931e2b26e2ec91f110d6b7643} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classPlayer_a91d61c8075a038eb9076e1509df6f53e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_abf0a37b931e2b26e2ec91f110d6b7643}\label{classPlayer_abf0a37b931e2b26e2ec91f110d6b7643}} 
 \index{Player@{Player}!printHistogram@{printHistogram}}
 \index{printHistogram@{printHistogram}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{printHistogram()}{printHistogram()}}
@@ -722,52 +752,48 @@ Drawing implementation based on example code found on Open\+CV documentation, at
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00125}{125}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 125 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00126\ \ \ \ \ Scalar\ colorScalar;}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{switch}\ (color)\{}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ colorScalar\ =\ Scalar(0,\ 0,\ 255);}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ colorScalar\ =\ Scalar(0,\ 255,\ 0);}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ colorScalar\ =\ Scalar(255,\ 0,\ 0);}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ colorScalar\ =\ Scalar(255,\ 255,\ 255);}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00141\ \ \ \ \ \}}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}\ histSize\ =\ 256;}
-\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{int}\ hist\_w\ =\ 512,\ hist\_h\ =\ 400;}
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{int}\ bin\_w\ =\ cvRound(\ (\textcolor{keywordtype}{double})\ hist\_w/histSize\ );}
-\DoxyCodeLine{00146\ \ \ \ \ Mat\ histImage(\ hist\_h,\ hist\_w,\ CV\_8UC3,\ Scalar(\ 0,0,0)\ );}
-\DoxyCodeLine{00147\ \ \ \ \ normalize(hist,\ hist,\ 0,\ histImage.rows,\ NORM\_MINMAX,\ -\/1,\ Mat()\ );}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=1;\ i\ <\ histSize;\ i++)\{}
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ line(\ histImage,\ Point(\ bin\_w*(i-\/1),\ hist\_h\ -\/\ cvRound(hist[i-\/1])\ ),}
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ Point(\ bin\_w*(i),\ hist\_h\ -\/\ cvRound(hist[i])\ ),}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ colorScalar,\ 2,\ 8,\ 0\ );}
-\DoxyCodeLine{00153\ \ \ \ \ \}}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \ \ \ \ imshow(\textcolor{stringliteral}{"{}Histogram"{}},\ histImage);}
-\DoxyCodeLine{00156\ \ \ \ \ waitKey(0);}
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00158\ \ \ \ \ destroyAllWindows();}
-\DoxyCodeLine{00159\ \}}
+\DoxyCodeLine{125                                                       \{}
+\DoxyCodeLine{126     Scalar colorScalar;}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128     \textcolor{keywordflow}{switch} (color)\{}
+\DoxyCodeLine{129         \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{130             colorScalar = Scalar(0, 0, 255);}
+\DoxyCodeLine{131             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{132         \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{133             colorScalar = Scalar(0, 255, 0);}
+\DoxyCodeLine{134             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{135         \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{136             colorScalar = Scalar(255, 0, 0);}
+\DoxyCodeLine{137             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{138         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{139             colorScalar = Scalar(255, 255, 255);}
+\DoxyCodeLine{140             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{141     \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{keywordtype}{int} histSize = 256;}
+\DoxyCodeLine{144     \textcolor{keywordtype}{int} hist\_w = 512, hist\_h = 400;}
+\DoxyCodeLine{145     \textcolor{keywordtype}{int} bin\_w = cvRound( (\textcolor{keywordtype}{double}) hist\_w/histSize );}
+\DoxyCodeLine{146     Mat histImage( hist\_h, hist\_w, CV\_8UC3, Scalar( 0,0,0) );}
+\DoxyCodeLine{147     normalize(hist, hist, 0, histImage.rows, NORM\_MINMAX, -\/1, Mat() );}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=1; i < histSize; i++)\{}
+\DoxyCodeLine{150         line( histImage, Point( bin\_w*(i-\/1), hist\_h -\/ cvRound(hist[i-\/1]) ),}
+\DoxyCodeLine{151         Point( bin\_w*(i), hist\_h -\/ cvRound(hist[i]) ),}
+\DoxyCodeLine{152         colorScalar, 2, 8, 0 );}
+\DoxyCodeLine{153     \}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155     imshow(\textcolor{stringliteral}{"Histogram"}, histImage);}
+\DoxyCodeLine{156     waitKey(0);}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     destroyAllWindows();}
+\DoxyCodeLine{159 \}}
 
 \end{DoxyCode}
-
-
-Referenced by \mbox{\hyperlink{classPlayer_a54cd99c10cf2ad36d2ef0835d9a68539}{get\+Histogram()}}.
-
-\Hypertarget{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}\label{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8} 
+\mbox{\Hypertarget{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}\label{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}} 
 \index{Player@{Player}!threshold@{threshold}}
 \index{threshold@{threshold}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{threshold()}{threshold()}}
@@ -789,36 +815,39 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00221}{221}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 221 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00222\ \{}
-\DoxyCodeLine{00223\ \ \ \ \ frame\ =\ \mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{toGrayscale}}(frame);}
-\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ frame.rows;\ row++)\{}
-\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ frame.cols;\ col++)\{}
-\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ uchar\ pixel\ =\ frame.at<uchar>(row,\ col);}
-\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pixel\ >=\ \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{threshold}})\{}
-\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<uchar>(row,\ col)\ =\ 255;}
-\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ frame.at<uchar>(row,\ col)\ =\ 0;}
-\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00234\ \ \ \ \ \}}
-\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordflow}{return}\ frame;}
-\DoxyCodeLine{00236\ \}}
+\DoxyCodeLine{222 \{}
+\DoxyCodeLine{223     frame = \mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{toGrayscale}}(frame);}
+\DoxyCodeLine{224     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < frame.rows; row++)\{}
+\DoxyCodeLine{225         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < frame.cols; col++)\{}
+\DoxyCodeLine{226             uchar pixel = frame.at<uchar>(row, col);}
+\DoxyCodeLine{227             \textcolor{keywordflow}{if}(pixel >= \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{threshold}})\{}
+\DoxyCodeLine{228                 frame.at<uchar>(row, col) = 255;}
+\DoxyCodeLine{229             \}}
+\DoxyCodeLine{230             \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{231                 frame.at<uchar>(row, col) = 0;}
+\DoxyCodeLine{232             \}}
+\DoxyCodeLine{233         \}}
+\DoxyCodeLine{234     \}}
+\DoxyCodeLine{235     \textcolor{keywordflow}{return} frame;}
+\DoxyCodeLine{236 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{threshold()}}, and \mbox{\hyperlink{classPlayer_a7445d3d1467b652b3f9b905f88113847}{to\+Grayscale()}}.
+Referenced by main().
 
-
-
-Referenced by \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}, and \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{threshold()}}.
-
-\Hypertarget{classPlayer_a7445d3d1467b652b3f9b905f88113847}\label{classPlayer_a7445d3d1467b652b3f9b905f88113847} 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPlayer_a7445d3d1467b652b3f9b905f88113847}\label{classPlayer_a7445d3d1467b652b3f9b905f88113847}} 
 \index{Player@{Player}!toGrayscale@{toGrayscale}}
 \index{toGrayscale@{toGrayscale}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{toGrayscale()}{toGrayscale()}}
@@ -838,34 +867,41 @@ The converted frame.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{Player_8cpp_source_l00238}{238}} of file \mbox{\hyperlink{Player_8cpp_source}{Player.\+cpp}}.
+Definition at line 238 of file Player.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00239\ \{}
-\DoxyCodeLine{00240\ \ \ \ \ Mat\ result(frame.rows,\ frame.cols,\ CV\_8UC1);}
-\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ frame.rows;\ row++)\{}
-\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ frame.cols;\ col++)\{}
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ Vec3b\ pixel\ =\ frame.at<Vec3b>(row,\ col);}
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ result.at<uchar>(row,\ col)\ =\ pixel[0]\ *\ 0.11\ +\ pixel[1]\ *\ 0.59\ +\ pixel[2]\ *\ 0.30;}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00246\ \ \ \ \ \}}
-\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00248\ \}}
+\DoxyCodeLine{239 \{}
+\DoxyCodeLine{240     Mat result(frame.rows, frame.cols, CV\_8UC1);}
+\DoxyCodeLine{241     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < frame.rows; row++)\{}
+\DoxyCodeLine{242         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < frame.cols; col++)\{}
+\DoxyCodeLine{243             Vec3b pixel = frame.at<Vec3b>(row, col);}
+\DoxyCodeLine{244             result.at<uchar>(row, col) = pixel[0] * 0.11 + pixel[1] * 0.59 + pixel[2] * 0.30;}
+\DoxyCodeLine{245         \}}
+\DoxyCodeLine{246     \}}
+\DoxyCodeLine{247     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{248 \}}
 
 \end{DoxyCode}
 
 
-Referenced by \mbox{\hyperlink{classPlayer_a4be07ab7f66259f076cc1ac21fab58f3}{gray\+Hist\+Equalization()}}, \mbox{\hyperlink{Player_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()}}, and \mbox{\hyperlink{classPlayer_ae3bfc4e5bcefd1e7a532ef48fb133ca8}{threshold()}}.
+Referenced by main().
 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{classPlayer_a7445d3d1467b652b3f9b905f88113847_icgraph}
+\end{center}
+\end{figure}
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classPlayer_a05f888afad3b66060f5aef914c671449}\label{classPlayer_a05f888afad3b66060f5aef914c671449} 
+\mbox{\Hypertarget{classPlayer_a05f888afad3b66060f5aef914c671449}\label{classPlayer_a05f888afad3b66060f5aef914c671449}} 
 \index{Player@{Player}!cap@{cap}}
 \index{cap@{cap}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{cap}{cap}}
-{\footnotesize\ttfamily Video\+Capture\texorpdfstring{$\ast$}{*} Player\+::cap\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily Video\+Capture$\ast$ Player\+::cap\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -873,13 +909,9 @@ Video capture instance.
 
 Used for when the media passed as argument is a video. 
 
-Definition at line \mbox{\hyperlink{Player_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{Player_8hpp_source}{Player.\+hpp}}.
+Definition at line 27 of file Player.\+hpp.
 
-
-
-Referenced by \mbox{\hyperlink{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8}{display()}}, \mbox{\hyperlink{classPlayer_a91d61c8075a038eb9076e1509df6f53e}{is\+Open()}}, \mbox{\hyperlink{classPlayer_a75d4823a9c5af6925dfd7fa1184b1413}{Player()}}, and \mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{\texorpdfstring{$\sim$}{\string~}\+Player()}}.
-
-\Hypertarget{classPlayer_acf0355128a99ee20ad9931b760fb2de1}\label{classPlayer_acf0355128a99ee20ad9931b760fb2de1} 
+\mbox{\Hypertarget{classPlayer_acf0355128a99ee20ad9931b760fb2de1}\label{classPlayer_acf0355128a99ee20ad9931b760fb2de1}} 
 \index{Player@{Player}!name@{name}}
 \index{name@{name}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{name}{name}}
@@ -891,11 +923,7 @@ Media file name.
 
 Used as media title and for reading the file when the media passed as argument is an image. 
 
-Definition at line \mbox{\hyperlink{Player_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{Player_8hpp_source}{Player.\+hpp}}.
-
-
-
-Referenced by \mbox{\hyperlink{classPlayer_a6c0a6f1bc61f0d584b2938541ecbf8a8}{display()}}, and \mbox{\hyperlink{classPlayer_a75d4823a9c5af6925dfd7fa1184b1413}{Player()}}.
+Definition at line 33 of file Player.\+hpp.
 
 
 

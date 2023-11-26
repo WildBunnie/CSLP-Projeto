@@ -1,0 +1,357 @@
+\hypertarget{intraEncoder_8h}{}\doxysection{src/intra\+Encoder/include/intra\+Encoder.h File Reference}
+\label{intraEncoder_8h}\index{src/intraEncoder/include/intraEncoder.h@{src/intraEncoder/include/intraEncoder.h}}
+{\ttfamily \#include \char`\"{}opencv2/opencv.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/imgproc/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/plot.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for intra\+Encoder.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intraEncoder_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intraEncoder_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740}{jpeg\+\_\+ls\+\_\+predictor}} (int a, int b, int c)
+\begin{DoxyCompactList}\small\item\em J\+P\+E\+G-\/\+LS non-\/linear predictor. \end{DoxyCompactList}\item 
+Mat \mbox{\hyperlink{intraEncoder_8h_a0196ad1a7cc42f5c0b3d15b2562dea81}{get\+Residuals\+J\+P\+E\+G\+\_\+\+LS}} (Mat image)
+\begin{DoxyCompactList}\small\item\em Get residuals from an image using J\+P\+E\+G-\/\+LS non-\/linear predictor. \end{DoxyCompactList}\item 
+Mat \mbox{\hyperlink{intraEncoder_8h_a7381c08bf2b124bea0163eade102a775}{get\+Original\+J\+P\+E\+G\+\_\+\+LS}} (Mat residuals)
+\begin{DoxyCompactList}\small\item\em Get original image from residuals using J\+P\+E\+G-\/\+LS non-\/linear predictor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{intraEncoder_8h_abdd655d2b463070ec06fa3a84c439208}{encode\+Video}} (string output\+File, string file)
+\begin{DoxyCompactList}\small\item\em Encode a video using J\+P\+E\+G-\/\+LS non-\/linear predictor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{intraEncoder_8h_a53edac35a7ce56e598491d68a3271e86}{decode\+Video}} (string output\+File, string file)
+\begin{DoxyCompactList}\small\item\em Decode a video using J\+P\+E\+G-\/\+LS non-\/linear predictor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{intraEncoder_8h_a53edac35a7ce56e598491d68a3271e86}\label{intraEncoder_8h_a53edac35a7ce56e598491d68a3271e86}} 
+\index{intraEncoder.h@{intraEncoder.h}!decodeVideo@{decodeVideo}}
+\index{decodeVideo@{decodeVideo}!intraEncoder.h@{intraEncoder.h}}
+\doxysubsubsection{\texorpdfstring{decodeVideo()}{decodeVideo()}}
+{\footnotesize\ttfamily void decode\+Video (\begin{DoxyParamCaption}\item[{string}]{output\+File,  }\item[{string}]{file }\end{DoxyParamCaption})}
+
+
+
+Decode a video using J\+P\+E\+G-\/\+LS non-\/linear predictor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+File} & Output file name. \\
+\hline
+{\em file} & Input file name. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file intra\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89                                                \{}
+\DoxyCodeLine{90     \mbox{\hyperlink{classBitStream}{BitStream}} bs(file,\textcolor{charliteral}{'r'});}
+\DoxyCodeLine{91     \textcolor{keywordtype}{string} format = \textcolor{stringliteral}{".mp4"};}
+\DoxyCodeLine{92     Mat frame;}
+\DoxyCodeLine{93     \mbox{\hyperlink{classGolomb}{Golomb}} gl(\&bs,50);}
+\DoxyCodeLine{94     \textcolor{keywordtype}{int} fourcc = VideoWriter::fourcc(\textcolor{charliteral}{'m'},\textcolor{charliteral}{'p'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'v'});}
+\DoxyCodeLine{95     \textcolor{keywordtype}{int} framesCount = gl.decodeNumber();}
+\DoxyCodeLine{96     \textcolor{keywordtype}{int} cols = gl.decodeNumber();}
+\DoxyCodeLine{97     \textcolor{keywordtype}{int} row = gl.decodeNumber();}
+\DoxyCodeLine{98     \textcolor{keywordtype}{int} fps = gl.decodeNumber();}
+\DoxyCodeLine{99     Size size(cols,row);}
+\DoxyCodeLine{100     VideoWriter out(outputFile+format,fourcc,fps,size,\textcolor{keyword}{false});}
+\DoxyCodeLine{101     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i<framesCount; i++)\{}
+\DoxyCodeLine{102         frame = gl.decodeMat(cols,row);}
+\DoxyCodeLine{103         frame = \mbox{\hyperlink{intraEncoder_8cpp_a7381c08bf2b124bea0163eade102a775}{getOriginalJPEG\_LS}}(frame);}
+\DoxyCodeLine{104         out << frame;}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106     out.release();}
+\DoxyCodeLine{107 \}}
+
+\end{DoxyCode}
+
+
+References Golomb\+::decode\+Mat(), Golomb\+::decode\+Number(), and get\+Original\+J\+P\+E\+G\+\_\+\+L\+S().
+
+
+
+Referenced by main().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intraEncoder_8h_a53edac35a7ce56e598491d68a3271e86_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{intraEncoder_8h_a53edac35a7ce56e598491d68a3271e86_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{intraEncoder_8h_abdd655d2b463070ec06fa3a84c439208}\label{intraEncoder_8h_abdd655d2b463070ec06fa3a84c439208}} 
+\index{intraEncoder.h@{intraEncoder.h}!encodeVideo@{encodeVideo}}
+\index{encodeVideo@{encodeVideo}!intraEncoder.h@{intraEncoder.h}}
+\doxysubsubsection{\texorpdfstring{encodeVideo()}{encodeVideo()}}
+{\footnotesize\ttfamily void encode\+Video (\begin{DoxyParamCaption}\item[{string}]{output\+File,  }\item[{string}]{file }\end{DoxyParamCaption})}
+
+
+
+Encode a video using J\+P\+E\+G-\/\+LS non-\/linear predictor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+File} & Output file name. \\
+\hline
+{\em file} & Input file name. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 67 of file intra\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67                                                \{}
+\DoxyCodeLine{68     VideoCapture cap(file);}
+\DoxyCodeLine{69     \mbox{\hyperlink{classBitStream}{BitStream}} ouFile(outputFile,\textcolor{charliteral}{'w'});}
+\DoxyCodeLine{70     Mat frame;}
+\DoxyCodeLine{71     cap.read(frame);}
+\DoxyCodeLine{72     \mbox{\hyperlink{classGolomb}{Golomb}} encoder(\&ouFile,50);}
+\DoxyCodeLine{73     encoder.encodeNumber(cap.get(CAP\_PROP\_FRAME\_COUNT));}
+\DoxyCodeLine{74     encoder.encodeNumber(frame.cols);}
+\DoxyCodeLine{75     encoder.encodeNumber(frame.rows);}
+\DoxyCodeLine{76     encoder.encodeNumber(cap.get(CAP\_PROP\_FPS));}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordflow}{while}(1)\{}
+\DoxyCodeLine{79         \textcolor{keywordflow}{if} (frame.empty())}
+\DoxyCodeLine{80             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{81         cvtColor(frame,frame,COLOR\_BGR2GRAY);}
+\DoxyCodeLine{82         frame = \mbox{\hyperlink{intraEncoder_8cpp_a0196ad1a7cc42f5c0b3d15b2562dea81}{getResidualsJPEG\_LS}}(frame);}
+\DoxyCodeLine{83         encoder.encodeMat(frame);}
+\DoxyCodeLine{84         cap >> frame;}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86     cap.release();}
+\DoxyCodeLine{87 \}}
+
+\end{DoxyCode}
+
+
+References Golomb\+::encode\+Mat(), Golomb\+::encode\+Number(), and get\+Residuals\+J\+P\+E\+G\+\_\+\+L\+S().
+
+
+
+Referenced by main().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intraEncoder_8h_abdd655d2b463070ec06fa3a84c439208_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{intraEncoder_8h_abdd655d2b463070ec06fa3a84c439208_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{intraEncoder_8h_a7381c08bf2b124bea0163eade102a775}\label{intraEncoder_8h_a7381c08bf2b124bea0163eade102a775}} 
+\index{intraEncoder.h@{intraEncoder.h}!getOriginalJPEG\_LS@{getOriginalJPEG\_LS}}
+\index{getOriginalJPEG\_LS@{getOriginalJPEG\_LS}!intraEncoder.h@{intraEncoder.h}}
+\doxysubsubsection{\texorpdfstring{getOriginalJPEG\_LS()}{getOriginalJPEG\_LS()}}
+{\footnotesize\ttfamily Mat get\+Original\+J\+P\+E\+G\+\_\+\+LS (\begin{DoxyParamCaption}\item[{Mat}]{residuals }\end{DoxyParamCaption})}
+
+
+
+Get original image from residuals using J\+P\+E\+G-\/\+LS non-\/linear predictor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em residuals} & Residuals to get original image from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Original image on Mat format. 
+\end{DoxyReturn}
+
+
+Definition at line 46 of file intra\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46                                      \{}
+\DoxyCodeLine{47     }
+\DoxyCodeLine{48     Mat original = residuals.clone();}
+\DoxyCodeLine{49     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < original.rows; row++)\{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < original.cols; col++)\{}
+\DoxyCodeLine{51             }
+\DoxyCodeLine{52             \textcolor{keywordtype}{int} estimate = 0;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54             \textcolor{keywordflow}{if}(row > 0 \&\& col > 0)\{}
+\DoxyCodeLine{55                 \textcolor{keywordtype}{int} a = original.at<uchar>(row,col-\/1);}
+\DoxyCodeLine{56                 \textcolor{keywordtype}{int} b = original.at<uchar>(row-\/1,col);}
+\DoxyCodeLine{57                 \textcolor{keywordtype}{int} c = original.at<uchar>(row-\/1,col-\/1);}
+\DoxyCodeLine{58                 estimate =  \mbox{\hyperlink{intraEncoder_8cpp_a7c31973126ea4a26d7e0c4e40842d740}{jpeg\_ls\_predictor}}(a,b,c);}
+\DoxyCodeLine{59             \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61             original.at<uchar>(row,col) = original.at<uchar>(row,col) + estimate;}
+\DoxyCodeLine{62         \}}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} original;}
+\DoxyCodeLine{65 \}}
+
+\end{DoxyCode}
+
+
+References jpeg\+\_\+ls\+\_\+predictor().
+
+
+
+Referenced by decode\+Video().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{intraEncoder_8h_a7381c08bf2b124bea0163eade102a775_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intraEncoder_8h_a7381c08bf2b124bea0163eade102a775_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{intraEncoder_8h_a0196ad1a7cc42f5c0b3d15b2562dea81}\label{intraEncoder_8h_a0196ad1a7cc42f5c0b3d15b2562dea81}} 
+\index{intraEncoder.h@{intraEncoder.h}!getResidualsJPEG\_LS@{getResidualsJPEG\_LS}}
+\index{getResidualsJPEG\_LS@{getResidualsJPEG\_LS}!intraEncoder.h@{intraEncoder.h}}
+\doxysubsubsection{\texorpdfstring{getResidualsJPEG\_LS()}{getResidualsJPEG\_LS()}}
+{\footnotesize\ttfamily Mat get\+Residuals\+J\+P\+E\+G\+\_\+\+LS (\begin{DoxyParamCaption}\item[{Mat}]{image }\end{DoxyParamCaption})}
+
+
+
+Get residuals from an image using J\+P\+E\+G-\/\+LS non-\/linear predictor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Image to get residuals from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Residuals on Mat format. 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file intra\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26                                   \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     Mat residuals(image.rows, image.cols, CV\_8UC1);}
+\DoxyCodeLine{29     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < image.rows; row++)\{}
+\DoxyCodeLine{30         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < image.cols; col++)\{}
+\DoxyCodeLine{31             }
+\DoxyCodeLine{32             \textcolor{keywordtype}{int} estimate = 0;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34             \textcolor{keywordflow}{if}(row > 0 \&\& col > 0)\{}
+\DoxyCodeLine{35                 \textcolor{keywordtype}{int} a = image.at<uchar>(row,col-\/1);}
+\DoxyCodeLine{36                 \textcolor{keywordtype}{int} b = image.at<uchar>(row-\/1,col);}
+\DoxyCodeLine{37                 \textcolor{keywordtype}{int} c = image.at<uchar>(row-\/1,col-\/1);}
+\DoxyCodeLine{38                 estimate = \mbox{\hyperlink{intraEncoder_8cpp_a7c31973126ea4a26d7e0c4e40842d740}{jpeg\_ls\_predictor}}(a,b,c);}
+\DoxyCodeLine{39             \}}
+\DoxyCodeLine{40             residuals.at<uchar>(row,col) = image.at<uchar>(row,col) -\/ estimate;}
+\DoxyCodeLine{41         \}}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} residuals;}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+References jpeg\+\_\+ls\+\_\+predictor().
+
+
+
+Referenced by encode\+Video().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{intraEncoder_8h_a0196ad1a7cc42f5c0b3d15b2562dea81_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intraEncoder_8h_a0196ad1a7cc42f5c0b3d15b2562dea81_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740}\label{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740}} 
+\index{intraEncoder.h@{intraEncoder.h}!jpeg\_ls\_predictor@{jpeg\_ls\_predictor}}
+\index{jpeg\_ls\_predictor@{jpeg\_ls\_predictor}!intraEncoder.h@{intraEncoder.h}}
+\doxysubsubsection{\texorpdfstring{jpeg\_ls\_predictor()}{jpeg\_ls\_predictor()}}
+{\footnotesize\ttfamily int jpeg\+\_\+ls\+\_\+predictor (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b,  }\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+J\+P\+E\+G-\/\+LS non-\/linear predictor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Left pixel. \\
+\hline
+{\em b} & Upper pixel. \\
+\hline
+{\em c} & Upper left pixel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pixel prediction. 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file intra\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14                                           \{}
+\DoxyCodeLine{15     \textcolor{keywordflow}{if} (c >= max(a,b))\{}
+\DoxyCodeLine{16         \textcolor{keywordflow}{return} min(a, b);}
+\DoxyCodeLine{17     \}}
+\DoxyCodeLine{18     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(c <= min(a,b))\{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} max(a, b);}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{22         \textcolor{keywordflow}{return} a + b -\/ c;}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24 \} }
+
+\end{DoxyCode}
+
+
+Referenced by get\+Original\+J\+P\+E\+G\+\_\+\+L\+S(), and get\+Residuals\+J\+P\+E\+G\+\_\+\+L\+S().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740_icgraph}
+\end{center}
+\end{figure}

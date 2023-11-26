@@ -1,0 +1,4 @@
+<map id="Golomb" name="Golomb">
+<area shape="rect" id="node1" title="A entropy encoder built with Golomb codes." alt="" coords="12,95,85,121"/>
+<area shape="rect" id="node2" href="$classBitStream.html" title="A class to read/write bits from/to a file." alt="" coords="5,5,92,32"/>
+</map>

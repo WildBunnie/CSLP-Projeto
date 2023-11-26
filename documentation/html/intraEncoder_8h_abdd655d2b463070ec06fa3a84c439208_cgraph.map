@@ -1,0 +1,7 @@
+<map id="encodeVideo" name="encodeVideo">
+<area shape="rect" id="node1" title="Encode a video using JPEG&#45;LS non&#45;linear predictor." alt="" coords="5,56,112,83"/>
+<area shape="rect" id="node2" href="$classGolomb.html#ae3c01f3d17a05a385af8b631825811fc" title="Encode an openCV map with golomb." alt="" coords="173,5,327,32"/>
+<area shape="rect" id="node3" href="$classGolomb.html#adc587efa500a486938eb492ddc3fd858" title="Encodes number." alt="" coords="160,56,340,83"/>
+<area shape="rect" id="node4" href="$intraEncoder_8cpp.html#a0196ad1a7cc42f5c0b3d15b2562dea81" title="Get residuals from an image using JPEG&#45;LS non&#45;linear predictor." alt="" coords="171,107,329,133"/>
+<area shape="rect" id="node5" href="$intraEncoder_8cpp.html#a7c31973126ea4a26d7e0c4e40842d740" title="JPEG&#45;LS non&#45;linear predictor." alt="" coords="388,107,521,133"/>
+</map>

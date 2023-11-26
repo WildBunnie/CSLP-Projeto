@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['bitstream_0',['BitStream',['../classBitStream.html',1,'']]]
+  ['bitstream_124',['BitStream',['../classBitStream.html',1,'']]],
+  ['block_125',['Block',['../classBlock.html',1,'']]]
 ];

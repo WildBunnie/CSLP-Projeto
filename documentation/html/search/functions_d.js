@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['readbit_0',['readBit',['../classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01',1,'BitStream']]],
-  ['readbits_1',['readBits',['../classBitStream.html#ac497d64f5a8f58d78f77a5e6bc9f8b96',1,'BitStream']]],
-  ['rgb_2',['RGB',['../classRGB.html#ad89db7b85243c6e71e00a220f1bfb29e',1,'RGB']]]
+  ['performmotioncompensation_198',['PerformMotionCompensation',['../encoder_8cpp.html#a09cc283a55256213e35765d60bebb81e',1,'encoder.cpp']]],
+  ['player_199',['Player',['../classPlayer.html#a75d4823a9c5af6925dfd7fa1184b1413',1,'Player']]],
+  ['ppmimage_200',['PPMImage',['../classPPMImage.html#a6408ba3d2484eff4f27a79f266b440ea',1,'PPMImage']]],
+  ['printhistogram_201',['printHistogram',['../classPlayer.html#abf0a37b931e2b26e2ec91f110d6b7643',1,'Player']]]
 ];

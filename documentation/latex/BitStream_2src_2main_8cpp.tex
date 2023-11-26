@@ -1,63 +1,72 @@
-\doxysection{src/\+Bit\+Stream/src/main.cpp File Reference}
-\hypertarget{BitStream_2src_2main_8cpp}{}\label{BitStream_2src_2main_8cpp}\index{src/BitStream/src/main.cpp@{src/BitStream/src/main.cpp}}
+\hypertarget{BitStream_2src_2main_8cpp}{}\doxysection{src/\+Bit\+Stream/src/main.cpp File Reference}
+\label{BitStream_2src_2main_8cpp}\index{src/BitStream/src/main.cpp@{src/BitStream/src/main.cpp}}
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
-{\ttfamily \#include "{}Bit\+Stream.\+h"{}}\newline
-\doxysubsubsection*{Functions}
+{\ttfamily \#include \char`\"{}Bit\+Stream.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{BitStream_2src_2main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{BitStream_2src_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+int \mbox{\hyperlink{BitStream_2src_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{BitStream_2src_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{BitStream_2src_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089} 
+\mbox{\Hypertarget{BitStream_2src_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{BitStream_2src_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}} 
 \index{main.cpp@{main.cpp}!main@{main}}
 \index{main@{main}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{BitStream_2src_2main_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{BitStream_2src_2main_8cpp_source}{main.\+cpp}}.
+Definition at line 7 of file main.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00008\ \{}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{comment}{//\ criar\ class\ bit\ Stream\ e\ abrir\ ficheiro\ teste}}
-\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{classBitStream}{BitStream}}\ fileBit(\textcolor{stringliteral}{"{}files/teste"{}});}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ arr[]\ =\ \{0,1,0,0,0,1,0,0\};}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ escrever\ um\ conjuto\ de\ bits}}
-\DoxyCodeLine{00014\ \ \ \ \ fileBit.writeBits(\&arr[0],8);}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//escrever\ 1\ bit}}
-\DoxyCodeLine{00016\ \ \ \ \ fileBit.writeBit(1);}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//fechar\ ficheiro\ }}
-\DoxyCodeLine{00018\ \ \ \ \ fileBit.close();}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//abrir\ ficheino\ novamente}}
-\DoxyCodeLine{00020\ \ \ \ \ fileBit.open(\textcolor{stringliteral}{"{}files/teste"{}});}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ ler\ um\ array\ de\ bits}}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}*\ out\ =\ fileBit.readBits(8);}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 8;\ i++)}
-\DoxyCodeLine{00025\ \ \ \ \ \{}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ cout\ <<\ arr[i];}
-\DoxyCodeLine{00027\ \ \ \ \ \}}
-\DoxyCodeLine{00028\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//ler\ um\ bit}}
-\DoxyCodeLine{00031\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}bit:"{}}\ <<\ fileBit.readBit()<<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//fechar\ ficheiro}}
-\DoxyCodeLine{00033\ \ \ \ \ fileBit.close();}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{00038\ \ \ \ \ }
-\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{comment}{// criar class bit Stream e abrir ficheiro teste}}
+\DoxyCodeLine{10     \mbox{\hyperlink{classBitStream}{BitStream}} fileBit(\textcolor{stringliteral}{"teste"},\textcolor{charliteral}{'w'});}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{comment}{// escrever um conjuto de bits}}
+\DoxyCodeLine{13     fileBit.writeBits(3,2);}
+\DoxyCodeLine{14     \textcolor{comment}{//escrever 1 bit}}
+\DoxyCodeLine{15     \textcolor{comment}{//fileBit.writeBit(1);}}
+\DoxyCodeLine{16     \textcolor{comment}{//fechar ficheiro }}
+\DoxyCodeLine{17     fileBit.close();}
+\DoxyCodeLine{18     \textcolor{comment}{//abrir ficheino novamente}}
+\DoxyCodeLine{19     \mbox{\hyperlink{classBitStream}{BitStream}} fileBit2(\textcolor{stringliteral}{"teste"},\textcolor{charliteral}{'r'});}
+\DoxyCodeLine{20     \textcolor{comment}{// ler um array de bits}}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} out = fileBit2.readBits(2);}
+\DoxyCodeLine{22     cout << out;}
+\DoxyCodeLine{23     cout << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{//ler um bit}}
+\DoxyCodeLine{26     \textcolor{comment}{//cout << "bit:" << fileBit.readBit()<< "\(\backslash\)n";}}
+\DoxyCodeLine{27     \textcolor{comment}{//fechar ficheiro}}
+\DoxyCodeLine{28     fileBit.close();}
+\DoxyCodeLine{29         }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{33     }
+\DoxyCodeLine{34 \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{classBitStream_a17a01273ccc12e3c0a1045a010736a8e}{Bit\+Stream\+::close()}}, \mbox{\hyperlink{classBitStream_a1cb7cab30aaf16112db334abdd31ee57}{Bit\+Stream\+::open()}}, \mbox{\hyperlink{classBitStream_a4bebf59fe9379dbdefb4647fdd2ddf01}{Bit\+Stream\+::read\+Bit()}}, \mbox{\hyperlink{classBitStream_ac497d64f5a8f58d78f77a5e6bc9f8b96}{Bit\+Stream\+::read\+Bits()}}, \mbox{\hyperlink{classBitStream_a0a81dbad86d46fde7ee9b943031fc411}{Bit\+Stream\+::write\+Bit()}}, and \mbox{\hyperlink{classBitStream_a784ff23e6898b19e5e559d913c41343e}{Bit\+Stream\+::write\+Bits()}}.
+References Bit\+Stream\+::close(), Bit\+Stream\+::read\+Bits(), and Bit\+Stream\+::write\+Bits().
 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{BitStream_2src_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089_cgraph}
+\end{center}
+\end{figure}
