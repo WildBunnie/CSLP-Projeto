@@ -1,0 +1,8 @@
+<map id="DecodeHybrid" name="DecodeHybrid">
+<area shape="rect" id="node1" title="Hybrid (inter + intra) frame decoder." alt="" coords="5,81,120,108"/>
+<area shape="rect" id="node2" href="$hibridEncoder_8cpp.html#ad37e62680c71d49f64aa27f4be10e42a" title="Inter frame encoder." alt="" coords="173,56,316,83"/>
+<area shape="rect" id="node3" href="$classGolomb.html#a7dcdbc9dff571a8eebcb1e17fbe75634" title="Decodes number." alt="" coords="386,5,566,32"/>
+<area shape="rect" id="node5" href="$classGolomb.html#ae55d5bfe8e482168e3b8912e6f98aca1" title="Encode an openCV map with golomb." alt="" coords="168,107,321,133"/>
+<area shape="rect" id="node6" href="$hibrid-encoder_2include_2intraEncoder_8h.html#a7381c08bf2b124bea0163eade102a775" title="Get original image from residuals using JPEG&#45;LS non&#45;linear predictor." alt="" coords="171,157,318,184"/>
+<area shape="rect" id="node4" href="$hibridEncoder_8cpp.html#a09cc283a55256213e35765d60bebb81e" title="Performs motion compensation." alt="" coords="369,56,583,83"/>
+</map>

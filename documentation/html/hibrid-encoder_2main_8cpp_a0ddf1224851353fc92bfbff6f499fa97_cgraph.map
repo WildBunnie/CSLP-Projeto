@@ -1,0 +1,19 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,208,60,235"/>
+<area shape="rect" id="node2" href="$hibridEncoder_8cpp.html#a56338cedf392f0fee37d0f4eb7dacfe3" title="Hybrid (inter + intra) frame decoder." alt="" coords="108,107,223,133"/>
+<area shape="rect" id="node8" href="$hibridEncoder_8cpp.html#a8b0bd6224b5055ed65d8c1e0c947958a" title="Hybrid (inter + intra) encoder." alt="" coords="109,296,221,323"/>
+<area shape="rect" id="node3" href="$hibridEncoder_8cpp.html#ad37e62680c71d49f64aa27f4be10e42a" title="Inter frame encoder." alt="" coords="279,56,421,83"/>
+<area shape="rect" id="node4" href="$classGolomb.html#a7dcdbc9dff571a8eebcb1e17fbe75634" title="Decodes number." alt="" coords="494,5,674,32"/>
+<area shape="rect" id="node6" href="$classGolomb.html#ae55d5bfe8e482168e3b8912e6f98aca1" title="Encode an openCV map with golomb." alt="" coords="273,107,427,133"/>
+<area shape="rect" id="node7" href="$hibrid-encoder_2include_2intraEncoder_8h.html#a7381c08bf2b124bea0163eade102a775" title="Get original image from residuals using JPEG&#45;LS non&#45;linear predictor." alt="" coords="277,157,423,184"/>
+<area shape="rect" id="node5" href="$hibridEncoder_8cpp.html#a09cc283a55256213e35765d60bebb81e" title="Performs motion compensation." alt="" coords="477,56,691,83"/>
+<area shape="rect" id="node9" href="$hibridEncoder_8cpp.html#aa795ad37346875ddfa1a66a5b95113ea" title="Inter frame decoder." alt="" coords="280,220,420,247"/>
+<area shape="rect" id="node15" href="$classGolomb.html#ae3c01f3d17a05a385af8b631825811fc" title="Encode an openCV map with golomb." alt="" coords="507,309,661,336"/>
+<area shape="rect" id="node16" href="$classGolomb.html#adc587efa500a486938eb492ddc3fd858" title="Encodes number." alt="" coords="494,360,674,387"/>
+<area shape="rect" id="node17" href="$hibrid-encoder_2include_2intraEncoder_8h.html#a0196ad1a7cc42f5c0b3d15b2562dea81" title="Get residuals from an image using JPEG&#45;LS non&#45;linear predictor." alt="" coords="271,397,429,424"/>
+<area shape="rect" id="node10" href="$hibridEncoder_8cpp.html#a237a3b08da266195d4588f4972594dc8" title="Returns the blocks that are in the search area." alt="" coords="509,107,659,133"/>
+<area shape="rect" id="node12" href="$hibridEncoder_8cpp.html#af48dc56cf008b2f4190393cf00164912" title="Calculates the difference between two blocks." alt="" coords="510,157,658,184"/>
+<area shape="rect" id="node13" href="$hibridEncoder_8cpp.html#af254c922066cc2b05cc7e204210681a1" title="Calculates the residual between two frames." alt="" coords="515,208,653,235"/>
+<area shape="rect" id="node14" href="$hibridEncoder_8cpp.html#af6ef529e80768812e5eb69f4b7cb2c70" title="Divides a frame into blocks." alt="" coords="497,259,671,285"/>
+<area shape="rect" id="node11" href="$hibridEncoder_8cpp.html#a63a89a6839879b7ad214c64c43281b9a" title="Calculates the distance between two points." alt="" coords="739,107,816,133"/>
+</map>

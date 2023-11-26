@@ -70,7 +70,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3b1bceb817db0fae5a4b7d1c04684407"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BitStream_2CMakeLists_8txt.html#a3b1bceb817db0fae5a4b7d1c04684407">cmake_minimum_required</a> (VERSION 3.16) project(bitStream) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(CMAKE_CXX_STANDARD 11) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(CMAKE_CXX_STANDARD_REQUIRED ON) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(SOURCES src/main.cpp src/BitStream.cpp) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(HEADERS include/BitStream.h) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a>(CMAKE_BINARY_DIR $</td></tr>
+<tr class="memitem:a3b1bceb817db0fae5a4b7d1c04684407"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BitStream_2CMakeLists_8txt.html#a3b1bceb817db0fae5a4b7d1c04684407">cmake_minimum_required</a> (VERSION 3.16) project(bitStream) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(CMAKE_CXX_STANDARD 11) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(CMAKE_CXX_STANDARD_REQUIRED ON) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(SOURCES src/main.cpp src/BitStream.cpp) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(HEADERS include/BitStream.h) <a class="el" href="GolombCoding_2CMakeLists_8txt.html#aa1476ace32178cc2062c11d24dd1c169">set</a>(CMAKE_BINARY_DIR $</td></tr>
 <tr class="separator:a3b1bceb817db0fae5a4b7d1c04684407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab516b724eee082d4ce70936c4ea0ccf7"><td class="memItemLeft" align="right" valign="top">build&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BitStream_2CMakeLists_8txt.html#ab516b724eee082d4ce70936c4ea0ccf7">set</a> (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin) <a class="el" href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a>(include) add_executable($</td></tr>
 <tr class="separator:ab516b724eee082d4ce70936c4ea0ccf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,7 +117,7 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                    {CMAKE_BINARY_DIR}/bin)</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;# Add any additional include directories (optional)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a>(</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="hibrid-encoder_2CMakeLists_8txt.html#ad6cd8b44487f92711dd5ec2520eb3d0f">include_directories</a>(</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    include</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
@@ -127,7 +127,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="avideoPlayer_2CMakeLists_8txt_html_a772a0fd1ccb24a23c56359b819f5a099"><div class="ttname"><a href="videoPlayer_2CMakeLists_8txt.html#a772a0fd1ccb24a23c56359b819f5a099">include_directories</a></div><div class="ttdeci">bin include_directories(${OpenCV_INCLUDE_DIRS}) add_executable(player Player.cpp) target_compile_options($</div><div class="ttdef"><b>Definition:</b> <a href="videoPlayer_2CMakeLists_8txt_source.html#l00006">CMakeLists.txt:6</a></div></div>
+<div class="ttc" id="ahibrid-encoder_2CMakeLists_8txt_html_ad6cd8b44487f92711dd5ec2520eb3d0f"><div class="ttname"><a href="hibrid-encoder_2CMakeLists_8txt.html#ad6cd8b44487f92711dd5ec2520eb3d0f">include_directories</a></div><div class="ttdeci">bin include_directories(${OpenCV_INCLUDE_DIRS}) include_directories(include) set(SOURCES Golomb.cpp BitStream.cpp intraEncoder.cpp hibridEncoder.cpp) set(HEADERS include/BitStream.h include/Golomb.h include/intraEncoder.h include/hibridEncoder.h) set(CMAKE_CXX_FLAGS_RELEASE &quot;-O3&quot;) add_executable(main main.cpp $</div><div class="ttdef"><b>Definition:</b> <a href="hibrid-encoder_2CMakeLists_8txt_source.html#l00006">CMakeLists.txt:6</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

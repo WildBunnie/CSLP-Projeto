@@ -1,0 +1,8 @@
+<map id="Golomb::encodeNumber" name="Golomb::encodeNumber">
+<area shape="rect" id="node1" title="Encodes number." alt="" coords="456,56,636,83"/>
+<area shape="rect" id="node2" href="$hibridEncoder_8h.html#a8b0bd6224b5055ed65d8c1e0c947958a" title="Hybrid (inter + intra) encoder." alt="" coords="108,5,220,32"/>
+<area shape="rect" id="node4" href="$hibridEncoder_8h.html#aa795ad37346875ddfa1a66a5b95113ea" title="Inter frame decoder." alt="" coords="268,31,408,57"/>
+<area shape="rect" id="node5" href="$intraEncoder_2include_2intraEncoder_8h.html#abdd655d2b463070ec06fa3a84c439208" title="Encode a video using JPEG&#45;LS non&#45;linear predictor." alt="" coords="285,81,391,108"/>
+<area shape="rect" id="node6" href="$GolombCoding_2main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089" title=" " alt="" coords="311,132,365,159"/>
+<area shape="rect" id="node3" href="$hibrid-encoder_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>

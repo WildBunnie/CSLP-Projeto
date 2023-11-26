@@ -1,6 +1,8 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,60,83"/>
-<area shape="rect" id="node2" href="$classGolomb.html#ab46cf85e49effc5cb275113e4b4ecce8" title="Decodes number." alt="" coords="127,5,307,32"/>
-<area shape="rect" id="node3" href="$classGolomb.html#a991beffa483d7378997934935f0dec51" title="Encodes number." alt="" coords="127,56,307,83"/>
-<area shape="rect" id="node4" href="$classGolomb.html#ae5b97cb905a443a97e4a7ad4e30a8f5a" title="Gets the value of reminderSizePlus1 variable converted to integer." alt="" coords="108,107,327,149"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,60,133"/>
+<area shape="rect" id="node2" href="$classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e" title="Writes any remaining bits and closes the file stream." alt="" coords="133,5,263,32"/>
+<area shape="rect" id="node3" href="$classGolomb.html#ae55d5bfe8e482168e3b8912e6f98aca1" title="Encode an openCV map with golomb." alt="" coords="121,56,275,83"/>
+<area shape="rect" id="node4" href="$classGolomb.html#a7dcdbc9dff571a8eebcb1e17fbe75634" title="Decodes number." alt="" coords="108,107,288,133"/>
+<area shape="rect" id="node5" href="$classGolomb.html#ae3c01f3d17a05a385af8b631825811fc" title="Encode an openCV map with golomb." alt="" coords="121,157,275,184"/>
+<area shape="rect" id="node6" href="$classGolomb.html#adc587efa500a486938eb492ddc3fd858" title="Encodes number." alt="" coords="108,208,288,235"/>
 </map>

@@ -3,14 +3,16 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_a0141089cbfb8ae7350f436ae083b76de}{cmake\+\_\+minimum\+\_\+required}} (V\+E\+R\+S\+I\+ON 3.\+16) project(\mbox{\hyperlink{classGolomb}{Golomb}}) \mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_ab516b724eee082d4ce70936c4ea0ccf7}{set}}(C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+RD 11) \mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_ab516b724eee082d4ce70936c4ea0ccf7}{set}}(C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+R\+D\+\_\+\+R\+E\+Q\+U\+I\+R\+ED ON) \mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_ab516b724eee082d4ce70936c4ea0ccf7}{set}}(S\+O\+U\+R\+C\+ES src/main.\+cpp src/Golomb.\+cpp) \mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_ab516b724eee082d4ce70936c4ea0ccf7}{set}}(H\+E\+A\+D\+E\+RS include/Golomb.\+h) \mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_ab516b724eee082d4ce70936c4ea0ccf7}{set}}(C\+M\+A\+K\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+D\+IR \$
+\mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_a35e334fd8ef49ba6f0c77a4119732803}{cmake\+\_\+minimum\+\_\+required}} (V\+E\+R\+S\+I\+ON 3.\+16) project(\mbox{\hyperlink{classGolomb}{Golomb}}) find\+\_\+package(Open\+CV R\+E\+Q\+U\+I\+R\+ED) \mbox{\hyperlink{videoPlayer_2CMakeLists_8txt_a772a0fd1ccb24a23c56359b819f5a099}{include\+\_\+directories}}(\$
 \item 
-build \mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_ab516b724eee082d4ce70936c4ea0ccf7}{set}} (C\+M\+A\+K\+E\+\_\+\+R\+U\+N\+T\+I\+M\+E\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY \$\{C\+M\+A\+K\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+D\+IR\}/bin) \mbox{\hyperlink{videoPlayer_2CMakeLists_8txt_a772a0fd1ccb24a23c56359b819f5a099}{include\+\_\+directories}}(include) add\+\_\+executable(\$
+\mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_a8db5bc8332b8221c592e76ab3a1d3bca}{set}} (C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+RD 11) set(C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+R\+D\+\_\+\+R\+E\+Q\+U\+I\+R\+ED ON) set(S\+O\+U\+R\+C\+ES main.\+cpp Bit\+Stream.\+cpp Golomb.\+cpp) set(H\+E\+A\+D\+E\+RS include/Bit\+Stream.\+h include/Golomb.\+h) \mbox{\hyperlink{videoPlayer_2CMakeLists_8txt_a772a0fd1ccb24a23c56359b819f5a099}{include\+\_\+directories}}(include) set(C\+M\+A\+K\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+D\+IR \$
+\item 
+build \mbox{\hyperlink{GolombCoding_2CMakeLists_8txt_aa1476ace32178cc2062c11d24dd1c169}{set}} (C\+M\+A\+K\+E\+\_\+\+R\+U\+N\+T\+I\+M\+E\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY \$\{C\+M\+A\+K\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+D\+IR\}/bin) add\+\_\+executable(\$
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{GolombCoding_2CMakeLists_8txt_a0141089cbfb8ae7350f436ae083b76de}\label{GolombCoding_2CMakeLists_8txt_a0141089cbfb8ae7350f436ae083b76de}} 
+\mbox{\Hypertarget{GolombCoding_2CMakeLists_8txt_a35e334fd8ef49ba6f0c77a4119732803}\label{GolombCoding_2CMakeLists_8txt_a35e334fd8ef49ba6f0c77a4119732803}} 
 \index{CMakeLists.txt@{CMakeLists.txt}!cmake\_minimum\_required@{cmake\_minimum\_required}}
 \index{cmake\_minimum\_required@{cmake\_minimum\_required}!CMakeLists.txt@{CMakeLists.txt}}
 \doxysubsubsection{\texorpdfstring{cmake\_minimum\_required()}{cmake\_minimum\_required()}}
@@ -22,29 +24,40 @@ Definition at line 1 of file C\+Make\+Lists.\+txt.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{20                       \{CMAKE\_SOURCE\_DIR\}/build)}
+\DoxyCodeLine{6                       \{OpenCV\_INCLUDE\_DIRS\} )}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{GolombCoding_2CMakeLists_8txt_ab516b724eee082d4ce70936c4ea0ccf7}\label{GolombCoding_2CMakeLists_8txt_ab516b724eee082d4ce70936c4ea0ccf7}} 
+\mbox{\Hypertarget{GolombCoding_2CMakeLists_8txt_a8db5bc8332b8221c592e76ab3a1d3bca}\label{GolombCoding_2CMakeLists_8txt_a8db5bc8332b8221c592e76ab3a1d3bca}} 
 \index{CMakeLists.txt@{CMakeLists.txt}!set@{set}}
 \index{set@{set}!CMakeLists.txt@{CMakeLists.txt}}
-\doxysubsubsection{\texorpdfstring{set()}{set()}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+RD}]{11 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 9 of file C\+Make\+Lists.\+txt.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                       \{CMAKE\_SOURCE\_DIR\}/build)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{GolombCoding_2CMakeLists_8txt_aa1476ace32178cc2062c11d24dd1c169}\label{GolombCoding_2CMakeLists_8txt_aa1476ace32178cc2062c11d24dd1c169}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!set@{set}}
+\index{set@{set}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily build set (\begin{DoxyParamCaption}\item[{C\+M\+A\+K\+E\+\_\+\+R\+U\+N\+T\+I\+M\+E\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY \$\{C\+M\+A\+K\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+D\+IR\}/}]{bin }\end{DoxyParamCaption})}
 
 
 
-Definition at line 21 of file C\+Make\+Lists.\+txt.
+Definition at line 30 of file C\+Make\+Lists.\+txt.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{21                                     \{CMAKE\_BINARY\_DIR\}/bin)}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23 \# Add any additional include directories (optional)}
-\DoxyCodeLine{24 \mbox{\hyperlink{videoPlayer_2CMakeLists_8txt_a772a0fd1ccb24a23c56359b819f5a099}{include\_directories}}(}
-\DoxyCodeLine{25     include}
-\DoxyCodeLine{26 )}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28 \textcolor{preprocessor}{\# Create an executable from the source files}}
-\DoxyCodeLine{29 add\_executable(\$\{PROJECT\_NAME\} \$\{SOURCES\} \$\{HEADERS\})}
+\DoxyCodeLine{30                                     \{CMAKE\_BINARY\_DIR\}/bin)}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \# Create an executable from the source files}
+\DoxyCodeLine{34 add\_executable(\$\{PROJECT\_NAME\} \$\{SOURCES\} \$\{HEADERS\})}
 
 \end{DoxyCode}

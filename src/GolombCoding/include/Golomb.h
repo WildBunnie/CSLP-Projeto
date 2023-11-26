@@ -1,5 +1,8 @@
 #pragma once
 #include "BitStream.h"
+#include "opencv2/opencv.hpp"
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/plot.hpp>
 
 /**
  * \brief A entropy encoder built with Golomb codes.
@@ -41,4 +44,16 @@ class Golomb{
          * \param numbers array of bits (ints) of number encoded.
          */
         int decodeNumber();
+        /**
+         * \brief Encode an openCV map with golomb.
+         *
+         * \param image MawClass
+         */
+        void encodeMat(cv::Mat);
+        /**
+         * \brief Encode an openCV map with golomb.
+         *
+         * \param image MawClass
+         */
+        cv::Mat decodeMat(int cols,int rows);
 };

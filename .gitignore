@@ -50,6 +50,7 @@ src/*/build
 
 # Misc
 *.mp4
+*.y4m
 *.jpg
 *.jpeg
 *.png

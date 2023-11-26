@@ -1,0 +1,7 @@
+<map id="jpeg_ls_predictor" name="jpeg_ls_predictor">
+<area shape="rect" id="node1" title="JPEG&#45;LS non&#45;linear predictor." alt="" coords="367,31,500,57"/>
+<area shape="rect" id="node2" href="$intraEncoder_2include_2intraEncoder_8h.html#a7381c08bf2b124bea0163eade102a775" title="Get original image from residuals using JPEG&#45;LS non&#45;linear predictor." alt="" coords="166,5,313,32"/>
+<area shape="rect" id="node4" href="$intraEncoder_2include_2intraEncoder_8h.html#a0196ad1a7cc42f5c0b3d15b2562dea81" title="Get residuals from an image using JPEG&#45;LS non&#45;linear predictor." alt="" coords="160,56,319,83"/>
+<area shape="rect" id="node3" href="$intraEncoder_2include_2intraEncoder_8h.html#a53edac35a7ce56e598491d68a3271e86" title="Decode a video using JPEG&#45;LS non&#45;linear predictor." alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node5" href="$intraEncoder_2include_2intraEncoder_8h.html#abdd655d2b463070ec06fa3a84c439208" title="Encode a video using JPEG&#45;LS non&#45;linear predictor." alt="" coords="5,56,112,83"/>
+</map>

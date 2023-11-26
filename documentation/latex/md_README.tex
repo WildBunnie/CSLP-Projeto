@@ -1,10 +1,29 @@
-\chapter{CSLP -\/ Project\+: Image and Video compression}
-\hypertarget{md_README}{}\label{md_README}\index{CSLP -\/ Project: Image and Video compression@{CSLP -\/ Project: Image and Video compression}}
-\label{md_README_autotoc_md0}%
-\Hypertarget{md_README_autotoc_md0}%
- Gorup 2\+:
+Gorup 2\+:
 \begin{DoxyItemize}
 \item Bárbara Nóbrega Galiza -\/ 105937
 \item João Miguel Dias Andrade -\/ 107969
-\item Tomás Victal -\/ 109018 
+\item Tomás Victal -\/ 109018
 \end{DoxyItemize}
+
+This project is organized in diferent directories, where each one represents an entity or deliverable resolution. To test the code implemented, is necessary to do it inside the choosen directory.\hypertarget{md_README_autotoc_md1}{}\doxysection{Compile}\label{md_README_autotoc_md1}
+While on {\ttfamily src/\textbackslash{}$<$choosen-\/dir\textbackslash{}$>$}\+:
+
+{\ttfamily cmake .}
+
+{\ttfamily make}\hypertarget{md_README_autotoc_md2}{}\doxysection{How to run}\label{md_README_autotoc_md2}
+\hypertarget{md_README_autotoc_md3}{}\doxysubsection{video\+Player\+:}\label{md_README_autotoc_md3}
+{\ttfamily ./bin/player \textbackslash{}$<$video$>$ \textbackslash{}\mbox{[}filter\mbox{]}}\hypertarget{md_README_autotoc_md4}{}\doxysubsubsection{Filter options\+:}\label{md_README_autotoc_md4}
+
+\begin{DoxyItemize}
+\item gaussian \mbox{[}ksize\mbox{]} \mbox{[}sigma\mbox{]}
+\item blur \mbox{[}ksize\mbox{]}
+\item watermark $<$watermark$>$ \mbox{[}x\mbox{]} \mbox{[}y\mbox{]} \mbox{[}alpha\mbox{]}
+\item grayscale
+\item threshold \mbox{[}treshold\mbox{]}
+\item rgb2yuv
+\item yuv2rgb
+\item colorhisteq
+\item grayhisteq
+\item histogram
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md5}{}\doxysubsection{Bit\+Stream, Golomb\+Coding, hibrid-\/encoder, intra\+Encoder, hibrid-\/encoder\+:}\label{md_README_autotoc_md5}
+{\ttfamily ./bin/main} 

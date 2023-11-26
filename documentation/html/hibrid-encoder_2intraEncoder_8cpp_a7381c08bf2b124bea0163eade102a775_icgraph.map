@@ -1,0 +1,4 @@
+<map id="getOriginalJPEG_LS" name="getOriginalJPEG_LS">
+<area shape="rect" id="node1" title="Get original image from residuals using JPEG&#45;LS non&#45;linear predictor." alt="" coords="160,5,307,32"/>
+<area shape="rect" id="node2" href="$intraEncoder_2include_2intraEncoder_8h.html#a53edac35a7ce56e598491d68a3271e86" title="Decode a video using JPEG&#45;LS non&#45;linear predictor." alt="" coords="5,5,112,32"/>
+</map>

@@ -1,0 +1,170 @@
+\hypertarget{classMotionVector}{}\doxysection{Motion\+Vector Class Reference}
+\label{classMotionVector}\index{MotionVector@{MotionVector}}
+
+
+A class to represent a motion vector.  
+
+
+
+
+{\ttfamily \#include $<$hibrid\+Encoder.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMotionVector_a4477a7f55b623d68992fc94ce2d53fd1}{Motion\+Vector}} (int x, int y, int block\+PosX, int block\+PosY)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMotionVector_a9e6d2d2761712db39e3ba9544b0b33f7}{Motion\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classMotionVector_abd7e58050932314ffbcbf6dd663a3ced}{dx}}
+\begin{DoxyCompactList}\small\item\em Horizontal component of the motion vector. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMotionVector_af131b1ce31ba9b00497a1e313dd01284}{dy}}
+\begin{DoxyCompactList}\small\item\em Vertical component of the motion vector. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMotionVector_a2e722d33cbdbeeba3e52d49b730b9cbd}{blockX}}
+\begin{DoxyCompactList}\small\item\em The x coordinate of the block. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMotionVector_a99b61be6310398f73313a4a18319f058}{blockY}}
+\begin{DoxyCompactList}\small\item\em The y coordinate of the block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to represent a motion vector. 
+
+
+
+Definition at line 54 of file hibrid\+Encoder.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMotionVector_a4477a7f55b623d68992fc94ce2d53fd1}\label{classMotionVector_a4477a7f55b623d68992fc94ce2d53fd1}} 
+\index{MotionVector@{MotionVector}!MotionVector@{MotionVector}}
+\index{MotionVector@{MotionVector}!MotionVector@{MotionVector}}
+\doxysubsubsection{\texorpdfstring{MotionVector()}{MotionVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Motion\+Vector\+::\+Motion\+Vector (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{block\+PosX,  }\item[{int}]{block\+PosY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal component of the motion vector. \\
+\hline
+{\em y} & Vertical component of the motion vector. \\
+\hline
+{\em block\+PosX} & The x coordinate of the block. \\
+\hline
+{\em block\+PosY} & The y coordinate of the block. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file hibrid\+Encoder.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86         : \mbox{\hyperlink{classMotionVector_abd7e58050932314ffbcbf6dd663a3ced}{dx}}(x), \mbox{\hyperlink{classMotionVector_af131b1ce31ba9b00497a1e313dd01284}{dy}}(y), \mbox{\hyperlink{classMotionVector_a2e722d33cbdbeeba3e52d49b730b9cbd}{blockX}}(blockPosX), \mbox{\hyperlink{classMotionVector_a99b61be6310398f73313a4a18319f058}{blockY}}(blockPosY) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMotionVector_a9e6d2d2761712db39e3ba9544b0b33f7}\label{classMotionVector_a9e6d2d2761712db39e3ba9544b0b33f7}} 
+\index{MotionVector@{MotionVector}!MotionVector@{MotionVector}}
+\index{MotionVector@{MotionVector}!MotionVector@{MotionVector}}
+\doxysubsubsection{\texorpdfstring{MotionVector()}{MotionVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Motion\+Vector\+::\+Motion\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+
+
+Definition at line 92 of file hibrid\+Encoder.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92 : \mbox{\hyperlink{classMotionVector_abd7e58050932314ffbcbf6dd663a3ced}{dx}}(0), \mbox{\hyperlink{classMotionVector_af131b1ce31ba9b00497a1e313dd01284}{dy}}(0), \mbox{\hyperlink{classMotionVector_a2e722d33cbdbeeba3e52d49b730b9cbd}{blockX}}(0), \mbox{\hyperlink{classMotionVector_a99b61be6310398f73313a4a18319f058}{blockY}}(0) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMotionVector_a2e722d33cbdbeeba3e52d49b730b9cbd}\label{classMotionVector_a2e722d33cbdbeeba3e52d49b730b9cbd}} 
+\index{MotionVector@{MotionVector}!blockX@{blockX}}
+\index{blockX@{blockX}!MotionVector@{MotionVector}}
+\doxysubsubsection{\texorpdfstring{blockX}{blockX}}
+{\footnotesize\ttfamily int Motion\+Vector\+::blockX}
+
+
+
+The x coordinate of the block. 
+
+
+
+Definition at line 70 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Inter\+Frame().
+
+\mbox{\Hypertarget{classMotionVector_a99b61be6310398f73313a4a18319f058}\label{classMotionVector_a99b61be6310398f73313a4a18319f058}} 
+\index{MotionVector@{MotionVector}!blockY@{blockY}}
+\index{blockY@{blockY}!MotionVector@{MotionVector}}
+\doxysubsubsection{\texorpdfstring{blockY}{blockY}}
+{\footnotesize\ttfamily int Motion\+Vector\+::blockY}
+
+
+
+The y coordinate of the block. 
+
+
+
+Definition at line 75 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Inter\+Frame().
+
+\mbox{\Hypertarget{classMotionVector_abd7e58050932314ffbcbf6dd663a3ced}\label{classMotionVector_abd7e58050932314ffbcbf6dd663a3ced}} 
+\index{MotionVector@{MotionVector}!dx@{dx}}
+\index{dx@{dx}!MotionVector@{MotionVector}}
+\doxysubsubsection{\texorpdfstring{dx}{dx}}
+{\footnotesize\ttfamily int Motion\+Vector\+::dx}
+
+
+
+Horizontal component of the motion vector. 
+
+
+
+Definition at line 60 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Inter\+Frame().
+
+\mbox{\Hypertarget{classMotionVector_af131b1ce31ba9b00497a1e313dd01284}\label{classMotionVector_af131b1ce31ba9b00497a1e313dd01284}} 
+\index{MotionVector@{MotionVector}!dy@{dy}}
+\index{dy@{dy}!MotionVector@{MotionVector}}
+\doxysubsubsection{\texorpdfstring{dy}{dy}}
+{\footnotesize\ttfamily int Motion\+Vector\+::dy}
+
+
+
+Vertical component of the motion vector. 
+
+
+
+Definition at line 65 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Inter\+Frame().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/hibrid-\/encoder/include/\mbox{\hyperlink{hibridEncoder_8h}{hibrid\+Encoder.\+h}}\end{DoxyCompactItemize}

@@ -1,13 +1,9 @@
 var searchData=
 [
-  ['gaussianblur_0',['gaussianBlur',['../classPlayer.html#a9f17838daa13d7eebeeea35cdfa9d1ba',1,'Player']]],
-  ['getcolorhistograms_1',['getColorHistograms',['../classPlayer.html#a43331bc6540ddd07f4c53d6156e95207',1,'Player']]],
-  ['gethistogram_2',['getHistogram',['../classPlayer.html#a54cd99c10cf2ad36d2ef0835d9a68539',1,'Player']]],
-  ['getlastremindersizeplus1_3',['getLastReminderSizePlus1',['../classGolomb.html#ae5b97cb905a443a97e4a7ad4e30a8f5a',1,'Golomb']]],
-  ['golomb_4',['golomb',['../classGolomb.html',1,'Golomb'],['../classGolomb.html#a4db3f299f463bc90c2f5918b29420d61',1,'Golomb::Golomb()']]],
-  ['golomb_2ecpp_5',['Golomb.cpp',['../Golomb_8cpp.html',1,'']]],
-  ['golomb_2ecpp_2eo_2ed_6',['golomb.cpp.o.d',['../GolombCoding_2CMakeFiles_2Golomb_8dir_2src_2Golomb_8cpp_8o_8d.html',1,'(Global Namespace)'],['../src_2GolombCoding_2CMakeFiles_2Golomb_8dir_2Golomb_8cpp_8o_8d.html',1,'(Global Namespace)']]],
-  ['golomb_2eh_7',['Golomb.h',['../Golomb_8h.html',1,'']]],
-  ['grayhistequalization_8',['grayHistEqualization',['../classPlayer.html#a4be07ab7f66259f076cc1ac21fab58f3',1,'Player']]],
-  ['green_9',['green',['../classRGB.html#a86b0c7ed2b023c638027d9baf980b927',1,'RGB']]]
+  ['hasnext_60',['hasNext',['../classBitStream.html#a677f298f778c512070e23f267c050be8',1,'BitStream::hasNext()'],['../classBitStream.html#a677f298f778c512070e23f267c050be8',1,'BitStream::hasNext()'],['../classBitStream.html#a677f298f778c512070e23f267c050be8',1,'BitStream::hasNext()'],['../classBitStream.html#a677f298f778c512070e23f267c050be8',1,'BitStream::hasNext()']]],
+  ['height_61',['height',['../classPPMImage.html#a3dfd791ecbd34faca276ea844d589005',1,'PPMImage']]],
+  ['hex_62',['HEX',['../imageManipulation_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX():&#160;CMakeCCompilerId.c'],['../imageManipulation_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX():&#160;CMakeCXXCompilerId.cpp'],['../videoPlayer_2build_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX():&#160;CMakeCCompilerId.c'],['../videoPlayer_2build_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX():&#160;CMakeCXXCompilerId.cpp'],['../videoPlayer_2CMakeFiles_23_816_83_2CompilerIdC_2CMakeCCompilerId_8c.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX():&#160;CMakeCCompilerId.c'],['../videoPlayer_2CMakeFiles_23_816_83_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX():&#160;CMakeCXXCompilerId.cpp']]],
+  ['hibridencoder_2ecpp_63',['hibridEncoder.cpp',['../hibridEncoder_8cpp.html',1,'']]],
+  ['hibridencoder_2eh_64',['hibridEncoder.h',['../hibridEncoder_8h.html',1,'']]],
+  ['histogramequalization_65',['histogramEqualization',['../classPlayer.html#adcebfdf6c6afd5b78e1594595f7c2ea7',1,'Player']]]
 ];

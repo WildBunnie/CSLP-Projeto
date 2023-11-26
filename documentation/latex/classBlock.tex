@@ -1,0 +1,150 @@
+\hypertarget{classBlock}{}\doxysection{Block Class Reference}
+\label{classBlock}\index{Block@{Block}}
+
+
+A class to represent a fixed-\/size block of pixels from a frame.  
+
+
+
+
+{\ttfamily \#include $<$hibrid\+Encoder.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBlock_a52a24359576b549452e8e41ecd14c096}{Block}} (int posX, int posY, int size, Mat source\+Frame)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classBlock_a13d0a6d225233353862fa5adcbadf661}{x}}
+\begin{DoxyCompactList}\small\item\em The x coordinate of the block. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}{y}}
+\begin{DoxyCompactList}\small\item\em The y coordinate of the block. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}{block\+Size}}
+\begin{DoxyCompactList}\small\item\em The size of the block. \end{DoxyCompactList}\item 
+Mat \mbox{\hyperlink{classBlock_ace6191918353ea2574f63d4b45273799}{frame}}
+\begin{DoxyCompactList}\small\item\em The frame from which the block was extracted. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to represent a fixed-\/size block of pixels from a frame. 
+
+
+
+Definition at line 14 of file hibrid\+Encoder.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBlock_a52a24359576b549452e8e41ecd14c096}\label{classBlock_a52a24359576b549452e8e41ecd14c096}} 
+\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{Block()}{Block()}}
+{\footnotesize\ttfamily Block\+::\+Block (\begin{DoxyParamCaption}\item[{int}]{posX,  }\item[{int}]{posY,  }\item[{int}]{size,  }\item[{Mat}]{source\+Frame }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em posX} & The x coordinate of the block. \\
+\hline
+{\em posY} & The y coordinate of the block. \\
+\hline
+{\em size} & The size of the block. \\
+\hline
+{\em source\+Frame} & The frame from which the block was extracted. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file hibrid\+Encoder.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45                                                         : }
+\DoxyCodeLine{46         \mbox{\hyperlink{classBlock_a13d0a6d225233353862fa5adcbadf661}{x}}(posX), \mbox{\hyperlink{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}{y}}(posY), \mbox{\hyperlink{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}{blockSize}}(size), \mbox{\hyperlink{classBlock_ace6191918353ea2574f63d4b45273799}{frame}}(sourceFrame) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}\label{classBlock_a0cbec497930b5f9e19cf59bd2fb4d078}} 
+\index{Block@{Block}!blockSize@{blockSize}}
+\index{blockSize@{blockSize}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{blockSize}{blockSize}}
+{\footnotesize\ttfamily int Block\+::block\+Size}
+
+
+
+The size of the block. 
+
+
+
+Definition at line 30 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by calculate\+Difference().
+
+\mbox{\Hypertarget{classBlock_ace6191918353ea2574f63d4b45273799}\label{classBlock_ace6191918353ea2574f63d4b45273799}} 
+\index{Block@{Block}!frame@{frame}}
+\index{frame@{frame}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily Mat Block\+::frame}
+
+
+
+The frame from which the block was extracted. 
+
+
+
+Definition at line 35 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by calculate\+Difference().
+
+\mbox{\Hypertarget{classBlock_a13d0a6d225233353862fa5adcbadf661}\label{classBlock_a13d0a6d225233353862fa5adcbadf661}} 
+\index{Block@{Block}!x@{x}}
+\index{x@{x}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int Block\+::x}
+
+
+
+The x coordinate of the block. 
+
+
+
+Definition at line 20 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by calculate\+Difference().
+
+\mbox{\Hypertarget{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}\label{classBlock_a9328d6b6fcc9f9c019d091d87ceda41c}} 
+\index{Block@{Block}!y@{y}}
+\index{y@{y}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int Block\+::y}
+
+
+
+The y coordinate of the block. 
+
+
+
+Definition at line 25 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by calculate\+Difference().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/hibrid-\/encoder/include/\mbox{\hyperlink{hibridEncoder_8h}{hibrid\+Encoder.\+h}}\end{DoxyCompactItemize}

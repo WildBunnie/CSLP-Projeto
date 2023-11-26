@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadimage_0',['loadImage',['../classPPMImage.html#a89b474250158bbad1c20100f354ad452',1,'PPMImage']]]
+  ['jpeg_5fls_5fpredictor_181',['jpeg_ls_predictor',['../hibrid-encoder_2include_2intraEncoder_8h.html#a7c31973126ea4a26d7e0c4e40842d740',1,'jpeg_ls_predictor(int a, int b, int c):&#160;intraEncoder.cpp'],['../hibrid-encoder_2intraEncoder_8cpp.html#a7c31973126ea4a26d7e0c4e40842d740',1,'jpeg_ls_predictor(int a, int b, int c):&#160;intraEncoder.cpp'],['../intraEncoder_2include_2intraEncoder_8h.html#a7c31973126ea4a26d7e0c4e40842d740',1,'jpeg_ls_predictor(int a, int b, int c):&#160;intraEncoder.cpp'],['../intraEncoder_2intraEncoder_8cpp.html#a7c31973126ea4a26d7e0c4e40842d740',1,'jpeg_ls_predictor(int a, int b, int c):&#160;intraEncoder.cpp']]]
 ];
