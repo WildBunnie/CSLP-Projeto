@@ -9,12 +9,18 @@ include_directories(
 )
 set(SOURCES
     Golomb.cpp
-    BitStream.cpp)
+    BitStream.cpp
+    intraEncoder.cpp)
 
 set(HEADERS
     include/BitStream.h
     include/Golomb.h
+    include/intraEncoder.h
 )
-add_executable(encoder encoder.cpp ${SOURCES})
+
+# set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+# set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+add_executable(encoder main.cpp ${SOURCES})
 target_compile_options(${PROJECT_NAME} PRIVATE -g)
 target_link_libraries( encoder ${OpenCV_LIBS} )
