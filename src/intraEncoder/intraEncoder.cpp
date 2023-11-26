@@ -6,6 +6,7 @@
 #include <iostream>
 #include "BitStream.h"
 #include "Golomb.h"
+#include "intraEncoder.h"
 
 using namespace std;
 using namespace cv;
@@ -63,23 +64,58 @@ Mat getOriginalJPEG_LS(Mat residuals){
 	return original;
 }
 
-int main(int argc, char *argv[]){
-    Mat image = imread(argv[1],IMREAD_GRAYSCALE);
-	Mat residuals = getResidualsJPEG_LS(image);
-	BitStream bs("residuals",'w');
-	Golomb gl(&bs,25);
-	gl.encodeMat(residuals);
-	bs.close();
-	BitStream bsd("residuals",'r');
-	Golomb decoder(&bsd,25);
-	Mat residuals_r = decoder.decodeMat(image.cols,image.rows);
-	bsd.close();
-	Mat result = getOriginalJPEG_LS(residuals_r);
-	// imshow("image", image);  
-	// waitKey(0);
-	// imshow("image", residuals);  
-	// waitKey(0);
-	imshow("image", result);  
-	waitKey(0);
-    return 0;
+void encodeVideo(string outputFile,string file){
+	// string format = file.substr(file.find_last_of(".") + 1);
+	// format+= '\n';
+	VideoCapture cap(file);
+	BitStream ouFile(outputFile,'w');
+	// for(int i = 0; i < format.length(); i++){
+	// 	char c = format.at(i);
+	// 	ouFile.writeBits(c,8);
+	// }
+	Mat frame;
+	cap.read(frame);
+	Golomb encoder(&ouFile,50);
+	encoder.encodeNumber(cap.get(CAP_PROP_FRAME_COUNT));
+	encoder.encodeNumber(frame.cols);
+	encoder.encodeNumber(frame.rows);
+	encoder.encodeNumber(cap.get(CAP_PROP_FPS));
+
+	while(1){
+		if (frame.empty())
+			break;
+		cvtColor(frame,frame,COLOR_BGR2GRAY);
+		frame = getResidualsJPEG_LS(frame);
+		encoder.encodeMat(frame);
+		cap >> frame;
+	}
+	cap.release();
 }
+
+void decodeVideo(string outputFile,string file){
+	BitStream bs(file,'r');
+	string format = ".mp4";
+	Mat frame;
+	// char c;
+	// c = bs.readBits(8);
+	// while(c !='\n'){
+	// 	format += c;
+	// 	c = bs.readBits(8);
+	// }
+	Golomb gl(&bs,50);
+	int fourcc = VideoWriter::fourcc('m','p','4','v');
+	int framesCount = gl.decodeNumber();
+	int cols = gl.decodeNumber();
+	int row = gl.decodeNumber();
+	int fps = gl.decodeNumber();
+	Size size(cols,row);
+	VideoWriter out(outputFile+format,fourcc,fps,size,false);
+	for(int i = 0; i<framesCount; i++){
+		frame = gl.decodeMat(cols,row);
+		frame = getOriginalJPEG_LS(frame);
+		//cvtColor(frame,frame,COLOR_GRAY2BGR);
+		out << frame;
+	}
+	out.release();
+}
+

@@ -26,10 +26,12 @@ BitStream::~BitStream(){
 }
 
 bool BitStream::hasNext(){
-    if (currentBit < 8)
+    if (currentBit < 8 and bitBuffer != 0){
         return true;
-    if (file.peek() != EOF)
+    }
+    if (file.peek() != EOF){
         return true;
+    }
     return false;
 }
 
@@ -51,7 +53,6 @@ void BitStream::writeBits(int bits,int size){
     for (size_t i = 0; i < size; i++){
         writeBit(bits & 1<<size-1-i);
     }
-    
 }
 
 int BitStream::readBit(){
