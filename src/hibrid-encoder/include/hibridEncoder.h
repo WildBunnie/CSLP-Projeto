@@ -160,7 +160,8 @@ Mat CalculateResidual(Mat currentFrame, Mat predictedFrame);
  * \param blockSize The size of each block.
  * \param gl The Golomb object used to encode the motion vectors.
  */
-Mat DecodeInterFrame(Mat previousFrame,Mat residuals,int countMotionVectors, int blockSize,Golomb* gl);
+Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb* gl);
+//Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb* gl, vector<int> dxs, vector<int> dys, vector<Mat> allResiduals);
 
 /**
  * \brief Inter frame decoder.

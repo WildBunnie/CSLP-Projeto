@@ -15,6 +15,14 @@ Golomb::Golomb(BitStream* bs,int n){
 }
 
 void Golomb::encodeNumber(int number){
+    
+    if(number > 0){
+        number = number * 2;
+    }
+    else if(number < 0){
+        number = (number*-2)-1;
+    }
+
     int quotient = floor(number/m);
     int reminder = number % m;
 
@@ -48,7 +56,18 @@ int Golomb::decodeNumber(){
         reminder |= bitStream->readBit();
         reminder = reminder - pow(2,bits+1)+m;
     }
-    return quotient*m+reminder;
+    
+    int number = quotient*m+reminder;
+
+    if(number != 0){
+        if(number%2 == 0){
+            number /= 2;
+        }
+        else{
+            number = (number+1)/-2;
+        }
+    }
+    return number;
 }
 
 

@@ -8,213 +8,177 @@
 using namespace std;
 using namespace cv;
 
+Block FindBestBlock(Block block, Mat previousFrame, int searchArea)
+{
 
-int calculateDifference(Block block1, Block block2) {
-    
-    Mat Mat1 = block1.frame;
-    Mat Mat2 = block2.frame;
+    int blockSize = block.blockSize;
+    int minDiff = INT_MAX;
+    int bestX, bestY;
+    for (int x = -searchArea; x <= searchArea; x++)
+    {
+        for (int y = -searchArea; y <= searchArea; y++)
+        {
 
-    double diff = 0.0;
-    for (int x = 0; x < block1.blockSize ; x++) {
-        for (int y = 0; y < block1.blockSize; y++) {
-            if (x >= 0 && x < Mat1.cols && y >= 0 && y < Mat1.rows){
-                diff += abs(Mat1.at<uchar>(block1.y + y, block1.x + x) - Mat2.at<uchar>(block2.y + y, block2.x + x));
+            int col = block.x + x;
+            int row = block.y + y;
+
+            if (col < 0 || col + blockSize > previousFrame.cols || row < 0 || row + blockSize > previousFrame.rows)
+                continue;
+
+            Rect r(col, row, blockSize, blockSize);
+            Mat testMat = previousFrame(r);
+
+            Mat diffMat;
+            absdiff(block.frame, testMat, diffMat);
+            int diff = sum(diffMat)[0];
+
+            if (diff < minDiff)
+            {
+                minDiff = diff;
+                bestX = col;
+                bestY = row;
             }
         }
     }
 
-    return diff;
+    Rect r(bestX, bestY, blockSize, blockSize);
+    Block result(bestX, bestY, blockSize, previousFrame(r));
+    return result;
 }
 
-vector<Block> DivideFrameIntoBlocks(Mat frame, int blockSize){
-    vector<Block> blocks;
-
-    if (frame.empty()) {
-        cout << "Empty frame." << endl;
-        return blocks;
-    }
-
-    for (int y = 0; y < frame.rows; y += blockSize) {
-        for (int x = 0; x < frame.cols; x += blockSize) {
-            Block block(x, y, blockSize, frame);
-            blocks.push_back(block);
-        }
-    }
-
-    return blocks;
-}
-
-float distance(int x1, int y1, int x2, int y2) 
-{ 
-    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2) * 1.0); 
-} 
-
-vector<Block> BlocksInSearchArea(vector<Block> blocks, int search_x, int search_y, int searchArea){
-    vector<Block> result_blocks;
-
-    for(Block block : blocks){
-        float dist = distance(search_x, search_y, block.x, block.y);
-        if(dist / block.blockSize <= searchArea){
-            result_blocks.push_back(block);
-        }
-    }
-
-    return result_blocks;
-}
-
-Mat PerformMotionCompensation(Mat previousFrame, vector<MotionVector> motionVectors, int blockSize) {
-    Mat predictedFrame = previousFrame.clone(); // Create a copy of the previous frame
-
-    for (const MotionVector& mv : motionVectors) {
-        int blockX = mv.blockX;
-        int blockY = mv.blockY;
-        int dx = mv.dx;
-        int dy = mv.dy;
-
-        // Update the predicted frame using motion vectors
-        for (int i = 0; i < blockSize; ++i) {
-            for (int j = 0; j < blockSize; ++j) {
-                int currentX = blockX + i + dx;
-                int currentY = blockY + j + dy;
-                int prevX = blockX + i;
-                int prevY = blockY + j;
-
-                if (prevX >= 0 && prevX < previousFrame.cols && prevY >= 0 && prevY < previousFrame.rows
-                && currentX >= 0 && currentX < predictedFrame.cols && currentY >= 0 && currentY < predictedFrame.rows) {
-                    predictedFrame.at<uchar>(currentY, currentX) = previousFrame.at<uchar>(prevY, prevX);
+void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int searchArea, Golomb *gl)
+{
+    for (int row = 0; row + blockSize <= currentFrame.rows; row += blockSize)
+    {
+        for (int col = 0; col + blockSize <= currentFrame.cols; col += blockSize)
+        {
+            Rect r(col, row, blockSize, blockSize);
+            Block block(col, row, blockSize, currentFrame(r));
+            Block bestBlock = FindBestBlock(block, previousFrame, searchArea);
+            Mat residuals;
+            subtract(block.frame, bestBlock.frame, residuals, noArray(), CV_32S);
+            int dx = bestBlock.x - block.x;
+            int dy = bestBlock.y - block.y;
+            gl->encodeNumber(dx);
+            gl->encodeNumber(dy);    
+            for(int i = 0; i < blockSize; i++){
+                for(int j = 0; j < blockSize; j++){
+                    gl->encodeNumber(residuals.at<int>(i,j));
                 }
             }
         }
     }
-
-    return predictedFrame;
 }
 
-
-Mat CalculateResidual(Mat currentFrame, Mat predictedFrame) {
-    Mat residualImage;
-
-    if (currentFrame.size() != predictedFrame.size() || currentFrame.type() != predictedFrame.type()) {
-        cout << "Input frames have different sizes or types." << endl;
-        return residualImage;
+Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb *gl)
+{
+    Mat reconstructedFrame(previousFrame.rows, previousFrame.cols, CV_8UC1, Scalar(0));
+    // int index = 0;
+    for (int row = 0; row + blockSize <= previousFrame.rows; row += blockSize)
+    {
+        for (int col = 0; col + blockSize <= previousFrame.cols; col += blockSize)
+        {
+            int dx = gl->decodeNumber();
+            int dy = gl->decodeNumber();
+            Mat residuals(blockSize, blockSize, CV_32S, Scalar(0));
+            for(int i = 0; i < blockSize; i++){
+                for(int j = 0; j < blockSize; j++){
+                    residuals.at<int>(i,j) = gl->decodeNumber();
+                }
+            }
+            Rect previousRect(col + dx, row + dy, blockSize, blockSize);
+            Rect currentRect(col, row, blockSize, blockSize);
+            Mat temp;
+            add(previousFrame(previousRect), residuals, reconstructedFrame(currentRect), noArray(), CV_8UC1);
+        }
     }
-    subtract(currentFrame, predictedFrame, residualImage);
-
-    return residualImage;
-}
-
-Mat DecodeInterFrame(Mat previousFrame,Mat residuals,int countMotionVectors, int blockSize,Golomb* gl) {
-    vector<MotionVector> motionVectors;
-    for(int i = 0; i<countMotionVectors; i++){
-        int dx = gl->decodeNumber();
-        int dy = gl->decodeNumber();
-        int blockx = gl->decodeNumber();
-        int blocky = gl->decodeNumber();
-        motionVectors.push_back(MotionVector(dx,dy,blockx,blocky));
-    }
-
-    Mat predictedFrame = PerformMotionCompensation(previousFrame, motionVectors, blockSize);
-    Mat reconstructedFrame = residuals + predictedFrame;
     return reconstructedFrame;
 }
 
-void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int searchArea,Golomb* gl){
-    vector<Block> blocks = DivideFrameIntoBlocks(currentFrame, blockSize);
-    vector<Block> previousBlocks = DivideFrameIntoBlocks(previousFrame, blockSize);
-    vector<MotionVector> motionVectors;
+void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea)
+{
+    Mat frame, previousFrame;
+    int counter = 0;
 
-    for(Block block : blocks){
-
-        int minDiff = INT_MAX;
-        MotionVector MV;
-        vector<Block> searchAreaBlocks = BlocksInSearchArea(previousBlocks, block.x, block.y, searchArea);
-        
-        for(Block previousBlock : searchAreaBlocks){
-            int diff = calculateDifference(block, previousBlock);
-            if(diff < minDiff){
-                minDiff = diff;
-                MV.blockX = previousBlock.x;
-                MV.blockY = previousBlock.y;
-                MV.dx = block.x - previousBlock.x;
-                MV.dy = block.y - previousBlock.y;
-            }
-        }
-        motionVectors.push_back(MV);
-    }
-
-    Mat predictedFrame = PerformMotionCompensation(previousFrame, motionVectors, blockSize);
-    Mat residuals = CalculateResidual(currentFrame, predictedFrame);
-    
-    gl->encodeMat(residuals);
-    gl->encodeNumber(motionVectors.size());
-    for(MotionVector v:motionVectors){
-        gl->encodeNumber(v.dx);
-        gl->encodeNumber(v.dy);
-        gl->encodeNumber(v.blockX);
-        gl->encodeNumber(v.blockY);
-    }
-    
-    // DecodeInterFrame(previousFrame, residuals, motionVectors, blockSize);
-}
-
-void EncodeHybrid(string outputfile,string inputFile,int periodicity,int blockSize,int SearchArea){
-    Mat frame,residuals,lastFrame;
-    int counter = periodicity;
-    BitStream bs(outputfile,'w');
-    Golomb gl(&bs,50);
+    BitStream bs(outputfile, 'w');
+    Golomb gl(&bs, 50);
 
     VideoCapture cap(inputFile);
-    cap >> frame;
-    gl.encodeNumber(cap.get(CAP_PROP_FRAME_COUNT));
-    gl.encodeNumber(blockSize);
-	gl.encodeNumber(frame.cols);
-	gl.encodeNumber(frame.rows);
-	gl.encodeNumber(cap.get(CAP_PROP_FPS));
+    gl.encodeNumber(cap.get(CAP_PROP_FRAME_COUNT));  // number of frames
+    gl.encodeNumber(cap.get(CAP_PROP_FRAME_HEIGHT)); // frame rows
+    gl.encodeNumber(cap.get(CAP_PROP_FRAME_WIDTH));  // frame columns
+    gl.encodeNumber(blockSize);                      // block size
+	gl.encodeNumber(cap.get(CAP_PROP_FPS));         // fps
 
-    while(!frame.empty()){
-        cvtColor(frame,frame,COLOR_BGR2GRAY);
-        if(counter < periodicity){
-            EncodeInterFrame(frame,lastFrame,blockSize,SearchArea,&gl);
-        }else{
-            residuals = getResidualsJPEG_LS(frame);
-	        gl.encodeMat(residuals);
-            gl.encodeNumber(0);
+    int i = 1;
+    while (true)
+    {
+        if (!cap.read(frame))
+        {
+            break;
+        }
+
+        cout << "encoding frame " << i++ << "/" << cap.get(CAP_PROP_FRAME_COUNT) << endl;
+        cout.flush();
+
+        cvtColor(frame, frame, COLOR_BGR2GRAY);
+
+        if (counter == periodicity || previousFrame.empty())
+        {
+            bs.writeBit(1);
+            gl.encodeMat(getResidualsJPEG_LS(frame));
             counter = 0;
         }
-        lastFrame = frame.clone();
-        counter++;
-        cap >> frame;
+        else
+        {
+            bs.writeBit(0);
+            EncodeInterFrame(frame, previousFrame, blockSize, SearchArea, &gl);
+            counter += 1;
+        }
+
+        previousFrame = frame.clone();
     }
+
     cap.release();
 }
 
-void DecodeHybrid(string outputFile,string inputFile){
-    Mat frame,lastFrame;
+void DecodeHybrid(string outputFile, string inputFile)
+{
+    Mat frame, lastFrame;
     string format = ".mp4";
-    BitStream bs(inputFile,'r');
-    Golomb gl(&bs,50);
 
-    int fourcc = VideoWriter::fourcc('m','p','4','v');
-	int framesCount = gl.decodeNumber();
+    BitStream bs(inputFile, 'r');
+    Golomb gl(&bs, 50);
+
+    int frameCount = gl.decodeNumber();
+    int rows = gl.decodeNumber();
+    int cols = gl.decodeNumber();
     int blockSize = gl.decodeNumber();
-	int cols = gl.decodeNumber();
-	int row = gl.decodeNumber();
 	int fps = gl.decodeNumber();
-	Size size(cols,row);
-	VideoWriter out(outputFile+format,fourcc,fps,size,false);
 
-    for(int i = 0; i < framesCount; i++){
-        frame = gl.decodeMat(cols,row);
-        int countMotionVectors = gl.decodeNumber();
-        if (countMotionVectors == 0){
-		    frame = getOriginalJPEG_LS(frame);
-        }else{
-            frame = DecodeInterFrame(lastFrame,frame,countMotionVectors,blockSize,&gl);
+    Size size(cols,rows);
+    VideoWriter out(outputFile+format,VideoWriter::fourcc('m','p','4','v'),fps,size,false);
+    
+    for (int i = 0; i < frameCount; i++)
+    {
+        cout << "decoding frame " << i+1 << "/" << frameCount << endl;
+        int isIntraEncoded = bs.readBit();
+        if (isIntraEncoded == 1)
+        {
+            frame = gl.decodeMat(cols, rows);
+            frame = getOriginalJPEG_LS(frame);
+        }
+        else
+        {
+            frame = DecodeInterFrame(lastFrame, blockSize, &gl);
         }
         lastFrame = frame.clone();
-		out << frame;
+        out << frame;
+        // imshow("idk", frame);
+        // // waitKey(0);
+        // char c=(char)waitKey(25);
+		// 	if(c==27)
+		// 		break;
     }
-
     out.release();
-
 }
