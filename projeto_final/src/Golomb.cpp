@@ -5,6 +5,7 @@
 #include "opencv2/opencv.hpp"
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/plot.hpp>
+#include <string>
 
 using namespace std;
 
@@ -15,14 +16,12 @@ Golomb::Golomb(BitStream* bs,int n){
 }
 
 void Golomb::encodeNumber(int number){
-    
     if(number > 0){
         number = number * 2;
     }
     else if(number < 0){
         number = (number*-2)-1;
     }
-
     int quotient = floor(number/m);
     int reminder = number % m;
 
@@ -42,8 +41,6 @@ void Golomb::encodeNumber(int number){
 
 int Golomb::decodeNumber(){
     int quotient = 0;
-    int n;
-    int bit;
 
     while(bitStream->readBit() != 0){
         quotient++;
@@ -92,4 +89,22 @@ cv::Mat Golomb::decodeMat(int cols,int rows){
         }
     }
     return image;
+}
+
+void Golomb::encodeString(string str){
+    int size = str.length();
+    encodeNumber(size);
+    for(int i=0; i < size; i++){
+        encodeNumber(str[i]);
+    }
+}
+
+string Golomb::decodeString(){
+    int size = decodeNumber();
+    string ret = "";
+    for(int i=0; i < size; i++){
+        int num = decodeNumber();
+        ret.append(string(1,char(num)));
+    }
+    return ret;
 }

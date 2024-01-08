@@ -57,4 +57,16 @@ class Golomb{
          * \return Decoded Mat.
          */
         cv::Mat decodeMat(int cols,int rows);
+        /**
+         * \brief Encodes String to file.
+         * 
+         * \param str string to be written.
+         */
+        void encodeString(string);
+        /**
+         * \brief decodes String to file.
+         * 
+         * \return Decoded String.
+         */
+        string decodeString();
 };
