@@ -28,11 +28,6 @@ public:
      *
      */
     int blockSize;
-    /**
-     * \brief The frame from which the block was extracted.
-     *
-     */
-    Mat frame;
 
     /**
      * \brief Constructor.
@@ -42,8 +37,8 @@ public:
      * \param size The size of the block.
      * \param sourceFrame The frame from which the block was extracted.
      */
-    Block(int posX, int posY, int size, Mat sourceFrame): 
-        x(posX), y(posY), blockSize(size), frame(sourceFrame) {}
+    Block(int posX, int posY, int size): 
+        x(posX), y(posY), blockSize(size) {}
 
 };
 
