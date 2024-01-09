@@ -8,145 +8,352 @@
 using namespace std;
 using namespace cv;
 
-Block FindBestBlock(Block block, Mat previousFrame, int searchArea)
-{
+struct YUVFrame {
+    vector<vector<char>> Y;
+    vector<vector<char>> U;
+    vector<vector<char>> V;
+    int rows;
+    int cols;
 
+    YUVFrame clone() const {
+        YUVFrame cloned;
+        cloned.rows = rows;
+        cloned.cols = cols;
+
+        // Deep copy for each vector
+        cloned.Y = Y;
+        cloned.U = U;
+        cloned.V = V;
+
+        return cloned;
+    }
+};
+
+struct VideoInfo {
+    vector<YUVFrame> frames;
+    string frame_rate;
+    string interlacing;
+    string aspect_ratio;
+    string color_space;
+    int cols;
+    int rows;
+};
+
+bool parseYUV4MPEG2(string filename, VideoInfo& info) {
+    ifstream file(filename, ios::binary);
+    if (!file.is_open()) {
+        cerr << "Error opening file: " << filename << endl;
+        return false;
+    }
+
+    string format;
+    file >> format;
+    if(format != "YUV4MPEG2"){
+        cerr << "Invalid video format";
+        return false;
+    }
+
+    string current = "";
+    while(true){
+        file >> current;
+        if(current == "FRAME"){
+            break;
+        }
+
+        char first = current[0];
+        switch(first) {
+            case 'W':
+                current.erase(0,1);
+                info.cols = stoi(current);
+                break;
+            case 'H':
+                current.erase(0,1);
+                info.rows = stoi(current);
+                break;
+            case 'F':
+                info.frame_rate = current;
+                break;
+            case 'I':
+                info.interlacing = current;
+                break;
+            case 'A':
+                info.aspect_ratio = current;
+                break;
+            case 'C':
+                info.color_space = current;
+                break;
+        }
+    }
+
+    if(info.color_space.find("444") == string::npos){
+        cerr << "This program currently only supports videos with 4:4:4 color space";
+        return false;
+    }
+    
+    vector<YUVFrame> frames;
+    while(true){
+        file.get(); // remove newline
+
+        vector<vector<char>> y_plane(info.rows, vector<char>(info.cols));
+        vector<vector<char>> u_plane(info.rows, vector<char>(info.cols));
+        vector<vector<char>> v_plane(info.rows, vector<char>(info.cols));
+
+        for (int i = 0; i < info.rows; ++i) {
+            file.read(y_plane[i].data(), info.cols);
+        }
+
+        for (int i = 0; i < info.rows; ++i) {
+            file.read(u_plane[i].data(), info.cols);
+        }
+
+        for (int i = 0; i < info.rows; ++i) {
+            file.read(v_plane[i].data(), info.cols);
+        }
+
+        YUVFrame frame;
+        frame.Y = y_plane;
+        frame.U = u_plane;
+        frame.V = v_plane;
+        frame.rows = info.rows;
+        frame.cols = info.cols;
+        frames.push_back(frame);
+        
+        // get rid of "FRAME"
+        string text;
+        file >> text;
+        
+        if(file.eof()){
+            break;
+        }
+    }
+    file.close();
+    info.frames = frames;
+    return true;
+}
+
+Block FindBestBlock(Block block, const vector<vector<char>>& previous, const vector<vector<char>>& current, int searchArea) {
     int blockSize = block.blockSize;
     int minDiff = INT_MAX;
-    int bestX, bestY;
-    for (int x = -searchArea; x <= searchArea; x++)
-    {
-        for (int y = -searchArea; y <= searchArea; y++)
-        {
+    int bestX = 0, bestY = 0;
 
-            int col = block.x + x;
-            int row = block.y + y;
+    for (int x = -searchArea; x <= searchArea; x++) {
+        for (int y = -searchArea; y <= searchArea; y++) {
+            int previous_col = block.x + x;
+            int previous_row = block.y + y;
 
-            if (col < 0 || col + blockSize > previousFrame.cols || row < 0 || row + blockSize > previousFrame.rows)
+            if (previous_col < 0 || previous_col + blockSize > previous[0].size() ||
+                previous_row < 0 || previous_row + blockSize > previous.size())
                 continue;
 
-            Rect r(col, row, blockSize, blockSize);
-            Mat testMat = previousFrame(r);
+            int diff = 0;
 
-            Mat diffMat;
-            absdiff(block.frame, testMat, diffMat);
-            int diff = sum(diffMat)[0];
+            // Use pointers to access elements for efficiency
+            const char* currPtr = &current[block.y][block.x];
+            const char* prevPtr = &previous[previous_row][previous_col];
 
-            if (diff < minDiff)
-            {
+            for (int row = 0; row < blockSize; row++) {
+                for (int col = 0; col < blockSize; col++) {
+                    diff += abs(*currPtr++ - *prevPtr++);
+                }
+                currPtr += (current[0].size() - blockSize);
+                prevPtr += (previous[0].size() - blockSize);
+            }
+
+            if (diff < minDiff) {
                 minDiff = diff;
-                bestX = col;
-                bestY = row;
+                bestX = previous_col;
+                bestY = previous_row;
             }
         }
     }
 
-    Rect r(bestX, bestY, blockSize, blockSize);
-    Block result(bestX, bestY, blockSize, previousFrame(r));
-    return result;
+    return Block(bestX, bestY, blockSize);
 }
 
-void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int searchArea, Golomb *gl)
+void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int blockSize, int searchArea, Golomb *gl)
 {
-    for (int row = 0; row + blockSize <= currentFrame.rows; row += blockSize)
+    vector<vector<char>> currentPlanes[3] = {currentFrame.Y, currentFrame.U, currentFrame.V};
+    vector<vector<char>> previousPlanes[3] = {previousFrame.Y, previousFrame.U, previousFrame.V};
+    for (int plane = 0; plane <= 2; plane++)
     {
-        for (int col = 0; col + blockSize <= currentFrame.cols; col += blockSize)
+        for (int row = 0; row + blockSize <= currentFrame.rows; row += blockSize)
         {
-            Rect r(col, row, blockSize, blockSize);
-            Block block(col, row, blockSize, currentFrame(r));
-            Block bestBlock = FindBestBlock(block, previousFrame, searchArea);
-            Mat residuals;
-            subtract(block.frame, bestBlock.frame, residuals, noArray(), CV_32S);
-            int dx = bestBlock.x - block.x;
-            int dy = bestBlock.y - block.y;
-            gl->encodeNumber(dx);
-            gl->encodeNumber(dy);    
-            for(int i = 0; i < blockSize; i++){
-                for(int j = 0; j < blockSize; j++){
-                    gl->encodeNumber(residuals.at<int>(i,j));
+            for (int col = 0; col + blockSize <= currentFrame.cols; col += blockSize)
+            {
+                Block block(col, row, blockSize);
+                Block bestBlock = FindBestBlock(block, previousPlanes[plane], currentPlanes[plane], searchArea);
+                int dx = bestBlock.x - block.x;
+                int dy = bestBlock.y - block.y;
+
+                gl->encodeNumber(dx);
+                gl->encodeNumber(dy);
+
+                int previousX = bestBlock.x;
+                int previousY = bestBlock.y;
+                int currentX = block.x;
+                int currentY = block.y;
+
+                for (int i = 0; i < blockSize; i++) {
+                    for (int j = 0; j < blockSize; j++) {
+                        int previous = previousPlanes[plane][previousY + i][previousX + j];
+                        int current = currentPlanes[plane][currentY + i][currentX + j];
+                        gl->encodeNumber(current - previous);
+                    }
                 }
             }
         }
     }
 }
 
-Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb *gl)
+YUVFrame DecodeInterFrame(YUVFrame& previousFrame, int blockSize, Golomb *gl)
 {
-    Mat reconstructedFrame(previousFrame.rows, previousFrame.cols, CV_8UC1, Scalar(0));
-    // int index = 0;
-    for (int row = 0; row + blockSize <= previousFrame.rows; row += blockSize)
+    YUVFrame reconstructedFrame;
+    reconstructedFrame.rows = previousFrame.rows;
+    reconstructedFrame.cols = previousFrame.cols;
+    vector<vector<char>> previousPlanes[3] = {previousFrame.Y, previousFrame.U, previousFrame.V};
+    for (int plane = 0; plane <= 2; plane++)
     {
-        for (int col = 0; col + blockSize <= previousFrame.cols; col += blockSize)
+        vector<vector<char>> currentPlane(previousFrame.rows, vector<char>(previousFrame.cols));
+        for (int row = 0; row + blockSize <= previousFrame.rows; row += blockSize)
         {
-            int dx = gl->decodeNumber();
-            int dy = gl->decodeNumber();
-            Mat residuals(blockSize, blockSize, CV_32S, Scalar(0));
-            for(int i = 0; i < blockSize; i++){
-                for(int j = 0; j < blockSize; j++){
-                    residuals.at<int>(i,j) = gl->decodeNumber();
+            for (int col = 0; col + blockSize <= previousFrame.cols; col += blockSize)
+            {
+                int dx = gl->decodeNumber();
+                int dy = gl->decodeNumber();
+                for (int i = 0; i < blockSize; i++) {
+                    for (int j = 0; j < blockSize; j++) {
+                        currentPlane[row+i][col+j] = previousPlanes[plane][row+i+dy][col+j+dx] + gl->decodeNumber();
+                    }
                 }
             }
-            Rect previousRect(col + dx, row + dy, blockSize, blockSize);
-            Rect currentRect(col, row, blockSize, blockSize);
-            Mat temp;
-            add(previousFrame(previousRect), residuals, reconstructedFrame(currentRect), noArray(), CV_8UC1);
+        }
+        switch(plane) {
+            case 0:
+                reconstructedFrame.Y = currentPlane;
+                break;
+            case 1:
+                reconstructedFrame.U = currentPlane;
+                break;
+            case 2:
+                reconstructedFrame.V = currentPlane;
+                break;
         }
     }
     return reconstructedFrame;
 }
 
-void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea)
-{
-    Mat frame, previousFrame;
-    int counter = 0;
+void EncodeIntraFrame(YUVFrame frame, int blockSize, Golomb *gl){
+    vector<vector<char>> planes[3] = {frame.Y, frame.U, frame.V};
+    for (int plane = 0; plane <= 2; plane++)
+    {
+        for (int row = 0; row < frame.rows; row++)
+        {
+            for (int col = 0; col < frame.cols; col++)
+            {
+                int estimate = 0;
 
+                if(row > 0 && col > 0){
+                    int a = planes[plane][row][col-1];
+                    int b = planes[plane][row-1][col];
+                    int c = planes[plane][row-1][col-1];
+                    estimate = jpeg_ls_predictor(a,b,c);
+                }
+                // residuals = original - estimate
+                gl->encodeNumber(planes[plane][row][col] - estimate);
+            }
+        }
+    }
+}
+
+YUVFrame DecodeIntraFrame(int rows, int cols, Golomb *gl){
+	
+	YUVFrame original;
+    original.rows = rows;
+    original.cols = cols;
+    for (int plane = 0; plane <= 2; plane++){
+        vector<vector<char>> residualsPlane(rows, vector<char>(cols));
+        vector<vector<char>> originalPlane(rows, vector<char>(cols));
+        for (int row = 0; row < rows; row++){
+            for (int col = 0; col < cols; col++){
+                
+                int estimate = 0;
+                residualsPlane[row][col] = gl->decodeNumber();
+
+                if(row > 0 && col > 0){
+                    int a = originalPlane[row][col-1];
+                    int b = originalPlane[row-1][col];
+                    int c = originalPlane[row-1][col-1];
+                    estimate = jpeg_ls_predictor(a,b,c);
+                }
+                // original = residuals + estimate
+                originalPlane[row][col] = residualsPlane[row][col] + estimate;
+            }
+        }
+        switch(plane) {
+            case 0:
+                original.Y = originalPlane;
+                break;
+            case 1:
+                original.U = originalPlane;
+                break;
+            case 2:
+                original.V = originalPlane;
+                break;
+        }
+    }
+	return original;
+}
+
+void WriteYUVFrameToFile(string fileName, YUVFrame& frame){
+    vector<vector<char>> planes[3] = {frame.Y, frame.U, frame.V};
+    ofstream outputFile(fileName, ios::binary | ios::app);
+    outputFile << "FRAME" << endl;
+    for (int plane = 0; plane <= 2; plane++)
+    {
+        for (const auto& row : planes[plane]) {
+            outputFile.write(row.data(), row.size());
+        }
+    }
+    return;
+}
+
+void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea)
+{   
+    VideoInfo video_info;
+    parseYUV4MPEG2(inputFile, video_info);
+    
     BitStream bs(outputfile, 'w');
     Golomb gl(&bs, 50);
 
-    VideoCapture cap(inputFile);
-    gl.encodeNumber(cap.get(CAP_PROP_FRAME_COUNT));  // number of frames
-    gl.encodeNumber(cap.get(CAP_PROP_FRAME_HEIGHT)); // frame rows
-    gl.encodeNumber(cap.get(CAP_PROP_FRAME_WIDTH));  // frame columns
-    gl.encodeNumber(blockSize);                      // block size
-	gl.encodeNumber(cap.get(CAP_PROP_FPS));         // fps
+    gl.encodeNumber(video_info.frames.size()); // number of frames
+    gl.encodeNumber(video_info.rows);          // frame rows
+    gl.encodeNumber(video_info.cols);          // frame columns
+    gl.encodeNumber(blockSize);                // block size
 
-    int i = 1;
-    while (true)
-    {
-        if (!cap.read(frame))
-        {
-            break;
-        }
+    ofstream fileStream("test.y4m");
 
-        cout << "encoding frame " << i++ << "/" << cap.get(CAP_PROP_FRAME_COUNT) << endl;
-        cout.flush();
+    int counter = 0;
+    YUVFrame previousFrame, frame;
+    for(int i = 0; i < video_info.frames.size(); i++){
+        cout << "encoding frame " << i+1 << "/" << video_info.frames.size() << endl;
+        frame = video_info.frames[i];
 
-        cvtColor(frame, frame, COLOR_BGR2GRAY);
-
-        if (counter == periodicity || previousFrame.empty())
-        {
+        if (counter == periodicity || i == 0){
             bs.writeBit(1);
-            gl.encodeMat(getResidualsJPEG_LS(frame));
+            EncodeIntraFrame(frame, blockSize, &gl);
             counter = 0;
         }
-        else
-        {
+        else {
             bs.writeBit(0);
             EncodeInterFrame(frame, previousFrame, blockSize, SearchArea, &gl);
             counter += 1;
         }
-
-        previousFrame = frame.clone();
+        previousFrame = frame;
     }
-
-    cap.release();
 }
 
 void DecodeHybrid(string outputFile, string inputFile)
 {
-    Mat frame, lastFrame;
-    string format = ".mp4";
-
     BitStream bs(inputFile, 'r');
     Golomb gl(&bs, 50);
 
@@ -154,31 +361,33 @@ void DecodeHybrid(string outputFile, string inputFile)
     int rows = gl.decodeNumber();
     int cols = gl.decodeNumber();
     int blockSize = gl.decodeNumber();
-	int fps = gl.decodeNumber();
-
-    Size size(cols,rows);
-    VideoWriter out(outputFile+format,VideoWriter::fourcc('m','p','4','v'),fps,size,false);
     
+    ofstream fileStream(outputFile);
+
+    if (fileStream.is_open()) {
+        fileStream << "YUV4MPEG2 W1280 H720 F50:1 Ip A1:1 C444 XYSCSS=444" << endl;
+        fileStream.close();
+    } else {
+        cerr << "Unable to open the file." << endl;
+        return;
+    }
+
+    YUVFrame previousFrame, frame;
     for (int i = 0; i < frameCount; i++)
     {
         cout << "decoding frame " << i+1 << "/" << frameCount << endl;
         int isIntraEncoded = bs.readBit();
         if (isIntraEncoded == 1)
         {
-            frame = gl.decodeMat(cols, rows);
-            frame = getOriginalJPEG_LS(frame);
+            frame = DecodeIntraFrame(rows, cols, &gl);
         }
         else
         {
-            frame = DecodeInterFrame(lastFrame, blockSize, &gl);
+            frame = DecodeInterFrame(previousFrame, blockSize, &gl);
         }
-        lastFrame = frame.clone();
-        out << frame;
-        imshow("idk", frame);
-        // waitKey(0);
-        char c=(char)waitKey(25);
-			if(c==27)
-				break;
+        WriteYUVFrameToFile(outputFile, frame);
+        previousFrame = frame.clone();
     }
-    out.release();
+    fileStream.close();
+    // out.release();
 }
