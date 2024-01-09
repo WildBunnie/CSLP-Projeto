@@ -47,6 +47,7 @@ _deps
 # VSCode
 .vscode
 src/*/build
+build
 
 # Misc
 *.mp4
