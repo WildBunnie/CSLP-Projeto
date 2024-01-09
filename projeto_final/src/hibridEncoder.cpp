@@ -1,6 +1,3 @@
-#include <opencv2/opencv.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/plot.hpp>
 #include "Golomb.h"
 #include "intraEncoder.h"
 #include "hibridEncoder.h"
@@ -15,17 +12,18 @@ struct YUVFrame {
     int rows;
     int cols;
 
-    YUVFrame clone() const {
-        YUVFrame cloned;
-        cloned.rows = rows;
-        cloned.cols = cols;
-
-        // Deep copy for each vector
-        cloned.Y = Y;
-        cloned.U = U;
-        cloned.V = V;
-
-        return cloned;
+    vector<vector<char>>& getPlane(int plane) {
+        switch (plane) {
+            case 0:
+                return Y;
+            case 1:
+                return U;
+            case 2:
+                return V;
+            default:
+                // Handle invalid plane index, or you can throw an exception
+                throw std::out_of_range("Invalid plane index");
+        }
     }
 };
 
@@ -172,8 +170,6 @@ Block FindBestBlock(Block block, const vector<vector<char>>& previous, const vec
 
 void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int blockSize, int searchArea, Golomb *gl)
 {
-    vector<vector<char>> currentPlanes[3] = {currentFrame.Y, currentFrame.U, currentFrame.V};
-    vector<vector<char>> previousPlanes[3] = {previousFrame.Y, previousFrame.U, previousFrame.V};
     for (int plane = 0; plane <= 2; plane++)
     {
         for (int row = 0; row + blockSize <= currentFrame.rows; row += blockSize)
@@ -181,7 +177,7 @@ void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int block
             for (int col = 0; col + blockSize <= currentFrame.cols; col += blockSize)
             {
                 Block block(col, row, blockSize);
-                Block bestBlock = FindBestBlock(block, previousPlanes[plane], currentPlanes[plane], searchArea);
+                Block bestBlock = FindBestBlock(block, previousFrame.getPlane(plane), currentFrame.getPlane(plane), searchArea);
                 int dx = bestBlock.x - block.x;
                 int dy = bestBlock.y - block.y;
 
@@ -195,8 +191,8 @@ void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int block
 
                 for (int i = 0; i < blockSize; i++) {
                     for (int j = 0; j < blockSize; j++) {
-                        int previous = previousPlanes[plane][previousY + i][previousX + j];
-                        int current = currentPlanes[plane][currentY + i][currentX + j];
+                        int previous = previousFrame.getPlane(plane)[previousY + i][previousX + j];
+                        int current = currentFrame.getPlane(plane)[currentY + i][currentX + j];
                         gl->encodeNumber(current - previous);
                     }
                 }
@@ -210,7 +206,6 @@ YUVFrame DecodeInterFrame(YUVFrame& previousFrame, int blockSize, Golomb *gl)
     YUVFrame reconstructedFrame;
     reconstructedFrame.rows = previousFrame.rows;
     reconstructedFrame.cols = previousFrame.cols;
-    vector<vector<char>> previousPlanes[3] = {previousFrame.Y, previousFrame.U, previousFrame.V};
     for (int plane = 0; plane <= 2; plane++)
     {
         vector<vector<char>> currentPlane(previousFrame.rows, vector<char>(previousFrame.cols));
@@ -222,7 +217,7 @@ YUVFrame DecodeInterFrame(YUVFrame& previousFrame, int blockSize, Golomb *gl)
                 int dy = gl->decodeNumber();
                 for (int i = 0; i < blockSize; i++) {
                     for (int j = 0; j < blockSize; j++) {
-                        currentPlane[row+i][col+j] = previousPlanes[plane][row+i+dy][col+j+dx] + gl->decodeNumber();
+                        currentPlane[row+i][col+j] = previousFrame.getPlane(plane)[row+i+dy][col+j+dx] + gl->decodeNumber();
                     }
                 }
             }
@@ -243,7 +238,6 @@ YUVFrame DecodeInterFrame(YUVFrame& previousFrame, int blockSize, Golomb *gl)
 }
 
 void EncodeIntraFrame(YUVFrame frame, int blockSize, Golomb *gl){
-    vector<vector<char>> planes[3] = {frame.Y, frame.U, frame.V};
     for (int plane = 0; plane <= 2; plane++)
     {
         for (int row = 0; row < frame.rows; row++)
@@ -253,13 +247,13 @@ void EncodeIntraFrame(YUVFrame frame, int blockSize, Golomb *gl){
                 int estimate = 0;
 
                 if(row > 0 && col > 0){
-                    int a = planes[plane][row][col-1];
-                    int b = planes[plane][row-1][col];
-                    int c = planes[plane][row-1][col-1];
+                    int a = frame.getPlane(plane)[row][col-1];
+                    int b = frame.getPlane(plane)[row-1][col];
+                    int c = frame.getPlane(plane)[row-1][col-1];
                     estimate = jpeg_ls_predictor(a,b,c);
                 }
                 // residuals = original - estimate
-                gl->encodeNumber(planes[plane][row][col] - estimate);
+                gl->encodeNumber(frame.getPlane(plane)[row][col] - estimate);
             }
         }
     }
@@ -305,12 +299,11 @@ YUVFrame DecodeIntraFrame(int rows, int cols, Golomb *gl){
 }
 
 void WriteYUVFrameToFile(string fileName, YUVFrame& frame){
-    vector<vector<char>> planes[3] = {frame.Y, frame.U, frame.V};
     ofstream outputFile(fileName, ios::binary | ios::app);
     outputFile << "FRAME" << endl;
     for (int plane = 0; plane <= 2; plane++)
     {
-        for (const auto& row : planes[plane]) {
+        for (const auto& row : frame.getPlane(plane)) {
             outputFile.write(row.data(), row.size());
         }
     }
@@ -386,7 +379,7 @@ void DecodeHybrid(string outputFile, string inputFile)
             frame = DecodeInterFrame(previousFrame, blockSize, &gl);
         }
         WriteYUVFrameToFile(outputFile, frame);
-        previousFrame = frame.clone();
+        previousFrame = frame;
     }
     fileStream.close();
     // out.release();
