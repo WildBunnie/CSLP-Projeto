@@ -33,6 +33,7 @@ struct VideoInfo {
     string interlacing;
     string aspect_ratio;
     string color_space;
+    string header;
     int cols;
     int rows;
 };
@@ -43,6 +44,10 @@ bool parseYUV4MPEG2(string filename, VideoInfo& info) {
         cerr << "Error opening file: " << filename << endl;
         return false;
     }
+
+    string headerLine;
+    getline(file >> ws, info.header);
+    file.seekg(0);
 
     string format;
     file >> format;
@@ -130,7 +135,8 @@ bool parseYUV4MPEG2(string filename, VideoInfo& info) {
 }
 
 Block FindBestBlock(Block block, const vector<vector<char>>& previous, const vector<vector<char>>& current, int searchArea) {
-    int blockSize = block.blockSize;
+    int blockSizeX = block.blockSizeX;
+    int blockSizeY = block.blockSizeY;
     int minDiff = INT_MAX;
     int bestX = 0, bestY = 0;
 
@@ -139,22 +145,21 @@ Block FindBestBlock(Block block, const vector<vector<char>>& previous, const vec
             int previous_col = block.x + x;
             int previous_row = block.y + y;
 
-            if (previous_col < 0 || previous_col + blockSize > previous[0].size() ||
-                previous_row < 0 || previous_row + blockSize > previous.size())
+            if (previous_col < 0 || previous_col + blockSizeX > previous[0].size() ||
+                previous_row < 0 || previous_row + blockSizeY > previous.size())
                 continue;
 
             int diff = 0;
 
-            // Use pointers to access elements for efficiency
             const char* currPtr = &current[block.y][block.x];
             const char* prevPtr = &previous[previous_row][previous_col];
 
-            for (int row = 0; row < blockSize; row++) {
-                for (int col = 0; col < blockSize; col++) {
+            for (int row = 0; row < blockSizeY; row++) {
+                for (int col = 0; col < blockSizeX; col++) {
                     diff += abs(*currPtr++ - *prevPtr++);
                 }
-                currPtr += (current[0].size() - blockSize);
-                prevPtr += (previous[0].size() - blockSize);
+                currPtr += (current[0].size() - blockSizeX);
+                prevPtr += (previous[0].size() - blockSizeX);
             }
 
             if (diff < minDiff) {
@@ -165,19 +170,23 @@ Block FindBestBlock(Block block, const vector<vector<char>>& previous, const vec
         }
     }
 
-    return Block(bestX, bestY, blockSize);
+    return Block(bestX, bestY, blockSizeX, blockSizeY);
 }
 
 void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int blockSize, int searchArea, Golomb *gl)
 {
     for (int plane = 0; plane <= 2; plane++)
     {
-        for (int row = 0; row + blockSize <= currentFrame.rows; row += blockSize)
+        for (int row = 0; row < currentFrame.rows; row += blockSize)
         {
-            for (int col = 0; col + blockSize <= currentFrame.cols; col += blockSize)
+            for (int col = 0; col < currentFrame.cols; col += blockSize)
             {
-                Block block(col, row, blockSize);
+                int blockSizeX = min(blockSize, currentFrame.cols - col);
+                int blockSizeY = min(blockSize, currentFrame.rows - row);
+
+                Block block(col, row, blockSizeX, blockSizeY);
                 Block bestBlock = FindBestBlock(block, previousFrame.getPlane(plane), currentFrame.getPlane(plane), searchArea);
+
                 int dx = bestBlock.x - block.x;
                 int dy = bestBlock.y - block.y;
 
@@ -189,8 +198,8 @@ void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int block
                 int currentX = block.x;
                 int currentY = block.y;
 
-                for (int i = 0; i < blockSize; i++) {
-                    for (int j = 0; j < blockSize; j++) {
+                for (int i = 0; i < blockSizeY; i++) {
+                    for (int j = 0; j < blockSizeX; j++) {
                         int previous = previousFrame.getPlane(plane)[previousY + i][previousX + j];
                         int current = currentFrame.getPlane(plane)[currentY + i][currentX + j];
                         gl->encodeNumber(current - previous);
@@ -209,14 +218,17 @@ YUVFrame DecodeInterFrame(YUVFrame& previousFrame, int blockSize, Golomb *gl)
     for (int plane = 0; plane <= 2; plane++)
     {
         vector<vector<char>> currentPlane(previousFrame.rows, vector<char>(previousFrame.cols));
-        for (int row = 0; row + blockSize <= previousFrame.rows; row += blockSize)
+        for (int row = 0; row < previousFrame.rows; row += blockSize)
         {
-            for (int col = 0; col + blockSize <= previousFrame.cols; col += blockSize)
+            for (int col = 0; col < previousFrame.cols; col += blockSize)
             {
+                int blockSizeX = min(blockSize, previousFrame.cols - col);
+                int blockSizeY = min(blockSize, previousFrame.rows - row);
+                // cout << blockSizeX << " " << blockSizeY << endl;
                 int dx = gl->decodeNumber();
                 int dy = gl->decodeNumber();
-                for (int i = 0; i < blockSize; i++) {
-                    for (int j = 0; j < blockSize; j++) {
+                for (int i = 0; i < blockSizeY; i++) {
+                    for (int j = 0; j < blockSizeX; j++) {
                         currentPlane[row+i][col+j] = previousFrame.getPlane(plane)[row+i+dy][col+j+dx] + gl->decodeNumber();
                     }
                 }
@@ -323,8 +335,6 @@ void EncodeHybrid(string outputfile, string inputFile, int periodicity, int bloc
     gl.encodeNumber(video_info.cols);          // frame columns
     gl.encodeNumber(blockSize);                // block size
 
-    ofstream fileStream("test.y4m");
-
     int counter = 0;
     YUVFrame previousFrame, frame;
     for(int i = 0; i < video_info.frames.size(); i++){
@@ -381,6 +391,4 @@ void DecodeHybrid(string outputFile, string inputFile)
         WriteYUVFrameToFile(outputFile, frame);
         previousFrame = frame;
     }
-    fileStream.close();
-    // out.release();
 }

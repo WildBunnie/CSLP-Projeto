@@ -24,22 +24,32 @@ public:
      */ 
     int y; 
     /**
-     * \brief The size of the block.
+     * \brief The size of the block in the x axis.
      *
      */
-    int blockSize;
+    int blockSizeX;
+        /**
+     * \brief The size of the block in the y axis.
+     *
+     */
+    int blockSizeY;
 
     /**
      * \brief Constructor.
      *
      * \param posX The x coordinate of the block.
      * \param posY The y coordinate of the block.
-     * \param size The size of the block.
+     * \param sizeX The size of the block in the x axis.
+     * \param sizY The size of the block in the y axis.
      * \param sourceFrame The frame from which the block was extracted.
      */
-    Block(int posX, int posY, int size): 
-        x(posX), y(posY), blockSize(size) {}
+    Block(int posX, int posY, int sizeX, int sizeY): 
+        x(posX), y(posY), blockSizeX(sizeX), blockSizeY(sizeY) {}
 
+    friend ostream& operator<<(std::ostream& os, const Block& block) {
+        os << "Block: (x=" << block.x << ", y=" << block.y << ")";
+        return os;
+    }
 };
 
 /**
