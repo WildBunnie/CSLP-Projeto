@@ -1,11 +1,10 @@
-#include <opencv2/opencv.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/plot.hpp>
 #include "Golomb.h"
 #include "intraEncoder.h"
+#include <vector>
+
 
 using namespace std;
-using namespace cv;
+
 
 /**
  * \brief A class to represent a fixed-size block of pixels from a frame.
@@ -113,17 +112,6 @@ int calculateDifference(Block block1, Block block2);
  * \param blockSize The size of the blocks.
  * \return A vector containing the blocks.
  */
-vector<Block> DivideFrameIntoBlocks(Mat frame, int blockSize);
-
-/**
- * \brief Calculates the distance between two points.
- *
- * \param x1 The x coordinate of the first point.
- * \param y1 The y coordinate of the first point.
- * \param x2 The x coordinate of the second point.
- * \param y2 The y coordinate of the second point.
- * \return The distance between the two points.
- */
 float distance(int x1, int y1, int x2, int y2);
 
 /**
@@ -136,49 +124,6 @@ float distance(int x1, int y1, int x2, int y2);
  * \return A vector containing the blocks that are in the search area.
  */
 vector<Block> BlocksInSearchArea(vector<Block> blocks, int search_x, int search_y, int searchArea);
-
-/**
- * \brief Performs motion compensation.
- *
- * \param previousFrame The previous frame.
- * \param motionVectors The motion vectors.
- * \param blockSize The size of each block.
- * \return The predicted frame.
- */
-Mat PerformMotionCompensation(Mat previousFrame, vector<MotionVector> motionVectors, int blockSize);
-
-/**
- * \brief Calculates the residual between two frames.
- *
- * \param currentFrame The current frame.
- * \param predictedFrame The predicted frame.
- * \return The residual.
- */
-Mat CalculateResidual(Mat currentFrame, Mat predictedFrame);
-
-/**
- * \brief Inter frame encoder.
- *
- * \param previousFrame The previous frame.
- * \param residuals The calculated residuals.
- * \param countMotionVectors The value of the actual count of the motion vectors.
- * \param blockSize The size of each block.
- * \param gl The Golomb object used to encode the motion vectors.
- */
-Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb* gl);
-//Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb* gl, vector<int> dxs, vector<int> dys, vector<Mat> allResiduals);
-
-/**
- * \brief Inter frame decoder.
- *
- * \param currentFrame The current frame.
- * \param previousFrame The previous frame.
- * \param blockSize The size of each block.
- * \param searchArea The size of the search area.
- * \param gl The Golomb object used to decode the motion vectors.
- */
-void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int searchArea,Golomb* gl);
-
 /**
  * \brief Hybrid (inter + intra) encoder.
  *
@@ -188,12 +133,13 @@ void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int se
  * \param blockSize The size of each block.
  * \param searchArea The size of the search area.
  */
-void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea, int quantizationY, int quantizationU, int quantizationV);
+void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea, int quantizationY, int quantizationU, int quantizationV,int golomb);
 
 /**
  * \brief Hybrid (inter + intra) frame decoder.
  *
  * \param outputFile The name of the output file.
  * \param inputFile The name of the input file.
+ * \param golomb The golomb value.
  */
-void DecodeHybrid(string outputFile,string inputFile);
+void DecodeHybrid(string outputFile,string inputFile, int golomb);

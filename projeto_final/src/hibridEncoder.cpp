@@ -1,9 +1,10 @@
-#include "Golomb.h"
 #include "intraEncoder.h"
 #include "hibridEncoder.h"
+#include <vector>
+#include <climits>
+#include <cmath>
 
 using namespace std;
-using namespace cv;
 
 struct YUVFrame {
     vector<vector<char>> Y;
@@ -21,7 +22,6 @@ struct YUVFrame {
             case 2:
                 return V;
             default:
-                // Handle invalid plane index, or you can throw an exception
                 throw std::out_of_range("Invalid plane index");
         }
     }
@@ -338,13 +338,13 @@ void WriteYUVFrameToFile(string fileName, YUVFrame& frame){
     return;
 }
 
-void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea, int quantizationY, int quantizationU, int quantizationV)
+void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea, int quantizationY, int quantizationU, int quantizationV,int golomb)
 {   
     VideoInfo video_info;
     parseYUV4MPEG2(inputFile, video_info);
     
     BitStream bs(outputfile, 'w');
-    Golomb gl(&bs, 50);
+    Golomb gl(&bs, golomb);
 
     gl.encodeNumber(video_info.frames.size()); // number of frames
     gl.encodeNumber(video_info.rows);          // frame rows
@@ -356,7 +356,7 @@ void EncodeHybrid(string outputfile, string inputFile, int periodicity, int bloc
     int counter = 0;
     YUVFrame previousFrame, frame;
     for(int i = 0; i < video_info.frames.size(); i++){
-        cout << "encoding frame " << i+1 << "/" << video_info.frames.size() << endl;
+        //cout << "encoding frame " << i+1 << "/" << video_info.frames.size() << endl;
         frame = video_info.frames[i];
 
         if (counter == periodicity || i == 0){
@@ -373,10 +373,10 @@ void EncodeHybrid(string outputfile, string inputFile, int periodicity, int bloc
     }
 }
 
-void DecodeHybrid(string outputFile, string inputFile)
+void DecodeHybrid(string outputFile, string inputFile, int golomb)
 {
     BitStream bs(inputFile, 'r');
-    Golomb gl(&bs, 50);
+    Golomb gl(&bs, golomb);
 
     int frameCount = gl.decodeNumber();
     int rows = gl.decodeNumber();

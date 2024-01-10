@@ -13,11 +13,8 @@ file(GLOB HEADER_FILES include/*.h)
 
 # Collect all source files in the 'src' folder
 file(GLOB SOURCE_FILES src/*.cpp)
-find_package( OpenCV REQUIRED )
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 # Add executable and specify source files
 add_executable(main ${HEADER_FILES} ${SOURCE_FILES})
 target_compile_options(main PRIVATE -O2 -Wall)
-target_link_libraries( main ${OpenCV_LIBS} )
