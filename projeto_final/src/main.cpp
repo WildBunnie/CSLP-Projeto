@@ -11,7 +11,7 @@
 using namespace std;
 
 const int GOLOMB = 16;
-const int PERIODICITY = 8;
+const int PERIODICITY = 6;
 const int BLOCKSIZE = 32;
 const int SEARCHAREA = 3;
 const int QUANTIZATION = -1;
@@ -179,6 +179,10 @@ int main(int argc, char *argv[]){
     i = args.hasOpetion("-q");
     if (i > -1){
         quantization = stoi(args.getValue(i));
+        if(quantization <= 0 || quantization > 255){
+            cerr << "0 < quantization < 255" << endl;
+            exit(0);
+        }
     }
     i = args.hasOpetion("-m");
     if (i > -1){
@@ -203,6 +207,11 @@ int main(int argc, char *argv[]){
         }
         if(encoding == "intra"){
             periodicity = 0;
+        }
+        if(encoding == "lossy" && quantization == -1){
+            cerr << "no quantization specified" << endl;
+            printHelp();
+            exit(1);
         }
     }
     i = args.hasOpetion("-o");
@@ -230,14 +239,15 @@ int main(int argc, char *argv[]){
         }
         exit(0);
     }
-
     if(mode == 'e'){
         EncodeHybrid(output,args.getValueNoOption(),periodicity,blockSize,searchArea,quantization,quantization,quantization,golomb);
-    }else{
+    }else if(mode == 'd'){
         if(output == OUTPUT){
             output = "outputfile.y4m";
         }
         DecodeHybrid(output,args.getValueNoOption(),golomb);
+    }else{
+        cout << "invalid mode " << endl;
     }
 
     std::cout << args.getValueNoOption() << std::endl;
