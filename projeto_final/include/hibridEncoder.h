@@ -188,7 +188,7 @@ void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int se
  * \param blockSize The size of each block.
  * \param searchArea The size of the search area.
  */
-void EncodeHybrid(string outputfile,string inputFile,int periodicity,int blockSize,int SearchArea);
+void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea, int quantizationY, int quantizationU, int quantizationV);
 
 /**
  * \brief Hybrid (inter + intra) frame decoder.

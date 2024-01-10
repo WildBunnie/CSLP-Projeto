@@ -173,10 +173,11 @@ Block FindBestBlock(Block block, const vector<vector<char>>& previous, const vec
     return Block(bestX, bestY, blockSizeX, blockSizeY);
 }
 
-void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int blockSize, int searchArea, Golomb *gl)
+void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int blockSize, int searchArea, Golomb *gl, int quantizationY, int quantizationU, int quantizationV)
 {
     for (int plane = 0; plane <= 2; plane++)
     {
+        int quantizationStep = (plane == 0) ? quantizationY : ((plane == 1) ? quantizationU : quantizationV);
         for (int row = 0; row < currentFrame.rows; row += blockSize)
         {
             for (int col = 0; col < currentFrame.cols; col += blockSize)
@@ -202,7 +203,22 @@ void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int block
                     for (int j = 0; j < blockSizeX; j++) {
                         int previous = previousFrame.getPlane(plane)[previousY + i][previousX + j];
                         int current = currentFrame.getPlane(plane)[currentY + i][currentX + j];
-                        gl->encodeNumber(current - previous);
+                        int result = current - previous;
+
+                        // -1 = no quantization
+                        if(quantizationStep == -1){
+                            gl->encodeNumber(result);
+                            continue;
+                        }
+
+                        int size = 255/quantizationStep;
+                        if(result >= 0){
+                            gl->encodeNumber(floor(result/(size)) * size);
+                        }
+                        else{
+                            gl->encodeNumber(ceil(result/(size)) * size);
+                        }
+                            
                     }
                 }
             }
@@ -322,7 +338,7 @@ void WriteYUVFrameToFile(string fileName, YUVFrame& frame){
     return;
 }
 
-void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea)
+void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea, int quantizationY, int quantizationU, int quantizationV)
 {   
     VideoInfo video_info;
     parseYUV4MPEG2(inputFile, video_info);
@@ -350,7 +366,7 @@ void EncodeHybrid(string outputfile, string inputFile, int periodicity, int bloc
         }
         else {
             bs.writeBit(0);
-            EncodeInterFrame(frame, previousFrame, blockSize, SearchArea, &gl);
+            EncodeInterFrame(frame, previousFrame, blockSize, SearchArea, &gl, quantizationY, quantizationU, quantizationV);
             counter += 1;
         }
         previousFrame = frame;
