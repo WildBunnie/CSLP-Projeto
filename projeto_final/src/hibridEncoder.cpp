@@ -224,7 +224,7 @@ YUVFrame DecodeInterFrame(YUVFrame& previousFrame, int blockSize, Golomb *gl)
             {
                 int blockSizeX = min(blockSize, previousFrame.cols - col);
                 int blockSizeY = min(blockSize, previousFrame.rows - row);
-                // cout << blockSizeX << " " << blockSizeY << endl;
+
                 int dx = gl->decodeNumber();
                 int dy = gl->decodeNumber();
                 for (int i = 0; i < blockSizeY; i++) {
@@ -335,6 +335,8 @@ void EncodeHybrid(string outputfile, string inputFile, int periodicity, int bloc
     gl.encodeNumber(video_info.cols);          // frame columns
     gl.encodeNumber(blockSize);                // block size
 
+    gl.encodeString(video_info.header);
+
     int counter = 0;
     YUVFrame previousFrame, frame;
     for(int i = 0; i < video_info.frames.size(); i++){
@@ -368,7 +370,7 @@ void DecodeHybrid(string outputFile, string inputFile)
     ofstream fileStream(outputFile);
 
     if (fileStream.is_open()) {
-        fileStream << "YUV4MPEG2 W1280 H720 F50:1 Ip A1:1 C444 XYSCSS=444" << endl;
+        fileStream << gl.decodeString() << endl;
         fileStream.close();
     } else {
         cerr << "Unable to open the file." << endl;
