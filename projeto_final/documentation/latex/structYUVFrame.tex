@@ -1,0 +1,218 @@
+\hypertarget{structYUVFrame}{}\doxysection{Y\+U\+V\+Frame Struct Reference}
+\label{structYUVFrame}\index{YUVFrame@{YUVFrame}}
+
+
+A structuer to represent a frame.  
+
+
+
+
+{\ttfamily \#include $<$hibrid\+Encoder.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ vector$<$ char $>$ $>$ \& \mbox{\hyperlink{structYUVFrame_a901623031b29edd040feb240ec872b86}{get\+Plane}} (int plane)
+\begin{DoxyCompactList}\small\item\em function to get a plane of the frame. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ char $>$ $>$ \& \mbox{\hyperlink{structYUVFrame_a901623031b29edd040feb240ec872b86}{get\+Plane}} (int plane)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ vector$<$ char $>$ $>$ \mbox{\hyperlink{structYUVFrame_a8eb373227abb7f88ba626ce7394ea7f5}{Y}}
+\begin{DoxyCompactList}\small\item\em The Y plane. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ char $>$ $>$ \mbox{\hyperlink{structYUVFrame_a1f108018acb61582d2cb757eb037ea6d}{U}}
+\begin{DoxyCompactList}\small\item\em The U plane. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ char $>$ $>$ \mbox{\hyperlink{structYUVFrame_a245733eef69bd227556826e735550e69}{V}}
+\begin{DoxyCompactList}\small\item\em The V plane. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structYUVFrame_a79ca44f323a74baaf4f44ee8e3480a3a}{rows}}
+\begin{DoxyCompactList}\small\item\em The number of rows of the frame. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structYUVFrame_a29414bdba64a19dbbfded02ff75292c8}{cols}}
+\begin{DoxyCompactList}\small\item\em The number of columns of the frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A structuer to represent a frame. 
+
+
+
+Definition at line 65 of file hibrid\+Encoder.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structYUVFrame_a901623031b29edd040feb240ec872b86}\label{structYUVFrame_a901623031b29edd040feb240ec872b86}} 
+\index{YUVFrame@{YUVFrame}!getPlane@{getPlane}}
+\index{getPlane@{getPlane}!YUVFrame@{YUVFrame}}
+\doxysubsubsection{\texorpdfstring{getPlane()}{getPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily vector$<$vector$<$char$>$ $>$\& Y\+U\+V\+Frame\+::get\+Plane (\begin{DoxyParamCaption}\item[{int}]{plane }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 16 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                                               \{}
+\DoxyCodeLine{17         \textcolor{keywordflow}{switch} (plane) \{}
+\DoxyCodeLine{18             \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{19                 \textcolor{keywordflow}{return} \mbox{\hyperlink{structYUVFrame_a8eb373227abb7f88ba626ce7394ea7f5}{Y}};}
+\DoxyCodeLine{20             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{21                 \textcolor{keywordflow}{return} \mbox{\hyperlink{structYUVFrame_a1f108018acb61582d2cb757eb037ea6d}{U}};}
+\DoxyCodeLine{22             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{23                 \textcolor{keywordflow}{return} \mbox{\hyperlink{structYUVFrame_a245733eef69bd227556826e735550e69}{V}};}
+\DoxyCodeLine{24             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{25                 \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"Invalid plane index"});}
+\DoxyCodeLine{26         \}}
+\DoxyCodeLine{27     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structYUVFrame_a901623031b29edd040feb240ec872b86}\label{structYUVFrame_a901623031b29edd040feb240ec872b86}} 
+\index{YUVFrame@{YUVFrame}!getPlane@{getPlane}}
+\index{getPlane@{getPlane}!YUVFrame@{YUVFrame}}
+\doxysubsubsection{\texorpdfstring{getPlane()}{getPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily vector$<$vector$<$char$>$ $>$\& Y\+U\+V\+Frame\+::get\+Plane (\begin{DoxyParamCaption}\item[{int}]{plane }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+function to get a plane of the frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plane} & The index of the plane to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The plane. 
+\end{DoxyReturn}
+
+
+Definition at line 98 of file hibrid\+Encoder.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{98                                               \{}
+\DoxyCodeLine{99         \textcolor{keywordflow}{switch} (plane) \{}
+\DoxyCodeLine{100             \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{101                 \textcolor{keywordflow}{return} \mbox{\hyperlink{structYUVFrame_a8eb373227abb7f88ba626ce7394ea7f5}{Y}};}
+\DoxyCodeLine{102             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{103                 \textcolor{keywordflow}{return} \mbox{\hyperlink{structYUVFrame_a1f108018acb61582d2cb757eb037ea6d}{U}};}
+\DoxyCodeLine{104             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{105                 \textcolor{keywordflow}{return} \mbox{\hyperlink{structYUVFrame_a245733eef69bd227556826e735550e69}{V}};}
+\DoxyCodeLine{106             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{107                 \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"Invalid plane index"});}
+\DoxyCodeLine{108         \}}
+\DoxyCodeLine{109     \}}
+
+\end{DoxyCode}
+
+
+Referenced by Encode\+Inter\+Frame(), Encode\+Intra\+Frame(), and Write\+Y\+U\+V\+Frame\+To\+File().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structYUVFrame_a901623031b29edd040feb240ec872b86_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structYUVFrame_a29414bdba64a19dbbfded02ff75292c8}\label{structYUVFrame_a29414bdba64a19dbbfded02ff75292c8}} 
+\index{YUVFrame@{YUVFrame}!cols@{cols}}
+\index{cols@{cols}!YUVFrame@{YUVFrame}}
+\doxysubsubsection{\texorpdfstring{cols}{cols}}
+{\footnotesize\ttfamily int Y\+U\+V\+Frame\+::cols}
+
+
+
+The number of columns of the frame. 
+
+
+
+Definition at line 90 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Decode\+Inter\+Frame(), Decode\+Intra\+Frame(), Encode\+Inter\+Frame(), Encode\+Intra\+Frame(), and parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structYUVFrame_a79ca44f323a74baaf4f44ee8e3480a3a}\label{structYUVFrame_a79ca44f323a74baaf4f44ee8e3480a3a}} 
+\index{YUVFrame@{YUVFrame}!rows@{rows}}
+\index{rows@{rows}!YUVFrame@{YUVFrame}}
+\doxysubsubsection{\texorpdfstring{rows}{rows}}
+{\footnotesize\ttfamily int Y\+U\+V\+Frame\+::rows}
+
+
+
+The number of rows of the frame. 
+
+
+
+Definition at line 85 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Decode\+Inter\+Frame(), Decode\+Intra\+Frame(), Encode\+Inter\+Frame(), Encode\+Intra\+Frame(), and parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structYUVFrame_a1f108018acb61582d2cb757eb037ea6d}\label{structYUVFrame_a1f108018acb61582d2cb757eb037ea6d}} 
+\index{YUVFrame@{YUVFrame}!U@{U}}
+\index{U@{U}!YUVFrame@{YUVFrame}}
+\doxysubsubsection{\texorpdfstring{U}{U}}
+{\footnotesize\ttfamily vector$<$ vector$<$ char $>$ $>$ Y\+U\+V\+Frame\+::U}
+
+
+
+The U plane. 
+
+
+
+Definition at line 75 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Decode\+Inter\+Frame(), Decode\+Intra\+Frame(), and parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structYUVFrame_a245733eef69bd227556826e735550e69}\label{structYUVFrame_a245733eef69bd227556826e735550e69}} 
+\index{YUVFrame@{YUVFrame}!V@{V}}
+\index{V@{V}!YUVFrame@{YUVFrame}}
+\doxysubsubsection{\texorpdfstring{V}{V}}
+{\footnotesize\ttfamily vector$<$ vector$<$ char $>$ $>$ Y\+U\+V\+Frame\+::V}
+
+
+
+The V plane. 
+
+
+
+Definition at line 80 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Decode\+Inter\+Frame(), Decode\+Intra\+Frame(), and parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structYUVFrame_a8eb373227abb7f88ba626ce7394ea7f5}\label{structYUVFrame_a8eb373227abb7f88ba626ce7394ea7f5}} 
+\index{YUVFrame@{YUVFrame}!Y@{Y}}
+\index{Y@{Y}!YUVFrame@{YUVFrame}}
+\doxysubsubsection{\texorpdfstring{Y}{Y}}
+{\footnotesize\ttfamily vector$<$ vector$<$ char $>$ $>$ Y\+U\+V\+Frame\+::Y}
+
+
+
+The Y plane. 
+
+
+
+Definition at line 70 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Decode\+Inter\+Frame(), Decode\+Intra\+Frame(), and parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{hibridEncoder_8h}{hibrid\+Encoder.\+h}}\item 
+src/\mbox{\hyperlink{hibridEncoder_8cpp}{hibrid\+Encoder.\+cpp}}\end{DoxyCompactItemize}

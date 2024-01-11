@@ -1,0 +1,246 @@
+\hypertarget{classArgParser}{}\doxysection{Arg\+Parser Class Reference}
+\label{classArgParser}\index{ArgParser@{ArgParser}}
+
+
+A class to parse command line arguments.  
+
+
+
+
+{\ttfamily \#include $<$Arg\+Parser.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classArgParser_a78bea700c0c6bfb90565237d5d583d09}{Arg\+Parser}} (std\+::vector$<$ std\+::string $>$)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classArgParser_af7643bf5f97e278eb8dfa4e92a3bb869}{has\+Opetion}} (std\+::string)
+\begin{DoxyCompactList}\small\item\em Checks if the vector of arguments has a given option. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classArgParser_a4f3b70f966578f77d1afc44bd685baac}{get\+Value}} (int)
+\begin{DoxyCompactList}\small\item\em Gets the value of an option. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classArgParser_a22918d0bded9b199134e941ad2d54d74}{get\+Value\+No\+Option}} ()
+\begin{DoxyCompactList}\small\item\em Gets the first value that is not an option. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}
+\begin{DoxyCompactList}\small\item\em The vector of arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to parse command line arguments. 
+
+
+
+Definition at line 9 of file Arg\+Parser.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArgParser_a78bea700c0c6bfb90565237d5d583d09}\label{classArgParser_a78bea700c0c6bfb90565237d5d583d09}} 
+\index{ArgParser@{ArgParser}!ArgParser@{ArgParser}}
+\index{ArgParser@{ArgParser}!ArgParser@{ArgParser}}
+\doxysubsubsection{\texorpdfstring{ArgParser()}{ArgParser()}}
+{\footnotesize\ttfamily Arg\+Parser\+::\+Arg\+Parser (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{args }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & The vector of arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 7 of file Arg\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7                                              \{}
+\DoxyCodeLine{8     this-\/>\mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}} = \mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}};}
+\DoxyCodeLine{9 \}}
+
+\end{DoxyCode}
+
+
+References args.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArgParser_a4f3b70f966578f77d1afc44bd685baac}\label{classArgParser_a4f3b70f966578f77d1afc44bd685baac}} 
+\index{ArgParser@{ArgParser}!getValue@{getValue}}
+\index{getValue@{getValue}!ArgParser@{ArgParser}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily std\+::string Arg\+Parser\+::get\+Value (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Gets the value of an option. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the option. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the option. 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file Arg\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                    \{}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return} \mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}[i+1];}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+
+
+References args.
+
+
+
+Referenced by main().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{classArgParser_a4f3b70f966578f77d1afc44bd685baac_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classArgParser_a22918d0bded9b199134e941ad2d54d74}\label{classArgParser_a22918d0bded9b199134e941ad2d54d74}} 
+\index{ArgParser@{ArgParser}!getValueNoOption@{getValueNoOption}}
+\index{getValueNoOption@{getValueNoOption}!ArgParser@{ArgParser}}
+\doxysubsubsection{\texorpdfstring{getValueNoOption()}{getValueNoOption()}}
+{\footnotesize\ttfamily std\+::string Arg\+Parser\+::get\+Value\+No\+Option (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the first value that is not an option. 
+
+\begin{DoxyReturn}{Returns}
+The value. 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file Arg\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                                      \{}
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}.size() == 0)\{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} \textcolor{stringliteral}{""};}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}[0].at(0) != \textcolor{charliteral}{'-\/'})\{}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} \mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}[0];}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < \mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}.size(); i++ )\{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}[i-\/1].at(0) != \textcolor{charliteral}{'-\/'})\{}
+\DoxyCodeLine{35             \textcolor{keywordflow}{return} \mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}[i];}
+\DoxyCodeLine{36         \}}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38     \textcolor{keywordflow}{return} \textcolor{stringliteral}{""};}
+\DoxyCodeLine{39 \}}
+
+\end{DoxyCode}
+
+
+References args.
+
+
+
+Referenced by main().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{classArgParser_a22918d0bded9b199134e941ad2d54d74_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classArgParser_af7643bf5f97e278eb8dfa4e92a3bb869}\label{classArgParser_af7643bf5f97e278eb8dfa4e92a3bb869}} 
+\index{ArgParser@{ArgParser}!hasOpetion@{hasOpetion}}
+\index{hasOpetion@{hasOpetion}!ArgParser@{ArgParser}}
+\doxysubsubsection{\texorpdfstring{hasOpetion()}{hasOpetion()}}
+{\footnotesize\ttfamily int Arg\+Parser\+::has\+Opetion (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Checks if the vector of arguments has a given option. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The option to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the option if it exists, -\/1 if it does not. 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file Arg\+Parser.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12                                       \{}
+\DoxyCodeLine{13     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}.size(); i++ )\{}
+\DoxyCodeLine{14         \textcolor{keywordflow}{if}(\mbox{\hyperlink{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}{args}}[i].compare(str) == 0)\{}
+\DoxyCodeLine{15             \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{16         \}}
+\DoxyCodeLine{17     \}}
+\DoxyCodeLine{18     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+
+
+References args.
+
+
+
+Referenced by main().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classArgParser_af7643bf5f97e278eb8dfa4e92a3bb869_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}\label{classArgParser_a0a869af19a6fa76827154c1a5bb2c8ce}} 
+\index{ArgParser@{ArgParser}!args@{args}}
+\index{args@{args}!ArgParser@{ArgParser}}
+\doxysubsubsection{\texorpdfstring{args}{args}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Arg\+Parser\+::args\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The vector of arguments. 
+
+
+
+Definition at line 15 of file Arg\+Parser.\+h.
+
+
+
+Referenced by Arg\+Parser(), get\+Value(), get\+Value\+No\+Option(), and has\+Opetion().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{ArgParser_8h}{Arg\+Parser.\+h}}\item 
+src/\mbox{\hyperlink{ArgParser_8cpp}{Arg\+Parser.\+cpp}}\end{DoxyCompactItemize}

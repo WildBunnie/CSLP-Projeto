@@ -1,0 +1,10 @@
+<map id="EncodeHybrid" name="EncodeHybrid">
+<area shape="rect" id="node1" title="Hybrid (inter + intra) encoder." alt="" coords="5,107,117,133"/>
+<area shape="rect" id="node2" href="$hibridEncoder_8cpp.html#acffad99f8ab893c8a21d4a711eba1ec4" title=" " alt="" coords="169,31,309,57"/>
+<area shape="rect" id="node5" href="$hibridEncoder_8cpp.html#a17dc6785b150af90af3063c048173c4b" title="Intra frame encoder." alt="" coords="169,81,309,108"/>
+<area shape="rect" id="node7" href="$hibridEncoder_8cpp.html#a9a10b79407535c156a0f0b1ea34a7c09" title="A parser for videos in YUV4MPEG2 format." alt="" coords="169,132,308,159"/>
+<area shape="rect" id="node8" href="$classBitStream.html#a0a81dbad86d46fde7ee9b943031fc411" title="Writes a single bit to the file stream." alt="" coords="165,183,312,209"/>
+<area shape="rect" id="node3" href="$hibridEncoder_8cpp.html#af1ca12016690a141669988c81edb8099" title=" " alt="" coords="380,5,495,32"/>
+<area shape="rect" id="node4" href="$structYUVFrame.html#a901623031b29edd040feb240ec872b86" title="function to get a plane of the frame." alt="" coords="360,56,515,83"/>
+<area shape="rect" id="node6" href="$intraEncoder_8h.html#a7c31973126ea4a26d7e0c4e40842d740" title="JPEG&#45;LS non&#45;linear predictor." alt="" coords="371,107,504,133"/>
+</map>

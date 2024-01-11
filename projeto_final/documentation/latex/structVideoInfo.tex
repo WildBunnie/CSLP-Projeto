@@ -1,0 +1,192 @@
+\hypertarget{structVideoInfo}{}\doxysection{Video\+Info Struct Reference}
+\label{structVideoInfo}\index{VideoInfo@{VideoInfo}}
+
+
+A structure to represent the video information.  
+
+
+
+
+{\ttfamily \#include $<$hibrid\+Encoder.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} $>$ \mbox{\hyperlink{structVideoInfo_ac8261ce3e2eefd29e9c7e69167fc84f4}{frames}}
+\begin{DoxyCompactList}\small\item\em The frames of the video. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{structVideoInfo_a61f0a5fff7578b356123529059bcce92}{frame\+\_\+rate}}
+\begin{DoxyCompactList}\small\item\em The frame rate of the video. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{structVideoInfo_a53d863aeb4816359461276d17c00a69e}{interlacing}}
+\begin{DoxyCompactList}\small\item\em The interlacing of the video. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{structVideoInfo_a60b5cf946b8b2cac2aed4f999a99aec6}{aspect\+\_\+ratio}}
+\begin{DoxyCompactList}\small\item\em The aspect ratio of the video. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{structVideoInfo_a4183da8f7ea2d1157efcae7371ccb082}{color\+\_\+space}}
+\begin{DoxyCompactList}\small\item\em The color space of the video. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{structVideoInfo_a415aa867a31432bcce539955f040ae83}{header}}
+\begin{DoxyCompactList}\small\item\em The header of the video. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}}
+\begin{DoxyCompactList}\small\item\em The number of columns of the video. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}}
+\begin{DoxyCompactList}\small\item\em The number of rows of the video. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A structure to represent the video information. 
+
+
+
+Definition at line 116 of file hibrid\+Encoder.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structVideoInfo_a60b5cf946b8b2cac2aed4f999a99aec6}\label{structVideoInfo_a60b5cf946b8b2cac2aed4f999a99aec6}} 
+\index{VideoInfo@{VideoInfo}!aspect\_ratio@{aspect\_ratio}}
+\index{aspect\_ratio@{aspect\_ratio}!VideoInfo@{VideoInfo}}
+\doxysubsubsection{\texorpdfstring{aspect\_ratio}{aspect\_ratio}}
+{\footnotesize\ttfamily string Video\+Info\+::aspect\+\_\+ratio}
+
+
+
+The aspect ratio of the video. 
+
+
+
+Definition at line 136 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structVideoInfo_a4183da8f7ea2d1157efcae7371ccb082}\label{structVideoInfo_a4183da8f7ea2d1157efcae7371ccb082}} 
+\index{VideoInfo@{VideoInfo}!color\_space@{color\_space}}
+\index{color\_space@{color\_space}!VideoInfo@{VideoInfo}}
+\doxysubsubsection{\texorpdfstring{color\_space}{color\_space}}
+{\footnotesize\ttfamily string Video\+Info\+::color\+\_\+space}
+
+
+
+The color space of the video. 
+
+
+
+Definition at line 141 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structVideoInfo_a53adceac56c22caa93f872e623e8346f}\label{structVideoInfo_a53adceac56c22caa93f872e623e8346f}} 
+\index{VideoInfo@{VideoInfo}!cols@{cols}}
+\index{cols@{cols}!VideoInfo@{VideoInfo}}
+\doxysubsubsection{\texorpdfstring{cols}{cols}}
+{\footnotesize\ttfamily int Video\+Info\+::cols}
+
+
+
+The number of columns of the video. 
+
+
+
+Definition at line 151 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Hybrid(), and parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structVideoInfo_a61f0a5fff7578b356123529059bcce92}\label{structVideoInfo_a61f0a5fff7578b356123529059bcce92}} 
+\index{VideoInfo@{VideoInfo}!frame\_rate@{frame\_rate}}
+\index{frame\_rate@{frame\_rate}!VideoInfo@{VideoInfo}}
+\doxysubsubsection{\texorpdfstring{frame\_rate}{frame\_rate}}
+{\footnotesize\ttfamily string Video\+Info\+::frame\+\_\+rate}
+
+
+
+The frame rate of the video. 
+
+
+
+Definition at line 126 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structVideoInfo_ac8261ce3e2eefd29e9c7e69167fc84f4}\label{structVideoInfo_ac8261ce3e2eefd29e9c7e69167fc84f4}} 
+\index{VideoInfo@{VideoInfo}!frames@{frames}}
+\index{frames@{frames}!VideoInfo@{VideoInfo}}
+\doxysubsubsection{\texorpdfstring{frames}{frames}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} $>$ Video\+Info\+::frames}
+
+
+
+The frames of the video. 
+
+
+
+Definition at line 121 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Hybrid(), and parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structVideoInfo_a415aa867a31432bcce539955f040ae83}\label{structVideoInfo_a415aa867a31432bcce539955f040ae83}} 
+\index{VideoInfo@{VideoInfo}!header@{header}}
+\index{header@{header}!VideoInfo@{VideoInfo}}
+\doxysubsubsection{\texorpdfstring{header}{header}}
+{\footnotesize\ttfamily string Video\+Info\+::header}
+
+
+
+The header of the video. 
+
+
+
+Definition at line 146 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Hybrid(), and parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structVideoInfo_a53d863aeb4816359461276d17c00a69e}\label{structVideoInfo_a53d863aeb4816359461276d17c00a69e}} 
+\index{VideoInfo@{VideoInfo}!interlacing@{interlacing}}
+\index{interlacing@{interlacing}!VideoInfo@{VideoInfo}}
+\doxysubsubsection{\texorpdfstring{interlacing}{interlacing}}
+{\footnotesize\ttfamily string Video\+Info\+::interlacing}
+
+
+
+The interlacing of the video. 
+
+
+
+Definition at line 131 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+\mbox{\Hypertarget{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}\label{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}} 
+\index{VideoInfo@{VideoInfo}!rows@{rows}}
+\index{rows@{rows}!VideoInfo@{VideoInfo}}
+\doxysubsubsection{\texorpdfstring{rows}{rows}}
+{\footnotesize\ttfamily int Video\+Info\+::rows}
+
+
+
+The number of rows of the video. 
+
+
+
+Definition at line 156 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Hybrid(), and parse\+Y\+U\+V4\+M\+P\+E\+G2().
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{hibridEncoder_8h}{hibrid\+Encoder.\+h}}\item 
+src/\mbox{\hyperlink{hibridEncoder_8cpp}{hibrid\+Encoder.\+cpp}}\end{DoxyCompactItemize}

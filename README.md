@@ -32,3 +32,6 @@ While on `src/<choosen-dir>`:
 
 ## BitStream, GolombCoding, hibrid-encoder, intraEncoder, hibrid-encoder:
 `./bin/main `
+
+## projeto_final
+`./bin/main `

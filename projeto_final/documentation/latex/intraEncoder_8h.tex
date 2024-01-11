@@ -1,0 +1,80 @@
+\hypertarget{intraEncoder_8h}{}\doxysection{include/intra\+Encoder.h File Reference}
+\label{intraEncoder_8h}\index{include/intraEncoder.h@{include/intraEncoder.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for intra\+Encoder.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{intraEncoder_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intraEncoder_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740}{jpeg\+\_\+ls\+\_\+predictor}} (int a, int b, int c)
+\begin{DoxyCompactList}\small\item\em J\+P\+E\+G-\/\+LS non-\/linear predictor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740}\label{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740}} 
+\index{intraEncoder.h@{intraEncoder.h}!jpeg\_ls\_predictor@{jpeg\_ls\_predictor}}
+\index{jpeg\_ls\_predictor@{jpeg\_ls\_predictor}!intraEncoder.h@{intraEncoder.h}}
+\doxysubsubsection{\texorpdfstring{jpeg\_ls\_predictor()}{jpeg\_ls\_predictor()}}
+{\footnotesize\ttfamily int jpeg\+\_\+ls\+\_\+predictor (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b,  }\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+J\+P\+E\+G-\/\+LS non-\/linear predictor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Left pixel. \\
+\hline
+{\em b} & Upper pixel. \\
+\hline
+{\em c} & Upper left pixel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pixel prediction. 
+\end{DoxyReturn}
+
+
+Definition at line 10 of file intra\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10                                           \{}
+\DoxyCodeLine{11     \textcolor{keywordflow}{if} (c >= max(a,b))\{}
+\DoxyCodeLine{12         \textcolor{keywordflow}{return} min(a, b);}
+\DoxyCodeLine{13     \}}
+\DoxyCodeLine{14     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(c <= min(a,b))\{}
+\DoxyCodeLine{15         \textcolor{keywordflow}{return} max(a, b);}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} a + b -\/ c;}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20 \} }
+
+\end{DoxyCode}
+
+
+Referenced by Decode\+Intra\+Frame(), and Encode\+Intra\+Frame().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740_icgraph}
+\end{center}
+\end{figure}

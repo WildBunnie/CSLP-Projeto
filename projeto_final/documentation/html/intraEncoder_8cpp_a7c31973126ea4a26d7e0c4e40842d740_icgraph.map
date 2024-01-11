@@ -1,0 +1,9 @@
+<map id="jpeg_ls_predictor" name="jpeg_ls_predictor">
+<area shape="rect" id="node1" title="JPEG&#45;LS non&#45;linear predictor." alt="" coords="621,31,755,57"/>
+<area shape="rect" id="node2" href="$hibridEncoder_8cpp.html#a87aa94cf8cbdc25d7ee4ab7146975323" title="Intra frame decoder." alt="" coords="431,5,573,32"/>
+<area shape="rect" id="node5" href="$hibridEncoder_8cpp.html#a17dc6785b150af90af3063c048173c4b" title="Intra frame encoder." alt="" coords="432,56,572,83"/>
+<area shape="rect" id="node3" href="$hibridEncoder_8cpp.html#ad83114a6d533550c807ba8593f8f1536" title="Hybrid (inter + intra) frame decoder." alt="" coords="108,5,223,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,60,83"/>
+<area shape="rect" id="node6" href="$hibridEncoder_8cpp.html#a591244866e31eccd4d67d5b874472d73" title="Hybrid (inter + intra) encoder." alt="" coords="271,56,383,83"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a0087a317871274edc521ce3c4a9be03d" title=" " alt="" coords="116,107,215,133"/>
+</map>

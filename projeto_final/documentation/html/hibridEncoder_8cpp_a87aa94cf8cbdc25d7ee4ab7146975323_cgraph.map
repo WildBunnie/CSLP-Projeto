@@ -1,0 +1,4 @@
+<map id="DecodeIntraFrame" name="DecodeIntraFrame">
+<area shape="rect" id="node1" title="Intra frame decoder." alt="" coords="5,5,148,32"/>
+<area shape="rect" id="node2" href="$intraEncoder_8h.html#a7c31973126ea4a26d7e0c4e40842d740" title="JPEG&#45;LS non&#45;linear predictor." alt="" coords="196,5,329,32"/>
+</map>

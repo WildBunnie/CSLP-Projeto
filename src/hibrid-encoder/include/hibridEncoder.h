@@ -28,11 +28,6 @@ public:
      *
      */
     int blockSize;
-    /**
-     * \brief The frame from which the block was extracted.
-     *
-     */
-    Mat frame;
 
     /**
      * \brief Constructor.
@@ -42,9 +37,13 @@ public:
      * \param size The size of the block.
      * \param sourceFrame The frame from which the block was extracted.
      */
-    Block(int posX, int posY, int size, Mat sourceFrame): 
-        x(posX), y(posY), blockSize(size), frame(sourceFrame) {}
+    Block(int posX, int posY, int size): 
+        x(posX), y(posY), blockSize(size) {}
 
+    friend ostream& operator<<(std::ostream& os, const Block& block) {
+        os << "Block: (x=" << block.x << ", y=" << block.y << ", size=" << block.blockSize << ")";
+        return os;
+    }
 };
 
 /**
@@ -160,7 +159,8 @@ Mat CalculateResidual(Mat currentFrame, Mat predictedFrame);
  * \param blockSize The size of each block.
  * \param gl The Golomb object used to encode the motion vectors.
  */
-Mat DecodeInterFrame(Mat previousFrame,Mat residuals,int countMotionVectors, int blockSize,Golomb* gl);
+Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb* gl);
+//Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb* gl, vector<int> dxs, vector<int> dys, vector<Mat> allResiduals);
 
 /**
  * \brief Inter frame decoder.
@@ -171,7 +171,7 @@ Mat DecodeInterFrame(Mat previousFrame,Mat residuals,int countMotionVectors, int
  * \param searchArea The size of the search area.
  * \param gl The Golomb object used to decode the motion vectors.
  */
-void EncodeInterFrame(Mat currentFrame, Mat previousFrame, int blockSize, int searchArea,Golomb* gl);
+void EncodeInterFrame(Mat& currentFrame, Mat& previousFrame, int blockSize, int searchArea, Golomb *gl);
 
 /**
  * \brief Hybrid (inter + intra) encoder.

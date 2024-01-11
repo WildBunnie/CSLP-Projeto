@@ -1,0 +1,4 @@
+<map id="BitStream::~BitStream" name="BitStream::~BitStream">
+<area shape="rect" id="node1" title="Destructor." alt="" coords="5,5,176,32"/>
+<area shape="rect" id="node2" href="$classBitStream.html#a17a01273ccc12e3c0a1045a010736a8e" title="Writes any remaining bits and closes the file stream." alt="" coords="224,5,353,32"/>
+</map>

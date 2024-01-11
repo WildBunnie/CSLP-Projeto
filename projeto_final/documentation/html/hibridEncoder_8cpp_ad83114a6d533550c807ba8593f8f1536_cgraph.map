@@ -1,0 +1,9 @@
+<map id="DecodeHybrid" name="DecodeHybrid">
+<area shape="rect" id="node1" title="Hybrid (inter + intra) frame decoder." alt="" coords="5,81,120,108"/>
+<area shape="rect" id="node2" href="$hibridEncoder_8cpp.html#af3f6dc7f72ffe93409e0b6e2119debaf" title=" " alt="" coords="178,5,321,32"/>
+<area shape="rect" id="node3" href="$hibridEncoder_8cpp.html#a87aa94cf8cbdc25d7ee4ab7146975323" title="Intra frame decoder." alt="" coords="178,56,321,83"/>
+<area shape="rect" id="node5" href="$classBitStream.html#a4bebf59fe9379dbdefb4647fdd2ddf01" title="Reads a single bit from the file stream." alt="" coords="178,107,321,133"/>
+<area shape="rect" id="node6" href="$hibridEncoder_8cpp.html#a28c13f1704b28e49c136d584d5ba0631" title="Writes a YUV frame to a file." alt="" coords="168,157,331,184"/>
+<area shape="rect" id="node4" href="$intraEncoder_8h.html#a7c31973126ea4a26d7e0c4e40842d740" title="JPEG&#45;LS non&#45;linear predictor." alt="" coords="389,56,523,83"/>
+<area shape="rect" id="node7" href="$structYUVFrame.html#a901623031b29edd040feb240ec872b86" title="function to get a plane of the frame." alt="" coords="379,157,533,184"/>
+</map>
