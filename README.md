@@ -34,4 +34,16 @@ While on `src/<choosen-dir>`:
 `./bin/main `
 
 ## projeto_final
-`./bin/main `
+`./bin/main [inputfile] [option]`
+
+### Options:
+  - h    ->prints this message
+  - g:16 ->golomb value
+  - b:32 ->block size
+  - s:3  ->search area
+  - p:6  ->periodicity
+  - q:-1  -> quantization
+  - m:e  ->mode encode(e), decode(d)
+  - e:hybrid ->encoding type [hybrid,intra,lossy]
+  - o:outputfile ->output file
+  - t:No default ->test mode 0-lossless 1-lossy
