@@ -174,7 +174,7 @@ bool parseYUV4MPEG2(string filename, VideoInfo& info);
  * \param current The current frame.
  * \param searchArea The size of the search area.
  */ 
-Block FindBestBlock(Block block, const vector<vector<char>>& previous, const vector<vector<char>>& current, int searchArea)
+Block FindBestBlock(Block block, const vector<vector<char>>& previous, const vector<vector<char>>& current, int searchArea);
 
 /**
  * \brief Inter frame decoder.
@@ -199,7 +199,7 @@ void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int block
  * \param blockSize The size of each block.
  * \param gl The Golomb object used to encode the motion vectors.
  */
-Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb* gl);
+YUVFrame DecodeInterFrame(YUVFrame& previousFrame, int blockSize, Golomb *gl);
 
 /**
  * \brief Intra frame encoder.

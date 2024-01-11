@@ -6,37 +6,6 @@
 
 using namespace std;
 
-struct YUVFrame {
-    vector<vector<char>> Y;
-    vector<vector<char>> U;
-    vector<vector<char>> V;
-    int rows;
-    int cols;
-
-    vector<vector<char>>& getPlane(int plane) {
-        switch (plane) {
-            case 0:
-                return Y;
-            case 1:
-                return U;
-            case 2:
-                return V;
-            default:
-                throw std::out_of_range("Invalid plane index");
-        }
-    }
-};
-
-struct VideoInfo {
-    vector<YUVFrame> frames;
-    string frame_rate;
-    string interlacing;
-    string aspect_ratio;
-    string color_space;
-    string header;
-    int cols;
-    int rows;
-};
 
 bool parseYUV4MPEG2(string filename, VideoInfo& info) {
     ifstream file(filename, ios::binary);
