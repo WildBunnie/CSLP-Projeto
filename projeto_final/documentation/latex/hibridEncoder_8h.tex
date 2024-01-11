@@ -1,0 +1,781 @@
+\hypertarget{hibridEncoder_8h}{}\doxysection{include/hibrid\+Encoder.h File Reference}
+\label{hibridEncoder_8h}\index{include/hibridEncoder.h@{include/hibridEncoder.h}}
+{\ttfamily \#include \char`\"{}Golomb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}intra\+Encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for hibrid\+Encoder.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{hibridEncoder_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{hibridEncoder_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classBlock}{Block}}
+\begin{DoxyCompactList}\small\item\em A class to represent a fixed-\/size block of pixels from a frame. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}}
+\begin{DoxyCompactList}\small\item\em A structuer to represent a frame. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structVideoInfo}{Video\+Info}}
+\begin{DoxyCompactList}\small\item\em A structure to represent the video information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{hibridEncoder_8h_a9a10b79407535c156a0f0b1ea34a7c09}{parse\+Y\+U\+V4\+M\+P\+E\+G2}} (string filename, \mbox{\hyperlink{structVideoInfo}{Video\+Info}} \&info)
+\begin{DoxyCompactList}\small\item\em A parser for videos in Y\+U\+V4\+M\+P\+E\+G2 format. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{hibridEncoder_8h_afd4f19ffb18d6b9fc4691b9d0fa67c2f}{Find\+Best\+Block}} (\mbox{\hyperlink{classBlock}{Block}} block, const vector$<$ vector$<$ char $>$$>$ \&previous, const vector$<$ vector$<$ char $>$$>$ \&current, int \mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{search\+Area}}) void \mbox{\hyperlink{hibridEncoder_8cpp_acffad99f8ab893c8a21d4a711eba1ec4}{Encode\+Inter\+Frame}}(\mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} \&current\+Frame
+\begin{DoxyCompactList}\small\item\em Search algoritthm to find best block within the defined search area. \end{DoxyCompactList}\item 
+Mat \mbox{\hyperlink{hibridEncoder_8h_a5cd640a9bd097abc44634c1358d62a06}{Decode\+Inter\+Frame}} (Mat \mbox{\hyperlink{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}{previous\+Frame}}, int \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{block\+Size}}, \mbox{\hyperlink{classGolomb}{Golomb}} $\ast$\mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}})
+\begin{DoxyCompactList}\small\item\em Inter frame encoder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hibridEncoder_8h_a17dc6785b150af90af3063c048173c4b}{Encode\+Intra\+Frame}} (\mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} frame, int \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{block\+Size}}, \mbox{\hyperlink{classGolomb}{Golomb}} $\ast$\mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}})
+\begin{DoxyCompactList}\small\item\em Intra frame encoder. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} \mbox{\hyperlink{hibridEncoder_8h_a87aa94cf8cbdc25d7ee4ab7146975323}{Decode\+Intra\+Frame}} (int rows, int cols, \mbox{\hyperlink{classGolomb}{Golomb}} $\ast$\mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}})
+\begin{DoxyCompactList}\small\item\em Intra frame decoder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hibridEncoder_8h_a28c13f1704b28e49c136d584d5ba0631}{Write\+Y\+U\+V\+Frame\+To\+File}} (string file\+Name, \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} \&frame)
+\begin{DoxyCompactList}\small\item\em Writes a Y\+UV frame to a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73}{Encode\+Hybrid}} (string outputfile, string input\+File, int periodicity, int \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{block\+Size}}, int Search\+Area, int \mbox{\hyperlink{hibridEncoder_8h_ad860f24511aae3222f97c1f621197219}{quantizationY}}, int \mbox{\hyperlink{hibridEncoder_8h_aec2277cf4c9c294db679811ee227095b}{quantizationU}}, int \mbox{\hyperlink{hibridEncoder_8h_a56bfab84038096c11bf06c23f48b4583}{quantizationV}}, int golomb)
+\begin{DoxyCompactList}\small\item\em Hybrid (inter + intra) encoder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hibridEncoder_8h_ad83114a6d533550c807ba8593f8f1536}{Decode\+Hybrid}} (string output\+File, string input\+File, int golomb)
+\begin{DoxyCompactList}\small\item\em Hybrid (inter + intra) frame decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} \& \mbox{\hyperlink{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}{previous\+Frame}}
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{block\+Size}}
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int \mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{search\+Area}}
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int \mbox{\hyperlink{classGolomb}{Golomb}} $\ast$ \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int \mbox{\hyperlink{classGolomb}{Golomb}} int \mbox{\hyperlink{hibridEncoder_8h_ad860f24511aae3222f97c1f621197219}{quantizationY}}
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int \mbox{\hyperlink{classGolomb}{Golomb}} int int \mbox{\hyperlink{hibridEncoder_8h_aec2277cf4c9c294db679811ee227095b}{quantizationU}}
+\item 
+\mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int \mbox{\hyperlink{classGolomb}{Golomb}} int int int \mbox{\hyperlink{hibridEncoder_8h_a56bfab84038096c11bf06c23f48b4583}{quantizationV}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{hibridEncoder_8h_ad83114a6d533550c807ba8593f8f1536}\label{hibridEncoder_8h_ad83114a6d533550c807ba8593f8f1536}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!DecodeHybrid@{DecodeHybrid}}
+\index{DecodeHybrid@{DecodeHybrid}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{DecodeHybrid()}{DecodeHybrid()}}
+{\footnotesize\ttfamily void Decode\+Hybrid (\begin{DoxyParamCaption}\item[{string}]{output\+File,  }\item[{string}]{input\+File,  }\item[{int}]{golomb }\end{DoxyParamCaption})}
+
+
+
+Hybrid (inter + intra) frame decoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+File} & The name of the output file. \\
+\hline
+{\em input\+File} & The name of the input file. \\
+\hline
+{\em golomb} & The golomb value. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 376 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{377 \{}
+\DoxyCodeLine{378     \mbox{\hyperlink{classBitStream}{BitStream}} bs(inputFile, \textcolor{charliteral}{'r'});}
+\DoxyCodeLine{379     \mbox{\hyperlink{classGolomb}{Golomb}} \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}(\&bs, golomb);}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381     \textcolor{keywordtype}{int} frameCount = \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.decodeNumber();}
+\DoxyCodeLine{382     \textcolor{keywordtype}{int} rows = \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.decodeNumber();}
+\DoxyCodeLine{383     \textcolor{keywordtype}{int} cols = \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.decodeNumber();}
+\DoxyCodeLine{384     \textcolor{keywordtype}{int} \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}} = \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.decodeNumber();}
+\DoxyCodeLine{385     }
+\DoxyCodeLine{386     ofstream fileStream(outputFile);}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388     \textcolor{keywordflow}{if} (fileStream.is\_open()) \{}
+\DoxyCodeLine{389         fileStream << \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.decodeString() << endl;}
+\DoxyCodeLine{390         fileStream.close();}
+\DoxyCodeLine{391     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{392         cerr << \textcolor{stringliteral}{"Unable to open the file."} << endl;}
+\DoxyCodeLine{393         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{394     \}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396     \mbox{\hyperlink{structYUVFrame}{YUVFrame}} \mbox{\hyperlink{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}{previousFrame}}, frame;}
+\DoxyCodeLine{397     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < frameCount; i++)}
+\DoxyCodeLine{398     \{}
+\DoxyCodeLine{399         cout << \textcolor{stringliteral}{"decoding frame "} << i+1 << \textcolor{stringliteral}{"/"} << frameCount << endl;}
+\DoxyCodeLine{400         \textcolor{keywordtype}{int} isIntraEncoded = bs.readBit();}
+\DoxyCodeLine{401         \textcolor{keywordflow}{if} (isIntraEncoded == 1)}
+\DoxyCodeLine{402         \{}
+\DoxyCodeLine{403             frame = \mbox{\hyperlink{hibridEncoder_8cpp_a87aa94cf8cbdc25d7ee4ab7146975323}{DecodeIntraFrame}}(rows, cols, \&\mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}});}
+\DoxyCodeLine{404         \}}
+\DoxyCodeLine{405         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{406         \{}
+\DoxyCodeLine{407             frame = \mbox{\hyperlink{hibridEncoder_8cpp_af3f6dc7f72ffe93409e0b6e2119debaf}{DecodeInterFrame}}(\mbox{\hyperlink{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}{previousFrame}}, \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}}, \&\mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}});}
+\DoxyCodeLine{408         \}}
+\DoxyCodeLine{409         \mbox{\hyperlink{hibridEncoder_8cpp_a28c13f1704b28e49c136d584d5ba0631}{WriteYUVFrameToFile}}(outputFile, frame);}
+\DoxyCodeLine{410         \mbox{\hyperlink{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}{previousFrame}} = frame;}
+\DoxyCodeLine{411     \}}
+\DoxyCodeLine{412 \}}
+
+\end{DoxyCode}
+
+
+References block\+Size, Decode\+Inter\+Frame(), Decode\+Intra\+Frame(), gl, previous\+Frame, Bit\+Stream\+::read\+Bit(), and Write\+Y\+U\+V\+Frame\+To\+File().
+
+
+
+Referenced by main().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8h_ad83114a6d533550c807ba8593f8f1536_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{hibridEncoder_8h_ad83114a6d533550c807ba8593f8f1536_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8h_a5cd640a9bd097abc44634c1358d62a06}\label{hibridEncoder_8h_a5cd640a9bd097abc44634c1358d62a06}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!DecodeInterFrame@{DecodeInterFrame}}
+\index{DecodeInterFrame@{DecodeInterFrame}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{DecodeInterFrame()}{DecodeInterFrame()}}
+{\footnotesize\ttfamily Mat Decode\+Inter\+Frame (\begin{DoxyParamCaption}\item[{Mat}]{previous\+Frame,  }\item[{int}]{block\+Size,  }\item[{\mbox{\hyperlink{classGolomb}{Golomb}} $\ast$}]{gl }\end{DoxyParamCaption})}
+
+
+
+Inter frame encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em previous\+Frame} & The previous frame. \\
+\hline
+{\em residuals} & The calculated residuals. \\
+\hline
+{\em count\+Motion\+Vectors} & The value of the actual count of the motion vectors. \\
+\hline
+{\em block\+Size} & The size of each block. \\
+\hline
+{\em gl} & The \mbox{\hyperlink{classGolomb}{Golomb}} object used to encode the motion vectors. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hibridEncoder_8h_a87aa94cf8cbdc25d7ee4ab7146975323}\label{hibridEncoder_8h_a87aa94cf8cbdc25d7ee4ab7146975323}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!DecodeIntraFrame@{DecodeIntraFrame}}
+\index{DecodeIntraFrame@{DecodeIntraFrame}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{DecodeIntraFrame()}{DecodeIntraFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} Decode\+Intra\+Frame (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{cols,  }\item[{\mbox{\hyperlink{classGolomb}{Golomb}} $\ast$}]{gl }\end{DoxyParamCaption})}
+
+
+
+Intra frame decoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & The number of rows of the frame. \\
+\hline
+{\em cols} & The number of columns of the frame. \\
+\hline
+{\em gl} & The \mbox{\hyperlink{classGolomb}{Golomb}} object used to decode the residuals. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The decoded frame. 
+\end{DoxyReturn}
+
+
+Definition at line 290 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{290                                                          \{}
+\DoxyCodeLine{291     }
+\DoxyCodeLine{292     \mbox{\hyperlink{structYUVFrame}{YUVFrame}} original;}
+\DoxyCodeLine{293     original.\mbox{\hyperlink{structYUVFrame_a79ca44f323a74baaf4f44ee8e3480a3a}{rows}} = rows;}
+\DoxyCodeLine{294     original.\mbox{\hyperlink{structYUVFrame_a29414bdba64a19dbbfded02ff75292c8}{cols}} = cols;}
+\DoxyCodeLine{295     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} plane = 0; plane <= 2; plane++)\{}
+\DoxyCodeLine{296         vector<vector<char>> residualsPlane(rows, vector<char>(cols));}
+\DoxyCodeLine{297         vector<vector<char>> originalPlane(rows, vector<char>(cols));}
+\DoxyCodeLine{298         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < rows; row++)\{}
+\DoxyCodeLine{299             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < cols; col++)\{}
+\DoxyCodeLine{300                 }
+\DoxyCodeLine{301                 \textcolor{keywordtype}{int} estimate = 0;}
+\DoxyCodeLine{302                 residualsPlane[row][col] = \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}-\/>decodeNumber();}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304                 \textcolor{keywordflow}{if}(row > 0 \&\& col > 0)\{}
+\DoxyCodeLine{305                     \textcolor{keywordtype}{int} a = originalPlane[row][col-\/1];}
+\DoxyCodeLine{306                     \textcolor{keywordtype}{int} b = originalPlane[row-\/1][col];}
+\DoxyCodeLine{307                     \textcolor{keywordtype}{int} c = originalPlane[row-\/1][col-\/1];}
+\DoxyCodeLine{308                     estimate = \mbox{\hyperlink{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740}{jpeg\_ls\_predictor}}(a,b,c);}
+\DoxyCodeLine{309                 \}}
+\DoxyCodeLine{310                 \textcolor{comment}{// original = residuals + estimate}}
+\DoxyCodeLine{311                 originalPlane[row][col] = residualsPlane[row][col] + estimate;}
+\DoxyCodeLine{312             \}}
+\DoxyCodeLine{313         \}}
+\DoxyCodeLine{314         \textcolor{keywordflow}{switch}(plane) \{}
+\DoxyCodeLine{315             \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{316                 original.\mbox{\hyperlink{structYUVFrame_a8eb373227abb7f88ba626ce7394ea7f5}{Y}} = originalPlane;}
+\DoxyCodeLine{317                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{318             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{319                 original.\mbox{\hyperlink{structYUVFrame_a1f108018acb61582d2cb757eb037ea6d}{U}} = originalPlane;}
+\DoxyCodeLine{320                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{321             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{322                 original.\mbox{\hyperlink{structYUVFrame_a245733eef69bd227556826e735550e69}{V}} = originalPlane;}
+\DoxyCodeLine{323                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{324         \}}
+\DoxyCodeLine{325     \}}
+\DoxyCodeLine{326     \textcolor{keywordflow}{return} original;}
+\DoxyCodeLine{327 \}}
+
+\end{DoxyCode}
+
+
+References Y\+U\+V\+Frame\+::cols, gl, jpeg\+\_\+ls\+\_\+predictor(), Y\+U\+V\+Frame\+::rows, Y\+U\+V\+Frame\+::U, Y\+U\+V\+Frame\+::V, and Y\+U\+V\+Frame\+::Y.
+
+
+
+Referenced by Decode\+Hybrid().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{hibridEncoder_8h_a87aa94cf8cbdc25d7ee4ab7146975323_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8h_a87aa94cf8cbdc25d7ee4ab7146975323_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73}\label{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!EncodeHybrid@{EncodeHybrid}}
+\index{EncodeHybrid@{EncodeHybrid}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{EncodeHybrid()}{EncodeHybrid()}}
+{\footnotesize\ttfamily void Encode\+Hybrid (\begin{DoxyParamCaption}\item[{string}]{outputfile,  }\item[{string}]{input\+File,  }\item[{int}]{periodicity,  }\item[{int}]{block\+Size,  }\item[{int}]{Search\+Area,  }\item[{int}]{quantizationY,  }\item[{int}]{quantizationU,  }\item[{int}]{quantizationV,  }\item[{int}]{golomb }\end{DoxyParamCaption})}
+
+
+
+Hybrid (inter + intra) encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em outputfile} & The name of the output file. \\
+\hline
+{\em input\+File} & The name of the input file. \\
+\hline
+{\em periodicity} & The periodicity of the key frames. \\
+\hline
+{\em block\+Size} & The size of each block. \\
+\hline
+{\em search\+Area} & The size of the search area. \\
+\hline
+{\em quantizationY} & The quantization value for the Y plane. \\
+\hline
+{\em quantizationU} & The quantization value for the U plane. \\
+\hline
+{\em quantizationV} & The quantization value for the V plane. \\
+\hline
+{\em golomb} & The golomb value. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 341 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{342 \{   }
+\DoxyCodeLine{343     \mbox{\hyperlink{structVideoInfo}{VideoInfo}} video\_info;}
+\DoxyCodeLine{344     \mbox{\hyperlink{hibridEncoder_8cpp_a9a10b79407535c156a0f0b1ea34a7c09}{parseYUV4MPEG2}}(inputFile, video\_info);}
+\DoxyCodeLine{345     }
+\DoxyCodeLine{346     \mbox{\hyperlink{classBitStream}{BitStream}} bs(outputfile, \textcolor{charliteral}{'w'});}
+\DoxyCodeLine{347     \mbox{\hyperlink{classGolomb}{Golomb}} \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}(\&bs, golomb);}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349     \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.encodeNumber(video\_info.\mbox{\hyperlink{structVideoInfo_ac8261ce3e2eefd29e9c7e69167fc84f4}{frames}}.size()); \textcolor{comment}{// number of frames}}
+\DoxyCodeLine{350     \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.encodeNumber(video\_info.\mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}});          \textcolor{comment}{// frame rows}}
+\DoxyCodeLine{351     \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.encodeNumber(video\_info.\mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}});          \textcolor{comment}{// frame columns}}
+\DoxyCodeLine{352     \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.encodeNumber(\mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}});                \textcolor{comment}{// block size}}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{354     \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}.encodeString(video\_info.\mbox{\hyperlink{structVideoInfo_a415aa867a31432bcce539955f040ae83}{header}});}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356     \textcolor{keywordtype}{int} counter = 0;}
+\DoxyCodeLine{357     \mbox{\hyperlink{structYUVFrame}{YUVFrame}} \mbox{\hyperlink{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}{previousFrame}}, frame;}
+\DoxyCodeLine{358     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < video\_info.\mbox{\hyperlink{structVideoInfo_ac8261ce3e2eefd29e9c7e69167fc84f4}{frames}}.size(); i++)\{}
+\DoxyCodeLine{359         \textcolor{comment}{//cout << "encoding frame " << i+1 << "/" << video\_info.frames.size() << endl;}}
+\DoxyCodeLine{360         frame = video\_info.\mbox{\hyperlink{structVideoInfo_ac8261ce3e2eefd29e9c7e69167fc84f4}{frames}}[i];}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362         \textcolor{keywordflow}{if} (counter == periodicity || i == 0)\{}
+\DoxyCodeLine{363             bs.writeBit(1);}
+\DoxyCodeLine{364             \mbox{\hyperlink{hibridEncoder_8cpp_a17dc6785b150af90af3063c048173c4b}{EncodeIntraFrame}}(frame, \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}}, \&\mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}});}
+\DoxyCodeLine{365             counter = 0;}
+\DoxyCodeLine{366         \}}
+\DoxyCodeLine{367         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{368             bs.writeBit(0);}
+\DoxyCodeLine{369             \mbox{\hyperlink{hibridEncoder_8cpp_acffad99f8ab893c8a21d4a711eba1ec4}{EncodeInterFrame}}(frame, \mbox{\hyperlink{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}{previousFrame}}, \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}}, SearchArea, \&\mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}, \mbox{\hyperlink{hibridEncoder_8h_ad860f24511aae3222f97c1f621197219}{quantizationY}}, \mbox{\hyperlink{hibridEncoder_8h_aec2277cf4c9c294db679811ee227095b}{quantizationU}}, \mbox{\hyperlink{hibridEncoder_8h_a56bfab84038096c11bf06c23f48b4583}{quantizationV}});}
+\DoxyCodeLine{370             counter += 1;}
+\DoxyCodeLine{371         \}}
+\DoxyCodeLine{372         \mbox{\hyperlink{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}{previousFrame}} = frame;}
+\DoxyCodeLine{373     \}}
+\DoxyCodeLine{374 \}}
+
+\end{DoxyCode}
+
+
+References block\+Size, Video\+Info\+::cols, Encode\+Inter\+Frame(), Encode\+Intra\+Frame(), Video\+Info\+::frames, gl, Video\+Info\+::header, parse\+Y\+U\+V4\+M\+P\+E\+G2(), previous\+Frame, quantizationU, quantizationV, quantizationY, Video\+Info\+::rows, and Bit\+Stream\+::write\+Bit().
+
+
+
+Referenced by main(), and Test\+Golomb().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8h_a17dc6785b150af90af3063c048173c4b}\label{hibridEncoder_8h_a17dc6785b150af90af3063c048173c4b}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!EncodeIntraFrame@{EncodeIntraFrame}}
+\index{EncodeIntraFrame@{EncodeIntraFrame}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{EncodeIntraFrame()}{EncodeIntraFrame()}}
+{\footnotesize\ttfamily void Encode\+Intra\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}}}]{frame,  }\item[{int}]{block\+Size,  }\item[{\mbox{\hyperlink{classGolomb}{Golomb}} $\ast$}]{gl }\end{DoxyParamCaption})}
+
+
+
+Intra frame encoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & The frame to be encoded. \\
+\hline
+{\em block\+Size} & The size of each block. \\
+\hline
+{\em gl} & The \mbox{\hyperlink{classGolomb}{Golomb}} object used to encode the residuals. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 268 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{268                                                                 \{}
+\DoxyCodeLine{269     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} plane = 0; plane <= 2; plane++)}
+\DoxyCodeLine{270     \{}
+\DoxyCodeLine{271         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < frame.\mbox{\hyperlink{structYUVFrame_a79ca44f323a74baaf4f44ee8e3480a3a}{rows}}; row++)}
+\DoxyCodeLine{272         \{}
+\DoxyCodeLine{273             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < frame.\mbox{\hyperlink{structYUVFrame_a29414bdba64a19dbbfded02ff75292c8}{cols}}; col++)}
+\DoxyCodeLine{274             \{}
+\DoxyCodeLine{275                 \textcolor{keywordtype}{int} estimate = 0;}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277                 \textcolor{keywordflow}{if}(row > 0 \&\& col > 0)\{}
+\DoxyCodeLine{278                     \textcolor{keywordtype}{int} a = frame.\mbox{\hyperlink{structYUVFrame_a901623031b29edd040feb240ec872b86}{getPlane}}(plane)[row][col-\/1];}
+\DoxyCodeLine{279                     \textcolor{keywordtype}{int} b = frame.\mbox{\hyperlink{structYUVFrame_a901623031b29edd040feb240ec872b86}{getPlane}}(plane)[row-\/1][col];}
+\DoxyCodeLine{280                     \textcolor{keywordtype}{int} c = frame.\mbox{\hyperlink{structYUVFrame_a901623031b29edd040feb240ec872b86}{getPlane}}(plane)[row-\/1][col-\/1];}
+\DoxyCodeLine{281                     estimate = \mbox{\hyperlink{intraEncoder_8h_a7c31973126ea4a26d7e0c4e40842d740}{jpeg\_ls\_predictor}}(a,b,c);}
+\DoxyCodeLine{282                 \}}
+\DoxyCodeLine{283                 \textcolor{comment}{// residuals = original -\/ estimate}}
+\DoxyCodeLine{284                 \mbox{\hyperlink{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}{gl}}-\/>encodeNumber(frame.\mbox{\hyperlink{structYUVFrame_a901623031b29edd040feb240ec872b86}{getPlane}}(plane)[row][col] -\/ estimate);}
+\DoxyCodeLine{285             \}}
+\DoxyCodeLine{286         \}}
+\DoxyCodeLine{287     \}}
+\DoxyCodeLine{288 \}}
+
+\end{DoxyCode}
+
+
+References Y\+U\+V\+Frame\+::cols, Y\+U\+V\+Frame\+::get\+Plane(), gl, jpeg\+\_\+ls\+\_\+predictor(), and Y\+U\+V\+Frame\+::rows.
+
+
+
+Referenced by Encode\+Hybrid().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{hibridEncoder_8h_a17dc6785b150af90af3063c048173c4b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8h_a17dc6785b150af90af3063c048173c4b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8h_afd4f19ffb18d6b9fc4691b9d0fa67c2f}\label{hibridEncoder_8h_afd4f19ffb18d6b9fc4691b9d0fa67c2f}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!FindBestBlock@{FindBestBlock}}
+\index{FindBestBlock@{FindBestBlock}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{FindBestBlock()}{FindBestBlock()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} Find\+Best\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBlock}{Block}}}]{block,  }\item[{const vector$<$ vector$<$ char $>$$>$ \&}]{previous,  }\item[{const vector$<$ vector$<$ char $>$$>$ \&}]{current,  }\item[{int}]{search\+Area }\end{DoxyParamCaption}) \&}
+
+
+
+Search algoritthm to find best block within the defined search area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & The block to be compared to. \\
+\hline
+{\em previous} & The previous frame. \\
+\hline
+{\em current} & The current frame. \\
+\hline
+{\em search\+Area} & The size of the search area.\\
+\hline
+\end{DoxyParams}
+Inter frame decoder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Frame} & The current frame. \\
+\hline
+{\em previous\+Frame} & The previous frame. \\
+\hline
+{\em block\+Size} & The size of each block. \\
+\hline
+{\em search\+Area} & The size of the search area. \\
+\hline
+{\em gl} & The \mbox{\hyperlink{classGolomb}{Golomb}} object used to decode the motion vectors. \\
+\hline
+{\em quantizationY} & The quantization value for the Y plane. \\
+\hline
+{\em quantizationU} & The quantization value for the U plane. \\
+\hline
+{\em quantizationV} & The quantization value for the V plane. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hibridEncoder_8h_a9a10b79407535c156a0f0b1ea34a7c09}\label{hibridEncoder_8h_a9a10b79407535c156a0f0b1ea34a7c09}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!parseYUV4MPEG2@{parseYUV4MPEG2}}
+\index{parseYUV4MPEG2@{parseYUV4MPEG2}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{parseYUV4MPEG2()}{parseYUV4MPEG2()}}
+{\footnotesize\ttfamily bool parse\+Y\+U\+V4\+M\+P\+E\+G2 (\begin{DoxyParamCaption}\item[{string}]{filename,  }\item[{\mbox{\hyperlink{structVideoInfo}{Video\+Info}} \&}]{info }\end{DoxyParamCaption})}
+
+
+
+A parser for videos in Y\+U\+V4\+M\+P\+E\+G2 format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to be parsed. \\
+\hline
+{\em info} & The object where the video information will be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the file was parsed successfully, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                                                       \{}
+\DoxyCodeLine{42     ifstream file(filename, ios::binary);}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{44         cerr << \textcolor{stringliteral}{"Error opening file: "} << filename << endl;}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{string} headerLine;}
+\DoxyCodeLine{49     getline(file >> ws, info.\mbox{\hyperlink{structVideoInfo_a415aa867a31432bcce539955f040ae83}{header}});}
+\DoxyCodeLine{50     file.seekg(0);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{string} format;}
+\DoxyCodeLine{53     file >> format;}
+\DoxyCodeLine{54     \textcolor{keywordflow}{if}(format != \textcolor{stringliteral}{"YUV4MPEG2"})\{}
+\DoxyCodeLine{55         cerr << \textcolor{stringliteral}{"Invalid video format"};}
+\DoxyCodeLine{56         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordtype}{string} current = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{60     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{}
+\DoxyCodeLine{61         file >> current;}
+\DoxyCodeLine{62         \textcolor{keywordflow}{if}(current == \textcolor{stringliteral}{"FRAME"})\{}
+\DoxyCodeLine{63             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{64         \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66         \textcolor{keywordtype}{char} first = current[0];}
+\DoxyCodeLine{67         \textcolor{keywordflow}{switch}(first) \{}
+\DoxyCodeLine{68             \textcolor{keywordflow}{case} \textcolor{charliteral}{'W'}:}
+\DoxyCodeLine{69                 current.erase(0,1);}
+\DoxyCodeLine{70                 info.\mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}} = stoi(current);}
+\DoxyCodeLine{71                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{72             \textcolor{keywordflow}{case} \textcolor{charliteral}{'H'}:}
+\DoxyCodeLine{73                 current.erase(0,1);}
+\DoxyCodeLine{74                 info.\mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}} = stoi(current);}
+\DoxyCodeLine{75                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{76             \textcolor{keywordflow}{case} \textcolor{charliteral}{'F'}:}
+\DoxyCodeLine{77                 info.\mbox{\hyperlink{structVideoInfo_a61f0a5fff7578b356123529059bcce92}{frame\_rate}} = current;}
+\DoxyCodeLine{78                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{79             \textcolor{keywordflow}{case} \textcolor{charliteral}{'I'}:}
+\DoxyCodeLine{80                 info.\mbox{\hyperlink{structVideoInfo_a53d863aeb4816359461276d17c00a69e}{interlacing}} = current;}
+\DoxyCodeLine{81                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{82             \textcolor{keywordflow}{case} \textcolor{charliteral}{'A'}:}
+\DoxyCodeLine{83                 info.\mbox{\hyperlink{structVideoInfo_a60b5cf946b8b2cac2aed4f999a99aec6}{aspect\_ratio}} = current;}
+\DoxyCodeLine{84                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{85             \textcolor{keywordflow}{case} \textcolor{charliteral}{'C'}:}
+\DoxyCodeLine{86                 info.\mbox{\hyperlink{structVideoInfo_a4183da8f7ea2d1157efcae7371ccb082}{color\_space}} = current;}
+\DoxyCodeLine{87                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{88         \}}
+\DoxyCodeLine{89     \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{keywordflow}{if}(info.\mbox{\hyperlink{structVideoInfo_a4183da8f7ea2d1157efcae7371ccb082}{color\_space}}.find(\textcolor{stringliteral}{"444"}) == string::npos)\{}
+\DoxyCodeLine{92         cerr << \textcolor{stringliteral}{"This program currently only supports videos with 4:4:4 color space"};}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95     }
+\DoxyCodeLine{96     vector<YUVFrame> frames;}
+\DoxyCodeLine{97     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{}
+\DoxyCodeLine{98         file.get(); \textcolor{comment}{// remove newline}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100         vector<vector<char>> y\_plane(info.\mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}}, vector<char>(info.\mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}}));}
+\DoxyCodeLine{101         vector<vector<char>> u\_plane(info.\mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}}, vector<char>(info.\mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}}));}
+\DoxyCodeLine{102         vector<vector<char>> v\_plane(info.\mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}}, vector<char>(info.\mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}}));}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < info.\mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}}; ++i) \{}
+\DoxyCodeLine{105             file.read(y\_plane[i].data(), info.\mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}});}
+\DoxyCodeLine{106         \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < info.\mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}}; ++i) \{}
+\DoxyCodeLine{109             file.read(u\_plane[i].data(), info.\mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}});}
+\DoxyCodeLine{110         \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < info.\mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}}; ++i) \{}
+\DoxyCodeLine{113             file.read(v\_plane[i].data(), info.\mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}});}
+\DoxyCodeLine{114         \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         \mbox{\hyperlink{structYUVFrame}{YUVFrame}} frame;}
+\DoxyCodeLine{117         frame.\mbox{\hyperlink{structYUVFrame_a8eb373227abb7f88ba626ce7394ea7f5}{Y}} = y\_plane;}
+\DoxyCodeLine{118         frame.\mbox{\hyperlink{structYUVFrame_a1f108018acb61582d2cb757eb037ea6d}{U}} = u\_plane;}
+\DoxyCodeLine{119         frame.\mbox{\hyperlink{structYUVFrame_a245733eef69bd227556826e735550e69}{V}} = v\_plane;}
+\DoxyCodeLine{120         frame.\mbox{\hyperlink{structYUVFrame_a79ca44f323a74baaf4f44ee8e3480a3a}{rows}} = info.\mbox{\hyperlink{structVideoInfo_a4c7de848f4d27c06ae955ab0949aa165}{rows}};}
+\DoxyCodeLine{121         frame.\mbox{\hyperlink{structYUVFrame_a29414bdba64a19dbbfded02ff75292c8}{cols}} = info.\mbox{\hyperlink{structVideoInfo_a53adceac56c22caa93f872e623e8346f}{cols}};}
+\DoxyCodeLine{122         frames.push\_back(frame);}
+\DoxyCodeLine{123         }
+\DoxyCodeLine{124         \textcolor{comment}{// get rid of "FRAME"}}
+\DoxyCodeLine{125         \textcolor{keywordtype}{string} text;}
+\DoxyCodeLine{126         file >> text;}
+\DoxyCodeLine{127         }
+\DoxyCodeLine{128         \textcolor{keywordflow}{if}(file.eof())\{}
+\DoxyCodeLine{129             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{130         \}}
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{132     file.close();}
+\DoxyCodeLine{133     info.\mbox{\hyperlink{structVideoInfo_ac8261ce3e2eefd29e9c7e69167fc84f4}{frames}} = frames;}
+\DoxyCodeLine{134     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{135 \}}
+
+\end{DoxyCode}
+
+
+References Video\+Info\+::aspect\+\_\+ratio, Video\+Info\+::color\+\_\+space, Y\+U\+V\+Frame\+::cols, Video\+Info\+::cols, Video\+Info\+::frame\+\_\+rate, Video\+Info\+::frames, Video\+Info\+::header, Video\+Info\+::interlacing, Y\+U\+V\+Frame\+::rows, Video\+Info\+::rows, Y\+U\+V\+Frame\+::U, Y\+U\+V\+Frame\+::V, and Y\+U\+V\+Frame\+::Y.
+
+
+
+Referenced by Encode\+Hybrid().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8h_a9a10b79407535c156a0f0b1ea34a7c09_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{hibridEncoder_8h_a28c13f1704b28e49c136d584d5ba0631}\label{hibridEncoder_8h_a28c13f1704b28e49c136d584d5ba0631}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!WriteYUVFrameToFile@{WriteYUVFrameToFile}}
+\index{WriteYUVFrameToFile@{WriteYUVFrameToFile}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{WriteYUVFrameToFile()}{WriteYUVFrameToFile()}}
+{\footnotesize\ttfamily void Write\+Y\+U\+V\+Frame\+To\+File (\begin{DoxyParamCaption}\item[{string}]{file\+Name,  }\item[{\mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} \&}]{frame }\end{DoxyParamCaption})}
+
+
+
+Writes a Y\+UV frame to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file. \\
+\hline
+{\em frame} & The frame to be written. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 329 of file hibrid\+Encoder.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{329                                                           \{}
+\DoxyCodeLine{330     ofstream outputFile(fileName, ios::binary | ios::app);}
+\DoxyCodeLine{331     outputFile << \textcolor{stringliteral}{"FRAME"} << endl;}
+\DoxyCodeLine{332     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} plane = 0; plane <= 2; plane++)}
+\DoxyCodeLine{333     \{}
+\DoxyCodeLine{334         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& row : frame.\mbox{\hyperlink{structYUVFrame_a901623031b29edd040feb240ec872b86}{getPlane}}(plane)) \{}
+\DoxyCodeLine{335             outputFile.write(row.data(), row.size());}
+\DoxyCodeLine{336         \}}
+\DoxyCodeLine{337     \}}
+\DoxyCodeLine{338     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{339 \}}
+
+\end{DoxyCode}
+
+
+References Y\+U\+V\+Frame\+::get\+Plane().
+
+
+
+Referenced by Decode\+Hybrid().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8h_a28c13f1704b28e49c136d584d5ba0631_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hibridEncoder_8h_a28c13f1704b28e49c136d584d5ba0631_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}\label{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!blockSize@{blockSize}}
+\index{blockSize@{blockSize}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{blockSize}{blockSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int block\+Size}
+
+
+
+Definition at line 191 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Decode\+Hybrid(), Decode\+Inter\+Frame(), Encode\+Hybrid(), Encode\+Inter\+Frame(), main(), and Test\+Golomb().
+
+\mbox{\Hypertarget{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}\label{hibridEncoder_8h_ada6da074626b8b538697bd8b2eac8f99}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!gl@{gl}}
+\index{gl@{gl}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{gl}{gl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int \mbox{\hyperlink{classGolomb}{Golomb}}$\ast$ gl}
+
+
+
+Definition at line 191 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Decode\+Hybrid(), Decode\+Inter\+Frame(), Decode\+Intra\+Frame(), Encode\+Hybrid(), Encode\+Inter\+Frame(), and Encode\+Intra\+Frame().
+
+\mbox{\Hypertarget{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}\label{hibridEncoder_8h_afa927a5e218b141ce6a36688a63ddf05}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!previousFrame@{previousFrame}}
+\index{previousFrame@{previousFrame}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{previousFrame}{previousFrame}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}}\& previous\+Frame}
+
+
+
+Definition at line 191 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Decode\+Hybrid(), Decode\+Inter\+Frame(), Encode\+Hybrid(), and Encode\+Inter\+Frame().
+
+\mbox{\Hypertarget{hibridEncoder_8h_aec2277cf4c9c294db679811ee227095b}\label{hibridEncoder_8h_aec2277cf4c9c294db679811ee227095b}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!quantizationU@{quantizationU}}
+\index{quantizationU@{quantizationU}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{quantizationU}{quantizationU}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int \mbox{\hyperlink{classGolomb}{Golomb}} int int quantizationU}
+
+
+
+Definition at line 191 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Hybrid(), and Encode\+Inter\+Frame().
+
+\mbox{\Hypertarget{hibridEncoder_8h_a56bfab84038096c11bf06c23f48b4583}\label{hibridEncoder_8h_a56bfab84038096c11bf06c23f48b4583}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!quantizationV@{quantizationV}}
+\index{quantizationV@{quantizationV}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{quantizationV}{quantizationV}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int \mbox{\hyperlink{classGolomb}{Golomb}} int int int quantizationV}
+
+
+
+Definition at line 191 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Hybrid(), and Encode\+Inter\+Frame().
+
+\mbox{\Hypertarget{hibridEncoder_8h_ad860f24511aae3222f97c1f621197219}\label{hibridEncoder_8h_ad860f24511aae3222f97c1f621197219}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!quantizationY@{quantizationY}}
+\index{quantizationY@{quantizationY}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{quantizationY}{quantizationY}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int \mbox{\hyperlink{classGolomb}{Golomb}} int quantizationY}
+
+
+
+Definition at line 191 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Hybrid(), and Encode\+Inter\+Frame().
+
+\mbox{\Hypertarget{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}\label{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}} 
+\index{hibridEncoder.h@{hibridEncoder.h}!searchArea@{searchArea}}
+\index{searchArea@{searchArea}!hibridEncoder.h@{hibridEncoder.h}}
+\doxysubsubsection{\texorpdfstring{searchArea}{searchArea}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBlock}{Block}} \mbox{\hyperlink{structYUVFrame}{Y\+U\+V\+Frame}} int int search\+Area}
+
+
+
+Definition at line 191 of file hibrid\+Encoder.\+h.
+
+
+
+Referenced by Encode\+Inter\+Frame(), Find\+Best\+Block(), main(), and Test\+Golomb().
+

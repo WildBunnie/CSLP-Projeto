@@ -1,0 +1,4 @@
+<map id="WriteYUVFrameToFile" name="WriteYUVFrameToFile">
+<area shape="rect" id="node1" title="Writes a YUV frame to a file." alt="" coords="5,5,168,32"/>
+<area shape="rect" id="node2" href="$structYUVFrame.html#a901623031b29edd040feb240ec872b86" title="function to get a plane of the frame." alt="" coords="216,5,371,32"/>
+</map>

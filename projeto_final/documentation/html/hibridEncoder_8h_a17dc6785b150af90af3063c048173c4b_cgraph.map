@@ -1,0 +1,5 @@
+<map id="EncodeIntraFrame" name="EncodeIntraFrame">
+<area shape="rect" id="node1" title="Intra frame encoder." alt="" coords="5,31,145,57"/>
+<area shape="rect" id="node2" href="$structYUVFrame.html#a901623031b29edd040feb240ec872b86" title="function to get a plane of the frame." alt="" coords="193,5,348,32"/>
+<area shape="rect" id="node3" href="$intraEncoder_8h.html#a7c31973126ea4a26d7e0c4e40842d740" title="JPEG&#45;LS non&#45;linear predictor." alt="" coords="204,56,337,83"/>
+</map>

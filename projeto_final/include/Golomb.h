@@ -40,13 +40,12 @@ class Golomb{
          */
         int decodeNumber();
         /**
-         * \brief Encode an openCV Mat to a bitStream using Golomb.
-         *
-         * \param image Image in Mat format.
+         * \brief Encodes a string, using the encodeNumber function.
+         * \param string String to be encoded.
          */
         void encodeString(string);
         /**
-         * \brief decodes String to file.
+         * \brief Decodes a string, using the decodeNumber function.
          * 
          * \return Decoded String.
          */

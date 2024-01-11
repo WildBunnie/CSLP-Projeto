@@ -1,0 +1,513 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include \char`\"{}Arg\+Parser.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}hibrid\+Encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{print\+Help}} ()
+\item 
+double \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}} (const char $\ast$filename)
+\item 
+void \mbox{\hyperlink{main_8cpp_a0087a317871274edc521ce3c4a9be03d}{Test\+Golomb}} (string file\+To\+Encode)
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{main_8cpp_a154a8b108c1c3b970f2abcb0faee6b4d}{G\+O\+L\+O\+MB}} = 50
+\item 
+const int \mbox{\hyperlink{main_8cpp_adca603142e3eb391ac200ca30bda3ba4}{P\+E\+R\+I\+O\+D\+I\+C\+I\+TY}} = 2
+\item 
+const int \mbox{\hyperlink{main_8cpp_af60f6b462c324a9945966c9b5992a105}{B\+L\+O\+C\+K\+S\+I\+ZE}} = 32
+\item 
+const int \mbox{\hyperlink{main_8cpp_ae9408f693812f7462a92eecfae0ee18a}{S\+E\+A\+R\+C\+H\+A\+R\+EA}} = 5
+\item 
+const int \mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{Q\+U\+A\+N\+T\+I\+Z\+A\+T\+I\+ON}} = -\/1
+\item 
+const char \mbox{\hyperlink{main_8cpp_a8f99be3a5040b2904d61f7c0b2210426}{M\+O\+DE}} = \textquotesingle{}e\textquotesingle{}
+\item 
+const string \mbox{\hyperlink{main_8cpp_aada105fb6ad8122745adb3f2547c52cf}{E\+N\+C\+O\+D\+I\+NG}} = \char`\"{}hybrid\char`\"{}
+\item 
+const string \mbox{\hyperlink{main_8cpp_ac84b430251739158424a9356eda1fb6a}{O\+U\+T\+P\+UT}} = \char`\"{}outputfile\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}\label{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}} 
+\index{main.cpp@{main.cpp}!filesize@{filesize}}
+\index{filesize@{filesize}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{filesize()}{filesize()}}
+{\footnotesize\ttfamily double filesize (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     ifstream file(filename, std::ios::binary);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} (file.is\_open()) \{}
+\DoxyCodeLine{43         file.seekg(0, std::ios::end);}
+\DoxyCodeLine{44         streampos fileSize = file.tellg();}
+\DoxyCodeLine{45         \textcolor{keywordtype}{double} fileSizeMB = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(fileSize);\textcolor{comment}{// / 1048576.0;}}
+\DoxyCodeLine{46         file.close();}
+\DoxyCodeLine{47         \textcolor{keywordflow}{return} fileSizeMB;}
+\DoxyCodeLine{48     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{49         cerr << \textcolor{stringliteral}{"Error opening file."} << std::endl;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+
+
+Referenced by Test\+Golomb().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 145 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{145                                 \{}
+\DoxyCodeLine{146     \textcolor{keywordflow}{if}(argc < 2)\{}
+\DoxyCodeLine{147         cerr << \textcolor{stringliteral}{"Missing arguments"} << endl;}
+\DoxyCodeLine{148         \mbox{\hyperlink{main_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{printHelp}}();}
+\DoxyCodeLine{149         exit(1);}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{151     std::vector<std::string> woof(argv+1 ,argc + argv);}
+\DoxyCodeLine{152     \mbox{\hyperlink{classArgParser}{ArgParser}} args(woof);}
+\DoxyCodeLine{153     \textcolor{keywordtype}{int} golomb = \mbox{\hyperlink{main_8cpp_a154a8b108c1c3b970f2abcb0faee6b4d}{GOLOMB}};}
+\DoxyCodeLine{154     \textcolor{keywordtype}{int} periodicity = \mbox{\hyperlink{main_8cpp_adca603142e3eb391ac200ca30bda3ba4}{PERIODICITY}};}
+\DoxyCodeLine{155     \textcolor{keywordtype}{int} \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}} = \mbox{\hyperlink{main_8cpp_af60f6b462c324a9945966c9b5992a105}{BLOCKSIZE}};}
+\DoxyCodeLine{156     \textcolor{keywordtype}{int} \mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}} = \mbox{\hyperlink{main_8cpp_ae9408f693812f7462a92eecfae0ee18a}{SEARCHAREA}};}
+\DoxyCodeLine{157     \textcolor{keywordtype}{int} quantization = \mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}};}
+\DoxyCodeLine{158     \textcolor{keywordtype}{char} mode = \mbox{\hyperlink{main_8cpp_a8f99be3a5040b2904d61f7c0b2210426}{MODE}};}
+\DoxyCodeLine{159     \textcolor{keywordtype}{string} encoding = \mbox{\hyperlink{main_8cpp_aada105fb6ad8122745adb3f2547c52cf}{ENCODING}};}
+\DoxyCodeLine{160     \textcolor{keywordtype}{string} output = \mbox{\hyperlink{main_8cpp_ac84b430251739158424a9356eda1fb6a}{OUTPUT}};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     \textcolor{keywordtype}{int} i = args.hasOpetion(\textcolor{stringliteral}{"-\/h"});}
+\DoxyCodeLine{163     \textcolor{keywordflow}{if} (i != -\/1)\{}
+\DoxyCodeLine{164         \mbox{\hyperlink{main_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{printHelp}}();}
+\DoxyCodeLine{165         exit(0);}
+\DoxyCodeLine{166     \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     i = args.hasOpetion(\textcolor{stringliteral}{"-\/g"});}
+\DoxyCodeLine{169     \textcolor{keywordflow}{if} (i > -\/1)\{}
+\DoxyCodeLine{170         golomb = stoi(args.getValue(i));}
+\DoxyCodeLine{171     \}}
+\DoxyCodeLine{172     i = args.hasOpetion(\textcolor{stringliteral}{"-\/b"});}
+\DoxyCodeLine{173     \textcolor{keywordflow}{if} (i > -\/1)\{}
+\DoxyCodeLine{174         \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}} = stoi(args.getValue(i));}
+\DoxyCodeLine{175     \}}
+\DoxyCodeLine{176     i = args.hasOpetion(\textcolor{stringliteral}{"-\/s"});}
+\DoxyCodeLine{177     \textcolor{keywordflow}{if} (i > -\/1)\{}
+\DoxyCodeLine{178         \mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}} = stoi(args.getValue(i));}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{180     i = args.hasOpetion(\textcolor{stringliteral}{"-\/p"});}
+\DoxyCodeLine{181     \textcolor{keywordflow}{if} (i > -\/1)\{}
+\DoxyCodeLine{182         periodicity = stoi(args.getValue(i));}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184     i = args.hasOpetion(\textcolor{stringliteral}{"-\/q"});}
+\DoxyCodeLine{185     \textcolor{keywordflow}{if} (i > -\/1)\{}
+\DoxyCodeLine{186         quantization = stoi(args.getValue(i));}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188     i = args.hasOpetion(\textcolor{stringliteral}{"-\/m"});}
+\DoxyCodeLine{189     \textcolor{keywordflow}{if} (i > -\/1)\{}
+\DoxyCodeLine{190         mode = args.getValue(i).at(0);}
+\DoxyCodeLine{191         \textcolor{keywordflow}{if} (mode != \textcolor{charliteral}{'e'} \&\& mode != \textcolor{charliteral}{'d'})\{}
+\DoxyCodeLine{192             cerr << \textcolor{stringliteral}{"mode not acceptable"} << endl;}
+\DoxyCodeLine{193             \mbox{\hyperlink{main_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{printHelp}}();}
+\DoxyCodeLine{194             exit(1);}
+\DoxyCodeLine{195         \}}
+\DoxyCodeLine{196     \}}
+\DoxyCodeLine{197     i = args.hasOpetion(\textcolor{stringliteral}{"-\/e"});}
+\DoxyCodeLine{198     \textcolor{keywordflow}{if} (i > -\/1)\{}
+\DoxyCodeLine{199         encoding = args.getValue(i);}
+\DoxyCodeLine{200         vector<string> option = \{\textcolor{stringliteral}{"hybrid"},\textcolor{stringliteral}{"intra"},\textcolor{stringliteral}{"lossy"}\};}
+\DoxyCodeLine{201         \textcolor{keywordflow}{if} (!(find(option.begin(),option.end(),encoding) != option.end()))\{}
+\DoxyCodeLine{202             cerr << \textcolor{stringliteral}{"encoding not acceptable"} << endl;}
+\DoxyCodeLine{203             \mbox{\hyperlink{main_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{printHelp}}();}
+\DoxyCodeLine{204             exit(1);}
+\DoxyCodeLine{205         \}}
+\DoxyCodeLine{206         \textcolor{keywordflow}{if}(encoding != \textcolor{stringliteral}{"lossy"})\{}
+\DoxyCodeLine{207             quantization = -\/1;}
+\DoxyCodeLine{208         \}}
+\DoxyCodeLine{209         \textcolor{keywordflow}{if}(encoding == \textcolor{stringliteral}{"intra"})\{}
+\DoxyCodeLine{210             periodicity = 0;}
+\DoxyCodeLine{211         \}}
+\DoxyCodeLine{212     \}}
+\DoxyCodeLine{213     i = args.hasOpetion(\textcolor{stringliteral}{"-\/o"});}
+\DoxyCodeLine{214     \textcolor{keywordflow}{if} (i > -\/1)\{}
+\DoxyCodeLine{215         output = args.getValue(i);}
+\DoxyCodeLine{216     \}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218     \textcolor{keywordflow}{if}(args.getValueNoOption() == \textcolor{stringliteral}{""})\{}
+\DoxyCodeLine{219         cerr << \textcolor{stringliteral}{"no input file"} << endl;}
+\DoxyCodeLine{220         \mbox{\hyperlink{main_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{printHelp}}();}
+\DoxyCodeLine{221         exit(1);}
+\DoxyCodeLine{222     \}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     i = args.hasOpetion(\textcolor{stringliteral}{"-\/t"});}
+\DoxyCodeLine{225     \textcolor{keywordflow}{if} (i > -\/1)\{}
+\DoxyCodeLine{226         \mbox{\hyperlink{main_8cpp_a0087a317871274edc521ce3c4a9be03d}{TestGolomb}}(args.getValueNoOption());}
+\DoxyCodeLine{227         exit(0);}
+\DoxyCodeLine{228     \}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230     \textcolor{keywordflow}{if}(mode == \textcolor{charliteral}{'e'})\{}
+\DoxyCodeLine{231         \mbox{\hyperlink{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73}{EncodeHybrid}}(output,args.getValueNoOption(),periodicity,\mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}},\mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}},quantization,quantization,quantization,golomb);}
+\DoxyCodeLine{232     \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{233         \textcolor{keywordflow}{if}(output == \mbox{\hyperlink{main_8cpp_ac84b430251739158424a9356eda1fb6a}{OUTPUT}})\{}
+\DoxyCodeLine{234             output = \textcolor{stringliteral}{"outputfile.y4m"};}
+\DoxyCodeLine{235         \}}
+\DoxyCodeLine{236         \mbox{\hyperlink{hibridEncoder_8h_ad83114a6d533550c807ba8593f8f1536}{DecodeHybrid}}(output,args.getValueNoOption(),golomb);}
+\DoxyCodeLine{237     \}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239     std::cout << args.getValueNoOption() << std::endl;}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241     \textcolor{comment}{//print de opcoes}}
+\DoxyCodeLine{242     cout << \textcolor{stringliteral}{"golomb: "} << golomb << endl;}
+\DoxyCodeLine{243     cout << \textcolor{stringliteral}{"block Size: "} << \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}} << endl;}
+\DoxyCodeLine{244     cout << \textcolor{stringliteral}{"search Area: "} << \mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}} << endl;}
+\DoxyCodeLine{245     cout << \textcolor{stringliteral}{"periodicity: "} << periodicity << endl;}
+\DoxyCodeLine{246     cout << \textcolor{stringliteral}{"quantization: "} << quantization << endl;}
+\DoxyCodeLine{247     cout << \textcolor{stringliteral}{"mode: "} <<mode<< endl;}
+\DoxyCodeLine{248     cout << \textcolor{stringliteral}{"encoding: "} << encoding << endl;}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250     }
+\DoxyCodeLine{251     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{252 \}}
+
+\end{DoxyCode}
+
+
+References B\+L\+O\+C\+K\+S\+I\+ZE, block\+Size, Decode\+Hybrid(), Encode\+Hybrid(), E\+N\+C\+O\+D\+I\+NG, Arg\+Parser\+::get\+Value(), Arg\+Parser\+::get\+Value\+No\+Option(), G\+O\+L\+O\+MB, Arg\+Parser\+::has\+Opetion(), M\+O\+DE, O\+U\+T\+P\+UT, P\+E\+R\+I\+O\+D\+I\+C\+I\+TY, print\+Help(), Q\+U\+A\+N\+T\+I\+Z\+A\+T\+I\+ON, S\+E\+A\+R\+C\+H\+A\+R\+EA, search\+Area, and Test\+Golomb().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}\label{main_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}} 
+\index{main.cpp@{main.cpp}!printHelp@{printHelp}}
+\index{printHelp@{printHelp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{printHelp()}{printHelp()}}
+{\footnotesize\ttfamily void print\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                 \{}
+\DoxyCodeLine{23     cout << \textcolor{stringliteral}{"How to use INPUTFILE [OPTIONS]"} << endl;}
+\DoxyCodeLine{24     cout << \textcolor{stringliteral}{"  -\/option:defaultValue -\/> description"} << endl;}
+\DoxyCodeLine{25     cout << \textcolor{stringliteral}{"  -\/h    -\/>prints this message"} <<endl;}
+\DoxyCodeLine{26     cout << \textcolor{stringliteral}{"  -\/g:"}<< \mbox{\hyperlink{main_8cpp_a154a8b108c1c3b970f2abcb0faee6b4d}{GOLOMB}} << \textcolor{stringliteral}{" -\/>golomb value"} <<endl;}
+\DoxyCodeLine{27     cout << \textcolor{stringliteral}{"  -\/b:"}<< \mbox{\hyperlink{main_8cpp_af60f6b462c324a9945966c9b5992a105}{BLOCKSIZE}} << \textcolor{stringliteral}{" -\/>block size"} <<endl;}
+\DoxyCodeLine{28     cout << \textcolor{stringliteral}{"  -\/s:"}<< \mbox{\hyperlink{main_8cpp_ae9408f693812f7462a92eecfae0ee18a}{SEARCHAREA}} << \textcolor{stringliteral}{"  -\/>search area"} <<endl;}
+\DoxyCodeLine{29     cout << \textcolor{stringliteral}{"  -\/p:"}<< \mbox{\hyperlink{main_8cpp_adca603142e3eb391ac200ca30bda3ba4}{PERIODICITY}} << \textcolor{stringliteral}{"  -\/>periodicity"} <<endl;}
+\DoxyCodeLine{30     cout << \textcolor{stringliteral}{"  -\/q:"}<< \mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}} << \textcolor{stringliteral}{"  -\/> quantization"} << endl;}
+\DoxyCodeLine{31     cout << \textcolor{stringliteral}{"  -\/m:"}<< \mbox{\hyperlink{main_8cpp_a8f99be3a5040b2904d61f7c0b2210426}{MODE}} << \textcolor{stringliteral}{"  -\/>mode encode(e), decode(d)"} <<endl;}
+\DoxyCodeLine{32     cout << \textcolor{stringliteral}{"  -\/e:"}<< \mbox{\hyperlink{main_8cpp_aada105fb6ad8122745adb3f2547c52cf}{ENCODING}} <<  \textcolor{stringliteral}{" -\/>encoding type [hybrid,intra,lossy]"} <<endl;}
+\DoxyCodeLine{33     cout << \textcolor{stringliteral}{"  -\/o:"}<< \mbox{\hyperlink{main_8cpp_ac84b430251739158424a9356eda1fb6a}{OUTPUT}} <<  \textcolor{stringliteral}{" -\/>output file"} <<endl;}
+\DoxyCodeLine{34     cout << \textcolor{stringliteral}{"  -\/t    -\/>test mode"} << endl;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}
+
+
+References B\+L\+O\+C\+K\+S\+I\+ZE, E\+N\+C\+O\+D\+I\+NG, G\+O\+L\+O\+MB, M\+O\+DE, O\+U\+T\+P\+UT, P\+E\+R\+I\+O\+D\+I\+C\+I\+TY, Q\+U\+A\+N\+T\+I\+Z\+A\+T\+I\+ON, and S\+E\+A\+R\+C\+H\+A\+R\+EA.
+
+
+
+Referenced by main().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{main_8cpp_a0d20b69b0ad703df78459e1033d5c1d4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8cpp_a0087a317871274edc521ce3c4a9be03d}\label{main_8cpp_a0087a317871274edc521ce3c4a9be03d}} 
+\index{main.cpp@{main.cpp}!TestGolomb@{TestGolomb}}
+\index{TestGolomb@{TestGolomb}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{TestGolomb()}{TestGolomb()}}
+{\footnotesize\ttfamily void Test\+Golomb (\begin{DoxyParamCaption}\item[{string}]{file\+To\+Encode }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                                     \{}
+\DoxyCodeLine{55     time\_t start,end;}
+\DoxyCodeLine{56     \textcolor{keywordtype}{string} encodeFile = \textcolor{stringliteral}{"encodeFile"};}
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} periodicity = \mbox{\hyperlink{main_8cpp_adca603142e3eb391ac200ca30bda3ba4}{PERIODICITY}};}
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}} = \mbox{\hyperlink{main_8cpp_af60f6b462c324a9945966c9b5992a105}{BLOCKSIZE}};}
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} \mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}} = \mbox{\hyperlink{main_8cpp_ae9408f693812f7462a92eecfae0ee18a}{SEARCHAREA}};}
+\DoxyCodeLine{60     \textcolor{keywordtype}{int} bestGolomb = 0;}
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} bestFilesize = \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(fileToEncode.c\_str());}
+\DoxyCodeLine{62     cout << \textcolor{stringliteral}{"changing Golomb"} << endl;}
+\DoxyCodeLine{63     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 3; i < 8; i++)\{}
+\DoxyCodeLine{64         \textcolor{keywordtype}{int} golomb = pow(2,i);}
+\DoxyCodeLine{65         remove(encodeFile.c\_str());}
+\DoxyCodeLine{66         time(\&start);}
+\DoxyCodeLine{67         \mbox{\hyperlink{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73}{EncodeHybrid}}(encodeFile,fileToEncode,periodicity,\mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}},\mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}},\mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}},\mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}},\mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}},golomb);}
+\DoxyCodeLine{68         time(\&end);}
+\DoxyCodeLine{69         \textcolor{keywordtype}{int} size = \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(encodeFile.c\_str());}
+\DoxyCodeLine{70         \textcolor{keywordflow}{if}(bestFilesize > size)\{}
+\DoxyCodeLine{71             bestFilesize = size;}
+\DoxyCodeLine{72             bestGolomb = golomb;}
+\DoxyCodeLine{73         \}}
+\DoxyCodeLine{74         cout << \textcolor{stringliteral}{"Compression Ration: "} << \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(fileToEncode.c\_str())/size << \textcolor{stringliteral}{" golombValue: "}<< golomb << \textcolor{stringliteral}{" time taken: "} << end-\/start << \textcolor{stringliteral}{" seconds"} << endl;}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76     cout << \textcolor{stringliteral}{"search Area"} << endl;}
+\DoxyCodeLine{77     \textcolor{keywordtype}{int} bestSearchArea = 0;}
+\DoxyCodeLine{78     \textcolor{keywordtype}{int} bestBlockSize = 0;}
+\DoxyCodeLine{79     bestFilesize = \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(fileToEncode.c\_str());}
+\DoxyCodeLine{80     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < 5; i++)\{}
+\DoxyCodeLine{81         \textcolor{keywordtype}{int} \mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}} = 5*i;}
+\DoxyCodeLine{82         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < 7; i++)\{}
+\DoxyCodeLine{83             \textcolor{keywordtype}{int} \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}} = pow(2,i);}
+\DoxyCodeLine{84             remove(encodeFile.c\_str());}
+\DoxyCodeLine{85             time(\&start);}
+\DoxyCodeLine{86             \mbox{\hyperlink{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73}{EncodeHybrid}}(encodeFile,fileToEncode,periodicity,\mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}},\mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}},\mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}},\mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}},\mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}},bestGolomb);}
+\DoxyCodeLine{87             time(\&end);}
+\DoxyCodeLine{88             \textcolor{keywordtype}{int} size = \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(encodeFile.c\_str());}
+\DoxyCodeLine{89             \textcolor{keywordflow}{if}(bestFilesize > size)\{}
+\DoxyCodeLine{90                 bestFilesize = size;}
+\DoxyCodeLine{91                 bestSearchArea = \mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}};}
+\DoxyCodeLine{92                 bestBlockSize = \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}};}
+\DoxyCodeLine{93             \}}
+\DoxyCodeLine{94             cout << \textcolor{stringliteral}{"Compression Ration: "} << \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(fileToEncode.c\_str())/size << \textcolor{stringliteral}{"  searchArea: "}<< \mbox{\hyperlink{hibridEncoder_8h_af3147a37f42eaf29104179e2dad3fb9e}{searchArea}}  << \textcolor{stringliteral}{"MB blockSize: "}<< \mbox{\hyperlink{hibridEncoder_8h_a00807d4e87279b2be270fc142bb9dfd5}{blockSize}} << \textcolor{stringliteral}{" time taken: "} << end-\/start << \textcolor{stringliteral}{" seconds"} << endl;}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97     cout << \textcolor{stringliteral}{"periodicity"} << endl;}
+\DoxyCodeLine{98     \textcolor{keywordtype}{int} bestPeriodicity = 0;}
+\DoxyCodeLine{99     bestFilesize = \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(fileToEncode.c\_str());}
+\DoxyCodeLine{100     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < 6; i++)\{}
+\DoxyCodeLine{101         \textcolor{keywordtype}{int} periodicity = i*2;}
+\DoxyCodeLine{102         remove(encodeFile.c\_str());}
+\DoxyCodeLine{103         time(\&start);}
+\DoxyCodeLine{104         \mbox{\hyperlink{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73}{EncodeHybrid}}(encodeFile,fileToEncode,periodicity,bestBlockSize,bestSearchArea,\mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}},\mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}},\mbox{\hyperlink{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}{QUANTIZATION}},bestGolomb);}
+\DoxyCodeLine{105         time(\&end);}
+\DoxyCodeLine{106         \textcolor{keywordtype}{int} size = \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(encodeFile.c\_str());}
+\DoxyCodeLine{107         \textcolor{keywordflow}{if}(bestFilesize > size)\{}
+\DoxyCodeLine{108             bestFilesize = size;}
+\DoxyCodeLine{109             bestPeriodicity = periodicity;}
+\DoxyCodeLine{110         \}}
+\DoxyCodeLine{111         cout << \textcolor{stringliteral}{"Compression Ration: "} << \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(fileToEncode.c\_str())/size << \textcolor{stringliteral}{" periodicity: "}<< periodicity << \textcolor{stringliteral}{" time taken: "} << end-\/start << \textcolor{stringliteral}{" seconds"} << endl;}
+\DoxyCodeLine{112     \}}
+\DoxyCodeLine{113     cout << \textcolor{stringliteral}{"quantization"} << endl;}
+\DoxyCodeLine{114     \textcolor{keywordtype}{int} bestQuantization = 0;}
+\DoxyCodeLine{115     bestFilesize = \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(fileToEncode.c\_str());}
+\DoxyCodeLine{116     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < 8; i++)\{}
+\DoxyCodeLine{117         \textcolor{keywordtype}{int} quantization = pow(2,i);}
+\DoxyCodeLine{118         remove(encodeFile.c\_str());}
+\DoxyCodeLine{119         time(\&start);}
+\DoxyCodeLine{120         \mbox{\hyperlink{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73}{EncodeHybrid}}(encodeFile,fileToEncode,bestPeriodicity,bestBlockSize,bestSearchArea,quantization,quantization,quantization,bestGolomb);}
+\DoxyCodeLine{121         time(\&end);}
+\DoxyCodeLine{122         \textcolor{keywordtype}{int} size = \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(encodeFile.c\_str());}
+\DoxyCodeLine{123         \textcolor{keywordflow}{if}(bestFilesize > size)\{}
+\DoxyCodeLine{124             bestFilesize = size;}
+\DoxyCodeLine{125             bestQuantization = i;}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{127         cout << \textcolor{stringliteral}{"Compression Ration: "} << \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(fileToEncode.c\_str())/size << \textcolor{stringliteral}{" quantization: "}<< i << \textcolor{stringliteral}{" time taken: "} << end-\/start << \textcolor{stringliteral}{" seconds"} << endl;}
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129     cout << \textcolor{stringliteral}{"intra"} << endl;}
+\DoxyCodeLine{130     remove(encodeFile.c\_str());}
+\DoxyCodeLine{131     time(\&start);}
+\DoxyCodeLine{132     \mbox{\hyperlink{hibridEncoder_8h_a591244866e31eccd4d67d5b874472d73}{EncodeHybrid}}(encodeFile,fileToEncode,0,bestBlockSize,bestSearchArea,bestQuantization,bestQuantization,bestQuantization,bestGolomb);}
+\DoxyCodeLine{133     time(\&end);}
+\DoxyCodeLine{134     \textcolor{keywordtype}{int} size = \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(encodeFile.c\_str());}
+\DoxyCodeLine{135     cout << \textcolor{stringliteral}{"Compression Ration: "} << \mbox{\hyperlink{main_8cpp_aeda58c7e603d3407d82177f9cd2230f3}{filesize}}(fileToEncode.c\_str())/size << \textcolor{stringliteral}{" intra encoding time taken: "} << end-\/start << \textcolor{stringliteral}{" seconds"} << endl;}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     cout << \textcolor{stringliteral}{"bestGolomb:"} << bestGolomb << endl;}
+\DoxyCodeLine{138     cout << \textcolor{stringliteral}{"bestSearchArea:"} << bestSearchArea << endl;}
+\DoxyCodeLine{139     cout << \textcolor{stringliteral}{"bestPeriodicity:"} << bestPeriodicity << endl;}
+\DoxyCodeLine{140     cout << \textcolor{stringliteral}{"bestBlockSize:"} << bestBlockSize << endl;}
+\DoxyCodeLine{141     cout << \textcolor{stringliteral}{"bestQuantization:"} << bestQuantization << endl;}
+\DoxyCodeLine{142 \}}
+
+\end{DoxyCode}
+
+
+References B\+L\+O\+C\+K\+S\+I\+ZE, block\+Size, Encode\+Hybrid(), filesize(), P\+E\+R\+I\+O\+D\+I\+C\+I\+TY, Q\+U\+A\+N\+T\+I\+Z\+A\+T\+I\+ON, S\+E\+A\+R\+C\+H\+A\+R\+EA, and search\+Area.
+
+
+
+Referenced by main().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp_a0087a317871274edc521ce3c4a9be03d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{main_8cpp_a0087a317871274edc521ce3c4a9be03d_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_af60f6b462c324a9945966c9b5992a105}\label{main_8cpp_af60f6b462c324a9945966c9b5992a105}} 
+\index{main.cpp@{main.cpp}!BLOCKSIZE@{BLOCKSIZE}}
+\index{BLOCKSIZE@{BLOCKSIZE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{BLOCKSIZE}{BLOCKSIZE}}
+{\footnotesize\ttfamily const int B\+L\+O\+C\+K\+S\+I\+ZE = 32}
+
+
+
+Definition at line 15 of file main.\+cpp.
+
+
+
+Referenced by main(), print\+Help(), and Test\+Golomb().
+
+\mbox{\Hypertarget{main_8cpp_aada105fb6ad8122745adb3f2547c52cf}\label{main_8cpp_aada105fb6ad8122745adb3f2547c52cf}} 
+\index{main.cpp@{main.cpp}!ENCODING@{ENCODING}}
+\index{ENCODING@{ENCODING}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ENCODING}{ENCODING}}
+{\footnotesize\ttfamily const string E\+N\+C\+O\+D\+I\+NG = \char`\"{}hybrid\char`\"{}}
+
+
+
+Definition at line 19 of file main.\+cpp.
+
+
+
+Referenced by main(), and print\+Help().
+
+\mbox{\Hypertarget{main_8cpp_a154a8b108c1c3b970f2abcb0faee6b4d}\label{main_8cpp_a154a8b108c1c3b970f2abcb0faee6b4d}} 
+\index{main.cpp@{main.cpp}!GOLOMB@{GOLOMB}}
+\index{GOLOMB@{GOLOMB}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{GOLOMB}{GOLOMB}}
+{\footnotesize\ttfamily const int G\+O\+L\+O\+MB = 50}
+
+
+
+Definition at line 13 of file main.\+cpp.
+
+
+
+Referenced by main(), and print\+Help().
+
+\mbox{\Hypertarget{main_8cpp_a8f99be3a5040b2904d61f7c0b2210426}\label{main_8cpp_a8f99be3a5040b2904d61f7c0b2210426}} 
+\index{main.cpp@{main.cpp}!MODE@{MODE}}
+\index{MODE@{MODE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{MODE}{MODE}}
+{\footnotesize\ttfamily const char M\+O\+DE = \textquotesingle{}e\textquotesingle{}}
+
+
+
+Definition at line 18 of file main.\+cpp.
+
+
+
+Referenced by main(), and print\+Help().
+
+\mbox{\Hypertarget{main_8cpp_ac84b430251739158424a9356eda1fb6a}\label{main_8cpp_ac84b430251739158424a9356eda1fb6a}} 
+\index{main.cpp@{main.cpp}!OUTPUT@{OUTPUT}}
+\index{OUTPUT@{OUTPUT}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{OUTPUT}{OUTPUT}}
+{\footnotesize\ttfamily const string O\+U\+T\+P\+UT = \char`\"{}outputfile\char`\"{}}
+
+
+
+Definition at line 20 of file main.\+cpp.
+
+
+
+Referenced by main(), and print\+Help().
+
+\mbox{\Hypertarget{main_8cpp_adca603142e3eb391ac200ca30bda3ba4}\label{main_8cpp_adca603142e3eb391ac200ca30bda3ba4}} 
+\index{main.cpp@{main.cpp}!PERIODICITY@{PERIODICITY}}
+\index{PERIODICITY@{PERIODICITY}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PERIODICITY}{PERIODICITY}}
+{\footnotesize\ttfamily const int P\+E\+R\+I\+O\+D\+I\+C\+I\+TY = 2}
+
+
+
+Definition at line 14 of file main.\+cpp.
+
+
+
+Referenced by main(), print\+Help(), and Test\+Golomb().
+
+\mbox{\Hypertarget{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}\label{main_8cpp_accfbc3b59ba4e53f60e165ffaf3c68da}} 
+\index{main.cpp@{main.cpp}!QUANTIZATION@{QUANTIZATION}}
+\index{QUANTIZATION@{QUANTIZATION}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{QUANTIZATION}{QUANTIZATION}}
+{\footnotesize\ttfamily const int Q\+U\+A\+N\+T\+I\+Z\+A\+T\+I\+ON = -\/1}
+
+
+
+Definition at line 17 of file main.\+cpp.
+
+
+
+Referenced by main(), print\+Help(), and Test\+Golomb().
+
+\mbox{\Hypertarget{main_8cpp_ae9408f693812f7462a92eecfae0ee18a}\label{main_8cpp_ae9408f693812f7462a92eecfae0ee18a}} 
+\index{main.cpp@{main.cpp}!SEARCHAREA@{SEARCHAREA}}
+\index{SEARCHAREA@{SEARCHAREA}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SEARCHAREA}{SEARCHAREA}}
+{\footnotesize\ttfamily const int S\+E\+A\+R\+C\+H\+A\+R\+EA = 5}
+
+
+
+Definition at line 16 of file main.\+cpp.
+
+
+
+Referenced by main(), print\+Help(), and Test\+Golomb().
+

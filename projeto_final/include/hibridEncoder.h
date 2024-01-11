@@ -45,6 +45,13 @@ public:
     Block(int posX, int posY, int sizeX, int sizeY): 
         x(posX), y(posY), blockSizeX(sizeX), blockSizeY(sizeY) {}
 
+    /**
+     * \brief Overload of the operator << to print a block.
+     * 
+     * \param os The ostream.
+     * \param block The block to be printed. 
+     * \return The ostream with the block information.
+     */
     friend ostream& operator<<(std::ostream& os, const Block& block) {
         os << "Block: (x=" << block.x << ", y=" << block.y << ")";
         return os;
@@ -52,78 +59,175 @@ public:
 };
 
 /**
- * \brief A class to represent a motion vector.
+ * \brief A structuer to represent a frame.
  *
  */
-class MotionVector {
-public:
+struct YUVFrame {
     /**
-     * \brief Horizontal component of the motion vector.
+     * \brief The Y plane.
      *
      */
-    int dx; 
+    vector<vector<char>> Y;
     /**
-     * \brief Vertical component of the motion vector.
+     * \brief The U plane.
      *
      */
-    int dy;
+    vector<vector<char>> U;
     /**
-     * \brief The x coordinate of the block.
-     *
-     */ 
-    int blockX; 
-    /**
-     * \brief The y coordinate of the block.
+     * \brief The V plane.
      *
      */
-    int blockY;
+    vector<vector<char>> V;
+    /**
+     * \brief The number of rows of the frame.
+     *
+     */
+    int rows;
+    /**
+     * \brief The number of columns of the frame.
+     *
+     */
+    int cols;
 
     /**
-     * \brief Constructor.
-     *
-     * \param x Horizontal component of the motion vector.
-     * \param y Vertical component of the motion vector.
-     * \param blockPosX The x coordinate of the block.
-     * \param blockPosY The y coordinate of the block.
-     */
-    MotionVector(int x, int y, int blockPosX, int blockPosY)
-        : dx(x), dy(y), blockX(blockPosX), blockY(blockPosY) {}
-
-    /**
-     * \brief Default constructor.
+     * \brief function to get a plane of the frame.
      * 
+     * \param plane The index of the plane to be returned.
+     * \return The plane.
      */
-    MotionVector() : dx(0), dy(0), blockX(0), blockY(0) {}
+    vector<vector<char>>& getPlane(int plane) {
+        switch (plane) {
+            case 0:
+                return Y;
+            case 1:
+                return U;
+            case 2:
+                return V;
+            default:
+                throw std::out_of_range("Invalid plane index");
+        }
+    }
 };
 
 /**
- * \brief Calculates the difference between two blocks.
+ * \brief A structure to represent the video information.
  *
- * \param block1 The first block.
- * \param block2 The second block.
- * \return The difference between the two blocks.
  */
-int calculateDifference(Block block1, Block block2);
+struct VideoInfo {
+    /**
+     * \brief The frames of the video.
+     *
+     */
+    vector<YUVFrame> frames;
+    /**
+     * \brief The frame rate of the video.
+     *
+     */
+    string frame_rate;
+    /**
+     * \brief The interlacing of the video.
+     *
+     */
+    string interlacing;
+    /**
+     * \brief The aspect ratio of the video.
+     *
+     */
+    string aspect_ratio;
+    /**
+     * \brief The color space of the video.
+     *
+     */
+    string color_space;
+    /**
+     * \brief The header of the video.
+     *
+     */
+    string header;
+    /**
+     * \brief The number of columns of the video.
+     *
+     */
+    int cols;
+    /**
+     * \brief The number of rows of the video.
+     *
+     */
+    int rows;
+};
 
 /**
- * \brief Divides a frame into blocks.
+ * \brief A parser for videos in YUV4MPEG2 format.
+ * 
+ * \param filename The name of the file to be parsed.
+ * \param info The object where the video information will be stored.
+ * \return true if the file was parsed successfully, false otherwise.
  *
- * \param frame The frame to be divided.
- * \param blockSize The size of the blocks.
- * \return A vector containing the blocks.
  */
-float distance(int x1, int y1, int x2, int y2);
+bool parseYUV4MPEG2(string filename, VideoInfo& info);
 
 /**
- * \brief Returns the blocks that are in the search area.
- *
- * \param blocks The blocks to be searched.
- * \param search_x The x coordinate of the search area.
- * \param search_y The y coordinate of the search area.
+ * \brief Search algoritthm to find best block within the defined search area.
+ * 
+ * \param block The block to be compared to.
+ * \param previous The previous frame.
+ * \param current The current frame.
  * \param searchArea The size of the search area.
- * \return A vector containing the blocks that are in the search area.
+ */ 
+Block FindBestBlock(Block block, const vector<vector<char>>& previous, const vector<vector<char>>& current, int searchArea)
+
+/**
+ * \brief Inter frame decoder.
+ *
+ * \param currentFrame The current frame.
+ * \param previousFrame The previous frame.
+ * \param blockSize The size of each block.
+ * \param searchArea The size of the search area.
+ * \param gl The Golomb object used to decode the motion vectors.
+ * \param quantizationY The quantization value for the Y plane.
+ * \param quantizationU The quantization value for the U plane.
+ * \param quantizationV The quantization value for the V plane.
  */
-vector<Block> BlocksInSearchArea(vector<Block> blocks, int search_x, int search_y, int searchArea);
+void EncodeInterFrame(YUVFrame& currentFrame, YUVFrame& previousFrame, int blockSize, int searchArea, Golomb *gl, int quantizationY, int quantizationU, int quantizationV);
+
+/**
+ * \brief Inter frame encoder.
+ *
+ * \param previousFrame The previous frame.
+ * \param residuals The calculated residuals.
+ * \param countMotionVectors The value of the actual count of the motion vectors.
+ * \param blockSize The size of each block.
+ * \param gl The Golomb object used to encode the motion vectors.
+ */
+Mat DecodeInterFrame(Mat previousFrame, int blockSize, Golomb* gl);
+
+/**
+ * \brief Intra frame encoder.
+ *
+ * \param frame The frame to be encoded.
+ * \param blockSize The size of each block.
+ * \param gl The Golomb object used to encode the residuals.
+ */
+void EncodeIntraFrame(YUVFrame frame, int blockSize, Golomb *gl);
+
+/**
+ * \brief Intra frame decoder.
+ *
+ * \param rows The number of rows of the frame.
+ * \param cols The number of columns of the frame.
+ * \param gl The Golomb object used to decode the residuals.
+ * \return The decoded frame.
+ */
+YUVFrame DecodeIntraFrame(int rows, int cols, Golomb *gl);
+
+/**
+ * \brief Writes a YUV frame to a file.
+ * 
+ * \param fileName The name of the file.
+ * \param frame The frame to be written.
+ */
+void WriteYUVFrameToFile(string fileName, YUVFrame& frame);
+
 /**
  * \brief Hybrid (inter + intra) encoder.
  *
@@ -132,6 +236,10 @@ vector<Block> BlocksInSearchArea(vector<Block> blocks, int search_x, int search_
  * \param periodicity The periodicity of the key frames.
  * \param blockSize The size of each block.
  * \param searchArea The size of the search area.
+ * \param quantizationY The quantization value for the Y plane.
+ * \param quantizationU The quantization value for the U plane.
+ * \param quantizationV The quantization value for the V plane.
+ * \param golomb The golomb value.
  */
 void EncodeHybrid(string outputfile, string inputFile, int periodicity, int blockSize, int SearchArea, int quantizationY, int quantizationU, int quantizationV,int golomb);
 

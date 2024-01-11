@@ -1,0 +1,10 @@
+<map id="YUVFrame::getPlane" name="YUVFrame::getPlane">
+<area shape="rect" id="node1" title="function to get a plane of the frame." alt="" coords="641,56,796,83"/>
+<area shape="rect" id="node2" href="$hibridEncoder_8cpp.html#acffad99f8ab893c8a21d4a711eba1ec4" title=" " alt="" coords="442,5,582,32"/>
+<area shape="rect" id="node6" href="$hibridEncoder_8cpp.html#a17dc6785b150af90af3063c048173c4b" title="Intra frame encoder." alt="" coords="442,56,582,83"/>
+<area shape="rect" id="node7" href="$hibridEncoder_8cpp.html#a28c13f1704b28e49c136d584d5ba0631" title="Writes a YUV frame to a file." alt="" coords="431,107,593,133"/>
+<area shape="rect" id="node3" href="$hibridEncoder_8cpp.html#a591244866e31eccd4d67d5b874472d73" title="Hybrid (inter + intra) encoder." alt="" coords="271,31,383,57"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,60,83"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a0087a317871274edc521ce3c4a9be03d" title=" " alt="" coords="116,56,215,83"/>
+<area shape="rect" id="node8" href="$hibridEncoder_8cpp.html#ad83114a6d533550c807ba8593f8f1536" title="Hybrid (inter + intra) frame decoder." alt="" coords="108,107,223,133"/>
+</map>
